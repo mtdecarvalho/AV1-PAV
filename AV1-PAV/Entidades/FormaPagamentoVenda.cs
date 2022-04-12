@@ -19,13 +19,13 @@ namespace AV1_PAV.Entidades
         private int idFormaPagamento;
         private double valor;
 
-        public int getIdVenda() { return idVenda; }
-        public int getIdFormaPagamento() { return idFormaPagamento; }
-        public double getValor() { return valor; }
+        public int getIdVenda()                                                 { return idVenda;                           }
+        public int getIdFormaPagamento()                                        { return idFormaPagamento;                  }
+        public double getValor()                                                { return valor;                             }
 
-        public void setIdVenda(int idVenda) { this.idVenda = idVenda; }
-        public void setIdFormaPagamento(int idFormaPagamento) { this.idFormaPagamento = idFormaPagamento; }
-        public void setValor(double valor) { this.valor = valor; }
+        public void setIdVenda(int idVenda)                                     { this.idVenda = idVenda;                   }
+        public void setIdFormaPagamento(int idFormaPagamento)                   { this.idFormaPagamento = idFormaPagamento; }
+        public void setValor(double valor)                                      { this.valor = valor;                       }
 
         public override void transferirDados(MySqlCommand comando)
         {
