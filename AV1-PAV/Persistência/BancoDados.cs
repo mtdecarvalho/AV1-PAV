@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace AV1_PAV.Dados
+namespace AV1_PAV.Persistencia
 {
     class BancoDados
     {
@@ -14,6 +14,7 @@ namespace AV1_PAV.Dados
         private string servidor = "localhost";
         private string nomeBancoDados = "pav-av1";
         private MySqlConnection conexao;
+        private MySqlTransaction transacao;
         private static BancoDados instancia = null; // para o singleton
 
         private string criarStringConexao(string usuario, string senha)
@@ -66,6 +67,29 @@ namespace AV1_PAV.Dados
                 instancia = new BancoDados();
             }
             return instancia;
+        }
+
+        public void iniciarTransacao()
+        {
+            transacao = conexao.BeginTransaction();
+        }
+
+        public void confirmarTransacao()
+        {
+            if (transacao != null)
+            {
+                transacao.Commit();
+                transacao.Dispose();
+            }
+        }
+
+        public void cancelarTransacao()
+        {
+            if (transacao != null)
+            {
+                transacao.Rollback();
+                transacao.Dispose();
+            }
         }
     }
 }

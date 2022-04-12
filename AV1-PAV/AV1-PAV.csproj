@@ -13,4 +13,9 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controladores\" />
+    <Folder Include="Interface\" />
+  </ItemGroup>
+
 </Project>
