@@ -47,13 +47,12 @@ namespace AV1_PAV.Entidades
             comando.Parameters[ATRIBUTO_QUANTIDADE].Value = quantidade;
             comando.Parameters[ATRIBUTO_VALOR_UNITARIO].Value = valorUnitario;
             comando.Parameters[ATRIBUTO_TOTAL_ITEM].Value = totalItem;
-
         }
 
         public override void transferirDadosIdentificador(MySqlCommand comando)
         {
             comando.Parameters[ATRIBUTO_ID_VENDA].Value = idVenda;
-            comando.Parameters[ATRIBUTO_ID_PRODUTO].Value = idProduto;
+            comando.Parameters[ATRIBUTO_NUMERO_ITEM].Value = numeroItem;
         }
 
         public override void lerDados(MySqlDataReader leitorDados)

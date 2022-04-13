@@ -46,8 +46,6 @@ namespace AV1_PAV.Entidades
             idVenda = int.Parse(leitorDados[ATRIBUTO_ID_VENDA].ToString());
             idFormaPagamento = int.Parse(leitorDados[ATRIBUTO_ID_FORMA_PAGAMENTO].ToString());
             valor = double.Parse(leitorDados[ATRIBUTO_VALOR].ToString());
-
-
         }
 
     }
