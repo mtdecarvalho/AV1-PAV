@@ -20,7 +20,7 @@ namespace AV1_PAV.Persistencia
         protected abstract string criarComandoExclusao();
         protected abstract string criarComandoSelecao();
         protected abstract void criarParametros(MySqlCommand comando);
-        protected abstract void criarParametrosChavePrimaria(MySqlCommand comandoExclusao);
+        protected abstract void criarParametrosChavePrimaria(MySqlCommand comando);
 
         public ControladorCadastro()
         {
