@@ -23,6 +23,7 @@ namespace AV1_PAV.Controladores
                 "INSERT INTO PRODUTO VALUES " +
                 "(@ID_PRODUTO, @NOME, @QUANTIDADE_ESTOQUE, " +
                 " @PRECO, @UNIDADE, @ID_FORNECEDOR)";
+            // necessário tratamento do caso em que id_fornecedor não for informado
         }
 
         override protected string criarComandoAtualizacao()

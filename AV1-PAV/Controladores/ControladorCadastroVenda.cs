@@ -23,6 +23,7 @@ namespace AV1_PAV.Controladores
                 "INSERT INTO VENDA VALUES " +
                 "(@ID_VENDA, @DATA, @HORA, " +
                 "@ID_CLIENTE, @TOTAL_VENDA, @SITUACAO_VENDA)";
+            // necessário tratamento do caso em que id_cliente não for informado
         }
 
         override protected string criarComandoAtualizacao()
