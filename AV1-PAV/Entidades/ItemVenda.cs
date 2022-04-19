@@ -18,27 +18,12 @@ namespace AV1_PAV.Entidades
         public const string ATRIBUTO_VALOR_UNITARIO = "VALOR_UNITARIO";
         public const string ATRIBUTO_TOTAL_ITEM = "TOTAL_ITEM";
 
-        private int idVenda;
-        private int numeroItem;
-        private int idProduto;
-        private int quantidade;
-        private double valorUnitario;
-        private double totalItem;
-
-        public int getIdVenda()                                             { return idVenda;                       }
-        public int getNumeroItem()                                          { return numeroItem;                    }
-        public int getIdProduto()                                           { return idProduto;                     }
-        public int getQuantidade()                                          { return quantidade;                    }
-        public double getValorUnitario()                                    { return valorUnitario;                 }
-        public double getTotalItem()                                        { return totalItem;                     }
-
-        public void setIdVenda(int idVenda)                                 { this.idVenda = idVenda;               }
-        public void setNumeroItem(int numeroItem)                           { this.numeroItem = numeroItem;         }
-        public void setIdProduto(int idProduto)                             { this.idProduto = idProduto;           }
-        public void setQuantidade(int quantidade)                           { this.quantidade = quantidade;         }
-        public void setValorUnitario(double valorUnitario)                  { this.valorUnitario = valorUnitario;   }
-        public void setTotalItem(double totalItem)                          { this.totalItem = totalItem;           }
-
+        public int idVenda                                             { get; set; }
+        public int numeroItem                                          { get; set; }
+        public int idProduto                                           { get; set; }
+        public int quantidade                                          { get; set; }
+        public double valorUnitario                                    { get; set; }
+        public double totalItem                                        { get; set; }
 
         public override void transferirDados(MySqlCommand comando)
         {

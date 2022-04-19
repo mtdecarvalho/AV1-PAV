@@ -14,14 +14,8 @@ namespace AV1_PAV.Entidades
         public const string ATRIBUTO_ID_FORMA_PAGAMENTO = "ID_FORMA_PAGAMENTO";
         public const string ATRIBUTO_NOME = "NOME";
 
-        private int idFormaPagamento;
-        private string nome;
-
-        public int getIdFormaPagamento()                                { return idFormaPagamento;                  }
-        public string getNome()                                         { return nome;                              }
-
-        public void setIdFormaPagamento(int idFormaPagamento)           { this.idFormaPagamento = idFormaPagamento; }
-        public void setNome(string nome)                                { this.nome = nome;                         }
+        public int idFormaPagamento                                { get; set; }
+        public string nome                                         { get; set; }
 
         public override void transferirDados(MySqlCommand comando)
         {

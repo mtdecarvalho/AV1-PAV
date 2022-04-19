@@ -24,44 +24,18 @@ namespace AV1_PAV.Entidades
         public const string ATRIBUTO_TELEFONE = "TELEFONE";
         public const string ATRIBUTO_EMAIL = "EMAIL";
 
-        private int idCliente;
-        private string nome;
-        private string cpfCnpj;
-        private string logradouro;
-        private int numero;
-        private string complemento;
-        private string bairro;
-        private string cidade;
-        private string estado;
-        private string cep;
-        private string telefone;
-        private string email;
-
-        public int getIdCliente()                       { return idCliente;                 }
-        public string getNome()                         { return nome;                      }
-        public string getCpfCnpj()                      { return cpfCnpj;                   }
-        public string getLogradouro()                   { return logradouro;                }
-        public int getNumero()                          { return numero;                    }
-        public string getComplemento()                  { return complemento;               }
-        public string getBairro()                       { return bairro;                    }
-        public string getCidade()                       { return cidade;                    }
-        public string getEstado()                       { return estado;                    }
-        public string getCEP()                          { return cep;                       }
-        public string getTelefone()                     { return telefone;                  }
-        public string getEmail()                        { return email;                     }
-
-        public void setIdCliente(int idCliente)         { this.idCliente = idCliente;       }
-        public void setNome(string nome)                { this.nome = nome;                 }
-        public void setCpfCnpj(string cpfCnpj)          { this.cpfCnpj = cpfCnpj;           }
-        public void setLogradouro(string logradouro)    { this.logradouro = logradouro;     }
-        public void setNumero(int numero)               { this.numero = numero;             }
-        public void setComplemento(string complemento)  { this.complemento = complemento;   }
-        public void setBairro(string bairro)            { this.bairro = bairro;             }
-        public void setCidade(string cidade)            { this.cidade = cidade;             }
-        public void setEstado(string estado)            { this.estado = estado;             }
-        public void setCep(string cep)                  { this.cep = cep;                   }
-        public void setTelefone(string telefone)        { this.telefone = telefone;         }
-        public void setEmail(string email)              { this.email = email;               }
+        public int idCliente                       { get; set; }
+        public string nome                         { get; set; }
+        public string cpfCnpj                      { get; set; }
+        public string logradouro                   { get; set; }
+        public int numero                          { get; set; }
+        public string complemento                  { get; set; }
+        public string bairro                       { get; set; }
+        public string cidade                       { get; set; }
+        public string estado                       { get; set; }
+        public string cep                          { get; set; }
+        public string telefone                     { get; set; }
+        public string email                        { get; set; }
 
         public override void transferirDados(MySqlCommand comando)
         {

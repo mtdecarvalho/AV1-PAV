@@ -21,35 +21,16 @@ namespace AV1_PAV.Entidades
         public const string ATRIBUTO_DATA_RECEBIMENTO = "DATA_RECEBIMENTO";
         public const string ATRIBUTO_VALOR_RECEBIMENTO = "VALOR_RECEBIMENTO";
 
-        private int idContaReceber;
-        private string descricao;
-        private int idCliente;
-        private string dataLancamento;
-        private string dataVencimento;
-        private double valor;
-        private string recebido;
-        private string dataRecebimento;
-        private double valorRecebimento;
+        public int idContaReceber                               { get; set; }
+        public string descricao                                 { get; set; }
+        public int idCliente                                    { get; set; }
+        public string dataLancamento                            { get; set; }
+        public string dataVencimento                            { get; set; }
+        public double valor                                     { get; set; }
+        public string recebido                                  { get; set; }
+        public string dataRecebimento                           { get; set; }
+        public double valorRecebimento                          { get; set; }
 
-        public int getIdContaRecebr()                               { return idContaReceber;                        }
-        public string getDescricao()                                { return descricao;                             }
-        public int getIdCliente()                                   { return idCliente;                             }
-        public string getDataLancamento()                           { return dataLancamento;                        }
-        public string getDataVencimento()                           { return dataVencimento;                        }
-        public double getValor()                                    { return valor;                                 }
-        public string getRecebido()                                 { return recebido;                              }
-        public string getDataRecebimento()                          { return dataRecebimento;                       }
-        public double getValorRecebimento()                         { return valorRecebimento;                      }
-
-        public void setIdContaReceber(int idContaReceber)           { this.idContaReceber = idContaReceber;         }
-        public void setDescricao(string descricao)                  { this.descricao = descricao;                   }
-        public void setIdCliente(int idCliente)                     { this.idCliente = idCliente;                   }
-        public void setDataLancamento(string dataLancamento)        { this.dataLancamento = dataLancamento;         }
-        public void setDataVencimento(string dataVencimento)        { this.dataVencimento = dataVencimento;         }
-        public void setValor(double valor)                          { this.valor = valor;                           }
-        public void setRecebido(string recebido)                    { this.recebido = recebido;                     }
-        public void setDataRecebimento(string dataRecebimento)      { this.dataRecebimento = dataRecebimento;       }
-        public void setValorRecebimento(double valorRecebimento)    { this.valorRecebimento = valorRecebimento;     }
 
         public override void transferirDados(MySqlCommand comando)
         {

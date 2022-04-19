@@ -18,27 +18,12 @@ namespace AV1_PAV.Entidades
         public const string ATRIBUTO_UNIDADE = "UNIDADE";
         public const string ATRIBUTO_ID_FORNECEDOR = "ID_FORNECEDOR";
 
-        private int idProduto;
-        private string nome;
-        private int qtdEstoque;
-        private double preco;
-        private string unidade;
-        private int idFornecedor;
-
-        public int getIdProduto()                                   { return idProduto;                 }
-        public string getNome()                                     { return nome;                      }
-        public int getQtdEstoque()                                  { return qtdEstoque;                }
-        public double getPreco()                                    { return preco;                     }
-        public string getUnidade()                                  { return unidade;                   }
-        public double getIdFornecedor()                             { return idFornecedor;              }
-
-        public void setIdProduto(int idProduto)                     { this.idProduto = idProduto;       }
-        public void setNome(string nome)                            { this.nome = nome;                 }
-        public void setQtdEstoque(int qtdEstoque)                   { this.qtdEstoque = qtdEstoque;     }
-        public void setPreco(double preco)                          { this.preco = preco;               }
-        public void setUnidade(string unidade)                      { this.unidade = unidade;           }
-        public void setIdFornecedor(int idFornecedor)               { this.idFornecedor = idFornecedor; }
-
+        public int idProduto                                   { get; set; }
+        public string nome                                     { get; set; }
+        public int qtdEstoque                                  { get; set; }
+        public double preco                                    { get; set; }
+        public string unidade                                  { get; set; }
+        public double idFornecedor                             { get; set; }
 
         public override void transferirDados(MySqlCommand comando)
         {

@@ -18,26 +18,12 @@ namespace AV1_PAV.Entidades
         public const string ATRIBUTO_TOTAL_VENDA = "TOTAL_VENDA";
         public const string ATRIBUTO_SITUACAO_VENDA = "SITUACAO_VENDA";
 
-        private int idVenda;
-        private string data;
-        private string hora;
-        private int idCliente;
-        private double totalVenda;
-        private string situacaoVenda;
-
-        public int getIdVenda()                             { return idVenda;                       }
-        public string getData()                             { return data;                          }
-        public string getHora()                             { return hora;                          }
-        public int getIdCliente()                           { return idCliente;                     }
-        public double getTotalVenda()                       { return totalVenda;                    }
-        public string getSituacaoVenda()                    { return situacaoVenda;                 }
-
-        public void setIdVenda(int idVenda)                 { this.idVenda = idVenda;               }
-        public void setData(string data)                    { this.data = data;                     }
-        public void setHora(string hora)                    { this.hora = hora;                     }
-        public void setIdCliente(int idCliente)             { this.idCliente = idCliente;           }
-        public void setTotalVenda(double totalVenda)        { this.totalVenda = totalVenda;         }
-        public void setSituacaoVenda(string situacaoVenda)  { this.situacaoVenda = situacaoVenda;   }
+        public int idVenda                             { get; set; }
+        public string data                             { get; set; }
+        public string hora                             { get; set; }
+        public int idCliente                           { get; set; }
+        public double totalVenda                       { get; set; }
+        public string situacaoVenda                    { get; set; }
 
         public override void transferirDados(MySqlCommand comando)
         {
