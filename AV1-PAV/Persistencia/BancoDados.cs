@@ -13,7 +13,7 @@ namespace AV1_PAV.Persistencia
     {
         private int porta = 3306;
         private string servidor = "localhost";
-        private string nomeBancoDados = "pav-av1";
+        private string nomeBancoDados = "pav_av1";
         private MySqlConnection conexao;
         private MySqlTransaction transacao;
         private static BancoDados instancia = null; // para o singleton
