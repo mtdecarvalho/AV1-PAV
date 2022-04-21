@@ -8,13 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="MySql.Data">
-      <HintPath>bin\MySql.Data.dll</HintPath>
-    </Reference>
+    <Compile Remove="Interface\**" />
+    <EmbeddedResource Remove="Interface\**" />
+    <None Remove="Interface\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interface\" />
+    <Reference Include="MySql.Data">
+      <HintPath>bin\MySql.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

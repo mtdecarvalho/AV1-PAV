@@ -1,7 +1,7 @@
 ﻿
 namespace AV1_PAV
 {
-    partial class Form1
+    partial class JanelaPrincipal
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,11 +33,13 @@ namespace AV1_PAV
             this.BtVenda = new System.Windows.Forms.Button();
             this.BtEstoque = new System.Windows.Forms.Button();
             this.BtCliente = new System.Windows.Forms.Button();
-            this.BtFinanceiro = new System.Windows.Forms.Button();
+            this.BtContasPagar = new System.Windows.Forms.Button();
             this.BtAdicionar = new System.Windows.Forms.Button();
             this.BtRemover = new System.Windows.Forms.Button();
             this.BtListar = new System.Windows.Forms.Button();
             this.BtFornecedor = new System.Windows.Forms.Button();
+            this.LbFuncao = new System.Windows.Forms.Label();
+            this.BtContasReceber = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -55,40 +57,41 @@ namespace AV1_PAV
             this.BtVenda.Location = new System.Drawing.Point(0, 0);
             this.BtVenda.Margin = new System.Windows.Forms.Padding(0);
             this.BtVenda.Name = "BtVenda";
-            this.BtVenda.Size = new System.Drawing.Size(150, 150);
+            this.BtVenda.Size = new System.Drawing.Size(150, 100);
             this.BtVenda.TabIndex = 1;
             this.BtVenda.Text = "Vendas";
             this.BtVenda.UseVisualStyleBackColor = true;
             // 
             // BtEstoque
             // 
-            this.BtEstoque.Location = new System.Drawing.Point(0, 300);
+            this.BtEstoque.Location = new System.Drawing.Point(0, 200);
             this.BtEstoque.Margin = new System.Windows.Forms.Padding(0);
             this.BtEstoque.Name = "BtEstoque";
             this.BtEstoque.Size = new System.Drawing.Size(150, 100);
             this.BtEstoque.TabIndex = 2;
             this.BtEstoque.Text = "Estoque";
             this.BtEstoque.UseVisualStyleBackColor = true;
+            this.BtEstoque.Click += new System.EventHandler(this.BtEstoque_Click);
             // 
             // BtCliente
             // 
-            this.BtCliente.Location = new System.Drawing.Point(0, 150);
+            this.BtCliente.Location = new System.Drawing.Point(0, 100);
             this.BtCliente.Margin = new System.Windows.Forms.Padding(0);
             this.BtCliente.Name = "BtCliente";
-            this.BtCliente.Size = new System.Drawing.Size(150, 150);
+            this.BtCliente.Size = new System.Drawing.Size(150, 100);
             this.BtCliente.TabIndex = 3;
             this.BtCliente.Text = "Clientes";
             this.BtCliente.UseVisualStyleBackColor = true;
             // 
-            // BtFinanceiro
+            // BtContasPagar
             // 
-            this.BtFinanceiro.Location = new System.Drawing.Point(0, 500);
-            this.BtFinanceiro.Margin = new System.Windows.Forms.Padding(0);
-            this.BtFinanceiro.Name = "BtFinanceiro";
-            this.BtFinanceiro.Size = new System.Drawing.Size(150, 100);
-            this.BtFinanceiro.TabIndex = 4;
-            this.BtFinanceiro.Text = "Financeiro";
-            this.BtFinanceiro.UseVisualStyleBackColor = true;
+            this.BtContasPagar.Location = new System.Drawing.Point(0, 400);
+            this.BtContasPagar.Margin = new System.Windows.Forms.Padding(0);
+            this.BtContasPagar.Name = "BtContasPagar";
+            this.BtContasPagar.Size = new System.Drawing.Size(150, 100);
+            this.BtContasPagar.TabIndex = 4;
+            this.BtContasPagar.Text = "Contas Pagar";
+            this.BtContasPagar.UseVisualStyleBackColor = true;
             // 
             // BtAdicionar
             // 
@@ -122,7 +125,7 @@ namespace AV1_PAV
             // 
             // BtFornecedor
             // 
-            this.BtFornecedor.Location = new System.Drawing.Point(0, 400);
+            this.BtFornecedor.Location = new System.Drawing.Point(0, 300);
             this.BtFornecedor.Margin = new System.Windows.Forms.Padding(0);
             this.BtFornecedor.Name = "BtFornecedor";
             this.BtFornecedor.Size = new System.Drawing.Size(150, 100);
@@ -130,24 +133,47 @@ namespace AV1_PAV
             this.BtFornecedor.Text = "Fornecedores";
             this.BtFornecedor.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // LbFuncao
+            // 
+            this.LbFuncao.AutoSize = true;
+            this.LbFuncao.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LbFuncao.Location = new System.Drawing.Point(300, 50);
+            this.LbFuncao.Name = "LbFuncao";
+            this.LbFuncao.Size = new System.Drawing.Size(125, 37);
+            this.LbFuncao.TabIndex = 9;
+            this.LbFuncao.Text = "Função X";
+            // 
+            // BtContasReceber
+            // 
+            this.BtContasReceber.Location = new System.Drawing.Point(0, 500);
+            this.BtContasReceber.Margin = new System.Windows.Forms.Padding(0);
+            this.BtContasReceber.Name = "BtContasReceber";
+            this.BtContasReceber.Size = new System.Drawing.Size(150, 100);
+            this.BtContasReceber.TabIndex = 10;
+            this.BtContasReceber.Text = "Contas Receber";
+            this.BtContasReceber.UseVisualStyleBackColor = true;
+            // 
+            // JanelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(584, 601);
+            this.Controls.Add(this.BtContasReceber);
+            this.Controls.Add(this.LbFuncao);
             this.Controls.Add(this.BtFornecedor);
             this.Controls.Add(this.BtListar);
             this.Controls.Add(this.BtRemover);
             this.Controls.Add(this.BtAdicionar);
-            this.Controls.Add(this.BtFinanceiro);
+            this.Controls.Add(this.BtContasPagar);
             this.Controls.Add(this.BtCliente);
             this.Controls.Add(this.BtEstoque);
             this.Controls.Add(this.BtVenda);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "JanelaPrincipal";
+            this.Text = "PDV";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -157,11 +183,13 @@ namespace AV1_PAV
         private System.Windows.Forms.Button BtVenda;
         private System.Windows.Forms.Button BtEstoque;
         private System.Windows.Forms.Button BtCliente;
-        private System.Windows.Forms.Button BtFinanceiro;
+        private System.Windows.Forms.Button BtContasPagar;
         private System.Windows.Forms.Button BtAdicionar;
         private System.Windows.Forms.Button BtRemover;
         private System.Windows.Forms.Button BtListar;
         private System.Windows.Forms.Button BtFornecedor;
+        private System.Windows.Forms.Label LbFuncao;
+        private System.Windows.Forms.Button BtContasReceber;
     }
 }
 

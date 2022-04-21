@@ -12,10 +12,10 @@ using AV1_PAV.Persistencia;
 
 namespace AV1_PAV
 {
-    public partial class Form1 : Form
+    public partial class JanelaPrincipal : Form
     {
         BancoDados bancoDados;
-        public Form1()
+        public JanelaPrincipal()
         {
             InitializeComponent();
         }
@@ -24,6 +24,11 @@ namespace AV1_PAV
         {
             BancoDados.obterInstancia().conectar();
             BancoDados.obterInstancia().desconectar();
+        }
+
+        private void BtEstoque_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
