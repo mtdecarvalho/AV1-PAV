@@ -14,10 +14,20 @@ namespace AV1_PAV
 {
     public partial class JanelaPrincipal : Form
     {
-        BancoDados bancoDados;
+        GroupBox activePanel;
         public JanelaPrincipal()
         {
             InitializeComponent();
+            GenericBox.Visible = false;
+            FinanceiroBox.Visible = false;
+            activePanel = FinanceiroBox;
+        }
+        public void mostrarPainel(GroupBox painel, String funcao)
+        {
+            activePanel.Visible = false;
+            activePanel = painel;
+            activePanel.Visible = true;
+            activePanel.Text = funcao;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,7 +38,27 @@ namespace AV1_PAV
 
         private void BtEstoque_Click(object sender, EventArgs e)
         {
+            mostrarPainel(GenericBox,"Estoque");
+        }
 
+        private void BtFornecedor_Click(object sender, EventArgs e)
+        {
+            mostrarPainel(GenericBox, "Fornecedores");
+        }
+
+        private void BtCliente_Click(object sender, EventArgs e)
+        {
+            mostrarPainel(GenericBox, "Clientes");
+        }
+
+        private void BtVenda_Click(object sender, EventArgs e)
+        {
+            mostrarPainel(GenericBox, "Vendas");
+        }
+
+        private void BtContasReceber_Click(object sender, EventArgs e)
+        {
+            mostrarPainel(FinanceiroBox, "Financeiro");
         }
     }
 }
