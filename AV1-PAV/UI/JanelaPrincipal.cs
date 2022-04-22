@@ -86,7 +86,7 @@ namespace AV1_PAV
             }
             else if (activePanel.Text == "Vendas")
             {
-                JanelaVenda janela = new();
+                NovaVenda janela = new();
                 janela.ShowDialog();
             }
         }

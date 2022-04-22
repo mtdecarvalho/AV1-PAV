@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AV1_PAV.UI
 {
-    public partial class JanelaVenda : Form
+    public partial class NovaVenda : Form
     {
-        public JanelaVenda()
+        public NovaVenda()
         {
             InitializeComponent();
         }

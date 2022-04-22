@@ -1,7 +1,7 @@
 ﻿
 namespace AV1_PAV.UI
 {
-    partial class JanelaVenda
+    partial class NovaVenda
     {
         /// <summary>
         /// Required designer variable.
@@ -118,6 +118,7 @@ namespace AV1_PAV.UI
             // 
             this.textBox3.Location = new System.Drawing.Point(625, 136);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(152, 23);
             this.textBox3.TabIndex = 8;
             // 
@@ -127,6 +128,7 @@ namespace AV1_PAV.UI
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(152, 23);
             this.textBox4.TabIndex = 7;
+            this.textBox4.Text = "1";
             // 
             // label3
             // 
@@ -159,6 +161,7 @@ namespace AV1_PAV.UI
             // 
             this.textBox5.Location = new System.Drawing.Point(625, 165);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(152, 23);
             this.textBox5.TabIndex = 11;
             // 
@@ -200,6 +203,8 @@ namespace AV1_PAV.UI
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cod,
@@ -209,41 +214,47 @@ namespace AV1_PAV.UI
             this.Total});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(489, 466);
+            this.dataGridView1.Size = new System.Drawing.Size(489, 500);
             this.dataGridView1.TabIndex = 17;
             // 
             // Cod
             // 
             this.Cod.HeaderText = "Cod.";
             this.Cod.Name = "Cod";
+            this.Cod.ReadOnly = true;
             this.Cod.Width = 50;
             // 
             // Produto
             // 
             this.Produto.HeaderText = "Produto";
             this.Produto.Name = "Produto";
+            this.Produto.ReadOnly = true;
             this.Produto.Width = 210;
             // 
             // Quantidade
             // 
             this.Quantidade.HeaderText = "Qtd.";
             this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
             this.Quantidade.Width = 50;
             // 
             // Preco
             // 
             this.Preco.HeaderText = "Preço";
             this.Preco.Name = "Preco";
+            this.Preco.ReadOnly = true;
             this.Preco.Width = 75;
             // 
             // Total
             // 
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             this.Total.Width = 60;
             // 
-            // JanelaVenda
+            // NovaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -266,7 +277,7 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.LbProduto);
             this.Controls.Add(this.E);
             this.Controls.Add(this.textBox1);
-            this.Name = "JanelaVenda";
+            this.Name = "NovaVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JanelaVenda";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -284,7 +295,6 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Button BtAdicionar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -300,5 +310,6 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Preco;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        protected internal System.Windows.Forms.TextBox textBox3;
     }
 }
