@@ -110,6 +110,7 @@ namespace AV1_PAV
             this.BtAdicionar.TabIndex = 5;
             this.BtAdicionar.Text = "Adicionar";
             this.BtAdicionar.UseVisualStyleBackColor = true;
+            this.BtAdicionar.Click += new System.EventHandler(this.BtAdicionar_Click);
             // 
             // BtRemover
             // 
@@ -120,6 +121,7 @@ namespace AV1_PAV
             this.BtRemover.TabIndex = 6;
             this.BtRemover.Text = "Remover";
             this.BtRemover.UseVisualStyleBackColor = true;
+            this.BtRemover.Click += new System.EventHandler(this.BtRemover_Click);
             // 
             // BtListar
             // 
@@ -130,6 +132,7 @@ namespace AV1_PAV
             this.BtListar.TabIndex = 7;
             this.BtListar.Text = "Listar";
             this.BtListar.UseVisualStyleBackColor = true;
+            this.BtListar.Click += new System.EventHandler(this.BtListar_Click);
             // 
             // BtFornecedor
             // 
@@ -176,6 +179,7 @@ namespace AV1_PAV
             this.FinanceiroBox.TabIndex = 8;
             this.FinanceiroBox.TabStop = false;
             this.FinanceiroBox.Text = "Financeiro";
+            this.FinanceiroBox.Enter += new System.EventHandler(this.FinanceiroBox_Enter);
             // 
             // BxContasPagar
             // 

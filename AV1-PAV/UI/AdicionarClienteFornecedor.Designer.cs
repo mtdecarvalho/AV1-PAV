@@ -1,7 +1,7 @@
 ﻿
 namespace AV1_PAV.UI
 {
-    partial class AdicionarCliente
+    partial class AdicionarClienteFornecedor
     {
         /// <summary>
         /// Required designer variable.
@@ -39,11 +39,10 @@ namespace AV1_PAV.UI
             this.lblNumero = new System.Windows.Forms.Label();
             this.tbxLogradouro = new System.Windows.Forms.TextBox();
             this.lblLogradouro = new System.Windows.Forms.Label();
-            this.tbxCPF = new System.Windows.Forms.TextBox();
-            this.lblCPF = new System.Windows.Forms.Label();
+            this.tbxCpfCnpj = new System.Windows.Forms.TextBox();
+            this.lblCpfCnpj = new System.Windows.Forms.Label();
             this.tbxCidade = new System.Windows.Forms.TextBox();
             this.lblCidade = new System.Windows.Forms.Label();
-            this.tbxEstado = new System.Windows.Forms.TextBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.tbxCEP = new System.Windows.Forms.TextBox();
             this.tbxTelefone = new System.Windows.Forms.TextBox();
@@ -53,12 +52,15 @@ namespace AV1_PAV.UI
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(57, 20);
+            this.lblNome.Location = new System.Drawing.Point(51, 13);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(43, 15);
             this.lblNome.TabIndex = 0;
@@ -66,14 +68,14 @@ namespace AV1_PAV.UI
             // 
             // tbxNome
             // 
-            this.tbxNome.Location = new System.Drawing.Point(106, 12);
+            this.tbxNome.Location = new System.Drawing.Point(100, 5);
             this.tbxNome.Name = "tbxNome";
             this.tbxNome.Size = new System.Drawing.Size(167, 23);
             this.tbxNome.TabIndex = 1;
             // 
             // tbxBairro
             // 
-            this.tbxBairro.Location = new System.Drawing.Point(106, 157);
+            this.tbxBairro.Location = new System.Drawing.Point(100, 150);
             this.tbxBairro.Name = "tbxBairro";
             this.tbxBairro.Size = new System.Drawing.Size(167, 23);
             this.tbxBairro.TabIndex = 3;
@@ -81,7 +83,7 @@ namespace AV1_PAV.UI
             // lblBairro
             // 
             this.lblBairro.AutoSize = true;
-            this.lblBairro.Location = new System.Drawing.Point(59, 165);
+            this.lblBairro.Location = new System.Drawing.Point(53, 158);
             this.lblBairro.Name = "lblBairro";
             this.lblBairro.Size = new System.Drawing.Size(41, 15);
             this.lblBairro.TabIndex = 2;
@@ -89,7 +91,7 @@ namespace AV1_PAV.UI
             // 
             // tbxComplemento
             // 
-            this.tbxComplemento.Location = new System.Drawing.Point(106, 128);
+            this.tbxComplemento.Location = new System.Drawing.Point(100, 121);
             this.tbxComplemento.Name = "tbxComplemento";
             this.tbxComplemento.Size = new System.Drawing.Size(167, 23);
             this.tbxComplemento.TabIndex = 5;
@@ -97,7 +99,7 @@ namespace AV1_PAV.UI
             // lblComplemento
             // 
             this.lblComplemento.AutoSize = true;
-            this.lblComplemento.Location = new System.Drawing.Point(13, 136);
+            this.lblComplemento.Location = new System.Drawing.Point(7, 129);
             this.lblComplemento.Name = "lblComplemento";
             this.lblComplemento.Size = new System.Drawing.Size(87, 15);
             this.lblComplemento.TabIndex = 4;
@@ -105,7 +107,7 @@ namespace AV1_PAV.UI
             // 
             // tbxNumero
             // 
-            this.tbxNumero.Location = new System.Drawing.Point(106, 99);
+            this.tbxNumero.Location = new System.Drawing.Point(100, 92);
             this.tbxNumero.Name = "tbxNumero";
             this.tbxNumero.Size = new System.Drawing.Size(167, 23);
             this.tbxNumero.TabIndex = 7;
@@ -113,7 +115,7 @@ namespace AV1_PAV.UI
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(46, 107);
+            this.lblNumero.Location = new System.Drawing.Point(40, 100);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(54, 15);
             this.lblNumero.TabIndex = 6;
@@ -121,7 +123,7 @@ namespace AV1_PAV.UI
             // 
             // tbxLogradouro
             // 
-            this.tbxLogradouro.Location = new System.Drawing.Point(106, 70);
+            this.tbxLogradouro.Location = new System.Drawing.Point(100, 63);
             this.tbxLogradouro.Name = "tbxLogradouro";
             this.tbxLogradouro.Size = new System.Drawing.Size(167, 23);
             this.tbxLogradouro.TabIndex = 9;
@@ -129,31 +131,30 @@ namespace AV1_PAV.UI
             // lblLogradouro
             // 
             this.lblLogradouro.AutoSize = true;
-            this.lblLogradouro.Location = new System.Drawing.Point(28, 78);
+            this.lblLogradouro.Location = new System.Drawing.Point(22, 71);
             this.lblLogradouro.Name = "lblLogradouro";
             this.lblLogradouro.Size = new System.Drawing.Size(72, 15);
             this.lblLogradouro.TabIndex = 8;
             this.lblLogradouro.Text = "Logradouro:";
             // 
-            // tbxCPF
+            // tbxCpfCnpj
             // 
-            this.tbxCPF.Location = new System.Drawing.Point(106, 41);
-            this.tbxCPF.Name = "tbxCPF";
-            this.tbxCPF.Size = new System.Drawing.Size(167, 23);
-            this.tbxCPF.TabIndex = 11;
+            this.tbxCpfCnpj.Location = new System.Drawing.Point(100, 34);
+            this.tbxCpfCnpj.Name = "tbxCpfCnpj";
+            this.tbxCpfCnpj.Size = new System.Drawing.Size(167, 23);
+            this.tbxCpfCnpj.TabIndex = 11;
             // 
-            // lblCPF
+            // lblCpfCnpj
             // 
-            this.lblCPF.AutoSize = true;
-            this.lblCPF.Location = new System.Drawing.Point(69, 49);
-            this.lblCPF.Name = "lblCPF";
-            this.lblCPF.Size = new System.Drawing.Size(31, 15);
-            this.lblCPF.TabIndex = 10;
-            this.lblCPF.Text = "CPF:";
+            this.lblCpfCnpj.AutoSize = true;
+            this.lblCpfCnpj.Location = new System.Drawing.Point(51, 42);
+            this.lblCpfCnpj.Name = "lblCpfCnpj";
+            this.lblCpfCnpj.Size = new System.Drawing.Size(0, 15);
+            this.lblCpfCnpj.TabIndex = 10;
             // 
             // tbxCidade
             // 
-            this.tbxCidade.Location = new System.Drawing.Point(106, 186);
+            this.tbxCidade.Location = new System.Drawing.Point(100, 179);
             this.tbxCidade.Name = "tbxCidade";
             this.tbxCidade.Size = new System.Drawing.Size(167, 23);
             this.tbxCidade.TabIndex = 13;
@@ -161,23 +162,16 @@ namespace AV1_PAV.UI
             // lblCidade
             // 
             this.lblCidade.AutoSize = true;
-            this.lblCidade.Location = new System.Drawing.Point(53, 194);
+            this.lblCidade.Location = new System.Drawing.Point(47, 187);
             this.lblCidade.Name = "lblCidade";
             this.lblCidade.Size = new System.Drawing.Size(47, 15);
             this.lblCidade.TabIndex = 12;
             this.lblCidade.Text = "Cidade:";
             // 
-            // tbxEstado
-            // 
-            this.tbxEstado.Location = new System.Drawing.Point(106, 215);
-            this.tbxEstado.Name = "tbxEstado";
-            this.tbxEstado.Size = new System.Drawing.Size(167, 23);
-            this.tbxEstado.TabIndex = 15;
-            // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(55, 223);
+            this.lblEstado.Location = new System.Drawing.Point(49, 216);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(45, 15);
             this.lblEstado.TabIndex = 14;
@@ -185,21 +179,21 @@ namespace AV1_PAV.UI
             // 
             // tbxCEP
             // 
-            this.tbxCEP.Location = new System.Drawing.Point(106, 244);
+            this.tbxCEP.Location = new System.Drawing.Point(100, 237);
             this.tbxCEP.Name = "tbxCEP";
             this.tbxCEP.Size = new System.Drawing.Size(167, 23);
             this.tbxCEP.TabIndex = 16;
             // 
             // tbxTelefone
             // 
-            this.tbxTelefone.Location = new System.Drawing.Point(106, 273);
+            this.tbxTelefone.Location = new System.Drawing.Point(100, 266);
             this.tbxTelefone.Name = "tbxTelefone";
             this.tbxTelefone.Size = new System.Drawing.Size(167, 23);
             this.tbxTelefone.TabIndex = 17;
             // 
             // tbxEmail
             // 
-            this.tbxEmail.Location = new System.Drawing.Point(106, 302);
+            this.tbxEmail.Location = new System.Drawing.Point(100, 295);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(167, 23);
             this.tbxEmail.TabIndex = 18;
@@ -207,7 +201,7 @@ namespace AV1_PAV.UI
             // lblCEP
             // 
             this.lblCEP.AutoSize = true;
-            this.lblCEP.Location = new System.Drawing.Point(69, 252);
+            this.lblCEP.Location = new System.Drawing.Point(63, 245);
             this.lblCEP.Name = "lblCEP";
             this.lblCEP.Size = new System.Drawing.Size(31, 15);
             this.lblCEP.TabIndex = 19;
@@ -216,7 +210,7 @@ namespace AV1_PAV.UI
             // lblTelefone
             // 
             this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(46, 281);
+            this.lblTelefone.Location = new System.Drawing.Point(40, 274);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(54, 15);
             this.lblTelefone.TabIndex = 20;
@@ -225,7 +219,7 @@ namespace AV1_PAV.UI
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(61, 310);
+            this.lblEmail.Location = new System.Drawing.Point(55, 303);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(39, 15);
             this.lblEmail.TabIndex = 21;
@@ -233,55 +227,101 @@ namespace AV1_PAV.UI
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(69, 354);
+            this.btnCancelar.Location = new System.Drawing.Point(89, 354);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 22;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(150, 354);
+            this.btnOk.Location = new System.Drawing.Point(170, 354);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 23;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // AdicionarCliente
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cbEstado);
+            this.panel1.Controls.Add(this.lblNome);
+            this.panel1.Controls.Add(this.tbxNome);
+            this.panel1.Controls.Add(this.lblBairro);
+            this.panel1.Controls.Add(this.lblEmail);
+            this.panel1.Controls.Add(this.tbxBairro);
+            this.panel1.Controls.Add(this.lblTelefone);
+            this.panel1.Controls.Add(this.lblComplemento);
+            this.panel1.Controls.Add(this.lblCEP);
+            this.panel1.Controls.Add(this.tbxComplemento);
+            this.panel1.Controls.Add(this.tbxEmail);
+            this.panel1.Controls.Add(this.lblNumero);
+            this.panel1.Controls.Add(this.tbxTelefone);
+            this.panel1.Controls.Add(this.tbxNumero);
+            this.panel1.Controls.Add(this.tbxCEP);
+            this.panel1.Controls.Add(this.lblLogradouro);
+            this.panel1.Controls.Add(this.tbxLogradouro);
+            this.panel1.Controls.Add(this.lblEstado);
+            this.panel1.Controls.Add(this.lblCpfCnpj);
+            this.panel1.Controls.Add(this.tbxCidade);
+            this.panel1.Controls.Add(this.tbxCpfCnpj);
+            this.panel1.Controls.Add(this.lblCidade);
+            this.panel1.Location = new System.Drawing.Point(28, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(279, 329);
+            this.panel1.TabIndex = 24;
+            // 
+            // cbEstado
+            // 
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PR",
+            "PE",
+            "PI",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SC",
+            "SP",
+            "SE",
+            "TO"});
+            this.cbEstado.Location = new System.Drawing.Point(100, 208);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(52, 23);
+            this.cbEstado.TabIndex = 22;
+            // 
+            // AdicionarClienteFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 399);
+            this.ClientSize = new System.Drawing.Size(334, 386);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblTelefone);
-            this.Controls.Add(this.lblCEP);
-            this.Controls.Add(this.tbxEmail);
-            this.Controls.Add(this.tbxTelefone);
-            this.Controls.Add(this.tbxCEP);
-            this.Controls.Add(this.tbxEstado);
-            this.Controls.Add(this.lblEstado);
-            this.Controls.Add(this.tbxCidade);
-            this.Controls.Add(this.lblCidade);
-            this.Controls.Add(this.tbxCPF);
-            this.Controls.Add(this.lblCPF);
-            this.Controls.Add(this.tbxLogradouro);
-            this.Controls.Add(this.lblLogradouro);
-            this.Controls.Add(this.tbxNumero);
-            this.Controls.Add(this.lblNumero);
-            this.Controls.Add(this.tbxComplemento);
-            this.Controls.Add(this.lblComplemento);
-            this.Controls.Add(this.tbxBairro);
-            this.Controls.Add(this.lblBairro);
-            this.Controls.Add(this.tbxNome);
-            this.Controls.Add(this.lblNome);
-            this.Name = "AdicionarCliente";
-            this.Text = "Adicionar cliente";
+            this.Name = "AdicionarClienteFornecedor";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -297,11 +337,10 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.TextBox tbxLogradouro;
         private System.Windows.Forms.Label lblLogradouro;
-        private System.Windows.Forms.TextBox tbxCPF;
-        private System.Windows.Forms.Label lblCPF;
+        private System.Windows.Forms.TextBox tbxCpfCnpj;
+        private System.Windows.Forms.Label lblCpfCnpj;
         private System.Windows.Forms.TextBox tbxCidade;
         private System.Windows.Forms.Label lblCidade;
-        private System.Windows.Forms.TextBox tbxEstado;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.TextBox tbxCEP;
         private System.Windows.Forms.TextBox tbxTelefone;
@@ -311,5 +350,7 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cbEstado;
     }
 }

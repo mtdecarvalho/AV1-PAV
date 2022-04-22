@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AV1_PAV.Persistencia;
+using AV1_PAV.UI;
 
 namespace AV1_PAV
 {
@@ -59,6 +60,40 @@ namespace AV1_PAV
         private void BtContasReceber_Click(object sender, EventArgs e)
         {
             mostrarPainel(FinanceiroBox, "Financeiro");
+        }
+
+        private void FinanceiroBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtAdicionar_Click(object sender, EventArgs e)
+        {
+            if (activePanel.Text == "Clientes")
+            {
+                AdicionarClienteFornecedor adicionarCliente = new("Adicionar cliente");
+                adicionarCliente.Show();
+            }
+            else if (activePanel.Text == "Fornecedores")
+            {
+                AdicionarClienteFornecedor adicionarFornecedor = new("Adicionar fornecedor");
+                adicionarFornecedor.Show();
+            }
+            else if (activePanel.Text == "Estoque")
+            {
+                AdicionarProduto adicionarProduto = new();
+                adicionarProduto.Show();
+            }
+        }
+
+        private void BtRemover_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtListar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
