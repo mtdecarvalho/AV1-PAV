@@ -72,17 +72,22 @@ namespace AV1_PAV
             if (activePanel.Text == "Clientes")
             {
                 AdicionarClienteFornecedor adicionarCliente = new("Adicionar cliente");
-                adicionarCliente.Show();
+                adicionarCliente.ShowDialog();
             }
             else if (activePanel.Text == "Fornecedores")
             {
                 AdicionarClienteFornecedor adicionarFornecedor = new("Adicionar fornecedor");
-                adicionarFornecedor.Show();
+                adicionarFornecedor.ShowDialog();
             }
             else if (activePanel.Text == "Estoque")
             {
                 AdicionarProduto adicionarProduto = new();
-                adicionarProduto.Show();
+                adicionarProduto.ShowDialog();
+            }
+            else if (activePanel.Text == "Vendas")
+            {
+                JanelaVenda janela = new();
+                janela.ShowDialog();
             }
         }
 

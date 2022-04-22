@@ -303,6 +303,7 @@ namespace AV1_PAV
             this.Controls.Add(this.BtVenda);
             this.Controls.Add(this.button1);
             this.Name = "JanelaPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PDV";
             this.GenericBox.ResumeLayout(false);
             this.FinanceiroBox.ResumeLayout(false);

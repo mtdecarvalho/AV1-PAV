@@ -319,6 +319,7 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancelar);
             this.Name = "AdicionarClienteFornecedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

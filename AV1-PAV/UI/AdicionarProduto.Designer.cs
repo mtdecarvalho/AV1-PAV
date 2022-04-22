@@ -178,6 +178,7 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancelar);
             this.Name = "AdicionarProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar produto";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
