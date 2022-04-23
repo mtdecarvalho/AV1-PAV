@@ -56,6 +56,8 @@ namespace AV1_PAV.UI
             this.BtSelecionarCliente = new System.Windows.Forms.Button();
             this.LbVenda = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.BxCliente = new System.Windows.Forms.TextBox();
+            this.LbCliente = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridItemVenda)).BeginInit();
             this.SuspendLayout();
             // 
@@ -280,11 +282,11 @@ namespace AV1_PAV.UI
             // 
             // BtSelecionarCliente
             // 
-            this.BtSelecionarCliente.Location = new System.Drawing.Point(625, 32);
+            this.BtSelecionarCliente.Location = new System.Drawing.Point(797, 6);
             this.BtSelecionarCliente.Name = "BtSelecionarCliente";
-            this.BtSelecionarCliente.Size = new System.Drawing.Size(152, 23);
+            this.BtSelecionarCliente.Size = new System.Drawing.Size(75, 23);
             this.BtSelecionarCliente.TabIndex = 19;
-            this.BtSelecionarCliente.Text = "Selecionar Cliente";
+            this.BtSelecionarCliente.Text = "Pesquisar";
             this.BtSelecionarCliente.UseVisualStyleBackColor = true;
             this.BtSelecionarCliente.Click += new System.EventHandler(this.BtSelecionarCliente_Click);
             // 
@@ -307,11 +309,29 @@ namespace AV1_PAV.UI
             this.label2.TabIndex = 21;
             this.label2.Text = "Cliente:";
             // 
+            // BxCliente
+            // 
+            this.BxCliente.Location = new System.Drawing.Point(625, 6);
+            this.BxCliente.Name = "BxCliente";
+            this.BxCliente.Size = new System.Drawing.Size(152, 23);
+            this.BxCliente.TabIndex = 22;
+            // 
+            // LbCliente
+            // 
+            this.LbCliente.AutoSize = true;
+            this.LbCliente.Location = new System.Drawing.Point(578, 47);
+            this.LbCliente.Name = "LbCliente";
+            this.LbCliente.Size = new System.Drawing.Size(109, 15);
+            this.LbCliente.TabIndex = 23;
+            this.LbCliente.Text = "NOME DO CLIENTE";
+            // 
             // NovaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.LbCliente);
+            this.Controls.Add(this.BxCliente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LbVenda);
             this.Controls.Add(this.BtSelecionarCliente);
@@ -372,5 +392,7 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Button BtSelecionarCliente;
         private System.Windows.Forms.Label LbVenda;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox BxCliente;
+        private System.Windows.Forms.Label LbCliente;
     }
 }

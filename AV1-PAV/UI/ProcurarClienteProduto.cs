@@ -17,36 +17,60 @@ namespace AV1_PAV.UI
 {
     public partial class ProcurarClienteProduto : Form
     {
-        private List<Produto> Lista = new();
+        private List<Produto> ListaProduto = new ();
+        private List<Cliente> ListaCliente = new();
         private Produto p;
+        private Cliente c;
         private NovaVenda janela;
-        public ProcurarClienteProduto()
+        private String funcao;
+
+         public ProcurarClienteProduto()
         {
             InitializeComponent();
         }
 
-        public ProcurarClienteProduto(NovaVenda NV, String nome)
+        public ProcurarClienteProduto(NovaVenda NV, String nome, String funcao)
         {
             InitializeComponent();
-            Lista = ProdutoSQL.BuscarMultiplosPorNome(nome);
+            this.funcao = funcao;
+            if (funcao == NovaVenda.PRODUTO)
+                ListaProduto = ProdutoSQL.BuscarMultiplosPorNome(nome);
+            else if (funcao == NovaVenda.CLIENTE)
+                ListaCliente = ClienteSQL.BuscarMultiplosPorNome(nome);
             janela = NV;
             PreencherTabela();
         }
 
         public void PreencherTabela()
         {
-            foreach (Produto produto in Lista)
-            {
-                String[] row = { produto.idProduto.ToString(), produto.nome};
-                DataGridProdutos.Rows.Add(row);
-            }
-            DataGridProdutos.Rows[0].Selected = true;
+            if(funcao == NovaVenda.PRODUTO)
+                foreach (Produto produto in ListaProduto)
+                {
+                    String[] row = { produto.idProduto.ToString(), produto.nome};
+                    DataGrid.Rows.Add(row);
+                }
+            else if (funcao == NovaVenda.CLIENTE)
+                foreach (Cliente cliente in ListaCliente)
+                {
+                    String[] row = { cliente.idCliente.ToString(), cliente.nome };
+                    DataGrid.Rows.Add(row);
+                }
+            DataGrid.Rows[0].Selected = true;
         }
 
         private void BtSelecionar_Click(object sender, EventArgs e)
         {
-            p = Lista[DataGridProdutos.CurrentCell.RowIndex];
-            janela.SetProduto(p);
+
+            if (funcao == NovaVenda.PRODUTO)
+            {
+                p = ListaProduto[DataGrid.CurrentCell.RowIndex];
+                janela.SetProduto(p);
+            }
+            else if (funcao == NovaVenda.CLIENTE)
+            {
+                c = ListaCliente[DataGrid.CurrentCell.RowIndex];
+                janela.SetCliente(c);
+            }
             janela.Selecionado(true);
             Dispose();
         }

@@ -17,18 +17,35 @@ namespace AV1_PAV.UI
         private List<ItemVenda> Lista = new();
         private ItemVenda iv = new();
         private Produto p;
+        private Cliente c;
         private double subtotal = 0;
         private int numeroItem = 0;
         private bool selecionado;
+
+        public const String CLIENTE = "Cliente";
+        public const String PRODUTO = "Produto";
+
         public NovaVenda()
         {
             InitializeComponent();
+            SetCliente("0");
+            SetTextoCliente();
             LimparTexto();
         }
 
         public void SetProduto(Produto produto)
         {
             p = produto;
+        }
+
+        public void SetCliente(Cliente cliente)
+        {
+            c = cliente;
+        }
+
+        public void SetCliente(String id)
+        {
+            c = ClienteSQL.BuscarPorCodigo(id);
         }
 
         public void Selecionado(bool v)
@@ -41,6 +58,11 @@ namespace AV1_PAV.UI
             LbNome.Text = p.nome.ToString();
             BxPreco.Text = p.preco.ToString();
             AtualizarTotal();           
+        }
+
+        private void SetTextoCliente()
+        {
+            LbCliente.Text = c.nome;
         }
 
         private void LimparTexto()
@@ -66,7 +88,7 @@ namespace AV1_PAV.UI
         private void BtProcurar_Click(object sender, EventArgs e)
         {
             selecionado = false;
-            ProcurarClienteProduto janela = new(this, BxProcurar.Text);
+            ProcurarClienteProduto janela = new(this, BxProcurar.Text, PRODUTO);
             janela.ShowDialog();
             if(selecionado)
                 SetTexto();
@@ -121,7 +143,11 @@ namespace AV1_PAV.UI
 
         private void BtSelecionarCliente_Click(object sender, EventArgs e)
         {
-
+            selecionado = false;
+            ProcurarClienteProduto janela = new(this, BxCliente.Text, CLIENTE);
+            janela.ShowDialog();
+            if (selecionado)
+                SetTextoCliente();
         }
     }
 }

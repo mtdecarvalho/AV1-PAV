@@ -11,6 +11,37 @@ namespace AV1_PAV.SQL
 {
     class ClienteSQL
     {
+        public static Cliente BuscarPorCodigo(String codigo)
+        {
+            Cliente entidade = new();
+            String SQL = "SELECT * FROM cliente WHERE id_cliente =" + codigo;
+
+            BancoDados.obterInstancia().conectar();
+            MySqlCommand comandoSelecao = new MySqlCommand(SQL, BancoDados.obterInstancia().obterConexao());
+            BancoDados.obterInstancia().iniciarTransacao();
+            try
+            {
+                MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
+                if (leitorDados.Read())
+                {
+                    entidade.lerDados(leitorDados);
+                }
+                else
+                {
+                    SQL = "SELECT * FROM cliente WHERE id_cliente = 0";
+                    leitorDados.Read();
+                    entidade.lerDados(leitorDados);
+                }
+                leitorDados.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            BancoDados.obterInstancia().desconectar();
+
+            return entidade;
+        }
         public static List<Cliente> BuscarMultiplosPorNome(String nome)
         {
             List<Cliente> Lista = new();
