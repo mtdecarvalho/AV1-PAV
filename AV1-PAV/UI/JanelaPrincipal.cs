@@ -100,7 +100,10 @@ namespace AV1_PAV
             {
                 RemoverProduto removerProduto = new();
                 removerProduto.ShowDialog();
-
+            } else if (activePanel.Text == CLIENTES)
+            {
+                RemoverCliente removerCliente = new();
+                removerCliente.ShowDialog();
             }
         }
 

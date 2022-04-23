@@ -101,7 +101,7 @@ namespace AV1_PAV.Persistencia
             try
             {
                 entidade.transferirDadosIdentificador(comandoExclusao);
-                comandoAtualizacao.ExecuteNonQuery();
+                comandoExclusao.ExecuteNonQuery();
                 BancoDados.obterInstancia().confirmarTransacao();
             } catch (Exception ex)
             {
