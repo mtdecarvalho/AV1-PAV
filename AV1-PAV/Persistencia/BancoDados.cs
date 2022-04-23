@@ -44,7 +44,7 @@ namespace AV1_PAV.Persistencia
         public void conectar()
         {
             //senha do root do mysql server
-            conectar("root", "y62fSiko&Q50");
+            conectar("root", "123456");
         }
 
         public void desconectar()

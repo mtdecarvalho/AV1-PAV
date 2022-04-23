@@ -42,7 +42,7 @@ namespace AV1_PAV
         private void button1_Click(object sender, EventArgs e)
         {
             BancoDados.obterInstancia().conectar();
-            BancoDados.obterInstancia().desconectar();
+            //BancoDados.obterInstancia().desconectar();
         }
 
         private void BtVenda_Click(object sender, EventArgs e)
@@ -96,10 +96,20 @@ namespace AV1_PAV
 
         private void BtRemover_Click(object sender, EventArgs e)
         {
+              if (activePanel.Text == ESTOQUE)
+            {
+                RemoverProduto removerProduto = new();
+                removerProduto.ShowDialog();
 
+            }
         }
 
         private void BtListar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FinanceiroBox_Enter(object sender, EventArgs e)
         {
 
         }

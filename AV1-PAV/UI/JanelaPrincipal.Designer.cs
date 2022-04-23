@@ -158,9 +158,9 @@ namespace AV1_PAV
             // 
             // GenericBox
             // 
+            this.GenericBox.Controls.Add(this.BtListar);
             this.GenericBox.Controls.Add(this.BtRemover);
             this.GenericBox.Controls.Add(this.BtAdicionar);
-            this.GenericBox.Controls.Add(this.BtListar);
             this.GenericBox.Location = new System.Drawing.Point(270, 176);
             this.GenericBox.Name = "GenericBox";
             this.GenericBox.Size = new System.Drawing.Size(206, 218);
@@ -179,6 +179,7 @@ namespace AV1_PAV
             this.FinanceiroBox.TabIndex = 8;
             this.FinanceiroBox.TabStop = false;
             this.FinanceiroBox.Text = "Financeiro";
+            this.FinanceiroBox.Enter += new System.EventHandler(this.FinanceiroBox_Enter);
             // 
             // BxContasPagar
             // 

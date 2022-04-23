@@ -70,5 +70,10 @@ namespace AV1_PAV.UI
             //Janela confirmar o cancelamento
             Dispose();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

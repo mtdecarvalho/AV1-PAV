@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using AV1_PAV.Entidades;
+using AV1_PAV.Controladores;
 
 namespace AV1_PAV.UI
 {
@@ -22,11 +23,14 @@ namespace AV1_PAV.UI
         private void btnOK_Click(object sender, EventArgs e)
         {
             Produto produto = new();
+            ControladorCadastroProduto controladorProduto = new();
             produto.nome = tbxNome.Text;
             produto.qtdEstoque = int.Parse(tbxQtdEstoque.Text);
             produto.preco = double.Parse(tbxPreco.Text);
             produto.unidade = cbUnidade.SelectedItem.ToString();
             // produto.idFornecedor = cbFornecedor.SelectedItem;
+            controladorProduto.incluir(produto);
+
             this.Close();
         }
 
