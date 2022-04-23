@@ -28,7 +28,7 @@ namespace AV1_PAV.SQL
                 }
                 else
                 {
-                    SQL = "SELECT * FROM PRODUTO WHERE id_produto = 0";
+                    SQL = "SELECT * FROM produto WHERE id_produto = 0";
                     leitorDados.Read();
                     entidade.lerDados(leitorDados);
                 }
@@ -47,7 +47,7 @@ namespace AV1_PAV.SQL
         {
             List<Produto> Lista = new();
             
-            String SQL = "SELECT * FROM PRODUTO WHERE nome LIKE \"%" + nome + "%\"";
+            String SQL = "SELECT * FROM produto WHERE nome LIKE \"%" + nome + "%\"";
 
             BancoDados.obterInstancia().conectar();
             MySqlCommand comandoSelecao = new MySqlCommand(SQL, BancoDados.obterInstancia().obterConexao());
