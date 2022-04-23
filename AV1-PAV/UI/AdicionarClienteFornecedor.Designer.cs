@@ -78,7 +78,7 @@ namespace AV1_PAV.UI
             this.tbxBairro.Location = new System.Drawing.Point(100, 150);
             this.tbxBairro.Name = "tbxBairro";
             this.tbxBairro.Size = new System.Drawing.Size(167, 23);
-            this.tbxBairro.TabIndex = 3;
+            this.tbxBairro.TabIndex = 6;
             // 
             // lblBairro
             // 
@@ -110,7 +110,7 @@ namespace AV1_PAV.UI
             this.tbxNumero.Location = new System.Drawing.Point(100, 92);
             this.tbxNumero.Name = "tbxNumero";
             this.tbxNumero.Size = new System.Drawing.Size(167, 23);
-            this.tbxNumero.TabIndex = 7;
+            this.tbxNumero.TabIndex = 4;
             // 
             // lblNumero
             // 
@@ -126,7 +126,7 @@ namespace AV1_PAV.UI
             this.tbxLogradouro.Location = new System.Drawing.Point(100, 63);
             this.tbxLogradouro.Name = "tbxLogradouro";
             this.tbxLogradouro.Size = new System.Drawing.Size(167, 23);
-            this.tbxLogradouro.TabIndex = 9;
+            this.tbxLogradouro.TabIndex = 3;
             // 
             // lblLogradouro
             // 
@@ -142,7 +142,7 @@ namespace AV1_PAV.UI
             this.tbxCpfCnpj.Location = new System.Drawing.Point(100, 34);
             this.tbxCpfCnpj.Name = "tbxCpfCnpj";
             this.tbxCpfCnpj.Size = new System.Drawing.Size(167, 23);
-            this.tbxCpfCnpj.TabIndex = 11;
+            this.tbxCpfCnpj.TabIndex = 2;
             // 
             // lblCpfCnpj
             // 
@@ -157,7 +157,7 @@ namespace AV1_PAV.UI
             this.tbxCidade.Location = new System.Drawing.Point(100, 179);
             this.tbxCidade.Name = "tbxCidade";
             this.tbxCidade.Size = new System.Drawing.Size(167, 23);
-            this.tbxCidade.TabIndex = 13;
+            this.tbxCidade.TabIndex = 7;
             // 
             // lblCidade
             // 
@@ -182,21 +182,21 @@ namespace AV1_PAV.UI
             this.tbxCEP.Location = new System.Drawing.Point(100, 237);
             this.tbxCEP.Name = "tbxCEP";
             this.tbxCEP.Size = new System.Drawing.Size(167, 23);
-            this.tbxCEP.TabIndex = 16;
+            this.tbxCEP.TabIndex = 9;
             // 
             // tbxTelefone
             // 
             this.tbxTelefone.Location = new System.Drawing.Point(100, 266);
             this.tbxTelefone.Name = "tbxTelefone";
             this.tbxTelefone.Size = new System.Drawing.Size(167, 23);
-            this.tbxTelefone.TabIndex = 17;
+            this.tbxTelefone.TabIndex = 10;
             // 
             // tbxEmail
             // 
             this.tbxEmail.Location = new System.Drawing.Point(100, 295);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(167, 23);
-            this.tbxEmail.TabIndex = 18;
+            this.tbxEmail.TabIndex = 11;
             // 
             // lblCEP
             // 
@@ -230,7 +230,7 @@ namespace AV1_PAV.UI
             this.btnCancelar.Location = new System.Drawing.Point(89, 354);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 22;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -240,7 +240,7 @@ namespace AV1_PAV.UI
             this.btnOk.Location = new System.Drawing.Point(170, 354);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 23;
+            this.btnOk.TabIndex = 13;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -308,7 +308,7 @@ namespace AV1_PAV.UI
             this.cbEstado.Location = new System.Drawing.Point(100, 208);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(52, 23);
-            this.cbEstado.TabIndex = 22;
+            this.cbEstado.TabIndex = 8;
             // 
             // AdicionarClienteFornecedor
             // 

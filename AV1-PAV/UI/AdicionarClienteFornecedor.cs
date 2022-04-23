@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using AV1_PAV.Controladores;
 using AV1_PAV.Entidades;
+using AV1_PAV.Persistencia;
 
 namespace AV1_PAV.UI
 {
@@ -39,6 +40,7 @@ namespace AV1_PAV.UI
             if (this.Text == "Adicionar cliente")
             {
                 Cliente cliente = new();
+                cliente.idCliente = 10;
                 cliente.nome = tbxNome.Text;
                 cliente.cpfCnpj = tbxCpfCnpj.Text;
                 cliente.logradouro = tbxLogradouro.Text;
@@ -51,7 +53,10 @@ namespace AV1_PAV.UI
                 cliente.telefone = tbxTelefone.Text;
                 cliente.email = tbxEmail.Text;
 
-                /// implementar integração com bd
+                BancoDados.obterInstancia().conectar();
+                ControladorCadastroCliente controlador = new();
+                controlador.incluir(cliente);
+                BancoDados.obterInstancia().desconectar();
             }
             else if (this.Text == "Adicionar fornecedor")
             {
