@@ -24,6 +24,7 @@ namespace AV1_PAV.UI
         {
             Produto produto = new();
             ControladorCadastroProduto controladorProduto = new();
+            produto.idProduto = int.Parse(tbxID.Text);
             produto.nome = tbxNome.Text;
             produto.qtdEstoque = int.Parse(tbxQtdEstoque.Text);
             produto.preco = double.Parse(tbxPreco.Text);
@@ -37,6 +38,16 @@ namespace AV1_PAV.UI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AdicionarProduto_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

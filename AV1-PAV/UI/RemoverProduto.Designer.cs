@@ -30,12 +30,6 @@ namespace AV1_PAV.UI
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtdEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbxBusca = new System.Windows.Forms.TextBox();
             this.btnBusca = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
@@ -46,56 +40,15 @@ namespace AV1_PAV.UI
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idProduto,
-            this.nomeProduto,
-            this.qtdEstoque,
-            this.preco,
-            this.unidade,
-            this.idFornecedor});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(643, 428);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // idProduto
-            // 
-            this.idProduto.HeaderText = "ID";
-            this.idProduto.Name = "idProduto";
-            this.idProduto.ReadOnly = true;
-            // 
-            // nomeProduto
-            // 
-            this.nomeProduto.HeaderText = "Nome";
-            this.nomeProduto.Name = "nomeProduto";
-            this.nomeProduto.ReadOnly = true;
-            // 
-            // qtdEstoque
-            // 
-            this.qtdEstoque.HeaderText = "Quantidade em Estoque";
-            this.qtdEstoque.Name = "qtdEstoque";
-            this.qtdEstoque.ReadOnly = true;
-            // 
-            // preco
-            // 
-            this.preco.HeaderText = "Preço";
-            this.preco.Name = "preco";
-            this.preco.ReadOnly = true;
-            // 
-            // unidade
-            // 
-            this.unidade.HeaderText = "Unidade";
-            this.unidade.Name = "unidade";
-            this.unidade.ReadOnly = true;
-            // 
-            // idFornecedor
-            // 
-            this.idFornecedor.HeaderText = "Fornecedor";
-            this.idFornecedor.Name = "idFornecedor";
-            this.idFornecedor.ReadOnly = true;
             // 
             // tbxBusca
             // 
@@ -143,12 +96,6 @@ namespace AV1_PAV.UI
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtdEstoque;
-        private System.Windows.Forms.DataGridViewTextBoxColumn preco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idFornecedor;
         private System.Windows.Forms.TextBox tbxBusca;
         private System.Windows.Forms.Button btnBusca;
         private System.Windows.Forms.Button btnRemover;

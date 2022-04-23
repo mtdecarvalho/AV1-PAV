@@ -42,13 +42,15 @@ namespace AV1_PAV.UI
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbFornecedor = new System.Windows.Forms.ComboBox();
             this.cbUnidade = new System.Windows.Forms.ComboBox();
+            this.tbxID = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 12);
+            this.label1.Location = new System.Drawing.Point(104, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 15);
             this.label1.TabIndex = 0;
@@ -56,7 +58,7 @@ namespace AV1_PAV.UI
             // 
             // tbxNome
             // 
-            this.tbxNome.Location = new System.Drawing.Point(150, 4);
+            this.tbxNome.Location = new System.Drawing.Point(150, 43);
             this.tbxNome.Name = "tbxNome";
             this.tbxNome.Size = new System.Drawing.Size(180, 23);
             this.tbxNome.TabIndex = 1;
@@ -64,7 +66,7 @@ namespace AV1_PAV.UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 41);
+            this.label2.Location = new System.Drawing.Point(7, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 15);
             this.label2.TabIndex = 2;
@@ -73,7 +75,7 @@ namespace AV1_PAV.UI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(104, 70);
+            this.label3.Location = new System.Drawing.Point(104, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 15);
             this.label3.TabIndex = 3;
@@ -82,7 +84,7 @@ namespace AV1_PAV.UI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(90, 99);
+            this.label4.Location = new System.Drawing.Point(90, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 15);
             this.label4.TabIndex = 4;
@@ -91,7 +93,7 @@ namespace AV1_PAV.UI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(74, 128);
+            this.label5.Location = new System.Drawing.Point(74, 167);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 15);
             this.label5.TabIndex = 5;
@@ -99,14 +101,14 @@ namespace AV1_PAV.UI
             // 
             // tbxQtdEstoque
             // 
-            this.tbxQtdEstoque.Location = new System.Drawing.Point(150, 33);
+            this.tbxQtdEstoque.Location = new System.Drawing.Point(150, 72);
             this.tbxQtdEstoque.Name = "tbxQtdEstoque";
             this.tbxQtdEstoque.Size = new System.Drawing.Size(180, 23);
             this.tbxQtdEstoque.TabIndex = 6;
             // 
             // tbxPreco
             // 
-            this.tbxPreco.Location = new System.Drawing.Point(150, 62);
+            this.tbxPreco.Location = new System.Drawing.Point(150, 101);
             this.tbxPreco.Name = "tbxPreco";
             this.tbxPreco.Size = new System.Drawing.Size(180, 23);
             this.tbxPreco.TabIndex = 7;
@@ -133,6 +135,8 @@ namespace AV1_PAV.UI
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.tbxID);
             this.panel1.Controls.Add(this.cbFornecedor);
             this.panel1.Controls.Add(this.cbUnidade);
             this.panel1.Controls.Add(this.label1);
@@ -143,15 +147,16 @@ namespace AV1_PAV.UI
             this.panel1.Controls.Add(this.tbxPreco);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.tbxQtdEstoque);
-            this.panel1.Location = new System.Drawing.Point(21, 32);
+            this.panel1.Location = new System.Drawing.Point(21, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(343, 153);
+            this.panel1.Size = new System.Drawing.Size(343, 198);
             this.panel1.TabIndex = 12;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // cbFornecedor
             // 
             this.cbFornecedor.FormattingEnabled = true;
-            this.cbFornecedor.Location = new System.Drawing.Point(150, 120);
+            this.cbFornecedor.Location = new System.Drawing.Point(150, 159);
             this.cbFornecedor.Name = "cbFornecedor";
             this.cbFornecedor.Size = new System.Drawing.Size(180, 23);
             this.cbFornecedor.TabIndex = 11;
@@ -164,10 +169,26 @@ namespace AV1_PAV.UI
             "mg",
             "l",
             "ml"});
-            this.cbUnidade.Location = new System.Drawing.Point(150, 91);
+            this.cbUnidade.Location = new System.Drawing.Point(150, 130);
             this.cbUnidade.Name = "cbUnidade";
             this.cbUnidade.Size = new System.Drawing.Size(53, 23);
             this.cbUnidade.TabIndex = 10;
+            // 
+            // tbxID
+            // 
+            this.tbxID.Location = new System.Drawing.Point(150, 14);
+            this.tbxID.Name = "tbxID";
+            this.tbxID.Size = new System.Drawing.Size(180, 23);
+            this.tbxID.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(123, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 15);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "ID:";
             // 
             // AdicionarProduto
             // 
@@ -180,6 +201,7 @@ namespace AV1_PAV.UI
             this.Name = "AdicionarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar produto";
+            this.Load += new System.EventHandler(this.AdicionarProduto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -201,5 +223,7 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cbUnidade;
         private System.Windows.Forms.ComboBox cbFornecedor;
+        private System.Windows.Forms.TextBox tbxID;
+        private System.Windows.Forms.Label label6;
     }
 }
