@@ -29,47 +29,49 @@ namespace AV1_PAV.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.E = new System.Windows.Forms.Button();
+            this.BxProcurar = new System.Windows.Forms.TextBox();
+            this.BtProcurar = new System.Windows.Forms.Button();
             this.LbProduto = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.BxCodigo = new System.Windows.Forms.TextBox();
             this.BtAdicionar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.LbNome = new System.Windows.Forms.Label();
+            this.BxPreco = new System.Windows.Forms.TextBox();
+            this.BxQuantidade = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.BtCarrinho = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BxTotal = new System.Windows.Forms.TextBox();
+            this.LbSubTotal = new System.Windows.Forms.Label();
+            this.BtAdicionarCarrinho = new System.Windows.Forms.Button();
+            this.BtRemoverCarrinho = new System.Windows.Forms.Button();
+            this.BtFinalizar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // BxProcurar
             // 
-            this.textBox1.Location = new System.Drawing.Point(625, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 23);
-            this.textBox1.TabIndex = 0;
+            this.BxProcurar.Location = new System.Drawing.Point(625, 12);
+            this.BxProcurar.Name = "BxProcurar";
+            this.BxProcurar.Size = new System.Drawing.Size(152, 23);
+            this.BxProcurar.TabIndex = 0;
             // 
-            // E
+            // BtProcurar
             // 
-            this.E.Location = new System.Drawing.Point(797, 12);
-            this.E.Name = "E";
-            this.E.Size = new System.Drawing.Size(75, 23);
-            this.E.TabIndex = 1;
-            this.E.Text = "Procurar";
-            this.E.UseVisualStyleBackColor = true;
+            this.BtProcurar.Location = new System.Drawing.Point(797, 12);
+            this.BtProcurar.Name = "BtProcurar";
+            this.BtProcurar.Size = new System.Drawing.Size(75, 23);
+            this.BtProcurar.TabIndex = 1;
+            this.BtProcurar.Text = "Procurar";
+            this.BtProcurar.UseVisualStyleBackColor = true;
+            this.BtProcurar.Click += new System.EventHandler(this.BtProcurar_Click);
             // 
             // LbProduto
             // 
@@ -80,12 +82,12 @@ namespace AV1_PAV.UI
             this.LbProduto.TabIndex = 2;
             this.LbProduto.Text = "Procurar produto:";
             // 
-            // textBox2
+            // BxCodigo
             // 
-            this.textBox2.Location = new System.Drawing.Point(625, 41);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 23);
-            this.textBox2.TabIndex = 3;
+            this.BxCodigo.Location = new System.Drawing.Point(625, 41);
+            this.BxCodigo.Name = "BxCodigo";
+            this.BxCodigo.Size = new System.Drawing.Size(152, 23);
+            this.BxCodigo.TabIndex = 3;
             // 
             // BtAdicionar
             // 
@@ -95,6 +97,7 @@ namespace AV1_PAV.UI
             this.BtAdicionar.TabIndex = 4;
             this.BtAdicionar.Text = "Adicionar";
             this.BtAdicionar.UseVisualStyleBackColor = true;
+            this.BtAdicionar.Click += new System.EventHandler(this.BtAdicionar_Click);
             // 
             // label1
             // 
@@ -105,30 +108,30 @@ namespace AV1_PAV.UI
             this.label1.TabIndex = 5;
             this.label1.Text = "Codigo produto:";
             // 
-            // label2
+            // LbNome
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(578, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 15);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "NOME DO PRODUTO";
+            this.LbNome.AutoSize = true;
+            this.LbNome.Location = new System.Drawing.Point(578, 80);
+            this.LbNome.Name = "LbNome";
+            this.LbNome.Size = new System.Drawing.Size(118, 15);
+            this.LbNome.TabIndex = 6;
+            this.LbNome.Text = "NOME DO PRODUTO";
             // 
-            // textBox3
+            // BxPreco
             // 
-            this.textBox3.Location = new System.Drawing.Point(625, 136);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(152, 23);
-            this.textBox3.TabIndex = 8;
+            this.BxPreco.Location = new System.Drawing.Point(625, 136);
+            this.BxPreco.Name = "BxPreco";
+            this.BxPreco.ReadOnly = true;
+            this.BxPreco.Size = new System.Drawing.Size(152, 23);
+            this.BxPreco.TabIndex = 8;
             // 
-            // textBox4
+            // BxQuantidade
             // 
-            this.textBox4.Location = new System.Drawing.Point(625, 107);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(152, 23);
-            this.textBox4.TabIndex = 7;
-            this.textBox4.Text = "1";
+            this.BxQuantidade.Location = new System.Drawing.Point(625, 107);
+            this.BxQuantidade.Name = "BxQuantidade";
+            this.BxQuantidade.Size = new System.Drawing.Size(152, 23);
+            this.BxQuantidade.TabIndex = 7;
+            this.BxQuantidade.Text = "1";
             // 
             // label3
             // 
@@ -157,49 +160,51 @@ namespace AV1_PAV.UI
             this.label5.TabIndex = 12;
             this.label5.Text = "Total item";
             // 
-            // textBox5
+            // BxTotal
             // 
-            this.textBox5.Location = new System.Drawing.Point(625, 165);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(152, 23);
-            this.textBox5.TabIndex = 11;
+            this.BxTotal.Location = new System.Drawing.Point(625, 165);
+            this.BxTotal.Name = "BxTotal";
+            this.BxTotal.ReadOnly = true;
+            this.BxTotal.Size = new System.Drawing.Size(152, 23);
+            this.BxTotal.TabIndex = 11;
             // 
-            // label6
+            // LbSubTotal
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 530);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 15);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Sub-Total";
+            this.LbSubTotal.AutoSize = true;
+            this.LbSubTotal.Location = new System.Drawing.Point(368, 526);
+            this.LbSubTotal.Name = "LbSubTotal";
+            this.LbSubTotal.Size = new System.Drawing.Size(100, 15);
+            this.LbSubTotal.TabIndex = 13;
+            this.LbSubTotal.Text = "Sub-Total: R$ 0,00";
             // 
-            // BtCarrinho
+            // BtAdicionarCarrinho
             // 
-            this.BtCarrinho.Location = new System.Drawing.Point(625, 194);
-            this.BtCarrinho.Name = "BtCarrinho";
-            this.BtCarrinho.Size = new System.Drawing.Size(152, 23);
-            this.BtCarrinho.TabIndex = 14;
-            this.BtCarrinho.Text = "Adicionar no Carrinho";
-            this.BtCarrinho.UseVisualStyleBackColor = true;
+            this.BtAdicionarCarrinho.Location = new System.Drawing.Point(625, 194);
+            this.BtAdicionarCarrinho.Name = "BtAdicionarCarrinho";
+            this.BtAdicionarCarrinho.Size = new System.Drawing.Size(152, 23);
+            this.BtAdicionarCarrinho.TabIndex = 14;
+            this.BtAdicionarCarrinho.Text = "Adicionar no Carrinho";
+            this.BtAdicionarCarrinho.UseVisualStyleBackColor = true;
+            this.BtAdicionarCarrinho.Click += new System.EventHandler(this.BtAdicionarCarrinho_Click);
             // 
-            // button1
+            // BtRemoverCarrinho
             // 
-            this.button1.Location = new System.Drawing.Point(625, 223);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Remover do Carrinho";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtRemoverCarrinho.Location = new System.Drawing.Point(625, 223);
+            this.BtRemoverCarrinho.Name = "BtRemoverCarrinho";
+            this.BtRemoverCarrinho.Size = new System.Drawing.Size(152, 23);
+            this.BtRemoverCarrinho.TabIndex = 15;
+            this.BtRemoverCarrinho.Text = "Remover do Carrinho";
+            this.BtRemoverCarrinho.UseVisualStyleBackColor = true;
+            this.BtRemoverCarrinho.Click += new System.EventHandler(this.BtRemoverCarrinho_Click);
             // 
-            // button2
+            // BtFinalizar
             // 
-            this.button2.Location = new System.Drawing.Point(735, 526);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(137, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Finalizar compra";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtFinalizar.Location = new System.Drawing.Point(735, 526);
+            this.BtFinalizar.Name = "BtFinalizar";
+            this.BtFinalizar.Size = new System.Drawing.Size(137, 23);
+            this.BtFinalizar.TabIndex = 16;
+            this.BtFinalizar.Text = "Finalizar compra";
+            this.BtFinalizar.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -254,29 +259,40 @@ namespace AV1_PAV.UI
             this.Total.ReadOnly = true;
             this.Total.Width = 60;
             // 
+            // BtCancelar
+            // 
+            this.BtCancelar.Location = new System.Drawing.Point(578, 526);
+            this.BtCancelar.Name = "BtCancelar";
+            this.BtCancelar.Size = new System.Drawing.Size(137, 23);
+            this.BtCancelar.TabIndex = 18;
+            this.BtCancelar.Text = "Cancelar compra";
+            this.BtCancelar.UseVisualStyleBackColor = true;
+            this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
+            // 
             // NovaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.BtCarrinho);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.BtFinalizar);
+            this.Controls.Add(this.BtRemoverCarrinho);
+            this.Controls.Add(this.BtAdicionarCarrinho);
+            this.Controls.Add(this.LbSubTotal);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.BxTotal);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BxPreco);
+            this.Controls.Add(this.BxQuantidade);
+            this.Controls.Add(this.LbNome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtAdicionar);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.BxCodigo);
             this.Controls.Add(this.LbProduto);
-            this.Controls.Add(this.E);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BtProcurar);
+            this.Controls.Add(this.BxProcurar);
             this.Name = "NovaVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JanelaVenda";
@@ -288,28 +304,29 @@ namespace AV1_PAV.UI
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button E;
+        private System.Windows.Forms.TextBox BxProcurar;
+        private System.Windows.Forms.Button BtProcurar;
         private System.Windows.Forms.Label LbProduto;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox BxCodigo;
         private System.Windows.Forms.Button BtAdicionar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label LbNome;
+        private System.Windows.Forms.TextBox BxQuantidade;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button BtCarrinho;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox BxTotal;
+        private System.Windows.Forms.Label LbSubTotal;
+        private System.Windows.Forms.Button BtAdicionarCarrinho;
+        private System.Windows.Forms.Button BtRemoverCarrinho;
+        private System.Windows.Forms.Button BtFinalizar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Preco;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        protected internal System.Windows.Forms.TextBox textBox3;
+        protected internal System.Windows.Forms.TextBox BxPreco;
+        private System.Windows.Forms.Button BtCancelar;
     }
 }

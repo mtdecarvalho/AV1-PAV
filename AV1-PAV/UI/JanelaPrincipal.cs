@@ -16,6 +16,13 @@ namespace AV1_PAV
     public partial class JanelaPrincipal : Form
     {
         GroupBox activePanel;
+
+        private const String VENDAS       = "Vendas";
+        private const String CLIENTES     = "Clientes";
+        private const String ESTOQUE      = "Estoque";
+        private const String FORNECEDORES = "Fornecedores";
+        private const String FINANCEIRO   = "Financeiro";
+
         public JanelaPrincipal()
         {
             InitializeComponent();
@@ -23,6 +30,7 @@ namespace AV1_PAV
             FinanceiroBox.Visible = false;
             activePanel = FinanceiroBox;
         }
+
         public void mostrarPainel(GroupBox painel, String funcao)
         {
             activePanel.Visible = false;
@@ -37,54 +45,49 @@ namespace AV1_PAV
             BancoDados.obterInstancia().desconectar();
         }
 
-        private void BtEstoque_Click(object sender, EventArgs e)
+        private void BtVenda_Click(object sender, EventArgs e)
         {
-            mostrarPainel(GenericBox,"Estoque");
-        }
-
-        private void BtFornecedor_Click(object sender, EventArgs e)
-        {
-            mostrarPainel(GenericBox, "Fornecedores");
+            mostrarPainel(GenericBox, VENDAS);
         }
 
         private void BtCliente_Click(object sender, EventArgs e)
         {
-            mostrarPainel(GenericBox, "Clientes");
+            mostrarPainel(GenericBox, CLIENTES);
         }
 
-        private void BtVenda_Click(object sender, EventArgs e)
+        private void BtEstoque_Click(object sender, EventArgs e)
         {
-            mostrarPainel(GenericBox, "Vendas");
+            mostrarPainel(GenericBox, ESTOQUE);
+        }
+
+        private void BtFornecedor_Click(object sender, EventArgs e)
+        {
+            mostrarPainel(GenericBox, FORNECEDORES);
         }
 
         private void BtContasReceber_Click(object sender, EventArgs e)
         {
-            mostrarPainel(FinanceiroBox, "Financeiro");
-        }
-
-        private void FinanceiroBox_Enter(object sender, EventArgs e)
-        {
-
+            mostrarPainel(FinanceiroBox, FINANCEIRO);
         }
 
         private void BtAdicionar_Click(object sender, EventArgs e)
         {
-            if (activePanel.Text == "Clientes")
+            if (activePanel.Text == CLIENTES)
             {
                 AdicionarClienteFornecedor adicionarCliente = new("Adicionar cliente");
                 adicionarCliente.ShowDialog();
             }
-            else if (activePanel.Text == "Fornecedores")
+            else if (activePanel.Text == FORNECEDORES)
             {
                 AdicionarClienteFornecedor adicionarFornecedor = new("Adicionar fornecedor");
                 adicionarFornecedor.ShowDialog();
             }
-            else if (activePanel.Text == "Estoque")
+            else if (activePanel.Text == ESTOQUE)
             {
                 AdicionarProduto adicionarProduto = new();
                 adicionarProduto.ShowDialog();
             }
-            else if (activePanel.Text == "Vendas")
+            else if (activePanel.Text == VENDAS)
             {
                 NovaVenda janela = new();
                 janela.ShowDialog();

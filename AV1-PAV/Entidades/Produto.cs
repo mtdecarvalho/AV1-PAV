@@ -18,12 +18,12 @@ namespace AV1_PAV.Entidades
         public const string ATRIBUTO_UNIDADE = "UNIDADE";
         public const string ATRIBUTO_ID_FORNECEDOR = "ID_FORNECEDOR";
 
-        public int idProduto                                   { get; set; }
-        public string nome                                     { get; set; }
-        public int qtdEstoque                                  { get; set; }
-        public double preco                                    { get; set; }
-        public string unidade                                  { get; set; }
-        public double idFornecedor                             { get; set; }
+        public int idProduto { get; set; }
+        public string nome { get; set; }
+        public int qtdEstoque { get; set; }
+        public double preco { get; set; }
+        public string unidade { get; set; }
+        public double idFornecedor { get; set; }
 
         public override void transferirDados(MySqlCommand comando)
         {
@@ -49,7 +49,16 @@ namespace AV1_PAV.Entidades
             unidade = leitorDados[ATRIBUTO_UNIDADE].ToString();
             idFornecedor = int.Parse(leitorDados[ATRIBUTO_ID_FORNECEDOR].ToString());
         }
-    }
 
+        public List<Produto> ObterListaPorNome(String nome)
+        {
+            List<Produto> Lista = new List<Produto>();
+            Produto p;
+            BancoDados.obterInstancia().conectar();
+
+            BancoDados.obterInstancia().desconectar();
+            return Lista;
+        }
+    }
 }
 

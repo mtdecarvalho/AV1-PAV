@@ -67,6 +67,7 @@ namespace AV1_PAV.UI
             this.BtSelecionar.TabIndex = 1;
             this.BtSelecionar.Text = "Selecionar";
             this.BtSelecionar.UseVisualStyleBackColor = true;
+            this.BtSelecionar.Click += new System.EventHandler(this.BtSelecionar_Click);
             // 
             // BtCancelar
             // 

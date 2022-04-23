@@ -179,7 +179,6 @@ namespace AV1_PAV
             this.FinanceiroBox.TabIndex = 8;
             this.FinanceiroBox.TabStop = false;
             this.FinanceiroBox.Text = "Financeiro";
-            this.FinanceiroBox.Enter += new System.EventHandler(this.FinanceiroBox_Enter);
             // 
             // BxContasPagar
             // 
