@@ -1,4 +1,5 @@
 ﻿using AV1_PAV.Entidades;
+using AV1_PAV.SQL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace AV1_PAV.UI
         private Produto p;
         private double subtotal = 0;
         private int numeroItem = 0;
+        private bool selecionado;
         public NovaVenda()
         {
             InitializeComponent();
@@ -29,11 +31,16 @@ namespace AV1_PAV.UI
             p = produto;
         }
 
+        public void Selecionado(bool v)
+        {
+            selecionado = v;
+        }
+
         private void SetTexto()
         {
             LbNome.Text = p.nome.ToString();
             BxPreco.Text = p.preco.ToString();
-            BxTotal.Text = (Double.Parse(BxQuantidade.Text) * Double.Parse(BxPreco.Text)).ToString();
+            AtualizarTotal();           
         }
 
         private void LimparTexto()
@@ -44,28 +51,35 @@ namespace AV1_PAV.UI
             BxTotal.Text = "";
         }
 
+        private void AtualizarTotal()
+        {
+            BxTotal.Text = (Double.Parse(BxQuantidade.Text) * Double.Parse(BxPreco.Text)).ToString();
+        }
+
+        private void AtualizaTabela()
+        {
+            String[] row = { p.idProduto.ToString(), p.nome, iv.quantidade.ToString(),
+                             iv.valorUnitario.ToString(), iv.totalItem.ToString() };
+            DataGridItemVenda.Rows.Add(row);
+        }
+
         private void BtProcurar_Click(object sender, EventArgs e)
         {
-            ProcurarProduto janela = new(this, BxProcurar.Text);
+            selecionado = false;
+            ProcurarClienteProduto janela = new(this, BxProcurar.Text);
             janela.ShowDialog();
-            SetTexto();
+            if(selecionado)
+                SetTexto();
         }
 
         private void BtAdicionar_Click(object sender, EventArgs e)
         {
-            //Falta buscar do banco
+            p = ProdutoSQL.BuscarPorCodigo(BxCodigo.Text);
             SetTexto();
         }
 
         private void BtAdicionarCarrinho_Click(object sender, EventArgs e)
         {
-            /*public const string ATRIBUTO_ID_VENDA = "ID_VENDA";
-            public const string ATRIBUTO_NUMERO_ITEM = "NUMERO_ITEM";
-            public const string ATRIBUTO_ID_PRODUTO = "ID_PRODUTO";
-            public const string ATRIBUTO_QUANTIDADE = "QUANTIDADE";
-            public const string ATRIBUTO_VALOR_UNITARIO = "VALOR_UNITARIO";
-            public const string ATRIBUTO_TOTAL_ITEM = "TOTAL_ITEM";
-            */
             iv.idVenda = 1;
             iv.idProduto = p.idProduto;
             iv.numeroItem = numeroItem;
@@ -73,14 +87,15 @@ namespace AV1_PAV.UI
             iv.valorUnitario = Double.Parse(BxPreco.Text);
             iv.totalItem = Double.Parse(BxTotal.Text);
 
-            String[] row = { p.idProduto.ToString(), p.nome, iv.quantidade.ToString(),
-                             iv.valorUnitario.ToString(), iv.totalItem.ToString() };
-            DataGridItemVenda.Rows.Add(row);
+            AtualizaTabela();
             Lista.Add(iv);
+
             subtotal += Double.Parse(BxTotal.Text);
             LbSubTotal.Text = "Sub - Total: R$ " + subtotal;
+
             LimparTexto();
             numeroItem++;
+            p = new();
         }
 
         private void BtRemoverCarrinho_Click(object sender, EventArgs e)
@@ -95,6 +110,16 @@ namespace AV1_PAV.UI
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void AtualizarTotal(object sender, EventArgs e)
+        {
+            AtualizarTotal();
+        }
+
+        private void BtSelecionarCliente_Click(object sender, EventArgs e)
         {
 
         }

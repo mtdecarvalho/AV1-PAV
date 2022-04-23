@@ -38,9 +38,9 @@ namespace AV1_PAV.UI
             this.LbNome = new System.Windows.Forms.Label();
             this.BxPreco = new System.Windows.Forms.TextBox();
             this.BxQuantidade = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.LbPreco = new System.Windows.Forms.Label();
+            this.LbQuantidade = new System.Windows.Forms.Label();
+            this.LbTotalItem = new System.Windows.Forms.Label();
             this.BxTotal = new System.Windows.Forms.TextBox();
             this.LbSubTotal = new System.Windows.Forms.Label();
             this.BtAdicionarCarrinho = new System.Windows.Forms.Button();
@@ -53,19 +53,22 @@ namespace AV1_PAV.UI
             this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtCancelar = new System.Windows.Forms.Button();
+            this.BtSelecionarCliente = new System.Windows.Forms.Button();
+            this.LbVenda = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridItemVenda)).BeginInit();
             this.SuspendLayout();
             // 
             // BxProcurar
             // 
-            this.BxProcurar.Location = new System.Drawing.Point(625, 12);
+            this.BxProcurar.Location = new System.Drawing.Point(625, 89);
             this.BxProcurar.Name = "BxProcurar";
             this.BxProcurar.Size = new System.Drawing.Size(152, 23);
             this.BxProcurar.TabIndex = 0;
             // 
             // BtProcurar
             // 
-            this.BtProcurar.Location = new System.Drawing.Point(797, 12);
+            this.BtProcurar.Location = new System.Drawing.Point(797, 89);
             this.BtProcurar.Name = "BtProcurar";
             this.BtProcurar.Size = new System.Drawing.Size(75, 23);
             this.BtProcurar.TabIndex = 1;
@@ -76,7 +79,7 @@ namespace AV1_PAV.UI
             // LbProduto
             // 
             this.LbProduto.AutoSize = true;
-            this.LbProduto.Location = new System.Drawing.Point(507, 16);
+            this.LbProduto.Location = new System.Drawing.Point(507, 93);
             this.LbProduto.Name = "LbProduto";
             this.LbProduto.Size = new System.Drawing.Size(101, 15);
             this.LbProduto.TabIndex = 2;
@@ -84,14 +87,14 @@ namespace AV1_PAV.UI
             // 
             // BxCodigo
             // 
-            this.BxCodigo.Location = new System.Drawing.Point(625, 41);
+            this.BxCodigo.Location = new System.Drawing.Point(625, 118);
             this.BxCodigo.Name = "BxCodigo";
             this.BxCodigo.Size = new System.Drawing.Size(152, 23);
             this.BxCodigo.TabIndex = 3;
             // 
             // BtAdicionar
             // 
-            this.BtAdicionar.Location = new System.Drawing.Point(797, 41);
+            this.BtAdicionar.Location = new System.Drawing.Point(797, 118);
             this.BtAdicionar.Name = "BtAdicionar";
             this.BtAdicionar.Size = new System.Drawing.Size(75, 23);
             this.BtAdicionar.TabIndex = 4;
@@ -102,7 +105,7 @@ namespace AV1_PAV.UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(507, 45);
+            this.label1.Location = new System.Drawing.Point(507, 122);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 15);
             this.label1.TabIndex = 5;
@@ -111,7 +114,7 @@ namespace AV1_PAV.UI
             // LbNome
             // 
             this.LbNome.AutoSize = true;
-            this.LbNome.Location = new System.Drawing.Point(578, 80);
+            this.LbNome.Location = new System.Drawing.Point(578, 157);
             this.LbNome.Name = "LbNome";
             this.LbNome.Size = new System.Drawing.Size(118, 15);
             this.LbNome.TabIndex = 6;
@@ -119,7 +122,7 @@ namespace AV1_PAV.UI
             // 
             // BxPreco
             // 
-            this.BxPreco.Location = new System.Drawing.Point(625, 136);
+            this.BxPreco.Location = new System.Drawing.Point(625, 213);
             this.BxPreco.Name = "BxPreco";
             this.BxPreco.ReadOnly = true;
             this.BxPreco.Size = new System.Drawing.Size(152, 23);
@@ -127,42 +130,43 @@ namespace AV1_PAV.UI
             // 
             // BxQuantidade
             // 
-            this.BxQuantidade.Location = new System.Drawing.Point(625, 107);
+            this.BxQuantidade.Location = new System.Drawing.Point(625, 184);
             this.BxQuantidade.Name = "BxQuantidade";
             this.BxQuantidade.Size = new System.Drawing.Size(152, 23);
             this.BxQuantidade.TabIndex = 7;
             this.BxQuantidade.Text = "1";
+            this.BxQuantidade.TextChanged += new System.EventHandler(this.AtualizarTotal);
             // 
-            // label3
+            // LbPreco
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(507, 139);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 15);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Preço Unidade";
+            this.LbPreco.AutoSize = true;
+            this.LbPreco.Location = new System.Drawing.Point(507, 216);
+            this.LbPreco.Name = "LbPreco";
+            this.LbPreco.Size = new System.Drawing.Size(84, 15);
+            this.LbPreco.TabIndex = 10;
+            this.LbPreco.Text = "Preço unitario:";
             // 
-            // label4
+            // LbQuantidade
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(507, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Quantidade";
+            this.LbQuantidade.AutoSize = true;
+            this.LbQuantidade.Location = new System.Drawing.Point(507, 187);
+            this.LbQuantidade.Name = "LbQuantidade";
+            this.LbQuantidade.Size = new System.Drawing.Size(72, 15);
+            this.LbQuantidade.TabIndex = 9;
+            this.LbQuantidade.Text = "Quantidade:";
             // 
-            // label5
+            // LbTotalItem
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(507, 168);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 15);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Total item";
+            this.LbTotalItem.AutoSize = true;
+            this.LbTotalItem.Location = new System.Drawing.Point(507, 245);
+            this.LbTotalItem.Name = "LbTotalItem";
+            this.LbTotalItem.Size = new System.Drawing.Size(62, 15);
+            this.LbTotalItem.TabIndex = 12;
+            this.LbTotalItem.Text = "Total item:";
             // 
             // BxTotal
             // 
-            this.BxTotal.Location = new System.Drawing.Point(625, 165);
+            this.BxTotal.Location = new System.Drawing.Point(625, 242);
             this.BxTotal.Name = "BxTotal";
             this.BxTotal.ReadOnly = true;
             this.BxTotal.Size = new System.Drawing.Size(152, 23);
@@ -171,25 +175,26 @@ namespace AV1_PAV.UI
             // LbSubTotal
             // 
             this.LbSubTotal.AutoSize = true;
+            this.LbSubTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LbSubTotal.Location = new System.Drawing.Point(368, 526);
             this.LbSubTotal.Name = "LbSubTotal";
-            this.LbSubTotal.Size = new System.Drawing.Size(100, 15);
+            this.LbSubTotal.Size = new System.Drawing.Size(108, 15);
             this.LbSubTotal.TabIndex = 13;
             this.LbSubTotal.Text = "Sub-Total: R$ 0,00";
             // 
             // BtAdicionarCarrinho
             // 
-            this.BtAdicionarCarrinho.Location = new System.Drawing.Point(625, 194);
+            this.BtAdicionarCarrinho.Location = new System.Drawing.Point(625, 271);
             this.BtAdicionarCarrinho.Name = "BtAdicionarCarrinho";
             this.BtAdicionarCarrinho.Size = new System.Drawing.Size(152, 23);
             this.BtAdicionarCarrinho.TabIndex = 14;
-            this.BtAdicionarCarrinho.Text = "Adicionar no Carrinho";
+            this.BtAdicionarCarrinho.Text = "Adicionar ao Carrinho";
             this.BtAdicionarCarrinho.UseVisualStyleBackColor = true;
             this.BtAdicionarCarrinho.Click += new System.EventHandler(this.BtAdicionarCarrinho_Click);
             // 
             // BtRemoverCarrinho
             // 
-            this.BtRemoverCarrinho.Location = new System.Drawing.Point(625, 223);
+            this.BtRemoverCarrinho.Location = new System.Drawing.Point(507, 489);
             this.BtRemoverCarrinho.Name = "BtRemoverCarrinho";
             this.BtRemoverCarrinho.Size = new System.Drawing.Size(152, 23);
             this.BtRemoverCarrinho.TabIndex = 15;
@@ -219,13 +224,13 @@ namespace AV1_PAV.UI
             this.Quantidade,
             this.Preco,
             this.Total});
-            this.DataGridItemVenda.Location = new System.Drawing.Point(12, 12);
+            this.DataGridItemVenda.Location = new System.Drawing.Point(12, 32);
             this.DataGridItemVenda.MultiSelect = false;
             this.DataGridItemVenda.Name = "DataGridItemVenda";
             this.DataGridItemVenda.ReadOnly = true;
             this.DataGridItemVenda.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridItemVenda.RowTemplate.Height = 25;
-            this.DataGridItemVenda.Size = new System.Drawing.Size(489, 500);
+            this.DataGridItemVenda.Size = new System.Drawing.Size(489, 480);
             this.DataGridItemVenda.TabIndex = 17;
             // 
             // Cod
@@ -273,21 +278,53 @@ namespace AV1_PAV.UI
             this.BtCancelar.UseVisualStyleBackColor = true;
             this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
             // 
+            // BtSelecionarCliente
+            // 
+            this.BtSelecionarCliente.Location = new System.Drawing.Point(625, 32);
+            this.BtSelecionarCliente.Name = "BtSelecionarCliente";
+            this.BtSelecionarCliente.Size = new System.Drawing.Size(152, 23);
+            this.BtSelecionarCliente.TabIndex = 19;
+            this.BtSelecionarCliente.Text = "Selecionar Cliente";
+            this.BtSelecionarCliente.UseVisualStyleBackColor = true;
+            this.BtSelecionarCliente.Click += new System.EventHandler(this.BtSelecionarCliente_Click);
+            // 
+            // LbVenda
+            // 
+            this.LbVenda.AutoSize = true;
+            this.LbVenda.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LbVenda.Location = new System.Drawing.Point(12, 9);
+            this.LbVenda.Name = "LbVenda";
+            this.LbVenda.Size = new System.Drawing.Size(64, 15);
+            this.LbVenda.TabIndex = 20;
+            this.LbVenda.Text = "Venda Nº: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(507, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 15);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Cliente:";
+            // 
             // NovaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LbVenda);
+            this.Controls.Add(this.BtSelecionarCliente);
             this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.DataGridItemVenda);
             this.Controls.Add(this.BtFinalizar);
             this.Controls.Add(this.BtRemoverCarrinho);
             this.Controls.Add(this.BtAdicionarCarrinho);
             this.Controls.Add(this.LbSubTotal);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.LbTotalItem);
             this.Controls.Add(this.BxTotal);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.LbPreco);
+            this.Controls.Add(this.LbQuantidade);
             this.Controls.Add(this.BxPreco);
             this.Controls.Add(this.BxQuantidade);
             this.Controls.Add(this.LbNome);
@@ -316,9 +353,9 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LbNome;
         private System.Windows.Forms.TextBox BxQuantidade;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LbPreco;
+        private System.Windows.Forms.Label LbQuantidade;
+        private System.Windows.Forms.Label LbTotalItem;
         private System.Windows.Forms.TextBox BxTotal;
         private System.Windows.Forms.Label LbSubTotal;
         private System.Windows.Forms.Button BtAdicionarCarrinho;
@@ -332,5 +369,8 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         protected internal System.Windows.Forms.TextBox BxPreco;
         private System.Windows.Forms.Button BtCancelar;
+        private System.Windows.Forms.Button BtSelecionarCliente;
+        private System.Windows.Forms.Label LbVenda;
+        private System.Windows.Forms.Label label2;
     }
 }

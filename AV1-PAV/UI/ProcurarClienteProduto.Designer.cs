@@ -1,7 +1,7 @@
 ﻿
 namespace AV1_PAV.UI
 {
-    partial class ProcurarProduto
+    partial class ProcurarClienteProduto
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,10 @@ namespace AV1_PAV.UI
         private void InitializeComponent()
         {
             this.DataGridProdutos = new System.Windows.Forms.DataGridView();
-            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtSelecionar = new System.Windows.Forms.Button();
             this.BtCancelar = new System.Windows.Forms.Button();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridProdutos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,8 +45,8 @@ namespace AV1_PAV.UI
             this.DataGridProdutos.AllowUserToResizeRows = false;
             this.DataGridProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Produto,
-            this.Preco});
+            this.Codigo,
+            this.Nome});
             this.DataGridProdutos.Location = new System.Drawing.Point(12, 12);
             this.DataGridProdutos.MultiSelect = false;
             this.DataGridProdutos.Name = "DataGridProdutos";
@@ -54,18 +54,6 @@ namespace AV1_PAV.UI
             this.DataGridProdutos.RowTemplate.Height = 25;
             this.DataGridProdutos.Size = new System.Drawing.Size(244, 336);
             this.DataGridProdutos.TabIndex = 0;
-            // 
-            // Produto
-            // 
-            this.Produto.HeaderText = "Produto";
-            this.Produto.Name = "Produto";
-            this.Produto.ReadOnly = true;
-            // 
-            // Preco
-            // 
-            this.Preco.HeaderText = "Preço";
-            this.Preco.Name = "Preco";
-            this.Preco.ReadOnly = true;
             // 
             // BtSelecionar
             // 
@@ -85,8 +73,23 @@ namespace AV1_PAV.UI
             this.BtCancelar.TabIndex = 2;
             this.BtCancelar.Text = "Cancelar";
             this.BtCancelar.UseVisualStyleBackColor = true;
+            this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
             // 
-            // ProcurarProduto
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Cod.";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 50;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 150;
+            // 
+            // ProcurarClienteProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -94,9 +97,9 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.BtSelecionar);
             this.Controls.Add(this.DataGridProdutos);
-            this.Name = "ProcurarProduto";
+            this.Name = "ProcurarClienteProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ProcurarProduto";
+            this.Text = "Procurar Produto";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridProdutos)).EndInit();
             this.ResumeLayout(false);
 
@@ -105,9 +108,9 @@ namespace AV1_PAV.UI
         #endregion
 
         private System.Windows.Forms.DataGridView DataGridProdutos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Preco;
         private System.Windows.Forms.Button BtSelecionar;
         private System.Windows.Forms.Button BtCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
     }
 }
