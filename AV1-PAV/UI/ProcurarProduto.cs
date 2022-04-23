@@ -26,7 +26,7 @@ namespace AV1_PAV.UI
         {
             InitializeComponent();
             janela = NV;
-            Lista = p.ObterListaPorNome(nome);
+            //Lista = p.ObterListaPorNome(nome);
         }
 
         private void BtSelecionar_Click(object sender, EventArgs e)

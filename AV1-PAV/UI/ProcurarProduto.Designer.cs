@@ -39,25 +39,33 @@ namespace AV1_PAV.UI
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Produto,
             this.Preco});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(368, 336);
+            this.dataGridView1.Size = new System.Drawing.Size(244, 336);
             this.dataGridView1.TabIndex = 0;
             // 
             // Produto
             // 
             this.Produto.HeaderText = "Produto";
             this.Produto.Name = "Produto";
+            this.Produto.ReadOnly = true;
             // 
             // Preco
             // 
             this.Preco.HeaderText = "Preço";
             this.Preco.Name = "Preco";
+            this.Preco.ReadOnly = true;
             // 
             // BtSelecionar
             // 
@@ -87,6 +95,7 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.BtSelecionar);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ProcurarProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProcurarProduto";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
