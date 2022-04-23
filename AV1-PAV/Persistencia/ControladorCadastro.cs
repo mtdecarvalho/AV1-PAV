@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using AV1_PAV.Controladores;
 using MySql.Data.MySqlClient;
 
 namespace AV1_PAV.Persistencia
@@ -109,5 +109,6 @@ namespace AV1_PAV.Persistencia
                 throw new Exception(ex.Message);
             }
         }
+
     }
 }

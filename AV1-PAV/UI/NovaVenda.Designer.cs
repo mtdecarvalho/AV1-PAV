@@ -46,14 +46,14 @@ namespace AV1_PAV.UI
             this.BtAdicionarCarrinho = new System.Windows.Forms.Button();
             this.BtRemoverCarrinho = new System.Windows.Forms.Button();
             this.BtFinalizar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DataGridItemVenda = new System.Windows.Forms.DataGridView();
             this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtCancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridItemVenda)).BeginInit();
             this.SuspendLayout();
             // 
             // BxProcurar
@@ -206,28 +206,27 @@ namespace AV1_PAV.UI
             this.BtFinalizar.Text = "Finalizar compra";
             this.BtFinalizar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // DataGridItemVenda
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridItemVenda.AllowUserToAddRows = false;
+            this.DataGridItemVenda.AllowUserToDeleteRows = false;
+            this.DataGridItemVenda.AllowUserToResizeColumns = false;
+            this.DataGridItemVenda.AllowUserToResizeRows = false;
+            this.DataGridItemVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridItemVenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cod,
             this.Produto,
             this.Quantidade,
             this.Preco,
             this.Total});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(489, 500);
-            this.dataGridView1.TabIndex = 17;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.DataGridItemVenda.Location = new System.Drawing.Point(12, 12);
+            this.DataGridItemVenda.MultiSelect = false;
+            this.DataGridItemVenda.Name = "DataGridItemVenda";
+            this.DataGridItemVenda.ReadOnly = true;
+            this.DataGridItemVenda.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DataGridItemVenda.RowTemplate.Height = 25;
+            this.DataGridItemVenda.Size = new System.Drawing.Size(489, 500);
+            this.DataGridItemVenda.TabIndex = 17;
             // 
             // Cod
             // 
@@ -280,7 +279,7 @@ namespace AV1_PAV.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.BtCancelar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DataGridItemVenda);
             this.Controls.Add(this.BtFinalizar);
             this.Controls.Add(this.BtRemoverCarrinho);
             this.Controls.Add(this.BtAdicionarCarrinho);
@@ -301,7 +300,7 @@ namespace AV1_PAV.UI
             this.Name = "NovaVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JanelaVenda";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridItemVenda)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,7 +324,7 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Button BtAdicionarCarrinho;
         private System.Windows.Forms.Button BtRemoverCarrinho;
         private System.Windows.Forms.Button BtFinalizar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DataGridItemVenda;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;

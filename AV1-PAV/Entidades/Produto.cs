@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using AV1_PAV.Controladores;
 using AV1_PAV.Persistencia;
 using MySql.Data.MySqlClient;
 
@@ -48,16 +48,6 @@ namespace AV1_PAV.Entidades
             preco = double.Parse(leitorDados[ATRIBUTO_PRECO].ToString());
             unidade = leitorDados[ATRIBUTO_UNIDADE].ToString();
             idFornecedor = int.Parse(leitorDados[ATRIBUTO_ID_FORNECEDOR].ToString());
-        }
-
-        public List<Produto> ObterListaPorNome(String nome)
-        {
-            List<Produto> Lista = new List<Produto>();
-            Produto p;
-            BancoDados.obterInstancia().conectar();
-
-            BancoDados.obterInstancia().desconectar();
-            return Lista;
         }
     }
 }

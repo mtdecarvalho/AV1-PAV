@@ -29,31 +29,31 @@ namespace AV1_PAV.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DataGridProdutos = new System.Windows.Forms.DataGridView();
             this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtSelecionar = new System.Windows.Forms.Button();
             this.BtCancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridProdutos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DataGridProdutos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridProdutos.AllowUserToAddRows = false;
+            this.DataGridProdutos.AllowUserToDeleteRows = false;
+            this.DataGridProdutos.AllowUserToResizeColumns = false;
+            this.DataGridProdutos.AllowUserToResizeRows = false;
+            this.DataGridProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Produto,
             this.Preco});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(244, 336);
-            this.dataGridView1.TabIndex = 0;
+            this.DataGridProdutos.Location = new System.Drawing.Point(12, 12);
+            this.DataGridProdutos.MultiSelect = false;
+            this.DataGridProdutos.Name = "DataGridProdutos";
+            this.DataGridProdutos.ReadOnly = true;
+            this.DataGridProdutos.RowTemplate.Height = 25;
+            this.DataGridProdutos.Size = new System.Drawing.Size(244, 336);
+            this.DataGridProdutos.TabIndex = 0;
             // 
             // Produto
             // 
@@ -69,7 +69,7 @@ namespace AV1_PAV.UI
             // 
             // BtSelecionar
             // 
-            this.BtSelecionar.Location = new System.Drawing.Point(398, 12);
+            this.BtSelecionar.Location = new System.Drawing.Point(262, 12);
             this.BtSelecionar.Name = "BtSelecionar";
             this.BtSelecionar.Size = new System.Drawing.Size(75, 23);
             this.BtSelecionar.TabIndex = 1;
@@ -79,7 +79,7 @@ namespace AV1_PAV.UI
             // 
             // BtCancelar
             // 
-            this.BtCancelar.Location = new System.Drawing.Point(398, 41);
+            this.BtCancelar.Location = new System.Drawing.Point(262, 41);
             this.BtCancelar.Name = "BtCancelar";
             this.BtCancelar.Size = new System.Drawing.Size(75, 23);
             this.BtCancelar.TabIndex = 2;
@@ -90,21 +90,21 @@ namespace AV1_PAV.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 361);
+            this.ClientSize = new System.Drawing.Size(344, 361);
             this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.BtSelecionar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DataGridProdutos);
             this.Name = "ProcurarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProcurarProduto";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridProdutos)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DataGridProdutos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Preco;
         private System.Windows.Forms.Button BtSelecionar;
