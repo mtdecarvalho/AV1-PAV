@@ -162,5 +162,22 @@ namespace AV1_PAV.UI
             if (selecionado)
                 SetTextoCliente();
         }
+
+        private void BtFinalizar_Click(object sender, EventArgs e)
+        {
+            DateTime thisDay = DateTime.Today;
+            String data = thisDay.ToString("d");
+            String hora = thisDay.Hour.ToString();
+
+            Venda venda = new();
+            venda.idVenda = numeroVenda;
+            venda.data = data;
+            venda.hora = hora;
+            venda.idCliente = c.idCliente;
+            venda.totalVenda = subtotal;
+            venda.situacaoVenda = "0";
+
+            ItemVendaSQL.IncluirListaVenda(Lista, venda);
+        }
     }
 }
