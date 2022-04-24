@@ -27,16 +27,6 @@ Para fazer esses dois recursos, precisaremos criar as tabelas dependentes, que s
 
 ### MUDANÇAS NO BANCO DE DADOS:
 
-Implementado Auto Increment nas seguintes tabelas:
-- Cliente (ID Cliente)
-- Fornecedor (ID Fornecedor)
-- ContaReceber (ID Conta Receber)
-- ContaPagar (ID Conta Pagar)
-- Venda (ID Venda)
-- Compra (ID Compra)
-- Produto (ID Produto)
-
-
 Implementado trigger ON DELETE SET NULL nas tabelas
 - ContaReceber (na referência a ID Cliente)
 - ContaPagar (na referência a ID Fornecedor)
