@@ -19,6 +19,7 @@ namespace AV1_PAV.UI
         private Cliente c;
         private double subtotal = 0;
         private int numeroItem = 0;
+        private int numeroVenda = 0;
         private bool selecionado;
 
         public const String CLIENTE = "Cliente";
@@ -102,7 +103,7 @@ namespace AV1_PAV.UI
         private void BtAdicionarCarrinho_Click(object sender, EventArgs e)
         {
             ItemVenda iv = new();
-            iv.idVenda = 1;
+            iv.idVenda = numeroVenda;
             iv.idProduto = p.idProduto;
             iv.numeroItem = numeroItem;
             iv.quantidade = int.Parse(BxQuantidade.Text);
@@ -125,14 +126,22 @@ namespace AV1_PAV.UI
             
             int pos = DataGridItemVenda.CurrentCell.RowIndex;
             String id = DataGridItemVenda.Rows[pos].Cells[0].Value.ToString();
-            Lista.RemoveAll(item => item.numeroItem == int.Parse(id));
+            ItemVenda aux = new();
+
+            aux = Lista.Find(item => item.numeroItem == int.Parse(id));
+
+            subtotal -= aux.totalItem;
+            LbSubTotal.Text = "Sub - Total: R$ " + subtotal;
+
+            Lista.Remove(aux);
             DataGridItemVenda.Rows.RemoveAt(pos);
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)
         {
-            //confirmar
-            Dispose();
+            DialogResult dialogResult = MessageBox.Show("Confirmação", "Deseja cancelar a venda?", MessageBoxButtons.YesNo);
+            if(dialogResult == DialogResult.Yes)
+                Dispose();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
