@@ -16,18 +16,35 @@ namespace AV1_PAV.UI
 {
     public partial class RemoverProduto : Form
     {
-        public void preencherGrid()
+        public MySqlCommand criarComando(string stringSql)
         {
-            DataTable tabela = new DataTable();
-            MySqlCommand comando = new MySqlCommand("SELECT * FROM produto", BancoDados.obterInstancia().obterConexao());
-            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(comando);
+            return new MySqlCommand(stringSql, BancoDados.obterInstancia().obterConexao());
+        }
+
+        public void criarTabela(MySqlDataAdapter dataAdapter)
+        {
+            DataTable tabela = new();
+           
             dataAdapter.Fill(tabela);
             dataGridView1.DataSource = tabela;
         }
+
+        public void preencherGrid()
+        {
+            MySqlDataAdapter dataAdapter = new(criarComando("SELECT * FROM produto"));
+            criarTabela(dataAdapter);
+        }
+
         public RemoverProduto()
         {
             InitializeComponent();
             preencherGrid();
+            dataGridView1.Columns[0].HeaderText = "ID";
+            dataGridView1.Columns[1].HeaderText = "Nome";
+            dataGridView1.Columns[2].HeaderText = "Quantidade em estoque";
+            dataGridView1.Columns[3].HeaderText = "Preço";
+            dataGridView1.Columns[4].HeaderText = "Unidade";
+            dataGridView1.Columns[5].HeaderText = "Fornecedor";
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -36,20 +53,25 @@ namespace AV1_PAV.UI
         }
 
         private void btnBusca_Click(object sender, EventArgs e)
-        { 
-            Produto p = new();
-            int selectedIndex = dataGridView1.CurrentCell.RowIndex;
-            int id;
-            if (selectedIndex > -1)
-            {
-                ControladorCadastroProduto c = new();
-                BancoDados.obterInstancia().conectar();
-                id = int.Parse(dataGridView1.Rows[selectedIndex].Cells["id_produto"].Value.ToString());
-                p.idProduto = id;
-                c.excluir(p);
-                dataGridView1.Rows.RemoveAt(selectedIndex);
-                BancoDados.obterInstancia().desconectar();
+        {
+            MySqlDataAdapter dataAdapter = new(criarComando("SELECT * FROM produto WHERE nome LIKE \"%" + tbxBusca.Text + "%\""));
+            criarTabela(dataAdapter);
+        }
 
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            int selecionado = dataGridView1.CurrentCell.RowIndex;
+            int id_selecionado;
+            if (selecionado > -1)
+            {
+                Produto produto = new();
+                ControladorCadastroProduto controlador = new();
+                BancoDados.obterInstancia().conectar();
+                id_selecionado = int.Parse(dataGridView1.Rows[selecionado].Cells["id_produto"].Value.ToString());
+                produto.idProduto = id_selecionado;
+                controlador.excluir(produto);
+                dataGridView1.Rows.RemoveAt(selecionado);
+                BancoDados.obterInstancia().desconectar();
             }
         }
     }
