@@ -219,6 +219,7 @@ namespace AV1_PAV.UI
             this.BtFinalizar.TabIndex = 16;
             this.BtFinalizar.Text = "Finalizar compra";
             this.BtFinalizar.UseVisualStyleBackColor = true;
+            this.BtFinalizar.Click += new System.EventHandler(this.BtFinalizar_Click);
             // 
             // BtCancelar
             // 
