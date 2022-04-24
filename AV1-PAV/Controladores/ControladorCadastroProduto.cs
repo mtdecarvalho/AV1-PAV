@@ -57,5 +57,6 @@ namespace AV1_PAV.Controladores
         {
             comando.Parameters.Add(Produto.ATRIBUTO_ID_PRODUTO, MySqlDbType.Int32);
         }
+
     }
 }

@@ -29,6 +29,7 @@ namespace AV1_PAV
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JanelaPrincipal));
             this.button1 = new System.Windows.Forms.Button();
             this.BtVenda = new System.Windows.Forms.Button();
             this.BtEstoque = new System.Windows.Forms.Button();
@@ -92,6 +93,7 @@ namespace AV1_PAV
             // 
             // BtCliente
             // 
+            this.BtCliente.Image = ((System.Drawing.Image)(resources.GetObject("BtCliente.Image")));
             this.BtCliente.Location = new System.Drawing.Point(0, 150);
             this.BtCliente.Margin = new System.Windows.Forms.Padding(0);
             this.BtCliente.Name = "BtCliente";
@@ -110,6 +112,7 @@ namespace AV1_PAV
             this.BtAdicionar.TabIndex = 5;
             this.BtAdicionar.Text = "Adicionar";
             this.BtAdicionar.UseVisualStyleBackColor = true;
+            this.BtAdicionar.Click += new System.EventHandler(this.BtAdicionar_Click);
             // 
             // BtRemover
             // 
@@ -120,6 +123,7 @@ namespace AV1_PAV
             this.BtRemover.TabIndex = 6;
             this.BtRemover.Text = "Remover";
             this.BtRemover.UseVisualStyleBackColor = true;
+            this.BtRemover.Click += new System.EventHandler(this.BtRemover_Click);
             // 
             // BtListar
             // 
@@ -130,6 +134,7 @@ namespace AV1_PAV
             this.BtListar.TabIndex = 7;
             this.BtListar.Text = "Listar";
             this.BtListar.UseVisualStyleBackColor = true;
+            this.BtListar.Click += new System.EventHandler(this.BtListar_Click);
             // 
             // BtFornecedor
             // 
@@ -155,9 +160,9 @@ namespace AV1_PAV
             // 
             // GenericBox
             // 
+            this.GenericBox.Controls.Add(this.BtListar);
             this.GenericBox.Controls.Add(this.BtRemover);
             this.GenericBox.Controls.Add(this.BtAdicionar);
-            this.GenericBox.Controls.Add(this.BtListar);
             this.GenericBox.Location = new System.Drawing.Point(270, 176);
             this.GenericBox.Name = "GenericBox";
             this.GenericBox.Size = new System.Drawing.Size(206, 218);
@@ -176,6 +181,7 @@ namespace AV1_PAV
             this.FinanceiroBox.TabIndex = 8;
             this.FinanceiroBox.TabStop = false;
             this.FinanceiroBox.Text = "Financeiro";
+            this.FinanceiroBox.Enter += new System.EventHandler(this.FinanceiroBox_Enter);
             // 
             // BxContasPagar
             // 
@@ -299,6 +305,7 @@ namespace AV1_PAV
             this.Controls.Add(this.BtVenda);
             this.Controls.Add(this.button1);
             this.Name = "JanelaPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PDV";
             this.GenericBox.ResumeLayout(false);
             this.FinanceiroBox.ResumeLayout(false);

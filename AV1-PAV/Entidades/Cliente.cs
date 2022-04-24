@@ -47,7 +47,7 @@ namespace AV1_PAV.Entidades
             comando.Parameters[ATRIBUTO_COMPLEMENTO].Value = complemento;
             comando.Parameters[ATRIBUTO_BAIRRO].Value = bairro;
             comando.Parameters[ATRIBUTO_CIDADE].Value = cidade;
-            comando.Parameters[ATRIBUTO_ESTADO].Value = bairro;
+            comando.Parameters[ATRIBUTO_ESTADO].Value = estado;
             comando.Parameters[ATRIBUTO_CEP].Value = cep;
             comando.Parameters[ATRIBUTO_TELEFONE].Value = telefone;
             comando.Parameters[ATRIBUTO_EMAIL].Value = email;
