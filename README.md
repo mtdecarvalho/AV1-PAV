@@ -24,3 +24,29 @@ Para fazer esses dois recursos, precisaremos criar as tabelas dependentes, que s
 ~~Em Produto, podemos fazer o ID_FORNECEDOR referenciar o fornecedor 0 que vai servir como o "fornecedor nulo"~~ (FEITO)
 
 ~~Em Venda, também podemos fazer o ID_CLIENTE referenciar o cliente 0 que vai servir como o "cliente nulo"~~ (FEITO)
+
+### MUDANÇAS NO BANCO DE DADOS:
+
+Implementado Auto Increment nas seguintes tabelas:
+- Cliente (ID Cliente)
+- Fornecedor (ID Fornecedor)
+- ContaReceber (ID Conta Receber)
+- ContaPagar (ID Conta Pagar)
+- Venda (ID Venda)
+- Compra (ID Compra)
+- Produto (ID Produto)
+
+
+Implementado trigger ON DELETE SET NULL nas tabelas
+- ContaReceber (na referência a ID Cliente)
+- ContaPagar (na referência a ID Fornecedor)
+- Venda (na referência a ID Cliente)
+- Compra (na referência a ID Fornecedor)
+- Produto (na referência a ID Fornecedor)
+- ItemVenda (na referência a ID Produto)
+- ItemCompra (na referência a ID Produto)
+
+Implementado trigger ON DELETE CASCADE nas tabelas:
+- ItemVenda (na referência a ID Venda)
+- ItemCompra (na referência a ID Compra)
+- FormaPagamentoVenda (na referência a ID Venda)
