@@ -109,7 +109,11 @@ namespace AV1_PAV
 
         private void BtListar_Click(object sender, EventArgs e)
         {
-
+            if (activePanel.Text == CLIENTES)
+            {
+                ListarConsultarCliente listarConsultarCliente = new();
+                listarConsultarCliente.ShowDialog();
+            }
         }
 
         private void FinanceiroBox_Enter(object sender, EventArgs e)

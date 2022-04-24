@@ -67,6 +67,7 @@ namespace AV1_PAV.UI
             this.Telefone,
             this.Email});
             this.dataGridClientes.Location = new System.Drawing.Point(12, 41);
+            this.dataGridClientes.MultiSelect = false;
             this.dataGridClientes.Name = "dataGridClientes";
             this.dataGridClientes.RowHeadersVisible = false;
             this.dataGridClientes.RowTemplate.Height = 25;
