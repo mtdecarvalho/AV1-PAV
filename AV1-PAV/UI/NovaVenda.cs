@@ -19,7 +19,7 @@ namespace AV1_PAV.UI
         private Cliente c;
         private double subtotal = 0;
         private int numeroItem = 0;
-        private int numeroVenda = 0;
+        private int numeroVenda;
         private bool selecionado;
 
         public const String CLIENTE = "Cliente";
@@ -30,6 +30,7 @@ namespace AV1_PAV.UI
             InitializeComponent();
             SetCliente("0");
             SetTextoCliente();
+            SetNumeroVenda();
             LimparTexto();
         }
 
@@ -58,6 +59,12 @@ namespace AV1_PAV.UI
             LbNome.Text = p.nome.ToString();
             BxPreco.Text = p.preco.ToString();
             AtualizarTotal();           
+        }
+
+        private void SetNumeroVenda()
+        {
+            numeroVenda = VendaSQL.BuscarMaiorID();
+            LbVenda.Text = "Venda Número: " + numeroVenda.ToString();
         }
 
         private void SetTextoCliente()
