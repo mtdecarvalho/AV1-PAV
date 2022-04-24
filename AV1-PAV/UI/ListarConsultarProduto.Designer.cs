@@ -34,9 +34,9 @@ namespace AV1_PAV.UI
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.grpConsulta = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxFornecedor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxUnidade = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbxEstoque = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,6 +44,8 @@ namespace AV1_PAV.UI
             this.label3 = new System.Windows.Forms.Label();
             this.tbxNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbxBusca = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grpConsulta.SuspendLayout();
             this.SuspendLayout();
@@ -60,21 +62,26 @@ namespace AV1_PAV.UI
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 43);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 43);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(605, 340);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(505, 340);
             this.dataGridView1.TabIndex = 2;
             // 
             // btnConsultar
             // 
             this.btnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultar.Image")));
             this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultar.Location = new System.Drawing.Point(272, 389);
+            this.btnConsultar.Location = new System.Drawing.Point(363, 388);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(86, 25);
             this.btnConsultar.TabIndex = 4;
@@ -85,9 +92,9 @@ namespace AV1_PAV.UI
             // 
             // grpConsulta
             // 
-            this.grpConsulta.Controls.Add(this.textBox2);
+            this.grpConsulta.Controls.Add(this.tbxFornecedor);
             this.grpConsulta.Controls.Add(this.label5);
-            this.grpConsulta.Controls.Add(this.textBox1);
+            this.grpConsulta.Controls.Add(this.tbxUnidade);
             this.grpConsulta.Controls.Add(this.label4);
             this.grpConsulta.Controls.Add(this.tbxEstoque);
             this.grpConsulta.Controls.Add(this.label2);
@@ -95,37 +102,37 @@ namespace AV1_PAV.UI
             this.grpConsulta.Controls.Add(this.label3);
             this.grpConsulta.Controls.Add(this.tbxNome);
             this.grpConsulta.Controls.Add(this.label1);
-            this.grpConsulta.Location = new System.Drawing.Point(25, 425);
+            this.grpConsulta.Location = new System.Drawing.Point(2, 425);
             this.grpConsulta.Name = "grpConsulta";
-            this.grpConsulta.Size = new System.Drawing.Size(593, 100);
+            this.grpConsulta.Size = new System.Drawing.Size(527, 100);
             this.grpConsulta.TabIndex = 5;
             this.grpConsulta.TabStop = false;
             this.grpConsulta.Text = "Consulta";
             // 
-            // textBox2
+            // tbxFornecedor
             // 
-            this.textBox2.Location = new System.Drawing.Point(384, 16);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(159, 23);
-            this.textBox2.TabIndex = 9;
+            this.tbxFornecedor.Location = new System.Drawing.Point(355, 17);
+            this.tbxFornecedor.Name = "tbxFornecedor";
+            this.tbxFornecedor.ReadOnly = true;
+            this.tbxFornecedor.Size = new System.Drawing.Size(159, 23);
+            this.tbxFornecedor.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(310, 20);
+            this.label5.Location = new System.Drawing.Point(279, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "Fornecedor:";
             // 
-            // textBox1
+            // tbxUnidade
             // 
-            this.textBox1.Location = new System.Drawing.Point(226, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(50, 23);
-            this.textBox1.TabIndex = 7;
+            this.tbxUnidade.Location = new System.Drawing.Point(226, 62);
+            this.tbxUnidade.Name = "tbxUnidade";
+            this.tbxUnidade.ReadOnly = true;
+            this.tbxUnidade.Size = new System.Drawing.Size(50, 23);
+            this.tbxUnidade.TabIndex = 7;
             // 
             // label4
             // 
@@ -187,11 +194,30 @@ namespace AV1_PAV.UI
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome:";
             // 
+            // tbxBusca
+            // 
+            this.tbxBusca.Location = new System.Drawing.Point(140, 389);
+            this.tbxBusca.Name = "tbxBusca";
+            this.tbxBusca.Size = new System.Drawing.Size(211, 23);
+            this.tbxBusca.TabIndex = 6;
+            this.tbxBusca.TextChanged += new System.EventHandler(this.tbxBusca_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(91, 394);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 15);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Nome:";
+            // 
             // ListarConsultarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 561);
+            this.ClientSize = new System.Drawing.Size(531, 561);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tbxBusca);
             this.Controls.Add(this.grpConsulta);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dataGridView1);
@@ -202,6 +228,7 @@ namespace AV1_PAV.UI
             this.grpConsulta.ResumeLayout(false);
             this.grpConsulta.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -215,11 +242,13 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.TextBox tbxNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxEstoque;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxUnidade;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbxPreco;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbxFornecedor;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbxBusca;
+        private System.Windows.Forms.Label label6;
     }
 }
