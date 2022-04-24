@@ -29,6 +29,7 @@ namespace AV1_PAV.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NovaVenda));
             this.BxProcurar = new System.Windows.Forms.TextBox();
             this.BtProcurar = new System.Windows.Forms.Button();
             this.LbProduto = new System.Windows.Forms.Label();
@@ -77,11 +78,14 @@ namespace AV1_PAV.UI
             // 
             // BtProcurar
             // 
-            this.BtProcurar.Location = new System.Drawing.Point(797, 89);
+            this.BtProcurar.Image = ((System.Drawing.Image)(resources.GetObject("BtProcurar.Image")));
+            this.BtProcurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtProcurar.Location = new System.Drawing.Point(792, 89);
             this.BtProcurar.Name = "BtProcurar";
-            this.BtProcurar.Size = new System.Drawing.Size(75, 23);
+            this.BtProcurar.Size = new System.Drawing.Size(80, 25);
             this.BtProcurar.TabIndex = 1;
             this.BtProcurar.Text = "Procurar";
+            this.BtProcurar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtProcurar.UseVisualStyleBackColor = true;
             this.BtProcurar.Click += new System.EventHandler(this.BtProcurar_Click);
             // 
@@ -233,11 +237,14 @@ namespace AV1_PAV.UI
             // 
             // BtSelecionarCliente
             // 
-            this.BtSelecionarCliente.Location = new System.Drawing.Point(797, 6);
+            this.BtSelecionarCliente.Image = ((System.Drawing.Image)(resources.GetObject("BtSelecionarCliente.Image")));
+            this.BtSelecionarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtSelecionarCliente.Location = new System.Drawing.Point(792, 6);
             this.BtSelecionarCliente.Name = "BtSelecionarCliente";
-            this.BtSelecionarCliente.Size = new System.Drawing.Size(75, 23);
+            this.BtSelecionarCliente.Size = new System.Drawing.Size(80, 25);
             this.BtSelecionarCliente.TabIndex = 19;
-            this.BtSelecionarCliente.Text = "Pesquisar";
+            this.BtSelecionarCliente.Text = "Procurar";
+            this.BtSelecionarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtSelecionarCliente.UseVisualStyleBackColor = true;
             this.BtSelecionarCliente.Click += new System.EventHandler(this.BtSelecionarCliente_Click);
             // 

@@ -29,6 +29,7 @@ namespace AV1_PAV
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarConsultarCliente));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.dataGridClientes = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,11 +74,12 @@ namespace AV1_PAV
             // 
             // btnVoltar
             // 
+            this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVoltar.Location = new System.Drawing.Point(12, 12);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.Size = new System.Drawing.Size(25, 25);
             this.btnVoltar.TabIndex = 0;
-            this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
@@ -97,13 +99,13 @@ namespace AV1_PAV
             this.CEP,
             this.Telefone,
             this.Email});
-            this.dataGridClientes.Location = new System.Drawing.Point(12, 41);
+            this.dataGridClientes.Location = new System.Drawing.Point(12, 43);
             this.dataGridClientes.MultiSelect = false;
             this.dataGridClientes.Name = "dataGridClientes";
             this.dataGridClientes.RowHeadersVisible = false;
             this.dataGridClientes.RowTemplate.Height = 25;
             this.dataGridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridClientes.Size = new System.Drawing.Size(860, 296);
+            this.dataGridClientes.Size = new System.Drawing.Size(860, 294);
             this.dataGridClientes.TabIndex = 1;
             // 
             // ID
@@ -387,11 +389,14 @@ namespace AV1_PAV
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(405, 343);
+            this.btnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultar.Image")));
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultar.Location = new System.Drawing.Point(399, 343);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.Size = new System.Drawing.Size(86, 25);
             this.btnConsultar.TabIndex = 3;
             this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 

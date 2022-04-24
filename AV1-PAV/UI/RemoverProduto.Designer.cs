@@ -29,6 +29,7 @@ namespace AV1_PAV.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoverProduto));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tbxBusca = new System.Windows.Forms.TextBox();
             this.btnBusca = new System.Windows.Forms.Button();
@@ -62,11 +63,14 @@ namespace AV1_PAV.UI
             // 
             // btnBusca
             // 
+            this.btnBusca.Image = ((System.Drawing.Image)(resources.GetObject("btnBusca.Image")));
+            this.btnBusca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBusca.Location = new System.Drawing.Point(444, 497);
             this.btnBusca.Name = "btnBusca";
-            this.btnBusca.Size = new System.Drawing.Size(75, 23);
+            this.btnBusca.Size = new System.Drawing.Size(77, 25);
             this.btnBusca.TabIndex = 2;
             this.btnBusca.Text = "Procurar";
+            this.btnBusca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBusca.UseVisualStyleBackColor = true;
             this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
             // 
@@ -91,11 +95,11 @@ namespace AV1_PAV.UI
             // 
             // btnVoltar
             // 
+            this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
             this.btnVoltar.Location = new System.Drawing.Point(12, 12);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.Size = new System.Drawing.Size(25, 25);
             this.btnVoltar.TabIndex = 7;
-            this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             // 
             // RemoverProduto

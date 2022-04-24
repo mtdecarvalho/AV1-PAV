@@ -29,6 +29,7 @@ namespace AV1_PAV.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoverCliente));
             this.dataGridClientes = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,11 +139,11 @@ namespace AV1_PAV.UI
             // 
             // btnVoltar
             // 
+            this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
             this.btnVoltar.Location = new System.Drawing.Point(12, 12);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.Size = new System.Drawing.Size(25, 25);
             this.btnVoltar.TabIndex = 1;
-            this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
@@ -155,11 +156,14 @@ namespace AV1_PAV.UI
             // 
             // btnProcurar
             // 
+            this.btnProcurar.Image = ((System.Drawing.Image)(resources.GetObject("btnProcurar.Image")));
+            this.btnProcurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProcurar.Location = new System.Drawing.Point(564, 497);
             this.btnProcurar.Name = "btnProcurar";
-            this.btnProcurar.Size = new System.Drawing.Size(75, 23);
+            this.btnProcurar.Size = new System.Drawing.Size(77, 25);
             this.btnProcurar.TabIndex = 3;
             this.btnProcurar.Text = "Procurar";
+            this.btnProcurar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProcurar.UseVisualStyleBackColor = true;
             this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
             // 

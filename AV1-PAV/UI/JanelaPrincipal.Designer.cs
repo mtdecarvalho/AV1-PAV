@@ -29,6 +29,7 @@ namespace AV1_PAV
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JanelaPrincipal));
             this.button1 = new System.Windows.Forms.Button();
             this.BtVenda = new System.Windows.Forms.Button();
             this.BtEstoque = new System.Windows.Forms.Button();
@@ -92,6 +93,7 @@ namespace AV1_PAV
             // 
             // BtCliente
             // 
+            this.BtCliente.Image = ((System.Drawing.Image)(resources.GetObject("BtCliente.Image")));
             this.BtCliente.Location = new System.Drawing.Point(0, 150);
             this.BtCliente.Margin = new System.Windows.Forms.Padding(0);
             this.BtCliente.Name = "BtCliente";

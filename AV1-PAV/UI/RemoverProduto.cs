@@ -38,7 +38,9 @@ namespace AV1_PAV.UI
         public RemoverProduto()
         {
             InitializeComponent();
+            BancoDados.obterInstancia().conectar();
             preencherGrid();
+            BancoDados.obterInstancia().desconectar();
             dataGridView1.Columns[0].HeaderText = "ID";
             dataGridView1.Columns[1].HeaderText = "Nome";
             dataGridView1.Columns[2].HeaderText = "Quantidade em estoque";
