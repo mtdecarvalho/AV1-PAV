@@ -15,7 +15,6 @@ namespace AV1_PAV.UI
     public partial class NovaVenda : Form
     {
         private List<ItemVenda> Lista = new();
-        private ItemVenda iv = new();
         private Produto p;
         private Cliente c;
         private double subtotal = 0;
@@ -75,12 +74,12 @@ namespace AV1_PAV.UI
 
         private void AtualizarTotal()
         {
-            BxTotal.Text = (Double.Parse(BxQuantidade.Text) * Double.Parse(BxPreco.Text)).ToString();
+            BxTotal.Text = (int.Parse(BxQuantidade.Text) * Double.Parse(BxPreco.Text)).ToString();
         }
 
-        private void AtualizaTabela()
+        private void AtualizaTabela(ItemVenda iv)
         {
-            String[] row = { p.idProduto.ToString(), p.nome, iv.quantidade.ToString(),
+            String[] row = { iv.numeroItem.ToString(), p.idProduto.ToString(), p.nome, iv.quantidade.ToString(),
                              iv.valorUnitario.ToString(), iv.totalItem.ToString() };
             DataGridItemVenda.Rows.Add(row);
         }
@@ -102,6 +101,7 @@ namespace AV1_PAV.UI
 
         private void BtAdicionarCarrinho_Click(object sender, EventArgs e)
         {
+            ItemVenda iv = new();
             iv.idVenda = 1;
             iv.idProduto = p.idProduto;
             iv.numeroItem = numeroItem;
@@ -109,7 +109,7 @@ namespace AV1_PAV.UI
             iv.valorUnitario = Double.Parse(BxPreco.Text);
             iv.totalItem = Double.Parse(BxTotal.Text);
 
-            AtualizaTabela();
+            AtualizaTabela(iv);
             Lista.Add(iv);
 
             subtotal += Double.Parse(BxTotal.Text);
@@ -122,12 +122,16 @@ namespace AV1_PAV.UI
 
         private void BtRemoverCarrinho_Click(object sender, EventArgs e)
         {
-            //Falta remover do grid
+            
+            int pos = DataGridItemVenda.CurrentCell.RowIndex;
+            String id = DataGridItemVenda.Rows[pos].Cells[0].Value.ToString();
+            Lista.RemoveAll(item => item.numeroItem == int.Parse(id));
+            DataGridItemVenda.Rows.RemoveAt(pos);
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)
         {
-            //Janela confirmar o cancelamento
+            //confirmar
             Dispose();
         }
 

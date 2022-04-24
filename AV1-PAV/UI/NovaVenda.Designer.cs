@@ -46,18 +46,25 @@ namespace AV1_PAV.UI
             this.BtAdicionarCarrinho = new System.Windows.Forms.Button();
             this.BtRemoverCarrinho = new System.Windows.Forms.Button();
             this.BtFinalizar = new System.Windows.Forms.Button();
-            this.DataGridItemVenda = new System.Windows.Forms.DataGridView();
-            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtCancelar = new System.Windows.Forms.Button();
             this.BtSelecionarCliente = new System.Windows.Forms.Button();
             this.LbVenda = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BxCliente = new System.Windows.Forms.TextBox();
             this.LbCliente = new System.Windows.Forms.Label();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridItemVenda = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridItemVenda)).BeginInit();
             this.SuspendLayout();
             // 
@@ -213,63 +220,6 @@ namespace AV1_PAV.UI
             this.BtFinalizar.Text = "Finalizar compra";
             this.BtFinalizar.UseVisualStyleBackColor = true;
             // 
-            // DataGridItemVenda
-            // 
-            this.DataGridItemVenda.AllowUserToAddRows = false;
-            this.DataGridItemVenda.AllowUserToDeleteRows = false;
-            this.DataGridItemVenda.AllowUserToResizeColumns = false;
-            this.DataGridItemVenda.AllowUserToResizeRows = false;
-            this.DataGridItemVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridItemVenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cod,
-            this.Produto,
-            this.Quantidade,
-            this.Preco,
-            this.Total});
-            this.DataGridItemVenda.Location = new System.Drawing.Point(12, 32);
-            this.DataGridItemVenda.MultiSelect = false;
-            this.DataGridItemVenda.Name = "DataGridItemVenda";
-            this.DataGridItemVenda.ReadOnly = true;
-            this.DataGridItemVenda.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.DataGridItemVenda.RowTemplate.Height = 25;
-            this.DataGridItemVenda.Size = new System.Drawing.Size(489, 480);
-            this.DataGridItemVenda.TabIndex = 17;
-            // 
-            // Cod
-            // 
-            this.Cod.HeaderText = "Cod.";
-            this.Cod.Name = "Cod";
-            this.Cod.ReadOnly = true;
-            this.Cod.Width = 50;
-            // 
-            // Produto
-            // 
-            this.Produto.HeaderText = "Produto";
-            this.Produto.Name = "Produto";
-            this.Produto.ReadOnly = true;
-            this.Produto.Width = 210;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.HeaderText = "Qtd.";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            this.Quantidade.Width = 50;
-            // 
-            // Preco
-            // 
-            this.Preco.HeaderText = "Preço";
-            this.Preco.Name = "Preco";
-            this.Preco.ReadOnly = true;
-            this.Preco.Width = 75;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 60;
-            // 
             // BtCancelar
             // 
             this.BtCancelar.Location = new System.Drawing.Point(578, 526);
@@ -325,18 +275,124 @@ namespace AV1_PAV.UI
             this.LbCliente.TabIndex = 23;
             this.LbCliente.Text = "NOME DO CLIENTE";
             // 
+            // Numero
+            // 
+            this.Numero.HeaderText = "Nº";
+            this.Numero.Name = "Numero";
+            this.Numero.Width = 10;
+            // 
+            // Cod
+            // 
+            this.Cod.HeaderText = "Cod.";
+            this.Cod.Name = "Cod";
+            this.Cod.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nº";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 30;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Cod.";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nº";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 30;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Cod.";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 40;
+            // 
+            // DataGridItemVenda
+            // 
+            this.DataGridItemVenda.AllowUserToAddRows = false;
+            this.DataGridItemVenda.AllowUserToDeleteRows = false;
+            this.DataGridItemVenda.AllowUserToResizeColumns = false;
+            this.DataGridItemVenda.AllowUserToResizeRows = false;
+            this.DataGridItemVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridItemVenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.Produto,
+            this.Quantidade,
+            this.Unidade,
+            this.Total});
+            this.DataGridItemVenda.Location = new System.Drawing.Point(12, 27);
+            this.DataGridItemVenda.MultiSelect = false;
+            this.DataGridItemVenda.Name = "DataGridItemVenda";
+            this.DataGridItemVenda.ReadOnly = true;
+            this.DataGridItemVenda.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DataGridItemVenda.RowTemplate.Height = 25;
+            this.DataGridItemVenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridItemVenda.Size = new System.Drawing.Size(489, 485);
+            this.DataGridItemVenda.TabIndex = 24;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Nº.";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 30;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Cod.";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 40;
+            // 
+            // Produto
+            // 
+            this.Produto.HeaderText = "Produto";
+            this.Produto.Name = "Produto";
+            this.Produto.ReadOnly = true;
+            this.Produto.Width = 235;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.HeaderText = "Qtd.";
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
+            this.Quantidade.Width = 40;
+            // 
+            // Unidade
+            // 
+            this.Unidade.HeaderText = "Unidade";
+            this.Unidade.Name = "Unidade";
+            this.Unidade.ReadOnly = true;
+            this.Unidade.Width = 60;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 40;
+            // 
             // NovaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.DataGridItemVenda);
             this.Controls.Add(this.LbCliente);
             this.Controls.Add(this.BxCliente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LbVenda);
             this.Controls.Add(this.BtSelecionarCliente);
             this.Controls.Add(this.BtCancelar);
-            this.Controls.Add(this.DataGridItemVenda);
             this.Controls.Add(this.BtFinalizar);
             this.Controls.Add(this.BtRemoverCarrinho);
             this.Controls.Add(this.BtAdicionarCarrinho);
@@ -381,12 +437,6 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Button BtAdicionarCarrinho;
         private System.Windows.Forms.Button BtRemoverCarrinho;
         private System.Windows.Forms.Button BtFinalizar;
-        private System.Windows.Forms.DataGridView DataGridItemVenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Preco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         protected internal System.Windows.Forms.TextBox BxPreco;
         private System.Windows.Forms.Button BtCancelar;
         private System.Windows.Forms.Button BtSelecionarCliente;
@@ -394,5 +444,18 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox BxCliente;
         private System.Windows.Forms.Label LbCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridView DataGridItemVenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }
