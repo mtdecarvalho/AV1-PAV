@@ -110,34 +110,40 @@ namespace AV1_PAV
             // 
             // BtAdicionar
             // 
+            this.BtAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("BtAdicionar.Image")));
             this.BtAdicionar.Location = new System.Drawing.Point(3, 16);
             this.BtAdicionar.Margin = new System.Windows.Forms.Padding(0);
             this.BtAdicionar.Name = "BtAdicionar";
             this.BtAdicionar.Size = new System.Drawing.Size(100, 100);
             this.BtAdicionar.TabIndex = 5;
             this.BtAdicionar.Text = "Adicionar";
+            this.BtAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtAdicionar.UseVisualStyleBackColor = true;
             this.BtAdicionar.Click += new System.EventHandler(this.BtAdicionar_Click);
             // 
             // BtRemover
             // 
+            this.BtRemover.Image = ((System.Drawing.Image)(resources.GetObject("BtRemover.Image")));
             this.BtRemover.Location = new System.Drawing.Point(103, 16);
             this.BtRemover.Margin = new System.Windows.Forms.Padding(0);
             this.BtRemover.Name = "BtRemover";
             this.BtRemover.Size = new System.Drawing.Size(100, 100);
             this.BtRemover.TabIndex = 6;
             this.BtRemover.Text = "Remover";
+            this.BtRemover.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtRemover.UseVisualStyleBackColor = true;
             this.BtRemover.Click += new System.EventHandler(this.BtRemover_Click);
             // 
             // BtListar
             // 
+            this.BtListar.Image = ((System.Drawing.Image)(resources.GetObject("BtListar.Image")));
             this.BtListar.Location = new System.Drawing.Point(3, 116);
             this.BtListar.Margin = new System.Windows.Forms.Padding(0);
             this.BtListar.Name = "BtListar";
             this.BtListar.Size = new System.Drawing.Size(200, 100);
             this.BtListar.TabIndex = 7;
             this.BtListar.Text = "Listar";
+            this.BtListar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtListar.UseVisualStyleBackColor = true;
             this.BtListar.Click += new System.EventHandler(this.BtListar_Click);
             // 

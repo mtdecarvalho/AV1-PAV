@@ -77,7 +77,6 @@ namespace AV1_PAV
             // btnVoltar
             // 
             this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
-            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVoltar.Location = new System.Drawing.Point(12, 12);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(25, 25);
@@ -446,7 +445,8 @@ namespace AV1_PAV
             this.Controls.Add(this.dataGridClientes);
             this.Controls.Add(this.btnVoltar);
             this.Name = "ListarConsultarCliente";
-            this.Text = "ListarConsultarCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Listar clientes";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

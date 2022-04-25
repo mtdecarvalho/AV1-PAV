@@ -73,7 +73,7 @@ namespace AV1_PAV.UI
             this.dataGridClientes.RowHeadersVisible = false;
             this.dataGridClientes.RowTemplate.Height = 25;
             this.dataGridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridClientes.Size = new System.Drawing.Size(860, 478);
+            this.dataGridClientes.Size = new System.Drawing.Size(860, 474);
             this.dataGridClientes.TabIndex = 0;
             // 
             // ID
@@ -161,7 +161,7 @@ namespace AV1_PAV.UI
             // 
             // tbxBusca
             // 
-            this.tbxBusca.Location = new System.Drawing.Point(295, 526);
+            this.tbxBusca.Location = new System.Drawing.Point(290, 526);
             this.tbxBusca.Name = "tbxBusca";
             this.tbxBusca.Size = new System.Drawing.Size(263, 23);
             this.tbxBusca.TabIndex = 2;
@@ -169,18 +169,21 @@ namespace AV1_PAV.UI
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(564, 525);
+            this.btnRemover.Image = ((System.Drawing.Image)(resources.GetObject("btnRemover.Image")));
+            this.btnRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemover.Location = new System.Drawing.Point(559, 521);
             this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(75, 23);
+            this.btnRemover.Size = new System.Drawing.Size(85, 30);
             this.btnRemover.TabIndex = 4;
             this.btnRemover.Text = "Remover";
+            this.btnRemover.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRemover.UseVisualStyleBackColor = true;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(246, 529);
+            this.lblNome.Location = new System.Drawing.Point(241, 529);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(43, 15);
             this.lblNome.TabIndex = 5;
@@ -197,6 +200,7 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.dataGridClientes);
             this.Name = "RemoverCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Remover cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).EndInit();
             this.ResumeLayout(false);

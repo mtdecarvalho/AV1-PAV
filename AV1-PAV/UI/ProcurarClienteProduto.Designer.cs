@@ -29,6 +29,7 @@ namespace AV1_PAV.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcurarClienteProduto));
             this.DataGrid = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,21 +72,25 @@ namespace AV1_PAV.UI
             // 
             // BtSelecionar
             // 
+            this.BtSelecionar.Image = ((System.Drawing.Image)(resources.GetObject("BtSelecionar.Image")));
             this.BtSelecionar.Location = new System.Drawing.Point(262, 12);
             this.BtSelecionar.Name = "BtSelecionar";
-            this.BtSelecionar.Size = new System.Drawing.Size(75, 23);
+            this.BtSelecionar.Size = new System.Drawing.Size(75, 50);
             this.BtSelecionar.TabIndex = 1;
             this.BtSelecionar.Text = "Selecionar";
+            this.BtSelecionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtSelecionar.UseVisualStyleBackColor = true;
             this.BtSelecionar.Click += new System.EventHandler(this.BtSelecionar_Click);
             // 
             // BtCancelar
             // 
-            this.BtCancelar.Location = new System.Drawing.Point(262, 41);
+            this.BtCancelar.Image = ((System.Drawing.Image)(resources.GetObject("BtCancelar.Image")));
+            this.BtCancelar.Location = new System.Drawing.Point(262, 68);
             this.BtCancelar.Name = "BtCancelar";
-            this.BtCancelar.Size = new System.Drawing.Size(75, 23);
+            this.BtCancelar.Size = new System.Drawing.Size(75, 50);
             this.BtCancelar.TabIndex = 2;
             this.BtCancelar.Text = "Cancelar";
+            this.BtCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtCancelar.UseVisualStyleBackColor = true;
             this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);
             // 
@@ -98,7 +103,7 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.BtSelecionar);
             this.Controls.Add(this.DataGrid);
             this.Name = "ProcurarClienteProduto";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Procurar Produto";
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).EndInit();
             this.ResumeLayout(false);

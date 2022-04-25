@@ -29,6 +29,7 @@ namespace AV1_PAV.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdicionarClienteFornecedor));
             this.lblNome = new System.Windows.Forms.Label();
             this.tbxNome = new System.Windows.Forms.TextBox();
             this.tbxBairro = new System.Windows.Forms.TextBox();
@@ -227,21 +228,25 @@ namespace AV1_PAV.UI
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(89, 354);
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.Location = new System.Drawing.Point(89, 349);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 50);
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(170, 354);
+            this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
+            this.btnOk.Location = new System.Drawing.Point(170, 349);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.Size = new System.Drawing.Size(75, 50);
             this.btnOk.TabIndex = 13;
             this.btnOk.Text = "OK";
+            this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
@@ -314,12 +319,12 @@ namespace AV1_PAV.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 386);
+            this.ClientSize = new System.Drawing.Size(334, 411);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancelar);
             this.Name = "AdicionarClienteFornecedor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

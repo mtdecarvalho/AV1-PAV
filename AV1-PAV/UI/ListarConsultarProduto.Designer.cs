@@ -52,7 +52,6 @@ namespace AV1_PAV.UI
             // btnVoltar
             // 
             this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
-            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVoltar.Location = new System.Drawing.Point(12, 12);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(25, 25);
@@ -210,7 +209,8 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnVoltar);
             this.Name = "ListarConsultarProduto";
-            this.Text = "ListarConsultarProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Listar produtos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.grpConsulta.ResumeLayout(false);
             this.grpConsulta.PerformLayout();
