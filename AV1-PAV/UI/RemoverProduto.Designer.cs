@@ -49,13 +49,13 @@ namespace AV1_PAV.UI
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(509, 450);
+            this.dataGridView1.Size = new System.Drawing.Size(509, 479);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // tbxBusca
             // 
-            this.tbxBusca.Location = new System.Drawing.Point(137, 497);
+            this.tbxBusca.Location = new System.Drawing.Point(122, 526);
             this.tbxBusca.Name = "tbxBusca";
             this.tbxBusca.Size = new System.Drawing.Size(263, 23);
             this.tbxBusca.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace AV1_PAV.UI
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(406, 498);
+            this.btnRemover.Location = new System.Drawing.Point(391, 527);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(75, 23);
             this.btnRemover.TabIndex = 3;
@@ -74,7 +74,7 @@ namespace AV1_PAV.UI
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(88, 502);
+            this.lblNome.Location = new System.Drawing.Point(73, 531);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(43, 15);
             this.lblNome.TabIndex = 6;

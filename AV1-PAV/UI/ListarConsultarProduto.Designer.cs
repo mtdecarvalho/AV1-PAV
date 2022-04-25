@@ -67,14 +67,14 @@ namespace AV1_PAV.UI
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(14, 43);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 43);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(505, 340);
+            this.dataGridView1.Size = new System.Drawing.Size(505, 371);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -90,7 +90,7 @@ namespace AV1_PAV.UI
             this.grpConsulta.Controls.Add(this.label3);
             this.grpConsulta.Controls.Add(this.tbxNome);
             this.grpConsulta.Controls.Add(this.label1);
-            this.grpConsulta.Location = new System.Drawing.Point(2, 425);
+            this.grpConsulta.Location = new System.Drawing.Point(2, 449);
             this.grpConsulta.Name = "grpConsulta";
             this.grpConsulta.Size = new System.Drawing.Size(527, 100);
             this.grpConsulta.TabIndex = 5;
@@ -184,7 +184,7 @@ namespace AV1_PAV.UI
             // 
             // tbxBusca
             // 
-            this.tbxBusca.Location = new System.Drawing.Point(160, 389);
+            this.tbxBusca.Location = new System.Drawing.Point(184, 420);
             this.tbxBusca.Name = "tbxBusca";
             this.tbxBusca.Size = new System.Drawing.Size(211, 23);
             this.tbxBusca.TabIndex = 6;
@@ -193,7 +193,7 @@ namespace AV1_PAV.UI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(112, 394);
+            this.label6.Location = new System.Drawing.Point(136, 425);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 15);
             this.label6.TabIndex = 7;
