@@ -113,6 +113,10 @@ namespace AV1_PAV
             {
                 ListarConsultarCliente listarConsultarCliente = new();
                 listarConsultarCliente.ShowDialog();
+            } else if (activePanel.Text == ESTOQUE)
+            {
+                ListarConsultarProduto listarConsultarProduto = new();
+                listarConsultarProduto.ShowDialog();
             }
         }
 
