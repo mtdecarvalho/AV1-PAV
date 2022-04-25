@@ -32,7 +32,6 @@ namespace AV1_PAV.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarConsultarProduto));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnConsultar = new System.Windows.Forms.Button();
             this.grpConsulta = new System.Windows.Forms.GroupBox();
             this.tbxFornecedor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,6 +58,7 @@ namespace AV1_PAV.UI
             this.btnVoltar.Size = new System.Drawing.Size(25, 25);
             this.btnVoltar.TabIndex = 1;
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // dataGridView1
             // 
@@ -76,19 +76,7 @@ namespace AV1_PAV.UI
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(505, 340);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultar.Image")));
-            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultar.Location = new System.Drawing.Point(363, 388);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(86, 25);
-            this.btnConsultar.TabIndex = 4;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // grpConsulta
             // 
@@ -196,7 +184,7 @@ namespace AV1_PAV.UI
             // 
             // tbxBusca
             // 
-            this.tbxBusca.Location = new System.Drawing.Point(140, 389);
+            this.tbxBusca.Location = new System.Drawing.Point(160, 389);
             this.tbxBusca.Name = "tbxBusca";
             this.tbxBusca.Size = new System.Drawing.Size(211, 23);
             this.tbxBusca.TabIndex = 6;
@@ -205,7 +193,7 @@ namespace AV1_PAV.UI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(91, 394);
+            this.label6.Location = new System.Drawing.Point(112, 394);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 15);
             this.label6.TabIndex = 7;
@@ -219,7 +207,6 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbxBusca);
             this.Controls.Add(this.grpConsulta);
-            this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnVoltar);
             this.Name = "ListarConsultarProduto";
@@ -236,7 +223,6 @@ namespace AV1_PAV.UI
 
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.GroupBox grpConsulta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxNome;

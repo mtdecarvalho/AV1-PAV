@@ -34,6 +34,7 @@ namespace AV1_PAV.UI
             MySqlDataAdapter dataAdapter = new(criarComando("SELECT * FROM produto"));
             criarTabela(dataAdapter);
         }
+
         public ListarConsultarProduto()
         {
             InitializeComponent();
@@ -50,7 +51,18 @@ namespace AV1_PAV.UI
             dataGridView1.Columns["id_produto"].Visible = false;
         }
 
-        private void btnConsultar_Click(object sender, EventArgs e)
+        private void tbxBusca_TextChanged(object sender, EventArgs e)
+        {
+            MySqlDataAdapter dataAdapter = new(criarComando("SELECT * FROM produto WHERE nome LIKE \"%" + tbxBusca.Text + "%\""));
+            criarTabela(dataAdapter);
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int selecionado = dataGridView1.CurrentCell.RowIndex;
             int id_selecionado;
@@ -76,12 +88,6 @@ namespace AV1_PAV.UI
                 criarTabela(dataAdapter);
 
             }
-        }
-
-        private void tbxBusca_TextChanged(object sender, EventArgs e)
-        {
-            MySqlDataAdapter dataAdapter = new(criarComando("SELECT * FROM produto WHERE nome LIKE \"%" + tbxBusca.Text + "%\""));
-            criarTabela(dataAdapter);
         }
     }
     }
