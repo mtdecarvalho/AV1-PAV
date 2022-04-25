@@ -71,23 +71,27 @@ namespace AV1_PAV
             // 
             // BtVenda
             // 
+            this.BtVenda.Image = ((System.Drawing.Image)(resources.GetObject("BtVenda.Image")));
             this.BtVenda.Location = new System.Drawing.Point(0, 0);
             this.BtVenda.Margin = new System.Windows.Forms.Padding(0);
             this.BtVenda.Name = "BtVenda";
             this.BtVenda.Size = new System.Drawing.Size(150, 150);
             this.BtVenda.TabIndex = 1;
             this.BtVenda.Text = "Vendas";
+            this.BtVenda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtVenda.UseVisualStyleBackColor = true;
             this.BtVenda.Click += new System.EventHandler(this.BtVenda_Click);
             // 
             // BtEstoque
             // 
+            this.BtEstoque.Image = ((System.Drawing.Image)(resources.GetObject("BtEstoque.Image")));
             this.BtEstoque.Location = new System.Drawing.Point(0, 250);
             this.BtEstoque.Margin = new System.Windows.Forms.Padding(0);
             this.BtEstoque.Name = "BtEstoque";
             this.BtEstoque.Size = new System.Drawing.Size(150, 100);
             this.BtEstoque.TabIndex = 2;
             this.BtEstoque.Text = "Estoque";
+            this.BtEstoque.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtEstoque.UseVisualStyleBackColor = true;
             this.BtEstoque.Click += new System.EventHandler(this.BtEstoque_Click);
             // 
@@ -100,61 +104,72 @@ namespace AV1_PAV
             this.BtCliente.Size = new System.Drawing.Size(150, 100);
             this.BtCliente.TabIndex = 3;
             this.BtCliente.Text = "Clientes";
+            this.BtCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtCliente.UseVisualStyleBackColor = true;
             this.BtCliente.Click += new System.EventHandler(this.BtCliente_Click);
             // 
             // BtAdicionar
             // 
+            this.BtAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("BtAdicionar.Image")));
             this.BtAdicionar.Location = new System.Drawing.Point(3, 16);
             this.BtAdicionar.Margin = new System.Windows.Forms.Padding(0);
             this.BtAdicionar.Name = "BtAdicionar";
             this.BtAdicionar.Size = new System.Drawing.Size(100, 100);
             this.BtAdicionar.TabIndex = 5;
             this.BtAdicionar.Text = "Adicionar";
+            this.BtAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtAdicionar.UseVisualStyleBackColor = true;
             this.BtAdicionar.Click += new System.EventHandler(this.BtAdicionar_Click);
             // 
             // BtRemover
             // 
+            this.BtRemover.Image = ((System.Drawing.Image)(resources.GetObject("BtRemover.Image")));
             this.BtRemover.Location = new System.Drawing.Point(103, 16);
             this.BtRemover.Margin = new System.Windows.Forms.Padding(0);
             this.BtRemover.Name = "BtRemover";
             this.BtRemover.Size = new System.Drawing.Size(100, 100);
             this.BtRemover.TabIndex = 6;
             this.BtRemover.Text = "Remover";
+            this.BtRemover.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtRemover.UseVisualStyleBackColor = true;
             this.BtRemover.Click += new System.EventHandler(this.BtRemover_Click);
             // 
             // BtListar
             // 
+            this.BtListar.Image = ((System.Drawing.Image)(resources.GetObject("BtListar.Image")));
             this.BtListar.Location = new System.Drawing.Point(3, 116);
             this.BtListar.Margin = new System.Windows.Forms.Padding(0);
             this.BtListar.Name = "BtListar";
             this.BtListar.Size = new System.Drawing.Size(200, 100);
             this.BtListar.TabIndex = 7;
             this.BtListar.Text = "Listar";
+            this.BtListar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtListar.UseVisualStyleBackColor = true;
             this.BtListar.Click += new System.EventHandler(this.BtListar_Click);
             // 
             // BtFornecedor
             // 
+            this.BtFornecedor.Image = ((System.Drawing.Image)(resources.GetObject("BtFornecedor.Image")));
             this.BtFornecedor.Location = new System.Drawing.Point(0, 350);
             this.BtFornecedor.Margin = new System.Windows.Forms.Padding(0);
             this.BtFornecedor.Name = "BtFornecedor";
             this.BtFornecedor.Size = new System.Drawing.Size(150, 100);
             this.BtFornecedor.TabIndex = 8;
             this.BtFornecedor.Text = "Fornecedores";
+            this.BtFornecedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtFornecedor.UseVisualStyleBackColor = true;
             this.BtFornecedor.Click += new System.EventHandler(this.BtFornecedor_Click);
             // 
             // BtFinanceiro
             // 
+            this.BtFinanceiro.Image = ((System.Drawing.Image)(resources.GetObject("BtFinanceiro.Image")));
             this.BtFinanceiro.Location = new System.Drawing.Point(0, 450);
             this.BtFinanceiro.Margin = new System.Windows.Forms.Padding(0);
             this.BtFinanceiro.Name = "BtFinanceiro";
             this.BtFinanceiro.Size = new System.Drawing.Size(150, 150);
             this.BtFinanceiro.TabIndex = 10;
             this.BtFinanceiro.Text = "Financeiro";
+            this.BtFinanceiro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtFinanceiro.UseVisualStyleBackColor = true;
             this.BtFinanceiro.Click += new System.EventHandler(this.BtContasReceber_Click);
             // 

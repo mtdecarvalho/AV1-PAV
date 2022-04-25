@@ -47,6 +47,7 @@ namespace AV1_PAV.UI
             dataGridView1.Columns[3].HeaderText = "Preço";
             dataGridView1.Columns[4].HeaderText = "Unidade";
             dataGridView1.Columns[5].HeaderText = "Fornecedor";
+            dataGridView1.Columns["id_produto"].Visible = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -54,11 +55,6 @@ namespace AV1_PAV.UI
 
         }
 
-        private void btnBusca_Click(object sender, EventArgs e)
-        {
-            MySqlDataAdapter dataAdapter = new(criarComando("SELECT * FROM produto WHERE nome LIKE \"%" + tbxBusca.Text + "%\""));
-            criarTabela(dataAdapter);
-        }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
@@ -66,15 +62,26 @@ namespace AV1_PAV.UI
             int id_selecionado;
             if (selecionado > -1)
             {
+                BancoDados.obterInstancia().conectar();
                 Produto produto = new();
                 ControladorCadastroProduto controlador = new();
-                BancoDados.obterInstancia().conectar();
                 id_selecionado = int.Parse(dataGridView1.Rows[selecionado].Cells["id_produto"].Value.ToString());
                 produto.idProduto = id_selecionado;
                 controlador.excluir(produto);
                 dataGridView1.Rows.RemoveAt(selecionado);
                 BancoDados.obterInstancia().desconectar();
             }
+        }
+
+        private void tbxBusca_TextChanged(object sender, EventArgs e)
+        {
+            MySqlDataAdapter dataAdapter = new(criarComando("SELECT * FROM produto WHERE nome LIKE \"%" + tbxBusca.Text + "%\""));
+            criarTabela(dataAdapter);
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -71,41 +71,19 @@ namespace AV1_PAV
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            /*Cliente cliente = new();
-            cliente.idCliente = int.Parse(dataGridClientes.SelectedRows[0].Cells[0].Value.ToString());
-            BancoDados.obterInstancia().conectar();
-            ControladorCadastroCliente controlador = new();
-            controlador.selecionar(cliente);
-            BancoDados.obterInstancia().desconectar();
+            int selectedRow = dataGridClientes.CurrentCell.RowIndex;
 
-            tbxNome.Text = cliente.nome;
-            tbxCPF.Text = cliente.cpfCnpj;
-            tbxLogradouro.Text = cliente.logradouro;
-            tbxNumero.Text = cliente.numero.ToString() ;
-            tbxComplemento.Text = cliente.complemento;
-            tbxBairro.Text = cliente.bairro;
-            tbxCidade.Text = cliente.cidade;
-            tbxEstado.Text = cliente.estado;
-            tbxCEP.Text = cliente.cep;
-            tbxTelefone.Text = cliente.telefone;
-            tbxEmail.Text = cliente.email;*/
-            string busca = tbxBusca.Text;
-            List<Cliente> novaLista = new();
-
-            dataGridClientes.Rows.Clear();
-            
-            foreach (Cliente cliente in Lista)
-            {
-                if (cliente.nome.Contains(busca))
-                {
-                    String[] linha = {
-                        cliente.idCliente.ToString(), cliente.nome, cliente.cpfCnpj, cliente.logradouro,
-                        cliente.numero.ToString(), cliente.complemento, cliente.bairro, cliente.cidade,
-                        cliente.estado, cliente.cep, cliente.telefone, cliente.email
-                    };
-                    dataGridClientes.Rows.Add(linha);
-                }
-            }
+            tbxNome.Text = dataGridClientes.Rows[selectedRow].Cells[1].Value.ToString();
+            tbxCPF.Text = dataGridClientes.Rows[selectedRow].Cells[2].Value.ToString();
+            tbxLogradouro.Text = dataGridClientes.Rows[selectedRow].Cells[3].Value.ToString();
+            tbxNumero.Text = dataGridClientes.Rows[selectedRow].Cells[4].Value.ToString();
+            tbxComplemento.Text = dataGridClientes.Rows[selectedRow].Cells[5].Value.ToString();
+            tbxBairro.Text = dataGridClientes.Rows[selectedRow].Cells[6].Value.ToString();
+            tbxCidade.Text = dataGridClientes.Rows[selectedRow].Cells[7].Value.ToString();
+            tbxEstado.Text = dataGridClientes.Rows[selectedRow].Cells[8].Value.ToString();
+            tbxCEP.Text = dataGridClientes.Rows[selectedRow].Cells[9].Value.ToString();
+            tbxTelefone.Text = dataGridClientes.Rows[selectedRow].Cells[10].Value.ToString();
+            tbxEmail.Text = dataGridClientes.Rows[selectedRow].Cells[11].Value.ToString();
         }
 
         private void dataGridClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -123,6 +101,25 @@ namespace AV1_PAV
             tbxCEP.Text = dataGridClientes.Rows[selectedRow].Cells[9].Value.ToString();
             tbxTelefone.Text = dataGridClientes.Rows[selectedRow].Cells[10].Value.ToString();
             tbxEmail.Text = dataGridClientes.Rows[selectedRow].Cells[11].Value.ToString();
+        }
+
+        private void tbxBusca_TextChanged(object sender, EventArgs e)
+        {
+            string busca = tbxBusca.Text;
+            dataGridClientes.Rows.Clear();
+
+            foreach (Cliente cliente in Lista)
+            {
+                if (cliente.nome.Contains(busca))
+                {
+                    String[] linha = {
+                        cliente.idCliente.ToString(), cliente.nome, cliente.cpfCnpj, cliente.logradouro,
+                        cliente.numero.ToString(), cliente.complemento, cliente.bairro, cliente.cidade,
+                        cliente.estado, cliente.cep, cliente.telefone, cliente.email
+                    };
+                    dataGridClientes.Rows.Add(linha);
+                }
+            }
         }
     }
 }

@@ -44,8 +44,7 @@ namespace AV1_PAV.UI
             this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.tbxNome = new System.Windows.Forms.TextBox();
-            this.btnProcurar = new System.Windows.Forms.Button();
+            this.tbxBusca = new System.Windows.Forms.TextBox();
             this.btnRemover = new System.Windows.Forms.Button();
             this.lblNome = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).BeginInit();
@@ -70,72 +69,85 @@ namespace AV1_PAV.UI
             this.dataGridClientes.Location = new System.Drawing.Point(12, 41);
             this.dataGridClientes.MultiSelect = false;
             this.dataGridClientes.Name = "dataGridClientes";
+            this.dataGridClientes.ReadOnly = true;
             this.dataGridClientes.RowHeadersVisible = false;
             this.dataGridClientes.RowTemplate.Height = 25;
             this.dataGridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridClientes.Size = new System.Drawing.Size(860, 450);
+            this.dataGridClientes.Size = new System.Drawing.Size(860, 474);
             this.dataGridClientes.TabIndex = 0;
             // 
             // ID
             // 
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             this.ID.Visible = false;
             // 
             // Nome
             // 
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
             // 
             // CPF
             // 
             this.CPF.HeaderText = "CPF";
             this.CPF.Name = "CPF";
+            this.CPF.ReadOnly = true;
             // 
             // Logradouro
             // 
             this.Logradouro.HeaderText = "Logradouro";
             this.Logradouro.Name = "Logradouro";
+            this.Logradouro.ReadOnly = true;
             // 
             // Numero
             // 
             this.Numero.HeaderText = "Numero";
             this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
             // 
             // Complemento
             // 
             this.Complemento.HeaderText = "Complemento";
             this.Complemento.Name = "Complemento";
+            this.Complemento.ReadOnly = true;
             // 
             // Bairro
             // 
             this.Bairro.HeaderText = "Bairro";
             this.Bairro.Name = "Bairro";
+            this.Bairro.ReadOnly = true;
             // 
             // Cidade
             // 
             this.Cidade.HeaderText = "Cidade";
             this.Cidade.Name = "Cidade";
+            this.Cidade.ReadOnly = true;
             // 
             // Estado
             // 
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
             // CEP
             // 
             this.CEP.HeaderText = "CEP";
             this.CEP.Name = "CEP";
+            this.CEP.ReadOnly = true;
             // 
             // Telefone
             // 
             this.Telefone.HeaderText = "Telefone";
             this.Telefone.Name = "Telefone";
+            this.Telefone.ReadOnly = true;
             // 
             // Email
             // 
             this.Email.HeaderText = "Email";
             this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
             // 
             // btnVoltar
             // 
@@ -147,40 +159,31 @@ namespace AV1_PAV.UI
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // tbxNome
+            // tbxBusca
             // 
-            this.tbxNome.Location = new System.Drawing.Point(295, 497);
-            this.tbxNome.Name = "tbxNome";
-            this.tbxNome.Size = new System.Drawing.Size(263, 23);
-            this.tbxNome.TabIndex = 2;
-            // 
-            // btnProcurar
-            // 
-            this.btnProcurar.Image = ((System.Drawing.Image)(resources.GetObject("btnProcurar.Image")));
-            this.btnProcurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProcurar.Location = new System.Drawing.Point(564, 497);
-            this.btnProcurar.Name = "btnProcurar";
-            this.btnProcurar.Size = new System.Drawing.Size(77, 25);
-            this.btnProcurar.TabIndex = 3;
-            this.btnProcurar.Text = "Procurar";
-            this.btnProcurar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProcurar.UseVisualStyleBackColor = true;
-            this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
+            this.tbxBusca.Location = new System.Drawing.Point(290, 526);
+            this.tbxBusca.Name = "tbxBusca";
+            this.tbxBusca.Size = new System.Drawing.Size(263, 23);
+            this.tbxBusca.TabIndex = 2;
+            this.tbxBusca.TextChanged += new System.EventHandler(this.tbxBusca_TextChanged);
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(414, 526);
+            this.btnRemover.Image = ((System.Drawing.Image)(resources.GetObject("btnRemover.Image")));
+            this.btnRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemover.Location = new System.Drawing.Point(559, 521);
             this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(75, 23);
+            this.btnRemover.Size = new System.Drawing.Size(85, 30);
             this.btnRemover.TabIndex = 4;
             this.btnRemover.Text = "Remover";
+            this.btnRemover.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRemover.UseVisualStyleBackColor = true;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(246, 500);
+            this.lblNome.Location = new System.Drawing.Point(241, 529);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(43, 15);
             this.lblNome.TabIndex = 5;
@@ -193,11 +196,11 @@ namespace AV1_PAV.UI
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.btnRemover);
-            this.Controls.Add(this.btnProcurar);
-            this.Controls.Add(this.tbxNome);
+            this.Controls.Add(this.tbxBusca);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.dataGridClientes);
             this.Name = "RemoverCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Remover cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).EndInit();
             this.ResumeLayout(false);
@@ -209,8 +212,7 @@ namespace AV1_PAV.UI
 
         private System.Windows.Forms.DataGridView dataGridClientes;
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.TextBox tbxNome;
-        private System.Windows.Forms.Button btnProcurar;
+        private System.Windows.Forms.TextBox tbxBusca;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
