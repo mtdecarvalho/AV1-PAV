@@ -68,14 +68,6 @@ namespace AV1_PAV.UI
             this.Close();
         }
 
-        private void btnProcurar_Click(object sender, EventArgs e)
-        {
-            string nome = tbxNome.Text;
-            LerDoBanco("SELECT * FROM cliente WHERE nome LIKE \"%" + nome + "%\"");
-
-            atualizarGrid();
-        }
-
         private void btnRemover_Click(object sender, EventArgs e)
         {
             Cliente cliente = new();
@@ -88,6 +80,25 @@ namespace AV1_PAV.UI
                 BancoDados.obterInstancia().desconectar();
                 LerDoBanco();
                 atualizarGrid();
+            }
+        }
+
+        private void tbxBusca_TextChanged(object sender, EventArgs e)
+        {
+            string busca = tbxBusca.Text;
+            dataGridClientes.Rows.Clear();
+
+            foreach (Cliente cliente in Lista)
+            {
+                if (cliente.nome.Contains(busca))
+                {
+                    String[] linha = {
+                        cliente.idCliente.ToString(), cliente.nome, cliente.cpfCnpj, cliente.logradouro,
+                        cliente.numero.ToString(), cliente.complemento, cliente.bairro, cliente.cidade,
+                        cliente.estado, cliente.cep, cliente.telefone, cliente.email
+                    };
+                    dataGridClientes.Rows.Add(linha);
+                }
             }
         }
     }

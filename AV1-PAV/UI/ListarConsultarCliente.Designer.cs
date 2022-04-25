@@ -69,6 +69,7 @@ namespace AV1_PAV
             this.tbxNome = new System.Windows.Forms.TextBox();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.tbxBusca = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +104,7 @@ namespace AV1_PAV
             this.dataGridClientes.Location = new System.Drawing.Point(12, 43);
             this.dataGridClientes.MultiSelect = false;
             this.dataGridClientes.Name = "dataGridClientes";
+            this.dataGridClientes.ReadOnly = true;
             this.dataGridClientes.RowHeadersVisible = false;
             this.dataGridClientes.RowTemplate.Height = 25;
             this.dataGridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -114,62 +116,74 @@ namespace AV1_PAV
             // 
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             this.ID.Visible = false;
             // 
             // Nome
             // 
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
             // 
             // CPF
             // 
             this.CPF.HeaderText = "CPF";
             this.CPF.Name = "CPF";
+            this.CPF.ReadOnly = true;
             // 
             // Logradouro
             // 
             this.Logradouro.HeaderText = "Logradouro";
             this.Logradouro.Name = "Logradouro";
+            this.Logradouro.ReadOnly = true;
             // 
             // Numero
             // 
             this.Numero.HeaderText = "Numero";
             this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
             // 
             // Complemento
             // 
             this.Complemento.HeaderText = "Complemento";
             this.Complemento.Name = "Complemento";
+            this.Complemento.ReadOnly = true;
             // 
             // Bairro
             // 
             this.Bairro.HeaderText = "Bairro";
             this.Bairro.Name = "Bairro";
+            this.Bairro.ReadOnly = true;
             // 
             // Cidade
             // 
             this.Cidade.HeaderText = "Cidade";
             this.Cidade.Name = "Cidade";
+            this.Cidade.ReadOnly = true;
             // 
             // Estado
             // 
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
             // CEP
             // 
             this.CEP.HeaderText = "CEP";
             this.CEP.Name = "CEP";
+            this.CEP.ReadOnly = true;
             // 
             // Telefone
             // 
             this.Telefone.HeaderText = "Telefone";
             this.Telefone.Name = "Telefone";
+            this.Telefone.ReadOnly = true;
             // 
             // Email
             // 
             this.Email.HeaderText = "Email";
             this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -393,11 +407,11 @@ namespace AV1_PAV
             // 
             this.btnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultar.Image")));
             this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultar.Location = new System.Drawing.Point(577, 343);
+            this.btnConsultar.Location = new System.Drawing.Point(594, 343);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(71, 25);
+            this.btnConsultar.Size = new System.Drawing.Size(85, 25);
             this.btnConsultar.TabIndex = 3;
-            this.btnConsultar.Text = "Buscar";
+            this.btnConsultar.Text = "Consultar";
             this.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
@@ -405,16 +419,27 @@ namespace AV1_PAV
             // tbxBusca
             // 
             this.tbxBusca.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxBusca.Location = new System.Drawing.Point(237, 343);
+            this.tbxBusca.Location = new System.Drawing.Point(254, 343);
             this.tbxBusca.Name = "tbxBusca";
             this.tbxBusca.Size = new System.Drawing.Size(334, 25);
             this.tbxBusca.TabIndex = 4;
+            this.tbxBusca.TextChanged += new System.EventHandler(this.tbxBusca_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(205, 348);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Nome:";
             // 
             // ListarConsultarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxBusca);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.groupBox1);
@@ -471,5 +496,6 @@ namespace AV1_PAV
         private System.Windows.Forms.TextBox tbxNome;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.TextBox tbxBusca;
+        private System.Windows.Forms.Label label1;
     }
 }
