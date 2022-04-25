@@ -68,6 +68,7 @@ namespace AV1_PAV
             this.tbxCPF = new System.Windows.Forms.TextBox();
             this.tbxNome = new System.Windows.Forms.TextBox();
             this.btnConsultar = new System.Windows.Forms.Button();
+            this.tbxBusca = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +108,7 @@ namespace AV1_PAV
             this.dataGridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridClientes.Size = new System.Drawing.Size(860, 294);
             this.dataGridClientes.TabIndex = 1;
+            this.dataGridClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridClientes_CellContentClick);
             // 
             // ID
             // 
@@ -391,20 +393,29 @@ namespace AV1_PAV
             // 
             this.btnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultar.Image")));
             this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultar.Location = new System.Drawing.Point(399, 343);
+            this.btnConsultar.Location = new System.Drawing.Point(577, 343);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(86, 25);
+            this.btnConsultar.Size = new System.Drawing.Size(71, 25);
             this.btnConsultar.TabIndex = 3;
-            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.Text = "Buscar";
             this.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // tbxBusca
+            // 
+            this.tbxBusca.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxBusca.Location = new System.Drawing.Point(237, 343);
+            this.tbxBusca.Name = "tbxBusca";
+            this.tbxBusca.Size = new System.Drawing.Size(334, 25);
+            this.tbxBusca.TabIndex = 4;
             // 
             // ListarConsultarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.tbxBusca);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridClientes);
@@ -415,6 +426,7 @@ namespace AV1_PAV
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -458,5 +470,6 @@ namespace AV1_PAV
         private System.Windows.Forms.TextBox tbxCPF;
         private System.Windows.Forms.TextBox tbxNome;
         private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.TextBox tbxBusca;
     }
 }
