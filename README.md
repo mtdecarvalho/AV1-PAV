@@ -40,3 +40,7 @@ Implementado trigger ON DELETE CASCADE nas tabelas:
 - ItemVenda (na referência a ID Venda)
 - ItemCompra (na referência a ID Compra)
 - FormaPagamentoVenda (na referência a ID Venda)
+
+### Créditos:
+- [Pacote de ícones (Ui Gradient)](https://www.flaticon.com/br/packs/ui-82?style_id=1259&family_id=333&group_id=621)
+- [Pacote de ícones Ecommerce (Flat Gradient)](https://www.flaticon.com/br/packs/ecommerce-498)
