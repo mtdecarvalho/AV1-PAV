@@ -80,7 +80,7 @@ namespace AV1_PAV.UI
         private void LimparTexto()
         {
             LbNome.Text = "";
-            BxPreco.Text = "";
+            BxPreco.Text = "1";
             BxQuantidade.Text = "1";
             BxTotal.Text = "";
         }
@@ -225,6 +225,11 @@ namespace AV1_PAV.UI
                 DialogResult dialogResult = MessageBox.Show("Favor selecione uma forma de pagamento", "Erro", MessageBoxButtons.OK);
             }
             
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            AtualizarTotal();
         }
     }
 }

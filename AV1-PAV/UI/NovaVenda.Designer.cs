@@ -38,7 +38,6 @@ namespace AV1_PAV.UI
             this.label1 = new System.Windows.Forms.Label();
             this.LbNome = new System.Windows.Forms.Label();
             this.BxPreco = new System.Windows.Forms.TextBox();
-            this.BxQuantidade = new System.Windows.Forms.TextBox();
             this.LbPreco = new System.Windows.Forms.Label();
             this.LbQuantidade = new System.Windows.Forms.Label();
             this.LbTotalItem = new System.Windows.Forms.Label();
@@ -71,8 +70,10 @@ namespace AV1_PAV.UI
             this.BxFormaPagamento = new System.Windows.Forms.GroupBox();
             this.RbDebito = new System.Windows.Forms.RadioButton();
             this.RbBoleto = new System.Windows.Forms.RadioButton();
+            this.BxQuantidade = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridItemVenda)).BeginInit();
             this.BxFormaPagamento.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BxQuantidade)).BeginInit();
             this.SuspendLayout();
             // 
             // BxProcurar
@@ -149,15 +150,6 @@ namespace AV1_PAV.UI
             this.BxPreco.ReadOnly = true;
             this.BxPreco.Size = new System.Drawing.Size(152, 23);
             this.BxPreco.TabIndex = 8;
-            // 
-            // BxQuantidade
-            // 
-            this.BxQuantidade.Location = new System.Drawing.Point(585, 204);
-            this.BxQuantidade.Name = "BxQuantidade";
-            this.BxQuantidade.Size = new System.Drawing.Size(152, 23);
-            this.BxQuantidade.TabIndex = 7;
-            this.BxQuantidade.Text = "1";
-            this.BxQuantidade.TextChanged += new System.EventHandler(this.AtualizarTotal);
             // 
             // LbPreco
             // 
@@ -462,11 +454,36 @@ namespace AV1_PAV.UI
             this.RbBoleto.Text = "Boleto";
             this.RbBoleto.UseVisualStyleBackColor = true;
             // 
+            // BxQuantidade
+            // 
+            this.BxQuantidade.Location = new System.Drawing.Point(585, 205);
+            this.BxQuantidade.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.BxQuantidade.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.BxQuantidade.Name = "BxQuantidade";
+            this.BxQuantidade.ReadOnly = true;
+            this.BxQuantidade.Size = new System.Drawing.Size(152, 23);
+            this.BxQuantidade.TabIndex = 28;
+            this.BxQuantidade.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.BxQuantidade.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // NovaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 591);
+            this.Controls.Add(this.BxQuantidade);
             this.Controls.Add(this.BxFormaPagamento);
             this.Controls.Add(this.DataGridItemVenda);
             this.Controls.Add(this.LbCliente);
@@ -484,7 +501,6 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.LbPreco);
             this.Controls.Add(this.LbQuantidade);
             this.Controls.Add(this.BxPreco);
-            this.Controls.Add(this.BxQuantidade);
             this.Controls.Add(this.LbNome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtAdicionar);
@@ -499,6 +515,7 @@ namespace AV1_PAV.UI
             ((System.ComponentModel.ISupportInitialize)(this.DataGridItemVenda)).EndInit();
             this.BxFormaPagamento.ResumeLayout(false);
             this.BxFormaPagamento.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BxQuantidade)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,7 +530,6 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Button BtAdicionar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LbNome;
-        private System.Windows.Forms.TextBox BxQuantidade;
         private System.Windows.Forms.Label LbPreco;
         private System.Windows.Forms.Label LbQuantidade;
         private System.Windows.Forms.Label LbTotalItem;
@@ -547,5 +563,6 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.GroupBox BxFormaPagamento;
         private System.Windows.Forms.RadioButton RbDebito;
         private System.Windows.Forms.RadioButton RbBoleto;
+        private System.Windows.Forms.NumericUpDown BxQuantidade;
     }
 }
