@@ -100,10 +100,16 @@ namespace AV1_PAV
             {
                 RemoverProduto removerProduto = new();
                 removerProduto.ShowDialog();
-            } else if (activePanel.Text == CLIENTES)
+            } 
+            else if (activePanel.Text == CLIENTES)
             {
                 RemoverCliente removerCliente = new();
                 removerCliente.ShowDialog();
+            }
+            else if (activePanel.Text == VENDAS)
+            {
+                ListarRemoverVenda janela = new("Remover");
+                janela.ShowDialog();
             }
         }
 
@@ -117,6 +123,11 @@ namespace AV1_PAV
             {
                 ListarConsultarProduto listarConsultarProduto = new();
                 listarConsultarProduto.ShowDialog();
+            }
+            else if (activePanel.Text == VENDAS)
+            {
+                ListarRemoverVenda janela = new("Listar");
+                janela.ShowDialog();
             }
         }
 

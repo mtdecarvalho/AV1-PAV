@@ -49,7 +49,9 @@ namespace AV1_PAV.UI
 
         public void SetCliente(String id)
         {
+            BancoDados.obterInstancia().conectar();
             c = ClienteSQL.BuscarPorCodigo(id);
+            BancoDados.obterInstancia().desconectar();
         }
 
         public void Selecionado(bool v)

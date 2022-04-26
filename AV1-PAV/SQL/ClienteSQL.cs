@@ -16,9 +16,8 @@ namespace AV1_PAV.SQL
             Cliente entidade = new();
             String SQL = "SELECT * FROM cliente WHERE id_cliente =" + codigo;
 
-            BancoDados.obterInstancia().conectar();
             MySqlCommand comandoSelecao = new MySqlCommand(SQL, BancoDados.obterInstancia().obterConexao());
-            BancoDados.obterInstancia().iniciarTransacao();
+            BancoDados.obterInstancia().iniciarTransacaoOtimizado();
             try
             {
                 MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
@@ -38,7 +37,6 @@ namespace AV1_PAV.SQL
             {
                 throw new Exception(ex.Message);
             }
-            BancoDados.obterInstancia().desconectar();
 
             return entidade;
         }
