@@ -10,7 +10,7 @@ namespace AV1_PAV.Persistencia
 {
     public abstract class ControladorCadastro
     {
-        private MySqlCommand comandoInclusao;
+        protected MySqlCommand comandoInclusao;
         private MySqlCommand comandoAtualizacao;
         private MySqlCommand comandoExclusao;
         private MySqlCommand comandoSelecao;
@@ -65,7 +65,7 @@ namespace AV1_PAV.Persistencia
             }
         }
 
-        public void incluir(Entidade entidade)
+        public virtual void incluir(Entidade entidade)
         {
             BancoDados.obterInstancia().iniciarTransacao();
             try

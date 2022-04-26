@@ -10,40 +10,45 @@ using MySql.Data.MySqlClient;
 
 namespace AV1_PAV.Controladores
 {
-    class ControladorCadastroVenda : ControladorCadastro
+    class ControladorCadastroVenda
     {
-        override protected string criarComandoSelecao()
+        private MySqlCommand comandoInclusao;
+        private MySqlCommand comandoAtualizacao;
+        private MySqlCommand comandoSelecao;
+        private ControladorCadastroItemVenda controladorItemVenda;
+
+        public ControladorCadastroVenda()
+        {
+            comandoInclusao = new MySqlCommand(criarComandoInclusao(), BancoDados.obterInstancia().obterConexao());
+            comandoAtualizacao = new MySqlCommand(criarComandoAtualizacao(), BancoDados.obterInstancia().obterConexao());
+            comandoSelecao = new MySqlCommand(criarComandoSelecao(), BancoDados.obterInstancia().obterConexao());
+
+            criarParametrosInclusao(comandoInclusao);
+            criarParametrosAtualizacao(comandoAtualizacao);
+            criarParametrosSelecao(comandoSelecao);
+            
+        }
+
+        protected string criarComandoSelecao()
         {
             return "SELECT * FROM VENDA WHERE ID_VENDA = @ID_VENDA";
         }
 
-        override protected string criarComandoInclusao()
+        protected string criarComandoInclusao()
         {
             return
                 "INSERT INTO VENDA VALUES " +
                 "(@ID_VENDA, @DATA, @HORA, " +
                 "@ID_CLIENTE, @TOTAL_VENDA, @SITUACAO_VENDA)";
-            // necessário tratamento do caso em que id_cliente não for informado
         }
-
-        override protected string criarComandoAtualizacao()
+        protected string criarComandoAtualizacao()
         {
             return
-                "UPDATE VENDA " +
-                "SET DATA = @DATA," +
-                "HORA = @HORA, " +
-                "ID_CLIENTE = @ID_CLIENTE, " +
-                "TOTAL_VENDA = @TOTAL_VENDA, " +
-                "SITUACAO_VENDA = @SITUACAO_VENDA" +
-                "WHERE ID_VENDA = @ID_VENDA";
+                "UPDATE venda " +
+                "SET situacao = @situacao" +
+                "WHERE id_venda = @id_venda";
         }
-
-        override protected string criarComandoExclusao()
-        {
-            return "DELETE FROM VENDA WHERE ID_VENDA = @ID_VENDA";
-        }
-
-        override protected void criarParametros(MySqlCommand comando)
+        protected void criarParametrosInclusao(MySqlCommand comando)
         {
             comando.Parameters.Add(Venda.ATRIBUTO_ID_VENDA, MySqlDbType.Int32);
             comando.Parameters.Add(Venda.ATRIBUTO_DATA, MySqlDbType.Date);
@@ -52,10 +57,81 @@ namespace AV1_PAV.Controladores
             comando.Parameters.Add(Venda.ATRIBUTO_TOTAL_VENDA, MySqlDbType.Double);
             comando.Parameters.Add(Venda.ATRIBUTO_SITUACAO_VENDA, MySqlDbType.VarChar);
         }
-
-        override protected void criarParametrosChavePrimaria(MySqlCommand comando)
+        protected void criarParametrosAtualizacao(MySqlCommand comando)
+        {
+            comando.Parameters.Add(Venda.ATRIBUTO_SITUACAO_VENDA, MySqlDbType.VarChar);
+            comando.Parameters.Add(Venda.ATRIBUTO_ID_VENDA, MySqlDbType.Int32);
+        }
+        protected void criarParametrosSelecao(MySqlCommand comando)
         {
             comando.Parameters.Add(Venda.ATRIBUTO_ID_VENDA, MySqlDbType.Int32);
+        }
+
+        public void selecionar(Venda entidade)
+        {
+            BancoDados.obterInstancia().iniciarTransacao();
+            try
+            {
+                entidade.transferirDadosIdentificador(comandoSelecao);
+                MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
+                while (leitorDados.Read())
+                {
+                    entidade.lerDados(leitorDados);
+                }
+                leitorDados.Close();
+                BancoDados.obterInstancia().confirmarTransacao();
+            }
+            catch (Exception ex)
+            {
+                BancoDados.obterInstancia().cancelarTransacao();
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void incluir(Venda venda)
+        {
+            BancoDados.obterInstancia().iniciarTransacao();
+            controladorItemVenda = new();
+            try
+            {
+                System.Diagnostics.Debug.WriteLine("estou aqui");
+                venda.transferirDados(comandoInclusao);
+                System.Diagnostics.Debug.WriteLine("estou aqui");
+                comandoInclusao.ExecuteNonQuery();
+                System.Diagnostics.Debug.WriteLine("estou aqui");
+                /*foreach(ItemVenda item in venda.itens)
+                {
+                    try
+                    {
+                        controladorItemVenda.incluir(item);
+                    } catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                }*/
+                BancoDados.obterInstancia().confirmarTransacao();
+            }
+            catch (Exception ex)
+            {
+                BancoDados.obterInstancia().cancelarTransacao();
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void atualizar(Entidade entidade)
+        {
+            BancoDados.obterInstancia().iniciarTransacao();
+            try
+            {
+                BancoDados.obterInstancia().iniciarTransacao();
+                comandoAtualizacao.ExecuteNonQuery();
+                BancoDados.obterInstancia().confirmarTransacao();
+            }
+            catch (Exception ex)
+            {
+                BancoDados.obterInstancia().cancelarTransacao();
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

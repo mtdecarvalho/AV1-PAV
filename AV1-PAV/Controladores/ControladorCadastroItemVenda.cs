@@ -56,5 +56,17 @@ namespace AV1_PAV.Controladores
             comando.Parameters.Add(ItemVenda.ATRIBUTO_ID_VENDA, MySqlDbType.Int32);
             comando.Parameters.Add(ItemVenda.ATRIBUTO_NUMERO_ITEM, MySqlDbType.Int32);
         }
+        override public void incluir(Entidade entidade)
+        {
+            try
+            {
+                entidade.transferirDados(comandoInclusao);
+                comandoInclusao.ExecuteNonQuery();
+            } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+                BancoDados.obterInstancia().cancelarTransacao();
+            }
+        }
     }
 }

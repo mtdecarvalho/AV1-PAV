@@ -1,4 +1,6 @@
-﻿using AV1_PAV.Entidades;
+﻿using AV1_PAV.Controladores;
+using AV1_PAV.Entidades;
+using AV1_PAV.Persistencia;
 using AV1_PAV.SQL;
 using System;
 using System.Collections.Generic;
@@ -205,8 +207,12 @@ namespace AV1_PAV.UI
                 venda.idCliente = c.idCliente;
                 venda.totalVenda = subtotal;
                 venda.situacaoVenda = "Pendente pagamento";
+                venda.itens = Lista;
 
-                ItemVendaSQL.IncluirListaVenda(Lista, venda);
+                BancoDados.obterInstancia().conectar();
+                ControladorCadastroVenda controlador = new();
+                controlador.incluir(venda);
+                BancoDados.obterInstancia().desconectar();
             }
             else
             {
