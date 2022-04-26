@@ -19,7 +19,8 @@ namespace AV1_PAV.Controladores
             BancoDados.obterInstancia().iniciarTransacao();
             try
             {
-                MySqlCommand comandoSelecao = new MySqlCommand("SELECT * FROM VENDA WHERE ID_VENDA = " + venda.idVenda, BancoDados.obterInstancia().obterConexao());
+                MySqlCommand comandoSelecao = new MySqlCommand("SELECT * FROM VENDA WHERE ID_VENDA = " +
+                     venda.idVenda, BancoDados.obterInstancia().obterConexao());
                 MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
                 while (leitorDados.Read())
                 {
@@ -41,7 +42,9 @@ namespace AV1_PAV.Controladores
             controladorItemVenda = new();
             try
             {
-                MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO venda VALUES ("+ venda.idVenda + ",\"" + venda.data + "\",\"" + venda.hora + "\"," + venda.idCliente + "," + venda.totalVenda + ",\"" + venda.situacaoVenda + "\")", BancoDados.obterInstancia().obterConexao());
+                MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO venda VALUES ("+ venda.idVenda + 
+                    ",\"" + venda.data + "\",\"" + venda.hora + "\"," + venda.idCliente + "," + venda.totalVenda + 
+                    ",\"" + venda.situacaoVenda + "\")", BancoDados.obterInstancia().obterConexao());
                 comandoInclusao.ExecuteNonQuery();
                 foreach(ItemVenda item in venda.itens)
                 {
@@ -68,7 +71,8 @@ namespace AV1_PAV.Controladores
             try
             {
                 BancoDados.obterInstancia().iniciarTransacao();
-                MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE venda SET situacao = " + situacao + " WHERE id_venda = " + id, BancoDados.obterInstancia().obterConexao());
+                MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE venda SET situacao = " + situacao + 
+                    " WHERE id_venda = " + id, BancoDados.obterInstancia().obterConexao());
                 BancoDados.obterInstancia().confirmarTransacao();
             }
             catch (Exception ex)

@@ -113,11 +113,13 @@ namespace AV1_PAV.UI
             // 
             // BtAdicionar
             // 
-            this.BtAdicionar.Location = new System.Drawing.Point(796, 139);
+            this.BtAdicionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtAdicionar.Location = new System.Drawing.Point(791, 143);
             this.BtAdicionar.Name = "BtAdicionar";
-            this.BtAdicionar.Size = new System.Drawing.Size(75, 23);
+            this.BtAdicionar.Size = new System.Drawing.Size(80, 23);
             this.BtAdicionar.TabIndex = 4;
             this.BtAdicionar.Text = "Adicionar";
+            this.BtAdicionar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtAdicionar.UseVisualStyleBackColor = true;
             this.BtAdicionar.Click += new System.EventHandler(this.BtAdicionar_Click);
             // 

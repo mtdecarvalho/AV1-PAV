@@ -66,7 +66,7 @@ namespace AV1_PAV.UI
 
         private void SetNumeroVenda()
         {
-            numeroVenda = VendaSQL.BuscarMaiorID();
+            numeroVenda = VendaSQL.BuscarMaiorID() + 1;
             LbVenda.Text = "Venda Número: " + numeroVenda.ToString();
         }
 
