@@ -19,34 +19,21 @@ namespace AV1_PAV.Controladores
 
         public ControladorCadastroVenda()
         {
-            comandoInclusao = new MySqlCommand(criarComandoInclusao(), BancoDados.obterInstancia().obterConexao());
-            comandoAtualizacao = new MySqlCommand(criarComandoAtualizacao(), BancoDados.obterInstancia().obterConexao());
-            comandoSelecao = new MySqlCommand(criarComandoSelecao(), BancoDados.obterInstancia().obterConexao());
+            comandoInclusao = new MySqlCommand("INSERT INTO VENDA VALUES " +
+                                               "(@ID_VENDA, @DATA, @HORA, " +
+                                               "@ID_CLIENTE, @TOTAL_VENDA, @SITUACAO_VENDA)", 
+                                               BancoDados.obterInstancia().obterConexao());
+
+            comandoAtualizacao = new MySqlCommand("UPDATE venda " +
+                                                  "SET situacao = @situacao" +
+                                                  "WHERE id_venda = @id_venda",
+                                                  BancoDados.obterInstancia().obterConexao());
+
+            comandoSelecao = new MySqlCommand("SELECT * FROM VENDA WHERE ID_VENDA = @ID_VENDA", BancoDados.obterInstancia().obterConexao());
 
             criarParametrosInclusao(comandoInclusao);
             criarParametrosAtualizacao(comandoAtualizacao);
             criarParametrosSelecao(comandoSelecao);
-            
-        }
-
-        protected string criarComandoSelecao()
-        {
-            return "SELECT * FROM VENDA WHERE ID_VENDA = @ID_VENDA";
-        }
-
-        protected string criarComandoInclusao()
-        {
-            return
-                "INSERT INTO VENDA VALUES " +
-                "(@ID_VENDA, @DATA, @HORA, " +
-                "@ID_CLIENTE, @TOTAL_VENDA, @SITUACAO_VENDA)";
-        }
-        protected string criarComandoAtualizacao()
-        {
-            return
-                "UPDATE venda " +
-                "SET situacao = @situacao" +
-                "WHERE id_venda = @id_venda";
         }
         protected void criarParametrosInclusao(MySqlCommand comando)
         {

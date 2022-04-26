@@ -196,9 +196,11 @@ namespace AV1_PAV.UI
         {
             if (ChecarPagamento())
             {
-                DateTime thisDay = DateTime.Today;
-                String data = thisDay.ToString("d");
-                String hora = thisDay.Hour.ToString();
+                DateTime thisDay = DateTime.Now;
+                string data = thisDay.ToString("yyyy-MM-dd");
+                System.Diagnostics.Debug.WriteLine(data);
+                string hora = thisDay.ToString("HH:mm:ss");
+                System.Diagnostics.Debug.WriteLine(hora);
 
                 Venda venda = new();
                 venda.idVenda = numeroVenda;
