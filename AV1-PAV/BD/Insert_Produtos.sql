@@ -1,4 +1,5 @@
 use pav_av1;
+
 -- Tabela produto
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
 VALUES (0,"Produto não identificado", 0, 0, "KG", 0);
@@ -37,12 +38,6 @@ INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_for
 VALUES (11,"Salmao", 20, 50.00, "UN", 9);
 
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
-VALUES (10,"Tilapia", 20, 30.00, "UN", 9);
-
-INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
-VALUES (11,"Sambiquira", 20, 5.00, "KG", 10);
-
-INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
 VALUES (12,"Asa de frango", 50, 20.00, "KG", 10);
 
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
@@ -69,5 +64,8 @@ VALUES (19,"Feijao Maximo", 50, 6.00, "UN", 4);
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
 VALUES (20,"Feijao Urbana", 50, 15.00, "UN", 4);
 
+INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
+VALUES (21,"Tilapia", 20, 30.00, "UN", 9);
 
-
+INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
+VALUES (22,"Sambiquira", 20, 5.00, "KG", 10);

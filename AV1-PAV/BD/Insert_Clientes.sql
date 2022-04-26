@@ -38,4 +38,4 @@ VALUES (9,"Thomas Shelby", "23912745137", "Rua Joaquim Machado 48", 0,"","Centro
 "friocalculista@blinders.com.br");
 
 INSERT INTO cliente(id_cliente, nome, cpf_cnpj, logradouro, numero, complemento, bairro, cidade, estado, cep, telefone, email)
-VALUES (10,"Elon Zuckerberg Jobs Gates Buffet", "94333411637", "Avenida Getulio Vargas 19 Loja A", 0,"Silicon Valley","Centro","Arraial do Cabo","RJ","28930-970","6593159251","facebook@apple.outlook.com");
+VALUES (10,"Elon Zuckerberg Jobs Gates Buffet", "94333411637", "Avenida Getulio Vargas 19 Loja A", 0,"Silicon Valley","Centro","Arraial do Cabo","RJ","28930970","6593159251","facebook@apple.outlook.com");
