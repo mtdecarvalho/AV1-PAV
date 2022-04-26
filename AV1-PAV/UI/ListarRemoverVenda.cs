@@ -1,6 +1,8 @@
-﻿using AV1_PAV.Entidades;
+﻿using AV1_PAV.Controladores;
+using AV1_PAV.Entidades;
 using AV1_PAV.Persistencia;
 using AV1_PAV.SQL;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +20,7 @@ namespace AV1_PAV.UI
         private List<Venda> Lista = new();
         private String funcao;
         private String filtro;
+        private const string CANCELAR = "Cancelar";
         public ListarRemoverVenda()
         {
             InitializeComponent();
@@ -27,6 +30,16 @@ namespace AV1_PAV.UI
         {
             InitializeComponent();
             this.funcao = funcao;
+            if (funcao != CANCELAR)
+            {
+                btnCancelar.Visible = false;
+                btnCancelar.Enabled = false;
+            }
+            else
+            {
+                btnCancelar.Visible = true;
+                btnCancelar.Enabled = true;
+            }
             Lista = VendaSQL.BuscarMultiplos("id_cliente","");
             PreencherTabela();
         }
@@ -45,8 +58,8 @@ namespace AV1_PAV.UI
             }
             GridLista.Rows[0].Selected = true;
 
-            //BancoDados.obterInstancia().finalizarTransacao();
-            //BancoDados.obterInstancia().desconectar();
+            BancoDados.obterInstancia().finalizarTransacao();
+            BancoDados.obterInstancia().desconectar();
         }
 
         private bool ChecarSelecao()
@@ -107,7 +120,21 @@ namespace AV1_PAV.UI
 
         private void ListarRemoverVenda_FormClosed(object sender, FormClosedEventArgs e)
         {
-            BancoDados.obterInstancia().finalizarTransacao();
+            //BancoDados.obterInstancia().finalizarTransacao();
+            //BancoDados.obterInstancia().desconectar();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(GridLista.SelectedRows[0].Cells[0].Value.ToString());
+            BancoDados.obterInstancia().conectar();
+            ControladorCadastroVenda controlador = new();
+            controlador.atualizar("CANCELADA", id);
             BancoDados.obterInstancia().desconectar();
         }
     }

@@ -77,7 +77,7 @@ namespace AV1_PAV.UI
             // 
             // BxProcurar
             // 
-            this.BxProcurar.Location = new System.Drawing.Point(624, 110);
+            this.BxProcurar.Location = new System.Drawing.Point(585, 109);
             this.BxProcurar.Name = "BxProcurar";
             this.BxProcurar.Size = new System.Drawing.Size(152, 23);
             this.BxProcurar.TabIndex = 0;
@@ -86,7 +86,7 @@ namespace AV1_PAV.UI
             // 
             this.BtProcurar.Image = ((System.Drawing.Image)(resources.GetObject("BtProcurar.Image")));
             this.BtProcurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtProcurar.Location = new System.Drawing.Point(791, 110);
+            this.BtProcurar.Location = new System.Drawing.Point(743, 109);
             this.BtProcurar.Name = "BtProcurar";
             this.BtProcurar.Size = new System.Drawing.Size(80, 25);
             this.BtProcurar.TabIndex = 1;
@@ -98,7 +98,7 @@ namespace AV1_PAV.UI
             // LbProduto
             // 
             this.LbProduto.AutoSize = true;
-            this.LbProduto.Location = new System.Drawing.Point(506, 114);
+            this.LbProduto.Location = new System.Drawing.Point(467, 113);
             this.LbProduto.Name = "LbProduto";
             this.LbProduto.Size = new System.Drawing.Size(101, 15);
             this.LbProduto.TabIndex = 2;
@@ -106,17 +106,18 @@ namespace AV1_PAV.UI
             // 
             // BxCodigo
             // 
-            this.BxCodigo.Location = new System.Drawing.Point(624, 139);
+            this.BxCodigo.Location = new System.Drawing.Point(585, 141);
             this.BxCodigo.Name = "BxCodigo";
             this.BxCodigo.Size = new System.Drawing.Size(152, 23);
             this.BxCodigo.TabIndex = 3;
             // 
             // BtAdicionar
             // 
+            this.BtAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("BtAdicionar.Image")));
             this.BtAdicionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtAdicionar.Location = new System.Drawing.Point(791, 143);
+            this.BtAdicionar.Location = new System.Drawing.Point(743, 139);
             this.BtAdicionar.Name = "BtAdicionar";
-            this.BtAdicionar.Size = new System.Drawing.Size(80, 23);
+            this.BtAdicionar.Size = new System.Drawing.Size(80, 25);
             this.BtAdicionar.TabIndex = 4;
             this.BtAdicionar.Text = "Adicionar";
             this.BtAdicionar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -126,7 +127,7 @@ namespace AV1_PAV.UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(506, 143);
+            this.label1.Location = new System.Drawing.Point(467, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 15);
             this.label1.TabIndex = 5;
@@ -135,7 +136,7 @@ namespace AV1_PAV.UI
             // LbNome
             // 
             this.LbNome.AutoSize = true;
-            this.LbNome.Location = new System.Drawing.Point(577, 178);
+            this.LbNome.Location = new System.Drawing.Point(538, 177);
             this.LbNome.Name = "LbNome";
             this.LbNome.Size = new System.Drawing.Size(118, 15);
             this.LbNome.TabIndex = 6;
@@ -143,7 +144,7 @@ namespace AV1_PAV.UI
             // 
             // BxPreco
             // 
-            this.BxPreco.Location = new System.Drawing.Point(624, 234);
+            this.BxPreco.Location = new System.Drawing.Point(585, 233);
             this.BxPreco.Name = "BxPreco";
             this.BxPreco.ReadOnly = true;
             this.BxPreco.Size = new System.Drawing.Size(152, 23);
@@ -151,7 +152,7 @@ namespace AV1_PAV.UI
             // 
             // BxQuantidade
             // 
-            this.BxQuantidade.Location = new System.Drawing.Point(624, 205);
+            this.BxQuantidade.Location = new System.Drawing.Point(585, 204);
             this.BxQuantidade.Name = "BxQuantidade";
             this.BxQuantidade.Size = new System.Drawing.Size(152, 23);
             this.BxQuantidade.TabIndex = 7;
@@ -161,7 +162,7 @@ namespace AV1_PAV.UI
             // LbPreco
             // 
             this.LbPreco.AutoSize = true;
-            this.LbPreco.Location = new System.Drawing.Point(506, 237);
+            this.LbPreco.Location = new System.Drawing.Point(467, 236);
             this.LbPreco.Name = "LbPreco";
             this.LbPreco.Size = new System.Drawing.Size(84, 15);
             this.LbPreco.TabIndex = 10;
@@ -170,7 +171,7 @@ namespace AV1_PAV.UI
             // LbQuantidade
             // 
             this.LbQuantidade.AutoSize = true;
-            this.LbQuantidade.Location = new System.Drawing.Point(506, 208);
+            this.LbQuantidade.Location = new System.Drawing.Point(467, 207);
             this.LbQuantidade.Name = "LbQuantidade";
             this.LbQuantidade.Size = new System.Drawing.Size(72, 15);
             this.LbQuantidade.TabIndex = 9;
@@ -179,7 +180,7 @@ namespace AV1_PAV.UI
             // LbTotalItem
             // 
             this.LbTotalItem.AutoSize = true;
-            this.LbTotalItem.Location = new System.Drawing.Point(506, 266);
+            this.LbTotalItem.Location = new System.Drawing.Point(467, 265);
             this.LbTotalItem.Name = "LbTotalItem";
             this.LbTotalItem.Size = new System.Drawing.Size(62, 15);
             this.LbTotalItem.TabIndex = 12;
@@ -187,7 +188,7 @@ namespace AV1_PAV.UI
             // 
             // BxTotal
             // 
-            this.BxTotal.Location = new System.Drawing.Point(624, 263);
+            this.BxTotal.Location = new System.Drawing.Point(585, 262);
             this.BxTotal.Name = "BxTotal";
             this.BxTotal.ReadOnly = true;
             this.BxTotal.Size = new System.Drawing.Size(152, 23);
@@ -206,7 +207,7 @@ namespace AV1_PAV.UI
             // BtAdicionarCarrinho
             // 
             this.BtAdicionarCarrinho.Image = ((System.Drawing.Image)(resources.GetObject("BtAdicionarCarrinho.Image")));
-            this.BtAdicionarCarrinho.Location = new System.Drawing.Point(624, 292);
+            this.BtAdicionarCarrinho.Location = new System.Drawing.Point(585, 291);
             this.BtAdicionarCarrinho.Name = "BtAdicionarCarrinho";
             this.BtAdicionarCarrinho.Size = new System.Drawing.Size(152, 55);
             this.BtAdicionarCarrinho.TabIndex = 14;
@@ -218,7 +219,7 @@ namespace AV1_PAV.UI
             // BtRemoverCarrinho
             // 
             this.BtRemoverCarrinho.Image = ((System.Drawing.Image)(resources.GetObject("BtRemoverCarrinho.Image")));
-            this.BtRemoverCarrinho.Location = new System.Drawing.Point(349, 518);
+            this.BtRemoverCarrinho.Location = new System.Drawing.Point(309, 518);
             this.BtRemoverCarrinho.Name = "BtRemoverCarrinho";
             this.BtRemoverCarrinho.Size = new System.Drawing.Size(152, 65);
             this.BtRemoverCarrinho.TabIndex = 15;
@@ -230,7 +231,7 @@ namespace AV1_PAV.UI
             // BtFinalizar
             // 
             this.BtFinalizar.Image = ((System.Drawing.Image)(resources.GetObject("BtFinalizar.Image")));
-            this.BtFinalizar.Location = new System.Drawing.Point(735, 526);
+            this.BtFinalizar.Location = new System.Drawing.Point(686, 530);
             this.BtFinalizar.Name = "BtFinalizar";
             this.BtFinalizar.Size = new System.Drawing.Size(137, 53);
             this.BtFinalizar.TabIndex = 16;
@@ -242,7 +243,7 @@ namespace AV1_PAV.UI
             // BtCancelar
             // 
             this.BtCancelar.Image = ((System.Drawing.Image)(resources.GetObject("BtCancelar.Image")));
-            this.BtCancelar.Location = new System.Drawing.Point(578, 526);
+            this.BtCancelar.Location = new System.Drawing.Point(529, 530);
             this.BtCancelar.Name = "BtCancelar";
             this.BtCancelar.Size = new System.Drawing.Size(137, 53);
             this.BtCancelar.TabIndex = 18;
@@ -255,7 +256,7 @@ namespace AV1_PAV.UI
             // 
             this.BtSelecionarCliente.Image = ((System.Drawing.Image)(resources.GetObject("BtSelecionarCliente.Image")));
             this.BtSelecionarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtSelecionarCliente.Location = new System.Drawing.Point(791, 27);
+            this.BtSelecionarCliente.Location = new System.Drawing.Point(743, 26);
             this.BtSelecionarCliente.Name = "BtSelecionarCliente";
             this.BtSelecionarCliente.Size = new System.Drawing.Size(80, 25);
             this.BtSelecionarCliente.TabIndex = 19;
@@ -277,7 +278,7 @@ namespace AV1_PAV.UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(506, 30);
+            this.label2.Location = new System.Drawing.Point(467, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 15);
             this.label2.TabIndex = 21;
@@ -285,7 +286,7 @@ namespace AV1_PAV.UI
             // 
             // BxCliente
             // 
-            this.BxCliente.Location = new System.Drawing.Point(624, 27);
+            this.BxCliente.Location = new System.Drawing.Point(585, 26);
             this.BxCliente.Name = "BxCliente";
             this.BxCliente.Size = new System.Drawing.Size(152, 23);
             this.BxCliente.TabIndex = 22;
@@ -293,7 +294,7 @@ namespace AV1_PAV.UI
             // LbCliente
             // 
             this.LbCliente.AutoSize = true;
-            this.LbCliente.Location = new System.Drawing.Point(577, 68);
+            this.LbCliente.Location = new System.Drawing.Point(538, 67);
             this.LbCliente.Name = "LbCliente";
             this.LbCliente.Size = new System.Drawing.Size(109, 15);
             this.LbCliente.TabIndex = 23;
@@ -357,10 +358,12 @@ namespace AV1_PAV.UI
             this.DataGridItemVenda.MultiSelect = false;
             this.DataGridItemVenda.Name = "DataGridItemVenda";
             this.DataGridItemVenda.ReadOnly = true;
+            this.DataGridItemVenda.RowHeadersVisible = false;
             this.DataGridItemVenda.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridItemVenda.RowTemplate.Height = 25;
+            this.DataGridItemVenda.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.DataGridItemVenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridItemVenda.Size = new System.Drawing.Size(489, 485);
+            this.DataGridItemVenda.Size = new System.Drawing.Size(449, 485);
             this.DataGridItemVenda.TabIndex = 24;
             // 
             // dataGridViewTextBoxColumn4
@@ -432,7 +435,7 @@ namespace AV1_PAV.UI
             this.BxFormaPagamento.Controls.Add(this.RbDinheiro);
             this.BxFormaPagamento.Controls.Add(this.RbCredito);
             this.BxFormaPagamento.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BxFormaPagamento.Location = new System.Drawing.Point(735, 377);
+            this.BxFormaPagamento.Location = new System.Drawing.Point(687, 380);
             this.BxFormaPagamento.Name = "BxFormaPagamento";
             this.BxFormaPagamento.Size = new System.Drawing.Size(136, 122);
             this.BxFormaPagamento.TabIndex = 27;
@@ -463,7 +466,7 @@ namespace AV1_PAV.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 591);
+            this.ClientSize = new System.Drawing.Size(835, 591);
             this.Controls.Add(this.BxFormaPagamento);
             this.Controls.Add(this.DataGridItemVenda);
             this.Controls.Add(this.LbCliente);
@@ -489,6 +492,7 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.LbProduto);
             this.Controls.Add(this.BtProcurar);
             this.Controls.Add(this.BxProcurar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "NovaVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nova venda";

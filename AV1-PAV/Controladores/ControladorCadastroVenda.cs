@@ -70,9 +70,19 @@ namespace AV1_PAV.Controladores
             BancoDados.obterInstancia().iniciarTransacao();
             try
             {
-                BancoDados.obterInstancia().iniciarTransacao();
-                MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE venda SET situacao = " + situacao + 
+                MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE venda SET situacao_venda = \"" + situacao + "\"" +
                     " WHERE id_venda = " + id, BancoDados.obterInstancia().obterConexao());
+                comandoAtualizacao.ExecuteNonQuery();
+
+                List<ItemVenda> itens = new();
+                ControladorCadastroItemVenda controladorItem = new();
+                itens = controladorItem.selecionarVarios(id);
+
+                foreach(ItemVenda item in itens)
+                {
+                    controladorItem.excluir(item);
+                }
+
                 BancoDados.obterInstancia().confirmarTransacao();
             }
             catch (Exception ex)

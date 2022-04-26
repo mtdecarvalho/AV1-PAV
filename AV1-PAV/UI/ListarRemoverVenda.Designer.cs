@@ -42,6 +42,7 @@ namespace AV1_PAV.UI
             this.RbSituacao = new System.Windows.Forms.RadioButton();
             this.RbData = new System.Windows.Forms.RadioButton();
             this.BxPesquisa = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridLista)).BeginInit();
             this.Filtro.SuspendLayout();
             this.SuspendLayout();
@@ -56,10 +57,15 @@ namespace AV1_PAV.UI
             this.Cliente,
             this.Total,
             this.Situacao});
-            this.GridLista.Location = new System.Drawing.Point(12, 43);
+            this.GridLista.Location = new System.Drawing.Point(33, 43);
+            this.GridLista.MultiSelect = false;
             this.GridLista.Name = "GridLista";
+            this.GridLista.ReadOnly = true;
+            this.GridLista.RowHeadersVisible = false;
             this.GridLista.RowTemplate.Height = 25;
-            this.GridLista.Size = new System.Drawing.Size(644, 461);
+            this.GridLista.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GridLista.Size = new System.Drawing.Size(604, 461);
             this.GridLista.TabIndex = 0;
             this.GridLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -107,12 +113,13 @@ namespace AV1_PAV.UI
             this.btnVoltar.Size = new System.Drawing.Size(25, 25);
             this.btnVoltar.TabIndex = 8;
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // Filtro
             // 
             this.Filtro.Controls.Add(this.RbSituacao);
             this.Filtro.Controls.Add(this.RbData);
-            this.Filtro.Location = new System.Drawing.Point(12, 510);
+            this.Filtro.Location = new System.Drawing.Point(33, 510);
             this.Filtro.Name = "Filtro";
             this.Filtro.Size = new System.Drawing.Size(117, 70);
             this.Filtro.TabIndex = 9;
@@ -143,22 +150,37 @@ namespace AV1_PAV.UI
             // 
             // BxPesquisa
             // 
-            this.BxPesquisa.Location = new System.Drawing.Point(135, 557);
+            this.BxPesquisa.Location = new System.Drawing.Point(156, 545);
             this.BxPesquisa.Name = "BxPesquisa";
-            this.BxPesquisa.Size = new System.Drawing.Size(335, 23);
+            this.BxPesquisa.Size = new System.Drawing.Size(379, 23);
             this.BxPesquisa.TabIndex = 10;
             this.BxPesquisa.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.Location = new System.Drawing.Point(541, 530);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(96, 50);
+            this.btnCancelar.TabIndex = 11;
+            this.btnCancelar.Text = "Cancelar venda";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // ListarRemoverVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 596);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.BxPesquisa);
             this.Controls.Add(this.Filtro);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.GridLista);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ListarRemoverVenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ListaRemoverVenda";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ListarRemoverVenda_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.GridLista)).EndInit();
@@ -183,5 +205,6 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.RadioButton RbSituacao;
         private System.Windows.Forms.RadioButton RbData;
         private System.Windows.Forms.TextBox BxPesquisa;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

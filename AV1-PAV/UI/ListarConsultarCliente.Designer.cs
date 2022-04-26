@@ -106,6 +106,7 @@ namespace AV1_PAV
             this.dataGridClientes.ReadOnly = true;
             this.dataGridClientes.RowHeadersVisible = false;
             this.dataGridClientes.RowTemplate.Height = 25;
+            this.dataGridClientes.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridClientes.Size = new System.Drawing.Size(860, 294);
             this.dataGridClientes.TabIndex = 1;
@@ -444,6 +445,7 @@ namespace AV1_PAV
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridClientes);
             this.Controls.Add(this.btnVoltar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ListarConsultarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Listar clientes";

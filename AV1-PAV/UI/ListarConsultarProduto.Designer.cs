@@ -72,6 +72,7 @@ namespace AV1_PAV.UI
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(505, 371);
             this.dataGridView1.TabIndex = 2;
@@ -208,6 +209,7 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.grpConsulta);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnVoltar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ListarConsultarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Listar produtos";
