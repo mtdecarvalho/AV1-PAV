@@ -52,8 +52,11 @@ namespace AV1_PAV.UI
             this.DataGrid.MultiSelect = false;
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.ReadOnly = true;
+            this.DataGrid.RowHeadersVisible = false;
             this.DataGrid.RowTemplate.Height = 25;
-            this.DataGrid.Size = new System.Drawing.Size(244, 336);
+            this.DataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGrid.Size = new System.Drawing.Size(203, 336);
             this.DataGrid.TabIndex = 0;
             // 
             // Codigo
@@ -73,7 +76,7 @@ namespace AV1_PAV.UI
             // BtSelecionar
             // 
             this.BtSelecionar.Image = ((System.Drawing.Image)(resources.GetObject("BtSelecionar.Image")));
-            this.BtSelecionar.Location = new System.Drawing.Point(262, 12);
+            this.BtSelecionar.Location = new System.Drawing.Point(222, 12);
             this.BtSelecionar.Name = "BtSelecionar";
             this.BtSelecionar.Size = new System.Drawing.Size(75, 50);
             this.BtSelecionar.TabIndex = 1;
@@ -85,7 +88,7 @@ namespace AV1_PAV.UI
             // BtCancelar
             // 
             this.BtCancelar.Image = ((System.Drawing.Image)(resources.GetObject("BtCancelar.Image")));
-            this.BtCancelar.Location = new System.Drawing.Point(262, 68);
+            this.BtCancelar.Location = new System.Drawing.Point(222, 68);
             this.BtCancelar.Name = "BtCancelar";
             this.BtCancelar.Size = new System.Drawing.Size(75, 50);
             this.BtCancelar.TabIndex = 2;
@@ -98,10 +101,11 @@ namespace AV1_PAV.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 361);
+            this.ClientSize = new System.Drawing.Size(309, 361);
             this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.BtSelecionar);
             this.Controls.Add(this.DataGrid);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ProcurarClienteProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Procurar Produto";

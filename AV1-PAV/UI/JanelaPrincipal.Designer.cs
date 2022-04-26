@@ -319,6 +319,7 @@ namespace AV1_PAV
             this.Controls.Add(this.BtEstoque);
             this.Controls.Add(this.BtVenda);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "JanelaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PDV";

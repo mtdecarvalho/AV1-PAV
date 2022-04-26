@@ -327,6 +327,7 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancelar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AdicionarClienteFornecedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.AdicionarClienteFornecedor_Load);

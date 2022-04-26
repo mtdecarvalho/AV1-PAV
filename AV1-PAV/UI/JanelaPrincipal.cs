@@ -22,6 +22,8 @@ namespace AV1_PAV
         private const String ESTOQUE      = "Estoque";
         private const String FORNECEDORES = "Fornecedores";
         private const String FINANCEIRO   = "Financeiro";
+        private const string CANCELAR_VENDA = "Cancelar venda";
+        private const string REMOVER = "Remover";
 
         public JanelaPrincipal()
         {
@@ -48,21 +50,25 @@ namespace AV1_PAV
         private void BtVenda_Click(object sender, EventArgs e)
         {
             mostrarPainel(GenericBox, VENDAS);
+            BtRemover.Text = CANCELAR_VENDA;
         }
 
         private void BtCliente_Click(object sender, EventArgs e)
         {
             mostrarPainel(GenericBox, CLIENTES);
+            BtRemover.Text = REMOVER;
         }
 
         private void BtEstoque_Click(object sender, EventArgs e)
         {
             mostrarPainel(GenericBox, ESTOQUE);
+            BtRemover.Text = REMOVER;
         }
 
         private void BtFornecedor_Click(object sender, EventArgs e)
         {
             mostrarPainel(GenericBox, FORNECEDORES);
+            BtRemover.Text = REMOVER;
         }
 
         private void BtContasReceber_Click(object sender, EventArgs e)
@@ -108,7 +114,7 @@ namespace AV1_PAV
             }
             else if (activePanel.Text == VENDAS)
             {
-                ListarRemoverVenda janela = new("Remover");
+                ListarRemoverVenda janela = new("Cancelar");
                 janela.ShowDialog();
             }
         }
