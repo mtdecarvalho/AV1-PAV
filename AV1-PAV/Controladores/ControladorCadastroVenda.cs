@@ -12,58 +12,18 @@ namespace AV1_PAV.Controladores
 {
     class ControladorCadastroVenda
     {
-        private MySqlCommand comandoInclusao;
-        private MySqlCommand comandoAtualizacao;
-        private MySqlCommand comandoSelecao;
         private ControladorCadastroItemVenda controladorItemVenda;
 
-        public ControladorCadastroVenda()
-        {
-            comandoInclusao = new MySqlCommand("INSERT INTO VENDA VALUES " +
-                                               "(@ID_VENDA, @DATA, @HORA, " +
-                                               "@ID_CLIENTE, @TOTAL_VENDA, @SITUACAO_VENDA)", 
-                                               BancoDados.obterInstancia().obterConexao());
-
-            comandoAtualizacao = new MySqlCommand("UPDATE venda " +
-                                                  "SET situacao = @situacao" +
-                                                  "WHERE id_venda = @id_venda",
-                                                  BancoDados.obterInstancia().obterConexao());
-
-            comandoSelecao = new MySqlCommand("SELECT * FROM VENDA WHERE ID_VENDA = @ID_VENDA", BancoDados.obterInstancia().obterConexao());
-
-            criarParametrosInclusao(comandoInclusao);
-            criarParametrosAtualizacao(comandoAtualizacao);
-            criarParametrosSelecao(comandoSelecao);
-        }
-        protected void criarParametrosInclusao(MySqlCommand comando)
-        {
-            comando.Parameters.Add(Venda.ATRIBUTO_ID_VENDA, MySqlDbType.Int32);
-            comando.Parameters.Add(Venda.ATRIBUTO_DATA, MySqlDbType.Date);
-            comando.Parameters.Add(Venda.ATRIBUTO_HORA, MySqlDbType.Time);
-            comando.Parameters.Add(Venda.ATRIBUTO_ID_CLIENTE, MySqlDbType.Int32);
-            comando.Parameters.Add(Venda.ATRIBUTO_TOTAL_VENDA, MySqlDbType.Double);
-            comando.Parameters.Add(Venda.ATRIBUTO_SITUACAO_VENDA, MySqlDbType.VarChar);
-        }
-        protected void criarParametrosAtualizacao(MySqlCommand comando)
-        {
-            comando.Parameters.Add(Venda.ATRIBUTO_SITUACAO_VENDA, MySqlDbType.VarChar);
-            comando.Parameters.Add(Venda.ATRIBUTO_ID_VENDA, MySqlDbType.Int32);
-        }
-        protected void criarParametrosSelecao(MySqlCommand comando)
-        {
-            comando.Parameters.Add(Venda.ATRIBUTO_ID_VENDA, MySqlDbType.Int32);
-        }
-
-        public void selecionar(Venda entidade)
+        public void selecionar(Venda venda)
         {
             BancoDados.obterInstancia().iniciarTransacao();
             try
             {
-                entidade.transferirDadosIdentificador(comandoSelecao);
+                MySqlCommand comandoSelecao = new MySqlCommand("SELECT * FROM VENDA WHERE ID_VENDA = " + venda.idVenda, BancoDados.obterInstancia().obterConexao());
                 MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
                 while (leitorDados.Read())
                 {
-                    entidade.lerDados(leitorDados);
+                    venda.lerDados(leitorDados);
                 }
                 leitorDados.Close();
                 BancoDados.obterInstancia().confirmarTransacao();
@@ -81,12 +41,9 @@ namespace AV1_PAV.Controladores
             controladorItemVenda = new();
             try
             {
-                System.Diagnostics.Debug.WriteLine("estou aqui");
-                venda.transferirDados(comandoInclusao);
-                System.Diagnostics.Debug.WriteLine("estou aqui");
+                MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO venda VALUES ("+ venda.idVenda + ",\"" + venda.data + "\",\"" + venda.hora + "\"," + venda.idCliente + "," + venda.totalVenda + ",\"" + venda.situacaoVenda + "\")", BancoDados.obterInstancia().obterConexao());
                 comandoInclusao.ExecuteNonQuery();
-                System.Diagnostics.Debug.WriteLine("estou aqui");
-                /*foreach(ItemVenda item in venda.itens)
+                foreach(ItemVenda item in venda.itens)
                 {
                     try
                     {
@@ -95,7 +52,7 @@ namespace AV1_PAV.Controladores
                     {
                         throw new Exception(ex.Message);
                     }
-                }*/
+                }
                 BancoDados.obterInstancia().confirmarTransacao();
             }
             catch (Exception ex)
@@ -105,13 +62,13 @@ namespace AV1_PAV.Controladores
             }
         }
 
-        public void atualizar(Entidade entidade)
+        public void atualizar(string situacao, int id)
         {
             BancoDados.obterInstancia().iniciarTransacao();
             try
             {
                 BancoDados.obterInstancia().iniciarTransacao();
-                comandoAtualizacao.ExecuteNonQuery();
+                MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE venda SET situacao = " + situacao + " WHERE id_venda = " + id, BancoDados.obterInstancia().obterConexao());
                 BancoDados.obterInstancia().confirmarTransacao();
             }
             catch (Exception ex)

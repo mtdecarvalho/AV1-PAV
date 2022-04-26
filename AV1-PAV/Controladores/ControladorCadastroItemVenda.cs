@@ -10,62 +10,74 @@ using MySql.Data.MySqlClient;
 
 namespace AV1_PAV.Controladores
 {
-    class ControladorCadastroItemVenda : ControladorCadastro
+    class ControladorCadastroItemVenda
     {
-        override protected string criarComandoSelecao()
+        public void reestocar(int quantidade)
         {
-            return "SELECT * FROM ITEMVENDA WHERE ID_VENDA = @ID_VENDA, NUMERO_ITEM = @NUMERO_ITEM";
+            int qtdEstoque = 0;
+            int novaQtd = 0;
+            MySqlCommand getQtdEstoque = new MySqlCommand("SELECT quantidade_estoque FROM produto WHERE id_produto = " + idProduto, BancoDados.obterInstancia().obterConexao());
+            MySqlDataReader leitorDados = getQtdEstoque.ExecuteReader();
+            while (leitorDados.Read())
+                qtdEstoque = int.Parse(leitorDados["quantidade_estoque"].ToString());
+            novaQtd = quantidade + qtdEstoque;
+            MySqlCommand comandoReestoque = new MySqlCommand("UPDATE produto SET quantidade_estoque = " + novaQtd, BancoDados.obterInstancia().obterConexao());
+            comandoReestoque.ExecuteNonQuery();
         }
-
-        override protected string criarComandoInclusao()
+        public void selecionar(ItemVenda item)
         {
-            return 
-                "INSERT INTO ITEMVENDA VALUES " +
-                "(@ID_VENDA, @NUMERO_ITEM, @ID_PRODUTO, " +
-                " @QUANTIDADE, @VALOR_UNITARIO, @TOTAL_ITEM)";
-        }
-
-        override protected string criarComandoAtualizacao()
-        {
-            return
-                "UPDATE ITEMVENDA " +
-                "SET ID_PRODUTO = @ID_PRODUTO, " +
-                "QUANTIDADE = @QUANTIDADE, " +
-                "VALOR_UNITARIO = @VALOR_UNITARIO, " +
-                "TOTAL_ITEM = @TOTAL_ITEM" +
-                "WHERE ID_VENDA = @ID_VENDA, NUMERO_ITEM = @NUMERO_ITEM";
-        }
-
-        override protected string criarComandoExclusao()
-        {
-            return "DELETE FROM ITEMVENDA WHERE ID_VENDA = @ID_VENDA, NUMERO_ITEM = @NUMERO_ITEM";
-        }
-
-        override protected void criarParametros(MySqlCommand comando)
-        {
-            comando.Parameters.Add(ItemVenda.ATRIBUTO_ID_VENDA, MySqlDbType.Int32);
-            comando.Parameters.Add(ItemVenda.ATRIBUTO_NUMERO_ITEM, MySqlDbType.Int32);
-            comando.Parameters.Add(ItemVenda.ATRIBUTO_ID_PRODUTO, MySqlDbType.Int32);
-            comando.Parameters.Add(ItemVenda.ATRIBUTO_QUANTIDADE, MySqlDbType.Int32);
-            comando.Parameters.Add(ItemVenda.ATRIBUTO_VALOR_UNITARIO, MySqlDbType.Double);
-            comando.Parameters.Add(ItemVenda.ATRIBUTO_TOTAL_ITEM, MySqlDbType.Double);
-        }
-
-        override protected void criarParametrosChavePrimaria(MySqlCommand comando)
-        {
-            comando.Parameters.Add(ItemVenda.ATRIBUTO_ID_VENDA, MySqlDbType.Int32);
-            comando.Parameters.Add(ItemVenda.ATRIBUTO_NUMERO_ITEM, MySqlDbType.Int32);
-        }
-        override public void incluir(Entidade entidade)
-        {
+            BancoDados.obterInstancia().iniciarTransacao();
             try
             {
-                entidade.transferirDados(comandoInclusao);
-                comandoInclusao.ExecuteNonQuery();
-            } catch (Exception ex)
+                MySqlCommand comandoSelecao = new MySqlCommand("SELECT * FROM itemvenda WHERE id_venda = " + item.idVenda + " AND numero_item = " + item.numeroItem, BancoDados.obterInstancia().obterConexao());
+                MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
+                while (leitorDados.Read())
+                {
+                    item.lerDados(leitorDados);
+                }
+                leitorDados.Close();
+                BancoDados.obterInstancia().confirmarTransacao();
+            }
+            catch (Exception ex)
             {
-                throw new Exception(ex.Message);
                 BancoDados.obterInstancia().cancelarTransacao();
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public virtual void incluir(ItemVenda item)
+        {
+            BancoDados.obterInstancia().iniciarTransacao();
+            try
+            {
+                MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO itemvenda VALUES (" + item.idVenda + "," + item.numeroItem + "," + item.idProduto + "," + item.quantidade + "," + item.valorUnitario + "," + item.totalItem, BancoDados.obterInstancia().obterConexao());
+                comandoInclusao.ExecuteNonQuery();
+                BancoDados.obterInstancia().confirmarTransacao();
+            }
+            catch (Exception ex)
+            {
+                BancoDados.obterInstancia().cancelarTransacao();
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void excluir(ItemVenda item)
+        {
+            BancoDados.obterInstancia().iniciarTransacao();
+            try
+            {
+                int idProduto = item.idProduto;
+                int numeroItem = item.numeroItem;
+                int quantidade = item.quantidade;
+                MySqlCommand comandoExclusao = new MySqlCommand("DELETE FROM itemvenda WHERE id_venda = " + item.idVenda + " AND numero_item = " + item.numeroItem, BancoDados.obterInstancia().obterConexao());
+                comandoExclusao.ExecuteNonQuery();
+                reestocar(quantidade);
+                BancoDados.obterInstancia().confirmarTransacao();
+            }
+            catch (Exception ex)
+            {
+                BancoDados.obterInstancia().cancelarTransacao();
+                throw new Exception(ex.Message);
             }
         }
     }

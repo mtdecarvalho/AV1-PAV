@@ -198,9 +198,10 @@ namespace AV1_PAV.UI
             {
                 DateTime thisDay = DateTime.Now;
                 string data = thisDay.ToString("yyyy-MM-dd");
-                System.Diagnostics.Debug.WriteLine(data);
                 string hora = thisDay.ToString("HH:mm:ss");
+                System.Diagnostics.Debug.WriteLine(data);
                 System.Diagnostics.Debug.WriteLine(hora);
+                System.Diagnostics.Debug.WriteLine(c.idCliente);
 
                 Venda venda = new();
                 venda.idVenda = numeroVenda;
@@ -208,7 +209,7 @@ namespace AV1_PAV.UI
                 venda.hora = hora;
                 venda.idCliente = c.idCliente;
                 venda.totalVenda = subtotal;
-                venda.situacaoVenda = "Pendente pagamento";
+                venda.situacaoVenda = "ATIVA";
                 venda.itens = Lista;
 
                 BancoDados.obterInstancia().conectar();
