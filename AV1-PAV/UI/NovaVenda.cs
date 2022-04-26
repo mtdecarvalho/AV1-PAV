@@ -20,6 +20,7 @@ namespace AV1_PAV.UI
         private double subtotal = 0;
         private int numeroItem = 0;
         private int numeroVenda;
+        private String pagamento;
         private bool selecionado;
 
         public const String CLIENTE = "Cliente";
@@ -92,6 +93,30 @@ namespace AV1_PAV.UI
             DataGridItemVenda.Rows.Add(row);
         }
 
+        private bool ChecarPagamento()
+        {
+            if (RbDinheiro.Checked) { 
+                pagamento = "Dinheiro";
+                return true;
+            }
+            if (RbCredito.Checked)
+            {
+                pagamento = "Credito";
+                return true;
+            }
+            if (RbDebito.Checked)
+            {
+                pagamento = "Debito";
+                return true;
+            }   
+            if (RbBoleto.Checked)
+            {
+                pagamento = "Boleto";
+                return true;
+            }
+            return false;
+        }
+
         private void BtProcurar_Click(object sender, EventArgs e)
         {
             selecionado = false;
@@ -151,11 +176,6 @@ namespace AV1_PAV.UI
                 Dispose();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void AtualizarTotal(object sender, EventArgs e)
         {
             AtualizarTotal();
@@ -172,19 +192,27 @@ namespace AV1_PAV.UI
 
         private void BtFinalizar_Click(object sender, EventArgs e)
         {
-            DateTime thisDay = DateTime.Today;
-            String data = thisDay.ToString("d");
-            String hora = thisDay.Hour.ToString();
+            if (ChecarPagamento())
+            {
+                DateTime thisDay = DateTime.Today;
+                String data = thisDay.ToString("d");
+                String hora = thisDay.Hour.ToString();
 
-            Venda venda = new();
-            venda.idVenda = numeroVenda;
-            venda.data = data;
-            venda.hora = hora;
-            venda.idCliente = c.idCliente;
-            venda.totalVenda = subtotal;
-            venda.situacaoVenda = "0";
+                Venda venda = new();
+                venda.idVenda = numeroVenda;
+                venda.data = data;
+                venda.hora = hora;
+                venda.idCliente = c.idCliente;
+                venda.totalVenda = subtotal;
+                venda.situacaoVenda = "0";
 
-            ItemVendaSQL.IncluirListaVenda(Lista, venda);
+                ItemVendaSQL.IncluirListaVenda(Lista, venda);
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Favor selecione uma forma de pagamento", "Erro", MessageBoxButtons.OK);
+            }
+            
         }
     }
 }

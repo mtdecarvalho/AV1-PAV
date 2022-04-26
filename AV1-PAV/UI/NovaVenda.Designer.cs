@@ -66,7 +66,13 @@ namespace AV1_PAV.UI
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RbDinheiro = new System.Windows.Forms.RadioButton();
+            this.RbCredito = new System.Windows.Forms.RadioButton();
+            this.BxFormaPagamento = new System.Windows.Forms.GroupBox();
+            this.RbDebito = new System.Windows.Forms.RadioButton();
+            this.RbBoleto = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridItemVenda)).BeginInit();
+            this.BxFormaPagamento.SuspendLayout();
             this.SuspendLayout();
             // 
             // BxProcurar
@@ -397,11 +403,66 @@ namespace AV1_PAV.UI
             this.Total.ReadOnly = true;
             this.Total.Width = 40;
             // 
+            // RbDinheiro
+            // 
+            this.RbDinheiro.AutoSize = true;
+            this.RbDinheiro.Location = new System.Drawing.Point(6, 22);
+            this.RbDinheiro.Name = "RbDinheiro";
+            this.RbDinheiro.Size = new System.Drawing.Size(70, 19);
+            this.RbDinheiro.TabIndex = 25;
+            this.RbDinheiro.Text = "Dinheiro";
+            this.RbDinheiro.UseVisualStyleBackColor = false;
+            // 
+            // RbCredito
+            // 
+            this.RbCredito.AutoSize = true;
+            this.RbCredito.Location = new System.Drawing.Point(6, 47);
+            this.RbCredito.Name = "RbCredito";
+            this.RbCredito.Size = new System.Drawing.Size(64, 19);
+            this.RbCredito.TabIndex = 26;
+            this.RbCredito.Text = "Crédito";
+            this.RbCredito.UseVisualStyleBackColor = true;
+            // 
+            // BxFormaPagamento
+            // 
+            this.BxFormaPagamento.Controls.Add(this.RbDebito);
+            this.BxFormaPagamento.Controls.Add(this.RbBoleto);
+            this.BxFormaPagamento.Controls.Add(this.RbDinheiro);
+            this.BxFormaPagamento.Controls.Add(this.RbCredito);
+            this.BxFormaPagamento.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BxFormaPagamento.Location = new System.Drawing.Point(735, 377);
+            this.BxFormaPagamento.Name = "BxFormaPagamento";
+            this.BxFormaPagamento.Size = new System.Drawing.Size(136, 122);
+            this.BxFormaPagamento.TabIndex = 27;
+            this.BxFormaPagamento.TabStop = false;
+            this.BxFormaPagamento.Text = "Forma de pagamento";
+            // 
+            // RbDebito
+            // 
+            this.RbDebito.AutoSize = true;
+            this.RbDebito.Location = new System.Drawing.Point(6, 72);
+            this.RbDebito.Name = "RbDebito";
+            this.RbDebito.Size = new System.Drawing.Size(60, 19);
+            this.RbDebito.TabIndex = 27;
+            this.RbDebito.Text = "Débito";
+            this.RbDebito.UseVisualStyleBackColor = true;
+            // 
+            // RbBoleto
+            // 
+            this.RbBoleto.AutoSize = true;
+            this.RbBoleto.Location = new System.Drawing.Point(6, 97);
+            this.RbBoleto.Name = "RbBoleto";
+            this.RbBoleto.Size = new System.Drawing.Size(59, 19);
+            this.RbBoleto.TabIndex = 28;
+            this.RbBoleto.Text = "Boleto";
+            this.RbBoleto.UseVisualStyleBackColor = true;
+            // 
             // NovaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 591);
+            this.Controls.Add(this.BxFormaPagamento);
             this.Controls.Add(this.DataGridItemVenda);
             this.Controls.Add(this.LbCliente);
             this.Controls.Add(this.BxCliente);
@@ -430,6 +491,8 @@ namespace AV1_PAV.UI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nova venda";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridItemVenda)).EndInit();
+            this.BxFormaPagamento.ResumeLayout(false);
+            this.BxFormaPagamento.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,5 +536,10 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.RadioButton RbDinheiro;
+        private System.Windows.Forms.RadioButton RbCredito;
+        private System.Windows.Forms.GroupBox BxFormaPagamento;
+        private System.Windows.Forms.RadioButton RbDebito;
+        private System.Windows.Forms.RadioButton RbBoleto;
     }
 }
