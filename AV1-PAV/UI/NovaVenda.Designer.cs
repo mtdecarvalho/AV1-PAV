@@ -232,7 +232,7 @@ namespace AV1_PAV.UI
             this.BtFinalizar.Name = "BtFinalizar";
             this.BtFinalizar.Size = new System.Drawing.Size(137, 53);
             this.BtFinalizar.TabIndex = 16;
-            this.BtFinalizar.Text = "Finalizar compra";
+            this.BtFinalizar.Text = "Finalizar venda";
             this.BtFinalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtFinalizar.UseVisualStyleBackColor = true;
             this.BtFinalizar.Click += new System.EventHandler(this.BtFinalizar_Click);
@@ -244,7 +244,7 @@ namespace AV1_PAV.UI
             this.BtCancelar.Name = "BtCancelar";
             this.BtCancelar.Size = new System.Drawing.Size(137, 53);
             this.BtCancelar.TabIndex = 18;
-            this.BtCancelar.Text = "Cancelar compra";
+            this.BtCancelar.Text = "Cancelar venda";
             this.BtCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtCancelar.UseVisualStyleBackColor = true;
             this.BtCancelar.Click += new System.EventHandler(this.BtCancelar_Click);

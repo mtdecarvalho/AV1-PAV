@@ -204,7 +204,7 @@ namespace AV1_PAV.UI
                 venda.hora = hora;
                 venda.idCliente = c.idCliente;
                 venda.totalVenda = subtotal;
-                venda.situacaoVenda = "0";
+                venda.situacaoVenda = "Pendente pagamento";
 
                 ItemVendaSQL.IncluirListaVenda(Lista, venda);
             }
