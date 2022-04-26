@@ -218,6 +218,7 @@ namespace AV1_PAV.UI
                 ControladorCadastroVenda controlador = new();
                 controlador.incluir(venda);
                 BancoDados.obterInstancia().desconectar();
+                this.Dispose();
             }
             else
             {
