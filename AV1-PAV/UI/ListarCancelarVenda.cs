@@ -34,11 +34,13 @@ namespace AV1_PAV.UI
             {
                 btnCancelar.Visible = false;
                 btnCancelar.Enabled = false;
+                this.Text = "Listar Venda";
             }
             else
             {
                 btnCancelar.Visible = true;
                 btnCancelar.Enabled = true;
+                this.Text = "Cancelar Venda";
             }
             Lista = VendaSQL.BuscarMultiplos("id_cliente","");
             PreencherTabela();
