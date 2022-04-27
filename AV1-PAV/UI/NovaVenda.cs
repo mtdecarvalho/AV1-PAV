@@ -134,19 +134,31 @@ namespace AV1_PAV.UI
             return false;
         }
 
+        public void AbrirJanelaProduto()
+        {
+            selecionado = false;
+            ProcurarClienteProduto janela = new(this, BxProcurar.Text, PRODUTO);
+            janela.ShowDialog();
+            if (selecionado)
+                SetTexto();
+        }
+
         private void BtProcurar_Click(object sender, EventArgs e)
         {
-            if(int.Parse(BxProcurar.Text) < maiorId && int.Parse(BxProcurar.Text) > 0)
+            if (BxProcurar.Text != "")
             {
-                selecionado = false;
-                ProcurarClienteProduto janela = new(this, BxProcurar.Text, PRODUTO);
-                janela.ShowDialog();
-                if (selecionado)
-                    SetTexto();
+                if (int.Parse(BxProcurar.Text) < maiorId && int.Parse(BxProcurar.Text) > 0)
+                {
+                    AbrirJanelaProduto();
+                }
+                else
+                {
+                    MessageBox.Show("Item inexistente", "Erro", MessageBoxButtons.OK);
+                }
             }
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Item inexistente", "Erro", MessageBoxButtons.OK);
+                AbrirJanelaProduto();
             }
 
         }
