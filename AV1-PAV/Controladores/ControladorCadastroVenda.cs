@@ -43,7 +43,7 @@ namespace AV1_PAV.Controladores
             try
             {
                 MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO venda VALUES ("+ venda.idVenda + 
-                    ",\"" + venda.data + "\",\"" + venda.hora + "\"," + venda.idCliente + "," + venda.totalVenda + 
+                    ",\"" + venda.data + "\",\"" + venda.hora + "\"," + venda.idCliente + "," + venda.totalVenda.ToString().Replace(',','.') + 
                     ",\"" + venda.situacaoVenda + "\")", BancoDados.obterInstancia().obterConexao());
                 comandoInclusao.ExecuteNonQuery();
                 foreach(ItemVenda item in venda.itens)
@@ -56,6 +56,9 @@ namespace AV1_PAV.Controladores
                         throw new Exception(ex.Message);
                     }
                 }
+                MySqlCommand comandoInclusaoFPV = new MySqlCommand("INSERT INTO formapagamentovenda VALUES (" + venda.formaDePagamento.idVenda + "," + venda.formaDePagamento.idFormaPagamento 
+                                                                            + "," + venda.formaDePagamento.valor.ToString().Replace(',','.') + ")", BancoDados.obterInstancia().obterConexao());
+                comandoInclusaoFPV.ExecuteNonQuery();
                 BancoDados.obterInstancia().confirmarTransacao();
             }
             catch (Exception ex)

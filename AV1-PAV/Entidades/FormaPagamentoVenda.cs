@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace AV1_PAV.Entidades
 {
-    class FormaPagamentoVenda : Entidade
+    public class FormaPagamentoVenda : Entidade
     {
         public const string ATRIBUTO_ID_VENDA = "ID_VENDA";
         public const string ATRIBUTO_ID_FORMA_PAGAMENTO = "ID_FORMA_PAGAMENTO";

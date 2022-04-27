@@ -1,7 +1,7 @@
 ﻿
 namespace AV1_PAV.UI
 {
-    partial class ListarRemoverVenda
+    partial class ListarCancelarVenda
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace AV1_PAV.UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarRemoverVenda));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarCancelarVenda));
             this.GridLista = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();

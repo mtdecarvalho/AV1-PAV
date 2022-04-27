@@ -93,7 +93,7 @@ namespace AV1_PAV.Controladores
             {
                 MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO itemvenda VALUES (" + item.idVenda + 
                     "," + item.numeroItem + "," + item.idProduto + "," + item.quantidade + 
-                    "," + item.valorUnitario + "," + item.totalItem + ")", BancoDados.obterInstancia().obterConexao());
+                    "," + item.valorUnitario.ToString().Replace(',','.') + "," + item.totalItem.ToString().Replace(',','.') + ")", BancoDados.obterInstancia().obterConexao());
                 comandoInclusao.ExecuteNonQuery();
                 retirarDoEstoque(item);
             }

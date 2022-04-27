@@ -35,7 +35,7 @@ namespace AV1_PAV.Persistencia
             {
                 conexao = new MySqlConnection(criarStringConexao(usuario, senha));
                 conexao.Open();
-                MessageBox.Show("Conexão realizada com sucesso");
+                
             }
             catch (Exception ex)
             {
@@ -47,6 +47,20 @@ namespace AV1_PAV.Persistencia
         {
             //senha do root do mysql server
             conectar("root", "y62fSiko&Q50");
+        }
+
+        public void testar()
+        {
+            try
+            {
+                conectar("root", "y62fSiko&Q50");
+                MessageBox.Show("Conexão realizada com sucesso");
+                desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void desconectar()
