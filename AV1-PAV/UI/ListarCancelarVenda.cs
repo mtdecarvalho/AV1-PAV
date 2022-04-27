@@ -44,6 +44,7 @@ namespace AV1_PAV.UI
             }
             Lista = VendaSQL.BuscarMultiplos("id_cliente","");
             PreencherTabela();
+            BancoDados.obterInstancia().conectar();
         }
 
         private void PreencherTabela()
@@ -122,8 +123,8 @@ namespace AV1_PAV.UI
 
         private void ListarRemoverVenda_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //BancoDados.obterInstancia().finalizarTransacao();
-            //BancoDados.obterInstancia().desconectar();
+            BancoDados.obterInstancia().finalizarTransacao();
+            BancoDados.obterInstancia().desconectar();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -133,13 +134,17 @@ namespace AV1_PAV.UI
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(GridLista.SelectedRows[0].Cells[0].Value.ToString());
-            BancoDados.obterInstancia().conectar();
-            ControladorCadastroVenda controlador = new();
-            controlador.atualizar("CANCELADA", id);
-            BancoDados.obterInstancia().desconectar();
-            Lista = VendaSQL.BuscarMultiplos("id_cliente", "");
-            PreencherTabela();
+            DialogResult dialogResult = MessageBox.Show("Confirmação", "Tem certeza que deseja cancelar?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int id = int.Parse(GridLista.SelectedRows[0].Cells[0].Value.ToString());
+                BancoDados.obterInstancia().conectar();
+                ControladorCadastroVenda controlador = new();
+                controlador.atualizar("CANCELADA", id);
+                BancoDados.obterInstancia().desconectar();
+                Lista = VendaSQL.BuscarMultiplos("id_cliente", "");
+                PreencherTabela();
+            }
         }
     }
 }
