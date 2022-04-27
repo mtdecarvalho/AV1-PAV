@@ -56,6 +56,9 @@ namespace AV1_PAV.Controladores
                         throw new Exception(ex.Message);
                     }
                 }
+                MySqlCommand comandoInclusaoFPV = new MySqlCommand("INSERT INTO formapagamentovenda VALUES (" + venda.formaDePagamento.idVenda + "," + venda.formaDePagamento.idFormaPagamento 
+                                                                            + "," + venda.formaDePagamento.valor.ToString().Replace(',','.') + ")", BancoDados.obterInstancia().obterConexao());
+                comandoInclusaoFPV.ExecuteNonQuery();
                 BancoDados.obterInstancia().confirmarTransacao();
             }
             catch (Exception ex)

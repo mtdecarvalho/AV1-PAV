@@ -15,18 +15,18 @@ using System.Windows.Forms;
 
 namespace AV1_PAV.UI
 {
-    public partial class ListarRemoverVenda : Form
+    public partial class ListarCancelarVenda : Form
     {
         private List<Venda> Lista = new();
         private String funcao;
         private String filtro;
         private const string CANCELAR = "Cancelar";
-        public ListarRemoverVenda()
+        public ListarCancelarVenda()
         {
             InitializeComponent();
         }
 
-        public ListarRemoverVenda(String funcao)
+        public ListarCancelarVenda(String funcao)
         {
             InitializeComponent();
             this.funcao = funcao;
@@ -136,6 +136,8 @@ namespace AV1_PAV.UI
             ControladorCadastroVenda controlador = new();
             controlador.atualizar("CANCELADA", id);
             BancoDados.obterInstancia().desconectar();
+            Lista = VendaSQL.BuscarMultiplos("id_cliente", "");
+            PreencherTabela();
         }
     }
 }

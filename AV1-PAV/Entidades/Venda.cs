@@ -26,10 +26,12 @@ namespace AV1_PAV.Entidades
         public double totalVenda                       { get; set; }
         public string situacaoVenda                    { get; set; }
         public List<ItemVenda> itens                   { get; set; }
+        public FormaPagamentoVenda formaDePagamento    { get; set; }
 
         public Venda()
         {
             itens = new();
+            formaDePagamento = new();
         }
 
         public override void transferirDados(MySqlCommand comando)

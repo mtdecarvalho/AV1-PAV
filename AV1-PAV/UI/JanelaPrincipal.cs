@@ -43,8 +43,7 @@ namespace AV1_PAV
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BancoDados.obterInstancia().conectar();
-            //BancoDados.obterInstancia().desconectar();
+            BancoDados.obterInstancia().testar();
         }
 
         private void BtVenda_Click(object sender, EventArgs e)
@@ -114,7 +113,7 @@ namespace AV1_PAV
             }
             else if (activePanel.Text == VENDAS)
             {
-                ListarRemoverVenda janela = new("Cancelar");
+                ListarCancelarVenda janela = new("Cancelar");
                 janela.ShowDialog();
             }
         }
@@ -132,7 +131,7 @@ namespace AV1_PAV
             }
             else if (activePanel.Text == VENDAS)
             {
-                ListarRemoverVenda janela = new("Listar");
+                ListarCancelarVenda janela = new("Listar");
                 janela.ShowDialog();
             }
         }

@@ -61,7 +61,7 @@
   <data name="BtProcurar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        cwAAAHMBY8FD/gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHzSURBVDhPY4CB
+        cgAAAHIBsYahGgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHzSURBVDhPY4CB
         Mr//vPkRP2sSEn9d8s/5/d2u7M973aZ/u6W7/ocy/P/PCFWGHcy1/qHe7/b9ToPfzwX5kb9tEhN/WwVm
         /baxL/kTqNv476xM9/81KpP+s0OVo4JtKm/51hp9uzPf5nsSiN/g/+NBQcTPs/GJv2775/y5bVv221mn
         8d8ama7/M8Ea0MEJxa+1e7S+zodyUQDQJe5+uX+mOTT85wG65Kls938dqBQCXJP4fPGU0ldTKBcnsCv7
@@ -76,7 +76,7 @@
   <data name="BtAdicionar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        cwAAAHMBY8FD/gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFySURBVDhPzZLL
+        cgAAAHIBsYahGgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFySURBVDhPzZLL
         SoJRFIUXVPYC0aBG1aDnyR4gsjCDeoduky6D6DII01FUSI0KoiuESReTCMqQLgQOdVKINlutIxv//vgf
         wAU/7L095zvrHBeaT1NgaBMc3QIze2D5EKycgjcZcPIVbLdlwVoEO1fBrAAVARL7YFSAIQGSV2DtHnwo
         gN223K8U2CJAToCXBNhv44bkoE+AwrMggU5mwJgAleU/m7fBwSMwbC0ewR4Bah/ghI08zYEXS7JtbV07
@@ -176,7 +176,7 @@
   <data name="BtSelecionarCliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        cwAAAHMBY8FD/gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHzSURBVDhPY4CB
+        cgAAAHIBsYahGgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHzSURBVDhPY4CB
         Mr//vPkRP2sSEn9d8s/5/d2u7M973aZ/u6W7/ocy/P/PCFWGHcy1/qHe7/b9ToPfzwX5kb9tEhN/WwVm
         /baxL/kTqNv476xM9/81KpP+s0OVo4JtKm/51hp9uzPf5nsSiN/g/+NBQcTPs/GJv2775/y5bVv221mn
         8d8ama7/M8Ea0MEJxa+1e7S+zodyUQDQJe5+uX+mOTT85wG65Kls938dqBQCXJP4fPGU0ldTKBcnsCv7

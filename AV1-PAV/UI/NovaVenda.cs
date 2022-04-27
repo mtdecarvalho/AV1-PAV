@@ -64,6 +64,7 @@ namespace AV1_PAV.UI
         {
             LbNome.Text = p.nome.ToString();
             BxPreco.Text = p.preco.ToString();
+            BxQuantidade.Value = 1;
             AtualizarTotal();           
         }
 
@@ -88,7 +89,11 @@ namespace AV1_PAV.UI
 
         private void AtualizarTotal()
         {
-            BxTotal.Text = (int.Parse(BxQuantidade.Text) * Double.Parse(BxPreco.Text)).ToString();
+            int qtd = int.Parse(BxQuantidade.Value.ToString());
+            System.Diagnostics.Debug.WriteLine(qtd);
+            double preco = Double.Parse(BxPreco.Text);
+            double total = qtd * preco;
+            BxTotal.Text = total.ToString();
         }
 
         private void AtualizaTabela(ItemVenda iv)
@@ -218,6 +223,24 @@ namespace AV1_PAV.UI
                 venda.totalVenda = subtotal;
                 venda.situacaoVenda = "ATIVA";
                 venda.itens = Lista;
+
+                switch (pagamento)
+                {
+                    case "Dinheiro":
+                        venda.formaDePagamento.idFormaPagamento = 0;
+                        break;
+                    case "Credito":
+                        venda.formaDePagamento.idFormaPagamento = 1;
+                        break;
+                    case "Debito":
+                        venda.formaDePagamento.idFormaPagamento = 2;
+                        break;
+                    case "Boleto":
+                        venda.formaDePagamento.idFormaPagamento = 3;
+                        break;
+                }
+                venda.formaDePagamento.idVenda = numeroVenda;
+                venda.formaDePagamento.valor = subtotal;
 
                 BancoDados.obterInstancia().conectar();
                 ControladorCadastroVenda controlador = new();
