@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -132,8 +133,11 @@ namespace AV1_PAV.UI
 
         private void BtAdicionar_Click(object sender, EventArgs e)
         {
-            p = ProdutoSQL.BuscarPorCodigo(BxCodigo.Text);
-            SetTexto();
+            if (BxCodigo.Text != "")
+            {
+                p = ProdutoSQL.BuscarPorCodigo(BxCodigo.Text);
+                SetTexto();
+            }
         }
 
         private void BtAdicionarCarrinho_Click(object sender, EventArgs e)
@@ -143,9 +147,9 @@ namespace AV1_PAV.UI
             iv.idProduto = p.idProduto;
             iv.numeroItem = numeroItem;
             iv.quantidade = int.Parse(BxQuantidade.Text);
-            iv.valorUnitario = Double.Parse(BxPreco.Text);
-            iv.totalItem = Double.Parse(BxTotal.Text);
-
+            iv.valorUnitario = double.Parse(BxPreco.Text);
+            iv.totalItem = double.Parse(BxTotal.Text);
+            
             AtualizaTabela(iv);
             Lista.Add(iv);
 
@@ -201,15 +205,16 @@ namespace AV1_PAV.UI
                 DateTime thisDay = DateTime.Now;
                 string data = thisDay.ToString("yyyy-MM-dd");
                 string hora = thisDay.ToString("HH:mm:ss");
-                System.Diagnostics.Debug.WriteLine(data);
-                System.Diagnostics.Debug.WriteLine(hora);
-                System.Diagnostics.Debug.WriteLine(c.idCliente);
+
 
                 Venda venda = new();
                 venda.idVenda = numeroVenda;
                 venda.data = data;
                 venda.hora = hora;
-                venda.idCliente = c.idCliente;
+                if (!selecionado)
+                    venda.idCliente = 0;
+                else
+                    venda.idCliente = c.idCliente;
                 venda.totalVenda = subtotal;
                 venda.situacaoVenda = "ATIVA";
                 venda.itens = Lista;

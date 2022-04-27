@@ -43,7 +43,7 @@ namespace AV1_PAV.Controladores
             try
             {
                 MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO venda VALUES ("+ venda.idVenda + 
-                    ",\"" + venda.data + "\",\"" + venda.hora + "\"," + venda.idCliente + "," + venda.totalVenda + 
+                    ",\"" + venda.data + "\",\"" + venda.hora + "\"," + venda.idCliente + "," + venda.totalVenda.ToString().Replace(',','.') + 
                     ",\"" + venda.situacaoVenda + "\")", BancoDados.obterInstancia().obterConexao());
                 comandoInclusao.ExecuteNonQuery();
                 foreach(ItemVenda item in venda.itens)
