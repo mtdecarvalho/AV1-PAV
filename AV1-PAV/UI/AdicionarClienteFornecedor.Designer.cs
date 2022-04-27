@@ -112,6 +112,7 @@ namespace AV1_PAV.UI
             this.tbxNumero.Name = "tbxNumero";
             this.tbxNumero.Size = new System.Drawing.Size(167, 23);
             this.tbxNumero.TabIndex = 4;
+            this.tbxNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxNumero_KeyPress);
             // 
             // lblNumero
             // 
@@ -144,6 +145,7 @@ namespace AV1_PAV.UI
             this.tbxCpfCnpj.Name = "tbxCpfCnpj";
             this.tbxCpfCnpj.Size = new System.Drawing.Size(167, 23);
             this.tbxCpfCnpj.TabIndex = 2;
+            this.tbxCpfCnpj.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCpfCnpj_KeyPress);
             // 
             // lblCpfCnpj
             // 
@@ -184,6 +186,7 @@ namespace AV1_PAV.UI
             this.tbxCEP.Name = "tbxCEP";
             this.tbxCEP.Size = new System.Drawing.Size(167, 23);
             this.tbxCEP.TabIndex = 9;
+            this.tbxCEP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCEP_KeyPress);
             // 
             // tbxTelefone
             // 
@@ -191,6 +194,7 @@ namespace AV1_PAV.UI
             this.tbxTelefone.Name = "tbxTelefone";
             this.tbxTelefone.Size = new System.Drawing.Size(167, 23);
             this.tbxTelefone.TabIndex = 10;
+            this.tbxTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxTelefone_KeyPress);
             // 
             // tbxEmail
             // 
@@ -323,8 +327,10 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancelar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AdicionarClienteFornecedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.AdicionarClienteFornecedor_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

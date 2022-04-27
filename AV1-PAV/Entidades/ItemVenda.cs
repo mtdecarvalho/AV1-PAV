@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace AV1_PAV.Entidades
 {
-    class ItemVenda : Entidade
+    public class ItemVenda : Entidade
     {
         public const string ATRIBUTO_ID_VENDA = "ID_VENDA";
         public const string ATRIBUTO_NUMERO_ITEM = "NUMERO_ITEM";

@@ -18,12 +18,19 @@ namespace AV1_PAV.Entidades
         public const string ATRIBUTO_TOTAL_VENDA = "TOTAL_VENDA";
         public const string ATRIBUTO_SITUACAO_VENDA = "SITUACAO_VENDA";
 
+
         public int idVenda                             { get; set; }
         public string data                             { get; set; }
         public string hora                             { get; set; }
         public int idCliente                           { get; set; }
         public double totalVenda                       { get; set; }
         public string situacaoVenda                    { get; set; }
+        public List<ItemVenda> itens                   { get; set; }
+
+        public Venda()
+        {
+            itens = new();
+        }
 
         public override void transferirDados(MySqlCommand comando)
         {

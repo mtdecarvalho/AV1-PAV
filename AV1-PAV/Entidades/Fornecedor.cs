@@ -1,23 +1,22 @@
-﻿using System;
+﻿using AV1_PAV.Persistencia;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using AV1_PAV.Persistencia;
-using MySql.Data.MySqlClient;
-
 namespace AV1_PAV.Entidades
 {
-    public class Cliente : Pessoa
+    public class Fornecedor : Pessoa
     {
-        public const string ATRIBUTO_ID_CLIENTE = "ID_CLIENTE";
+        public const string ATRIBUTO_ID_FORNECEDOR = "ID_FORNECEDOR";
 
-        public int idCliente                       { get; set; }
+        public int idFornecedor { get; set; }
 
         public override void transferirDados(MySqlCommand comando)
         {
-            comando.Parameters[ATRIBUTO_ID_CLIENTE].Value = idCliente;
+            comando.Parameters[ATRIBUTO_ID_FORNECEDOR].Value = idFornecedor;
             comando.Parameters[ATRIBUTO_NOME].Value = nome;
             comando.Parameters[ATRIBUTO_CPF_CNPJ].Value = cpfCnpj;
             comando.Parameters[ATRIBUTO_LOGRADOURO].Value = logradouro;
@@ -33,12 +32,12 @@ namespace AV1_PAV.Entidades
 
         public override void transferirDadosIdentificador(MySqlCommand comando)
         {
-            comando.Parameters[ATRIBUTO_ID_CLIENTE].Value = idCliente;
+            comando.Parameters[ATRIBUTO_ID_FORNECEDOR].Value = idFornecedor;
         }
 
         public override void lerDados(MySqlDataReader leitorDados)
         {
-            idCliente = int.Parse(leitorDados[ATRIBUTO_ID_CLIENTE].ToString());
+            idFornecedor = int.Parse(leitorDados[ATRIBUTO_ID_FORNECEDOR].ToString());
             nome = leitorDados[ATRIBUTO_NOME].ToString();
             cpfCnpj = leitorDados[ATRIBUTO_CPF_CNPJ].ToString();
             logradouro = leitorDados[ATRIBUTO_LOGRADOURO].ToString();

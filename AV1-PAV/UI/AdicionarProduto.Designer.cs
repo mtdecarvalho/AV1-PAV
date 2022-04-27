@@ -41,8 +41,6 @@ namespace AV1_PAV.UI
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbxID = new System.Windows.Forms.TextBox();
             this.cbFornecedor = new System.Windows.Forms.ComboBox();
             this.cbUnidade = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
@@ -51,7 +49,7 @@ namespace AV1_PAV.UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(107, 40);
+            this.label1.Location = new System.Drawing.Point(114, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 15);
             this.label1.TabIndex = 0;
@@ -59,7 +57,7 @@ namespace AV1_PAV.UI
             // 
             // tbxNome
             // 
-            this.tbxNome.Location = new System.Drawing.Point(153, 32);
+            this.tbxNome.Location = new System.Drawing.Point(160, 3);
             this.tbxNome.Name = "tbxNome";
             this.tbxNome.Size = new System.Drawing.Size(180, 23);
             this.tbxNome.TabIndex = 1;
@@ -67,7 +65,7 @@ namespace AV1_PAV.UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 69);
+            this.label2.Location = new System.Drawing.Point(17, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 15);
             this.label2.TabIndex = 2;
@@ -76,7 +74,7 @@ namespace AV1_PAV.UI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(107, 98);
+            this.label3.Location = new System.Drawing.Point(114, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 15);
             this.label3.TabIndex = 3;
@@ -85,7 +83,7 @@ namespace AV1_PAV.UI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(93, 127);
+            this.label4.Location = new System.Drawing.Point(100, 98);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 15);
             this.label4.TabIndex = 4;
@@ -94,7 +92,7 @@ namespace AV1_PAV.UI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(77, 156);
+            this.label5.Location = new System.Drawing.Point(84, 127);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 15);
             this.label5.TabIndex = 5;
@@ -102,22 +100,24 @@ namespace AV1_PAV.UI
             // 
             // tbxQtdEstoque
             // 
-            this.tbxQtdEstoque.Location = new System.Drawing.Point(153, 61);
+            this.tbxQtdEstoque.Location = new System.Drawing.Point(160, 32);
             this.tbxQtdEstoque.Name = "tbxQtdEstoque";
             this.tbxQtdEstoque.Size = new System.Drawing.Size(180, 23);
             this.tbxQtdEstoque.TabIndex = 6;
+            this.tbxQtdEstoque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxQtdEstoque_KeyPress);
             // 
             // tbxPreco
             // 
-            this.tbxPreco.Location = new System.Drawing.Point(153, 90);
+            this.tbxPreco.Location = new System.Drawing.Point(160, 61);
             this.tbxPreco.Name = "tbxPreco";
             this.tbxPreco.Size = new System.Drawing.Size(180, 23);
             this.tbxPreco.TabIndex = 7;
+            this.tbxPreco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPreco_KeyPress);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(114, 199);
+            this.btnCancelar.Location = new System.Drawing.Point(121, 169);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 50);
             this.btnCancelar.TabIndex = 10;
@@ -129,7 +129,7 @@ namespace AV1_PAV.UI
             // btnOK
             // 
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.Location = new System.Drawing.Point(195, 199);
+            this.btnOK.Location = new System.Drawing.Point(202, 169);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 50);
             this.btnOK.TabIndex = 11;
@@ -140,8 +140,6 @@ namespace AV1_PAV.UI
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.tbxID);
             this.panel1.Controls.Add(this.cbFornecedor);
             this.panel1.Controls.Add(this.cbUnidade);
             this.panel1.Controls.Add(this.label1);
@@ -154,30 +152,13 @@ namespace AV1_PAV.UI
             this.panel1.Controls.Add(this.tbxQtdEstoque);
             this.panel1.Location = new System.Drawing.Point(21, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(343, 180);
+            this.panel1.Size = new System.Drawing.Size(343, 149);
             this.panel1.TabIndex = 12;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(126, 11);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 15);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "ID:";
-            // 
-            // tbxID
-            // 
-            this.tbxID.Location = new System.Drawing.Point(153, 3);
-            this.tbxID.Name = "tbxID";
-            this.tbxID.Size = new System.Drawing.Size(180, 23);
-            this.tbxID.TabIndex = 12;
             // 
             // cbFornecedor
             // 
             this.cbFornecedor.FormattingEnabled = true;
-            this.cbFornecedor.Location = new System.Drawing.Point(153, 148);
+            this.cbFornecedor.Location = new System.Drawing.Point(160, 119);
             this.cbFornecedor.Name = "cbFornecedor";
             this.cbFornecedor.Size = new System.Drawing.Size(180, 23);
             this.cbFornecedor.TabIndex = 11;
@@ -190,7 +171,7 @@ namespace AV1_PAV.UI
             "mg",
             "l",
             "ml"});
-            this.cbUnidade.Location = new System.Drawing.Point(153, 119);
+            this.cbUnidade.Location = new System.Drawing.Point(160, 90);
             this.cbUnidade.Name = "cbUnidade";
             this.cbUnidade.Size = new System.Drawing.Size(53, 23);
             this.cbUnidade.TabIndex = 10;
@@ -199,14 +180,14 @@ namespace AV1_PAV.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 261);
+            this.ClientSize = new System.Drawing.Size(384, 231);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancelar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AdicionarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Adicionar produto";
-            this.Load += new System.EventHandler(this.AdicionarProduto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -228,7 +209,5 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cbUnidade;
         private System.Windows.Forms.ComboBox cbFornecedor;
-        private System.Windows.Forms.TextBox tbxID;
-        private System.Windows.Forms.Label label6;
     }
 }

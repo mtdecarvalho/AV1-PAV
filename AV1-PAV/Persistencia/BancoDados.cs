@@ -18,6 +18,8 @@ namespace AV1_PAV.Persistencia
         private MySqlTransaction transacao;
         private static BancoDados instancia = null; // para o singleton
 
+        private bool iniciado = false;
+
         private string criarStringConexao(string usuario, string senha)
         {
             return "server = " + servidor +
@@ -72,7 +74,20 @@ namespace AV1_PAV.Persistencia
 
         public void iniciarTransacao()
         {
-            transacao = conexao.BeginTransaction();
+                transacao = conexao.BeginTransaction();
+        }
+
+        public void iniciarTransacaoOtimizado()
+        {
+            if (!iniciado)
+            {
+                transacao = conexao.BeginTransaction();
+                iniciado = true;
+            }
+        }
+        public void finalizarTransacao()
+        {
+            iniciado = false;
         }
 
         public void confirmarTransacao()

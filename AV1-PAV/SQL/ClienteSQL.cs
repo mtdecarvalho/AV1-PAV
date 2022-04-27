@@ -16,9 +16,8 @@ namespace AV1_PAV.SQL
             Cliente entidade = new();
             String SQL = "SELECT * FROM cliente WHERE id_cliente =" + codigo;
 
-            BancoDados.obterInstancia().conectar();
             MySqlCommand comandoSelecao = new MySqlCommand(SQL, BancoDados.obterInstancia().obterConexao());
-            BancoDados.obterInstancia().iniciarTransacao();
+            BancoDados.obterInstancia().iniciarTransacaoOtimizado();
             try
             {
                 MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
@@ -38,7 +37,6 @@ namespace AV1_PAV.SQL
             {
                 throw new Exception(ex.Message);
             }
-            BancoDados.obterInstancia().desconectar();
 
             return entidade;
         }
@@ -69,6 +67,36 @@ namespace AV1_PAV.SQL
             BancoDados.obterInstancia().desconectar();
 
             return Lista;
+        }
+
+        public static int BuscarMaiorID()
+        {
+            Cliente entidade = new();
+            String SQL = "SELECT * FROM cliente ORDER BY id_cliente DESC LIMIT 0, 1";
+
+            BancoDados.obterInstancia().conectar();
+            MySqlCommand comandoSelecao = new MySqlCommand(SQL, BancoDados.obterInstancia().obterConexao());
+            BancoDados.obterInstancia().iniciarTransacao();
+            try
+            {
+                MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
+                if (leitorDados.Read())
+                {
+                    entidade.lerDados(leitorDados);
+                }
+                else
+                {
+                    entidade.idCliente = 0;
+                }
+                leitorDados.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            BancoDados.obterInstancia().desconectar();
+
+            return entidade.idCliente;
         }
     }
 }

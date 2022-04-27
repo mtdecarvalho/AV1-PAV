@@ -72,6 +72,7 @@ namespace AV1_PAV.UI
             this.dataGridClientes.ReadOnly = true;
             this.dataGridClientes.RowHeadersVisible = false;
             this.dataGridClientes.RowTemplate.Height = 25;
+            this.dataGridClientes.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridClientes.Size = new System.Drawing.Size(860, 474);
             this.dataGridClientes.TabIndex = 0;
@@ -199,6 +200,7 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.tbxBusca);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.dataGridClientes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RemoverCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Remover cliente";

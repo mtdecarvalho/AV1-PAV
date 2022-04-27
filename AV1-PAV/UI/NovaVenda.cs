@@ -1,4 +1,6 @@
-﻿using AV1_PAV.Entidades;
+﻿using AV1_PAV.Controladores;
+using AV1_PAV.Entidades;
+using AV1_PAV.Persistencia;
 using AV1_PAV.SQL;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,7 @@ namespace AV1_PAV.UI
         private double subtotal = 0;
         private int numeroItem = 0;
         private int numeroVenda;
+        private String pagamento;
         private bool selecionado;
 
         public const String CLIENTE = "Cliente";
@@ -46,7 +49,9 @@ namespace AV1_PAV.UI
 
         public void SetCliente(String id)
         {
+            BancoDados.obterInstancia().conectar();
             c = ClienteSQL.BuscarPorCodigo(id);
+            BancoDados.obterInstancia().desconectar();
         }
 
         public void Selecionado(bool v)
@@ -63,7 +68,7 @@ namespace AV1_PAV.UI
 
         private void SetNumeroVenda()
         {
-            numeroVenda = VendaSQL.BuscarMaiorID();
+            numeroVenda = VendaSQL.BuscarMaiorID() + 1;
             LbVenda.Text = "Venda Número: " + numeroVenda.ToString();
         }
 
@@ -75,7 +80,7 @@ namespace AV1_PAV.UI
         private void LimparTexto()
         {
             LbNome.Text = "";
-            BxPreco.Text = "";
+            BxPreco.Text = "1";
             BxQuantidade.Text = "1";
             BxTotal.Text = "";
         }
@@ -90,6 +95,30 @@ namespace AV1_PAV.UI
             String[] row = { iv.numeroItem.ToString(), p.idProduto.ToString(), p.nome, iv.quantidade.ToString(),
                              iv.valorUnitario.ToString(), iv.totalItem.ToString() };
             DataGridItemVenda.Rows.Add(row);
+        }
+
+        private bool ChecarPagamento()
+        {
+            if (RbDinheiro.Checked) { 
+                pagamento = "Dinheiro";
+                return true;
+            }
+            if (RbCredito.Checked)
+            {
+                pagamento = "Credito";
+                return true;
+            }
+            if (RbDebito.Checked)
+            {
+                pagamento = "Debito";
+                return true;
+            }   
+            if (RbBoleto.Checked)
+            {
+                pagamento = "Boleto";
+                return true;
+            }
+            return false;
         }
 
         private void BtProcurar_Click(object sender, EventArgs e)
@@ -151,11 +180,6 @@ namespace AV1_PAV.UI
                 Dispose();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void AtualizarTotal(object sender, EventArgs e)
         {
             AtualizarTotal();
@@ -172,19 +196,40 @@ namespace AV1_PAV.UI
 
         private void BtFinalizar_Click(object sender, EventArgs e)
         {
-            DateTime thisDay = DateTime.Today;
-            String data = thisDay.ToString("d");
-            String hora = thisDay.Hour.ToString();
+            if (ChecarPagamento())
+            {
+                DateTime thisDay = DateTime.Now;
+                string data = thisDay.ToString("yyyy-MM-dd");
+                string hora = thisDay.ToString("HH:mm:ss");
+                System.Diagnostics.Debug.WriteLine(data);
+                System.Diagnostics.Debug.WriteLine(hora);
+                System.Diagnostics.Debug.WriteLine(c.idCliente);
 
-            Venda venda = new();
-            venda.idVenda = numeroVenda;
-            venda.data = data;
-            venda.hora = hora;
-            venda.idCliente = c.idCliente;
-            venda.totalVenda = subtotal;
-            venda.situacaoVenda = "0";
+                Venda venda = new();
+                venda.idVenda = numeroVenda;
+                venda.data = data;
+                venda.hora = hora;
+                venda.idCliente = c.idCliente;
+                venda.totalVenda = subtotal;
+                venda.situacaoVenda = "ATIVA";
+                venda.itens = Lista;
 
-            ItemVendaSQL.IncluirListaVenda(Lista, venda);
+                BancoDados.obterInstancia().conectar();
+                ControladorCadastroVenda controlador = new();
+                controlador.incluir(venda);
+                BancoDados.obterInstancia().desconectar();
+                this.Dispose();
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Favor selecione uma forma de pagamento", "Erro", MessageBoxButtons.OK);
+            }
+            
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            AtualizarTotal();
         }
     }
 }
