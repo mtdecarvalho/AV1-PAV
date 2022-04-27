@@ -61,7 +61,7 @@ namespace AV1_PAV.UI
         private void btnOK_Click(object sender, EventArgs e)
         {
             Produto produto = new();
-            produto.idProduto = ProdutoSQL.BuscarMaiorID() + 1;
+            produto.idProduto = ProdutoSQL.BuscarMaior("id_produto") + 1;
             produto.nome = tbxNome.Text;
             produto.qtdEstoque = int.Parse(tbxQtdEstoque.Text);
             produto.preco = double.Parse(tbxPreco.Text);
