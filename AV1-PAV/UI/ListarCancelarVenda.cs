@@ -90,6 +90,7 @@ namespace AV1_PAV.UI
             {
                 String busca = BxPesquisa.Text;
                 GridLista.Rows.Clear();
+                BancoDados.obterInstancia().conectar();
                 foreach (Venda venda in Lista)
                 {
                     if (filtro == "data")
@@ -118,7 +119,7 @@ namespace AV1_PAV.UI
             {
                 DialogResult dialogResult = MessageBox.Show("Favor selecione um filtro", "Erro", MessageBoxButtons.OK);
             }
-
+            BancoDados.obterInstancia().desconectar();
         }
 
         private void ListarRemoverVenda_FormClosed(object sender, FormClosedEventArgs e)
