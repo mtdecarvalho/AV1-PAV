@@ -70,16 +70,23 @@ namespace AV1_PAV.UI
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new();
-            if (dataGridClientes.SelectedRows[0].Cells[0].Value != null)
-            {
-                cliente.idCliente = int.Parse(dataGridClientes.SelectedRows[0].Cells[0].Value.ToString());
-                BancoDados.obterInstancia().conectar();
-                ControladorCadastroCliente controlador = new();
-                controlador.excluir(cliente);
-                BancoDados.obterInstancia().desconectar();
-                LerDoBanco();
-                atualizarGrid();
+            DialogResult dialogResult = MessageBox.Show("Confirmação", "Tem certeza que deseja remover?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes) { 
+                Cliente cliente = new();
+                if (dataGridClientes.SelectedRows[0].Cells[0].Value != null)
+                {
+                    cliente.idCliente = int.Parse(dataGridClientes.SelectedRows[0].Cells[0].Value.ToString());
+                    BancoDados.obterInstancia().conectar();
+                    ControladorCadastroCliente controlador = new();
+                    controlador.excluir(cliente);
+                    BancoDados.obterInstancia().desconectar();
+                    LerDoBanco();
+                    atualizarGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Erro", "Nenhum cliente foi selecionado", MessageBoxButtons.OK);
+                }
             }
         }
 

@@ -58,18 +58,26 @@ namespace AV1_PAV.UI
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            int selecionado = dataGridView1.CurrentCell.RowIndex;
-            int id_selecionado;
-            if (selecionado > -1)
+            DialogResult dialogResult = MessageBox.Show("Confirmação", "Tem certeza que deseja remover?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                BancoDados.obterInstancia().conectar();
-                Produto produto = new();
-                ControladorCadastroProduto controlador = new();
-                id_selecionado = int.Parse(dataGridView1.Rows[selecionado].Cells["id_produto"].Value.ToString());
-                produto.idProduto = id_selecionado;
-                controlador.excluir(produto);
-                dataGridView1.Rows.RemoveAt(selecionado);
-                BancoDados.obterInstancia().desconectar();
+                int selecionado = dataGridView1.CurrentCell.RowIndex;
+                int id_selecionado;
+                if (selecionado > -1)
+                {
+                    BancoDados.obterInstancia().conectar();
+                    Produto produto = new();
+                    ControladorCadastroProduto controlador = new();
+                    id_selecionado = int.Parse(dataGridView1.Rows[selecionado].Cells["id_produto"].Value.ToString());
+                    produto.idProduto = id_selecionado;
+                    controlador.excluir(produto);
+                    dataGridView1.Rows.RemoveAt(selecionado);
+                    BancoDados.obterInstancia().desconectar();
+                }
+                else
+                {
+                    MessageBox.Show("Erro", "Nenhum produto foi selecionado", MessageBoxButtons.OK);
+                }
             }
         }
 

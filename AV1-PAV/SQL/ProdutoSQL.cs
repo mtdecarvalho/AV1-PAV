@@ -72,10 +72,10 @@ namespace AV1_PAV.SQL
             return Lista;
         }
 
-        public static int BuscarMaiorID()
+        public static int BuscarMaior(String atributo)
         {
             Produto entidade = new();
-            String SQL = "SELECT * FROM produto ORDER BY id_produto DESC LIMIT 0, 1";
+            String SQL = "SELECT * FROM produto ORDER BY " + atributo + " DESC LIMIT 0, 1";
 
             BancoDados.obterInstancia().conectar();
             MySqlCommand comandoSelecao = new MySqlCommand(SQL, BancoDados.obterInstancia().obterConexao());

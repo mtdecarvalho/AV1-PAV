@@ -23,6 +23,7 @@ namespace AV1_PAV.UI
         private double subtotal = 0;
         private int numeroItem = 0;
         private int numeroVenda;
+        private int maiorId;
         private String pagamento;
         private bool selecionado;
 
@@ -36,6 +37,7 @@ namespace AV1_PAV.UI
             SetTextoCliente();
             SetNumeroVenda();
             LimparTexto();
+            GetMaxIdProduto();
         }
 
         public void SetProduto(Produto produto)
@@ -46,6 +48,11 @@ namespace AV1_PAV.UI
         public void SetCliente(Cliente cliente)
         {
             c = cliente;
+        }
+
+        public void GetMaxIdProduto()
+        {
+            maiorId = ProdutoSQL.BuscarMaior("id_produto");
         }
 
         public void SetCliente(String id)
@@ -127,26 +134,51 @@ namespace AV1_PAV.UI
             return false;
         }
 
-        private void BtProcurar_Click(object sender, EventArgs e)
+        public void AbrirJanelaProduto()
         {
             selecionado = false;
             ProcurarClienteProduto janela = new(this, BxProcurar.Text, PRODUTO);
             janela.ShowDialog();
-            if(selecionado)
+            if (selecionado)
                 SetTexto();
+        }
+
+        private void BtProcurar_Click(object sender, EventArgs e)
+        {
+            if (BxProcurar.Text != "")
+            {
+                if (int.Parse(BxProcurar.Text) < maiorId && int.Parse(BxProcurar.Text) > 0)
+                {
+                    AbrirJanelaProduto();
+                }
+                else
+                {
+                    MessageBox.Show("Item inexistente", "Erro", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                AbrirJanelaProduto();
+            }
+
         }
 
         private void BtAdicionar_Click(object sender, EventArgs e)
         {
-            if (BxCodigo.Text != "")
+            if (BxCodigo.Text != "" && int.Parse(BxCodigo.Text) < maiorId && int.Parse(BxCodigo.Text) > 0)
             {
                 p = ProdutoSQL.BuscarPorCodigo(BxCodigo.Text);
                 SetTexto();
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Item inexistente", "Erro", MessageBoxButtons.OK);
             }
         }
 
         private void BtAdicionarCarrinho_Click(object sender, EventArgs e)
         {
+            
             ItemVenda iv = new();
             iv.idVenda = numeroVenda;
             iv.idProduto = p.idProduto;
@@ -168,18 +200,24 @@ namespace AV1_PAV.UI
 
         private void BtRemoverCarrinho_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Confirmação", "Tem certeza que deseja remover o item?", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                int pos = DataGridItemVenda.CurrentCell.RowIndex;
+                String id = DataGridItemVenda.Rows[pos].Cells[0].Value.ToString();
+                ItemVenda aux = new();
+
+                aux = Lista.Find(item => item.numeroItem == int.Parse(id));
+
+                subtotal -= aux.totalItem;
+                LbSubTotal.Text = "Sub - Total: R$ " + subtotal;
+
+                Lista.Remove(aux);
+                DataGridItemVenda.Rows.RemoveAt(pos);
+            }
+                
             
-            int pos = DataGridItemVenda.CurrentCell.RowIndex;
-            String id = DataGridItemVenda.Rows[pos].Cells[0].Value.ToString();
-            ItemVenda aux = new();
-
-            aux = Lista.Find(item => item.numeroItem == int.Parse(id));
-
-            subtotal -= aux.totalItem;
-            LbSubTotal.Text = "Sub - Total: R$ " + subtotal;
-
-            Lista.Remove(aux);
-            DataGridItemVenda.Rows.RemoveAt(pos);
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)
