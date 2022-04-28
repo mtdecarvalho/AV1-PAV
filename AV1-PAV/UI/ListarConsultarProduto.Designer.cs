@@ -45,6 +45,7 @@ namespace AV1_PAV.UI
             this.label1 = new System.Windows.Forms.Label();
             this.tbxBusca = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnConsultar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grpConsulta.SuspendLayout();
             this.SuspendLayout();
@@ -184,7 +185,7 @@ namespace AV1_PAV.UI
             // 
             // tbxBusca
             // 
-            this.tbxBusca.Location = new System.Drawing.Point(184, 420);
+            this.tbxBusca.Location = new System.Drawing.Point(148, 420);
             this.tbxBusca.Name = "tbxBusca";
             this.tbxBusca.Size = new System.Drawing.Size(211, 23);
             this.tbxBusca.TabIndex = 6;
@@ -193,17 +194,31 @@ namespace AV1_PAV.UI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(136, 425);
+            this.label6.Location = new System.Drawing.Point(99, 423);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 15);
             this.label6.TabIndex = 7;
             this.label6.Text = "Nome:";
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultar.Image")));
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultar.Location = new System.Drawing.Point(365, 418);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(85, 25);
+            this.btnConsultar.TabIndex = 8;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // ListarConsultarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 561);
+            this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbxBusca);
             this.Controls.Add(this.grpConsulta);
@@ -238,5 +253,6 @@ namespace AV1_PAV.UI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbxBusca;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnConsultar;
     }
 }
