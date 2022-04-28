@@ -64,6 +64,10 @@ namespace AV1_PAV.UI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
             int selecionado = dataGridView1.CurrentCell.RowIndex;
             int id_selecionado;
             if (selecionado > -1)
@@ -76,7 +80,7 @@ namespace AV1_PAV.UI
                 produto.idProduto = id_selecionado;
                 controlador.selecionar(produto);
                 tbxNome.Text = produto.nome;
-                // tbxFornecedor.Text = produto.idFornecedor;
+                tbxFornecedor.Text = produto.idFornecedor.ToString();
                 tbxPreco.Text = produto.preco.ToString();
                 tbxUnidade.Text = produto.unidade;
                 tbxEstoque.Text = produto.qtdEstoque.ToString();
@@ -88,6 +92,7 @@ namespace AV1_PAV.UI
                 criarTabela(dataAdapter);
 
             }
+
         }
     }
     }
