@@ -49,6 +49,8 @@ namespace AV1_PAV.UI
             // 
             // GridLista
             // 
+            this.GridLista.AllowUserToAddRows = false;
+            this.GridLista.AllowUserToDeleteRows = false;
             this.GridLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -168,7 +170,7 @@ namespace AV1_PAV.UI
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // ListarRemoverVenda
+            // ListarCancelarVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,9 +181,9 @@ namespace AV1_PAV.UI
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.GridLista);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "ListarRemoverVenda";
+            this.Name = "ListarCancelarVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ListaRemoverVenda";
+            this.Text = "ListarCancelarVenda";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ListarRemoverVenda_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.GridLista)).EndInit();
             this.Filtro.ResumeLayout(false);

@@ -63,5 +63,25 @@ namespace AV1_PAV.Controladores
         {
             comando.Parameters.Add(ContaReceber.ATRIBUTO_ID_CONTA_RECEBER, MySqlDbType.Int32);
         }
+
+        public void atualizar(string situacao, int id)
+        {
+            BancoDados.obterInstancia().iniciarTransacao();
+            try
+            {
+                DateTime thisDay = DateTime.Now;
+                string data = thisDay.ToString("yyyy-MM-dd");
+                MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE contareceber SET recebido = \"" + situacao + "\"," +
+                    "data_recebimento = \"" + data + "\"" + " WHERE id_conta_receber = " + id, BancoDados.obterInstancia().obterConexao());
+                comandoAtualizacao.ExecuteNonQuery();
+
+                BancoDados.obterInstancia().confirmarTransacao();
+            }
+            catch (Exception ex)
+            {
+                BancoDados.obterInstancia().cancelarTransacao();
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

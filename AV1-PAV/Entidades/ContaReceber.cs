@@ -60,7 +60,10 @@ namespace AV1_PAV.Entidades
             valor = double.Parse(leitorDados[ATRIBUTO_VALOR].ToString());
             recebido = leitorDados[ATRIBUTO_RECEBIDO].ToString();
             dataRecebimento = leitorDados[ATRIBUTO_DATA_RECEBIMENTO].ToString();
-            valorRecebimento = double.Parse(leitorDados[ATRIBUTO_VALOR_RECEBIMENTO].ToString());
+            if (leitorDados[ATRIBUTO_VALOR_RECEBIMENTO].ToString() != "")
+                valorRecebimento = double.Parse(leitorDados[ATRIBUTO_VALOR_RECEBIMENTO].ToString());
+            else
+                valorRecebimento = 0;
         }
     }
 }

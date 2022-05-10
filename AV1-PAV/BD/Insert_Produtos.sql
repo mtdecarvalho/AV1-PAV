@@ -11,13 +11,13 @@ INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_for
 VALUES (2,"Batata doce", 10, 3.50, "KG", 2);
 
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
-VALUES (3,"Vinho Tinto", 10, 30.00, "Un", 5);
+VALUES (3,"Vinho Tinto", 10, 30.99, "Un", 5);
 
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
 VALUES (4,"Vinho Branco", 10, 35.00, "Un", 1);
 
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
-VALUES (5,"Barra de Chocolate Nestle", 10, 4.00, "Un", 4);
+VALUES (5,"Barra de Chocolate Nestle", 10, 4.32, "Un", 4);
 
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
 VALUES (6,"Barra de Chocolate Garoto", 10, 5.00, "Un", 0);
@@ -62,10 +62,13 @@ INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_for
 VALUES (19,"Feijao Maximo", 50, 6.00, "UN", 4);
 
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
-VALUES (20,"Feijao Urbana", 50, 15.00, "UN", 4);
+VALUES (20,"Feijao Urbana", 50, 15.39, "UN", 4);
 
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
 VALUES (21,"Tilapia", 20, 30.00, "UN", 9);
 
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
 VALUES (22,"Sambiquira", 20, 5.00, "KG", 10);
+
+INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
+VALUES (23,"Cigarro", 20, 4.20, "UN", 10);

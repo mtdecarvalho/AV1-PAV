@@ -59,6 +59,10 @@ namespace AV1_PAV.Controladores
                 MySqlCommand comandoInclusaoFPV = new MySqlCommand("INSERT INTO formapagamentovenda VALUES (" + venda.formaDePagamento.idVenda + "," + venda.formaDePagamento.idFormaPagamento 
                                                                             + "," + venda.formaDePagamento.valor.ToString().Replace(',','.') + ")", BancoDados.obterInstancia().obterConexao());
                 comandoInclusaoFPV.ExecuteNonQuery();
+                MySqlCommand comandoInclusaoContaReceber = new MySqlCommand("INSERT INTO contareceber (id_conta_receber, id_cliente, data_lancamento, data_vencimento, valor, recebido)" +
+                                                                            "VALUES (" + venda.contaReceber.idContaReceber + "," + venda.contaReceber.idCliente + ",\"" + venda.contaReceber.dataLancamento + "\"" + ",\"" + venda.contaReceber.dataVencimento + "\"," + 
+                                                                                venda.contaReceber.valor.ToString().Replace(',', '.') + ",\"" + venda.contaReceber.recebido + "\")", BancoDados.obterInstancia().obterConexao());
+                comandoInclusaoContaReceber.ExecuteNonQuery();
                 BancoDados.obterInstancia().confirmarTransacao();
             }
             catch (Exception ex)

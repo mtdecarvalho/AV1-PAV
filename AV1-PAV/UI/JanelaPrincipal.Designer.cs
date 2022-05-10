@@ -42,14 +42,12 @@ namespace AV1_PAV
             this.GenericBox = new System.Windows.Forms.GroupBox();
             this.FinanceiroBox = new System.Windows.Forms.GroupBox();
             this.BxContasPagar = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.BtBaixaPagar = new System.Windows.Forms.Button();
             this.BtRelatorioPagar = new System.Windows.Forms.Button();
             this.BxCaixa = new System.Windows.Forms.GroupBox();
             this.BtVisualizarCaixa = new System.Windows.Forms.Button();
             this.BtRelatorio = new System.Windows.Forms.Button();
             this.BxContasReceber = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.GenericBox.SuspendLayout();
@@ -190,9 +188,9 @@ namespace AV1_PAV
             this.FinanceiroBox.Controls.Add(this.BxContasPagar);
             this.FinanceiroBox.Controls.Add(this.BxCaixa);
             this.FinanceiroBox.Controls.Add(this.BxContasReceber);
-            this.FinanceiroBox.Location = new System.Drawing.Point(193, 125);
+            this.FinanceiroBox.Location = new System.Drawing.Point(195, 150);
             this.FinanceiroBox.Name = "FinanceiroBox";
-            this.FinanceiroBox.Size = new System.Drawing.Size(336, 263);
+            this.FinanceiroBox.Size = new System.Drawing.Size(336, 241);
             this.FinanceiroBox.TabIndex = 8;
             this.FinanceiroBox.TabStop = false;
             this.FinanceiroBox.Text = "Financeiro";
@@ -200,24 +198,14 @@ namespace AV1_PAV
             // 
             // BxContasPagar
             // 
-            this.BxContasPagar.Controls.Add(this.button2);
             this.BxContasPagar.Controls.Add(this.BtBaixaPagar);
             this.BxContasPagar.Controls.Add(this.BtRelatorioPagar);
             this.BxContasPagar.Location = new System.Drawing.Point(15, 26);
             this.BxContasPagar.Name = "BxContasPagar";
-            this.BxContasPagar.Size = new System.Drawing.Size(134, 108);
+            this.BxContasPagar.Size = new System.Drawing.Size(134, 84);
             this.BxContasPagar.TabIndex = 5;
             this.BxContasPagar.TabStop = false;
             this.BxContasPagar.Text = "Contas a pagar";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(23, 51);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "2 via";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // BtBaixaPagar
             // 
@@ -230,7 +218,7 @@ namespace AV1_PAV
             // 
             // BtRelatorioPagar
             // 
-            this.BtRelatorioPagar.Location = new System.Drawing.Point(23, 80);
+            this.BtRelatorioPagar.Location = new System.Drawing.Point(23, 51);
             this.BtRelatorioPagar.Name = "BtRelatorioPagar";
             this.BtRelatorioPagar.Size = new System.Drawing.Size(75, 23);
             this.BtRelatorioPagar.TabIndex = 1;
@@ -241,7 +229,7 @@ namespace AV1_PAV
             // 
             this.BxCaixa.Controls.Add(this.BtVisualizarCaixa);
             this.BxCaixa.Controls.Add(this.BtRelatorio);
-            this.BxCaixa.Location = new System.Drawing.Point(15, 143);
+            this.BxCaixa.Location = new System.Drawing.Point(15, 125);
             this.BxCaixa.Name = "BxCaixa";
             this.BxCaixa.Size = new System.Drawing.Size(311, 108);
             this.BxCaixa.TabIndex = 6;
@@ -268,24 +256,14 @@ namespace AV1_PAV
             // 
             // BxContasReceber
             // 
-            this.BxContasReceber.Controls.Add(this.button3);
             this.BxContasReceber.Controls.Add(this.button4);
             this.BxContasReceber.Controls.Add(this.button5);
             this.BxContasReceber.Location = new System.Drawing.Point(192, 26);
             this.BxContasReceber.Name = "BxContasReceber";
-            this.BxContasReceber.Size = new System.Drawing.Size(134, 108);
+            this.BxContasReceber.Size = new System.Drawing.Size(134, 84);
             this.BxContasReceber.TabIndex = 6;
             this.BxContasReceber.TabStop = false;
             this.BxContasReceber.Text = "Contas a receber";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(23, 51);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "2 via";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -295,15 +273,17 @@ namespace AV1_PAV
             this.button4.TabIndex = 0;
             this.button4.Text = "Dar baixa";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(23, 80);
+            this.button5.Location = new System.Drawing.Point(23, 51);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 1;
             this.button5.Text = "Relatorio";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // JanelaPrincipal
             // 
@@ -346,14 +326,12 @@ namespace AV1_PAV
         private System.Windows.Forms.GroupBox GenericBox;
         private System.Windows.Forms.GroupBox FinanceiroBox;
         private System.Windows.Forms.GroupBox BxContasPagar;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button BtBaixaPagar;
         private System.Windows.Forms.Button BtRelatorioPagar;
         private System.Windows.Forms.GroupBox BxCaixa;
         private System.Windows.Forms.Button BtVisualizarCaixa;
         private System.Windows.Forms.Button BtRelatorio;
         private System.Windows.Forms.GroupBox BxContasReceber;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
     }

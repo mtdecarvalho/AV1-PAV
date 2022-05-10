@@ -18,15 +18,21 @@ namespace AV1_PAV.UI
     public partial class NovaVenda : Form
     {
         private List<ItemVenda> Lista = new();
+        private Venda venda = new();
         private Produto p;
         private Cliente c;
         private double subtotal = 0;
         private int numeroItem = 0;
         private int numeroVenda;
         private int maiorId;
-        private String pagamento;
+        private enum Pagamento
+        {
+            Dinheiro,
+            Credito,
+            Debito,
+            Boleto
+        }
         private bool selecionado;
-
         public const String CLIENTE = "Cliente";
         public const String PRODUTO = "Produto";
 
@@ -50,16 +56,16 @@ namespace AV1_PAV.UI
             c = cliente;
         }
 
-        public void GetMaxIdProduto()
-        {
-            maiorId = ProdutoSQL.BuscarMaior("id_produto");
-        }
-
-        public void SetCliente(String id)
+        private void SetCliente(String id)
         {
             BancoDados.obterInstancia().conectar();
             c = ClienteSQL.BuscarPorCodigo(id);
             BancoDados.obterInstancia().desconectar();
+        }
+
+        private void GetMaxIdProduto()
+        {
+            maiorId = ProdutoSQL.BuscarMaior("id_produto");
         }
 
         public void Selecionado(bool v)
@@ -112,35 +118,65 @@ namespace AV1_PAV.UI
 
         private bool ChecarPagamento()
         {
-            if (RbDinheiro.Checked) { 
-                pagamento = "Dinheiro";
+            if (RbDinheiro.Checked) {
+                venda.formaDePagamento.idFormaPagamento = ((int)Pagamento.Dinheiro);
                 return true;
             }
             if (RbCredito.Checked)
             {
-                pagamento = "Credito";
+                venda.formaDePagamento.idFormaPagamento = ((int)Pagamento.Credito);
                 return true;
             }
             if (RbDebito.Checked)
             {
-                pagamento = "Debito";
+                venda.formaDePagamento.idFormaPagamento = ((int)Pagamento.Debito);
                 return true;
             }   
             if (RbBoleto.Checked)
             {
-                pagamento = "Boleto";
+                venda.formaDePagamento.idFormaPagamento = ((int)Pagamento.Boleto);
                 return true;
             }
             return false;
         }
 
-        public void AbrirJanelaProduto()
+        private void AbrirJanelaProduto()
         {
             selecionado = false;
             ProcurarClienteProduto janela = new(this, BxProcurar.Text, PRODUTO);
             janela.ShowDialog();
             if (selecionado)
                 SetTexto();
+        }
+
+        private ContaReceber PreencherContaReceber(DateTime thisDay)
+        {
+            ContaReceber conta = new();
+            conta.idContaReceber = venda.idVenda;
+            conta.idCliente = venda.idCliente;
+            conta.dataLancamento = thisDay.ToString("yyyy-MM-dd");
+            conta.dataVencimento = thisDay.AddDays(7).ToString("yyyy-MM-dd");
+            conta.valor = venda.totalVenda;
+            conta.recebido = "NAO";
+            return conta;
+        }
+
+        private void PreencherVenda()
+        {
+            DateTime thisDay = DateTime.Now;
+            string data = thisDay.ToString("yyyy-MM-dd");
+            string hora = thisDay.ToString("HH:mm:ss");
+
+            venda.idVenda = numeroVenda;
+            venda.data = data;
+            venda.hora = hora;
+            venda.idCliente = c.idCliente;
+            venda.totalVenda = subtotal;
+            venda.situacaoVenda = "ATIVA";
+            venda.itens = Lista;
+            venda.formaDePagamento.idVenda = numeroVenda;
+            venda.formaDePagamento.valor = subtotal;
+            venda.contaReceber = PreencherContaReceber(thisDay);
         }
 
         private void BtProcurar_Click(object sender, EventArgs e)
@@ -178,7 +214,6 @@ namespace AV1_PAV.UI
 
         private void BtAdicionarCarrinho_Click(object sender, EventArgs e)
         {
-            
             ItemVenda iv = new();
             iv.idVenda = numeroVenda;
             iv.idProduto = p.idProduto;
@@ -200,7 +235,7 @@ namespace AV1_PAV.UI
 
         private void BtRemoverCarrinho_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Confirmação", "Tem certeza que deseja remover o item?", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Tem certeza que deseja remover o item?", "Confirmação", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -216,20 +251,13 @@ namespace AV1_PAV.UI
                 Lista.Remove(aux);
                 DataGridItemVenda.Rows.RemoveAt(pos);
             }
-                
-            
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Confirmação", "Deseja cancelar a venda?", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Deseja cancelar a venda?", "Confirmação", MessageBoxButtons.YesNo);
             if(dialogResult == DialogResult.Yes)
                 Dispose();
-        }
-
-        private void AtualizarTotal(object sender, EventArgs e)
-        {
-            AtualizarTotal();
         }
 
         private void BtSelecionarCliente_Click(object sender, EventArgs e)
@@ -245,40 +273,7 @@ namespace AV1_PAV.UI
         {
             if (ChecarPagamento())
             {
-                DateTime thisDay = DateTime.Now;
-                string data = thisDay.ToString("yyyy-MM-dd");
-                string hora = thisDay.ToString("HH:mm:ss");
-
-
-                Venda venda = new();
-                venda.idVenda = numeroVenda;
-                venda.data = data;
-                venda.hora = hora;
-                if (!selecionado)
-                    venda.idCliente = 0;
-                else
-                    venda.idCliente = c.idCliente;
-                venda.totalVenda = subtotal;
-                venda.situacaoVenda = "ATIVA";
-                venda.itens = Lista;
-
-                switch (pagamento)
-                {
-                    case "Dinheiro":
-                        venda.formaDePagamento.idFormaPagamento = 0;
-                        break;
-                    case "Credito":
-                        venda.formaDePagamento.idFormaPagamento = 1;
-                        break;
-                    case "Debito":
-                        venda.formaDePagamento.idFormaPagamento = 2;
-                        break;
-                    case "Boleto":
-                        venda.formaDePagamento.idFormaPagamento = 3;
-                        break;
-                }
-                venda.formaDePagamento.idVenda = numeroVenda;
-                venda.formaDePagamento.valor = subtotal;
+                PreencherVenda();
 
                 BancoDados.obterInstancia().conectar();
                 ControladorCadastroVenda controlador = new();
@@ -290,7 +285,6 @@ namespace AV1_PAV.UI
             {
                 DialogResult dialogResult = MessageBox.Show("Favor selecione uma forma de pagamento", "Erro", MessageBoxButtons.OK);
             }
-            
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)

@@ -70,7 +70,7 @@ namespace AV1_PAV.UI
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Confirmação", "Tem certeza que deseja remover?", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Tem certeza que deseja remover?", "Confirmação", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes) { 
                 Cliente cliente = new();
                 if (dataGridClientes.SelectedRows[0].Cells[0].Value != null)
@@ -85,7 +85,7 @@ namespace AV1_PAV.UI
                 }
                 else
                 {
-                    MessageBox.Show("Erro", "Nenhum cliente foi selecionado", MessageBoxButtons.OK);
+                    MessageBox.Show("Nenhum cliente foi selecionado", "Erro", MessageBoxButtons.OK);
                 }
             }
         }
