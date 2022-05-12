@@ -215,6 +215,7 @@ namespace AV1_PAV
             this.BtBaixaPagar.TabIndex = 0;
             this.BtBaixaPagar.Text = "Dar baixa";
             this.BtBaixaPagar.UseVisualStyleBackColor = true;
+            this.BtBaixaPagar.Click += new System.EventHandler(this.BtBaixaPagar_Click);
             // 
             // BtRelatorioPagar
             // 
@@ -224,6 +225,7 @@ namespace AV1_PAV
             this.BtRelatorioPagar.TabIndex = 1;
             this.BtRelatorioPagar.Text = "Relatorio";
             this.BtRelatorioPagar.UseVisualStyleBackColor = true;
+            this.BtRelatorioPagar.Click += new System.EventHandler(this.BtRelatorioPagar_Click);
             // 
             // BxCaixa
             // 

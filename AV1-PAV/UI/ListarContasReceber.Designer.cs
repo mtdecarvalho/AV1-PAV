@@ -6,7 +6,7 @@ namespace AV1_PAV.UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -27,7 +27,7 @@ namespace AV1_PAV.UI
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarContasReceber));
             this.Botao = new System.Windows.Forms.Button();
@@ -222,22 +222,22 @@ namespace AV1_PAV.UI
 
         #endregion
 
-        private System.Windows.Forms.Button Botao;
-        private System.Windows.Forms.GroupBox Filtro;
-        private System.Windows.Forms.RadioButton RbVencidas;
-        private System.Windows.Forms.RadioButton RbAVencer;
-        private System.Windows.Forms.Button BtVoltar;
-        private System.Windows.Forms.DataGridView GridLista;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_recebimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_lancamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_vencimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recebido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor_recebimento;
-        private System.Windows.Forms.RadioButton RbPagas;
+        public System.Windows.Forms.Button Botao;
+        public System.Windows.Forms.GroupBox Filtro;
+        public System.Windows.Forms.RadioButton RbVencidas;
+        public System.Windows.Forms.RadioButton RbAVencer;
+        public System.Windows.Forms.Button BtVoltar;
+        public System.Windows.Forms.DataGridView GridLista;
+        public System.Windows.Forms.DataGridViewTextBoxColumn data_recebimento;
+        public System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        public System.Windows.Forms.DataGridViewTextBoxColumn data_lancamento;
+        public System.Windows.Forms.DataGridViewTextBoxColumn data_vencimento;
+        public System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        public System.Windows.Forms.DataGridViewTextBoxColumn recebido;
+        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        public System.Windows.Forms.DataGridViewTextBoxColumn valor_recebimento;
+        public System.Windows.Forms.RadioButton RbPagas;
     }
 }

@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace AV1_PAV.UI
 {
-    public partial class ListarContasReceber : Form
+    partial class ListarContasReceber : Form
     {
         //Descricao, id_cliente, data_lancamento, data_Vencimento, valor, recebido, data_recebimento, valor_recebimento
         private List<ContaReceber> Lista = new();
