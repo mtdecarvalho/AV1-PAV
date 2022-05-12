@@ -39,7 +39,17 @@ namespace AV1_PAV.UI
             Lista = ContaReceberSQL.BuscarMultiplos("id_conta_receber", "");
             PreencherTabela(funcao);
         }
-        private void PreencherTabela(string funcao)
+
+        private String[] PreencherLinha(ContaReceber conta)
+        {
+            String[] linha = { conta.idContaReceber.ToString(), conta.descricao,
+                        ClienteSQL.BuscarPorCodigo(conta.idCliente.ToString()).nome.ToString(),
+                        conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
+                        conta.recebido, conta.dataRecebimento, conta.valorRecebimento.ToString()};
+            return linha;
+        }
+
+        public override void PreencherTabela(string funcao)
         {
             GridLista.Rows.Clear();
             BancoDados.obterInstancia().conectar();
@@ -49,10 +59,7 @@ namespace AV1_PAV.UI
                 {
                     if (conta.recebido == "NAO")
                     {
-                        String[] row = { conta.idContaReceber.ToString(), conta.descricao,
-                            ClienteSQL.BuscarPorCodigo(conta.idCliente.ToString()).nome.ToString(),
-                            conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
-                            conta.recebido, conta.dataRecebimento, conta.valorRecebimento.ToString()};
+                        String[] row = PreencherLinha(conta);
                         GridLista.Rows.Add(row);
                     }
                 }
@@ -62,10 +69,7 @@ namespace AV1_PAV.UI
             {
                 foreach (ContaReceber conta in Lista)
                 {
-                    String[] row = { conta.idContaReceber.ToString(), conta.descricao,
-                        ClienteSQL.BuscarPorCodigo(conta.idCliente.ToString()).nome.ToString(),
-                        conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
-                        conta.recebido, conta.dataRecebimento, conta.valorRecebimento.ToString()};
+                    String[] row = PreencherLinha(conta);
                     GridLista.Rows.Add(row);
                 }
             }
@@ -77,7 +81,7 @@ namespace AV1_PAV.UI
 
         public override void BtVoltar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Dispose();
         }
 
         public override void Botao_Click(object sender, EventArgs e)
@@ -112,10 +116,7 @@ namespace AV1_PAV.UI
             {
                 if (conta.recebido.Contains(busca))
                 {
-                    String[] row = { conta.idContaReceber.ToString(), conta.descricao,
-                    ClienteSQL.BuscarPorCodigo(conta.idCliente.ToString()).nome.ToString(),
-                    conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
-                    conta.recebido, conta.dataRecebimento, conta.valorRecebimento.ToString()};
+                    String[] row = PreencherLinha(conta);
                     GridLista.Rows.Add(row);
                 }
             }
@@ -131,10 +132,7 @@ namespace AV1_PAV.UI
                 System.Diagnostics.Debug.WriteLine(DateTime.Parse(conta.dataVencimento));
                 if (DateTime.Now > DateTime.Parse(conta.dataVencimento))
                 {
-                    String[] row = { conta.idContaReceber.ToString(), conta.descricao,
-                    ClienteSQL.BuscarPorCodigo(conta.idCliente.ToString()).nome.ToString(),
-                    conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
-                    conta.recebido, conta.dataRecebimento, conta.valorRecebimento.ToString()};
+                    String[] row = PreencherLinha(conta);
                     GridLista.Rows.Add(row);
                 }
             }
@@ -149,10 +147,7 @@ namespace AV1_PAV.UI
             {
                 if (DateTime.Now < DateTime.Parse(conta.dataVencimento))
                 {
-                    String[] row = { conta.idContaReceber.ToString(), conta.descricao,
-                    ClienteSQL.BuscarPorCodigo(conta.idCliente.ToString()).nome.ToString(),
-                    conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
-                    conta.recebido, conta.dataRecebimento, conta.valorRecebimento.ToString()};
+                    String[] row = PreencherLinha(conta);
                     GridLista.Rows.Add(row);
                 }
             }

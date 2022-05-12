@@ -262,6 +262,13 @@ namespace AV1_PAV.UI
         public virtual void RbPagas_CheckedChanged(object sender, EventArgs e) { }
         public virtual void RbVencidas_CheckedChanged(object sender, EventArgs e) { }
         public virtual void RbAVencer_CheckedChanged(object sender, EventArgs e) { }
+        public virtual void PreencherTabela(string funcao) { }
 
+        public void RenomearParaPagamento()
+        {
+            recebido.HeaderText = "Pago";
+            dataGridViewTextBoxColumn1.HeaderText = "Data Pagamento";
+            valor_recebimento.HeaderText = "Valor Pagamento";
+        }
     }
 }

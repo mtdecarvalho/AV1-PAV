@@ -22,24 +22,35 @@ namespace AV1_PAV.UI
         public ListarContasPagar(String funcao)
         {
             InitializeComponent();
+            RenomearParaPagamento();
+            
             this.funcao = funcao;
             if (this.funcao == BAIXAR)
             {
                 RbPagas.Visible = false;
                 RbPagas.Enabled = false;
                 Botao.Text = "Dar baixa";
-                this.Text = "Listar Contas";
+                Text = "Listar Contas";
             }
             else if (this.funcao == RELATORIO)
             {
                 Botao.Text = "Gerar relatório";
-                this.Text = "Gerar Relatório";
+                Text = "Gerar Relatório";
             }
             //Lista = ContaPagarSQL.BuscarMultiplos("id_conta_pagar", "");
             //PreencherTabela(funcao);
         }
 
-        private void PreencherTabela(string funcao)
+        private String[] PreencherLinha(ContaPagar conta)
+        {
+            String[] linha = { conta.idContaPagar.ToString(), conta.descricao,
+                            ClienteSQL.BuscarPorCodigo(conta.idFornecedor.ToString()).nome.ToString(),
+                            conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
+                            conta.pago, conta.dataPagamento, conta.valorPagamento.ToString()};
+            return linha;
+        }
+
+        public override void PreencherTabela(string funcao)
         {
             GridLista.Rows.Clear();
             BancoDados.obterInstancia().conectar();
@@ -49,10 +60,7 @@ namespace AV1_PAV.UI
                 {
                     if (conta.pago == "NAO")
                     {
-                        String[] row = { conta.idContaPagar.ToString(), conta.descricao,
-                            ClienteSQL.BuscarPorCodigo(conta.idFornecedor.ToString()).nome.ToString(),
-                            conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
-                            conta.pago, conta.dataPagamento, conta.valorPagamento.ToString()};
+                        String[] row = PreencherLinha(conta);
                         GridLista.Rows.Add(row);
                     }
                 }
@@ -62,10 +70,7 @@ namespace AV1_PAV.UI
             {
                 foreach (ContaPagar conta in Lista)
                 {
-                    String[] row = { conta.idContaPagar.ToString(), conta.descricao,
-                            ClienteSQL.BuscarPorCodigo(conta.idFornecedor.ToString()).nome.ToString(),
-                            conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
-                            conta.pago, conta.dataPagamento, conta.valorPagamento.ToString()};
+                    String[] row = PreencherLinha(conta);
                     GridLista.Rows.Add(row);
                 }
             }
@@ -77,7 +82,7 @@ namespace AV1_PAV.UI
 
         public override void BtVoltar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Dispose();
         }
 
         public override void Botao_Click(object sender, EventArgs e)
@@ -112,10 +117,7 @@ namespace AV1_PAV.UI
             {
                 if (conta.pago.Contains(busca))
                 {
-                    String[] row = { conta.idContaPagar.ToString(), conta.descricao,
-                            ClienteSQL.BuscarPorCodigo(conta.idFornecedor.ToString()).nome.ToString(),
-                            conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
-                            conta.pago, conta.dataPagamento, conta.valorPagamento.ToString()};
+                    String[] row = PreencherLinha(conta);
                     GridLista.Rows.Add(row);
                 }
             }
@@ -131,10 +133,7 @@ namespace AV1_PAV.UI
                 System.Diagnostics.Debug.WriteLine(DateTime.Parse(conta.dataVencimento));
                 if (DateTime.Now > DateTime.Parse(conta.dataVencimento))
                 {
-                    String[] row = { conta.idContaPagar.ToString(), conta.descricao,
-                            ClienteSQL.BuscarPorCodigo(conta.idFornecedor.ToString()).nome.ToString(),
-                            conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
-                            conta.pago, conta.dataPagamento, conta.valorPagamento.ToString()};
+                    String[] row = PreencherLinha(conta);
                     GridLista.Rows.Add(row);
                 }
             }
@@ -149,10 +148,7 @@ namespace AV1_PAV.UI
             {
                 if (DateTime.Now < DateTime.Parse(conta.dataVencimento))
                 {
-                    String[] row = { conta.idContaPagar.ToString(), conta.descricao,
-                            ClienteSQL.BuscarPorCodigo(conta.idFornecedor.ToString()).nome.ToString(),
-                            conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
-                            conta.pago, conta.dataPagamento, conta.valorPagamento.ToString()};
+                    String[] row = PreencherLinha(conta);
                     GridLista.Rows.Add(row);
                 }
             }
