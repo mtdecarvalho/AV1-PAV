@@ -3,14 +3,8 @@ using AV1_PAV.Entidades;
 using AV1_PAV.PDF;
 using AV1_PAV.Persistencia;
 using AV1_PAV.SQL;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,17 +12,13 @@ using System.Windows.Forms;
 
 namespace AV1_PAV.UI
 {
-    partial class ListarContasReceber : Form
+    class ListarContasReceber : ListarContas
     {
         //Descricao, id_cliente, data_lancamento, data_Vencimento, valor, recebido, data_recebimento, valor_recebimento
         private List<ContaReceber> Lista = new();
         private String funcao;
         private const string BAIXAR = "Baixar";
         private const string RELATORIO = "Relatorio";
-        public ListarContasReceber()
-        {
-            InitializeComponent();
-        }
 
         public ListarContasReceber(String funcao)
         {
@@ -39,17 +29,16 @@ namespace AV1_PAV.UI
                 RbPagas.Visible = false;
                 RbPagas.Enabled = false;
                 Botao.Text = "Dar baixa";
-                this.Text = "Listar Contas";
+                Text = "Listar Contas";
             }
             else if (this.funcao == RELATORIO)
             {
                 Botao.Text = "Gerar relatório";
-                this.Text = "Gerar Relatório";
+                Text = "Gerar Relatório";
             }
             Lista = ContaReceberSQL.BuscarMultiplos("id_conta_receber", "");
             PreencherTabela(funcao);
         }
-
         private void PreencherTabela(string funcao)
         {
             GridLista.Rows.Clear();
@@ -60,9 +49,9 @@ namespace AV1_PAV.UI
                 {
                     if (conta.recebido == "NAO")
                     {
-                        String[] row = { conta.idContaReceber.ToString(), conta.descricao, 
-                            ClienteSQL.BuscarPorCodigo(conta.idCliente.ToString()).nome.ToString(), 
-                            conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(), 
+                        String[] row = { conta.idContaReceber.ToString(), conta.descricao,
+                            ClienteSQL.BuscarPorCodigo(conta.idCliente.ToString()).nome.ToString(),
+                            conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
                             conta.recebido, conta.dataRecebimento, conta.valorRecebimento.ToString()};
                         GridLista.Rows.Add(row);
                     }
@@ -86,12 +75,12 @@ namespace AV1_PAV.UI
             BancoDados.obterInstancia().desconectar();
         }
 
-        private void BtVoltar_Click(object sender, EventArgs e)
+        public override void BtVoltar_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        private void Botao_Click(object sender, EventArgs e)
+        public override void Botao_Click(object sender, EventArgs e)
         {
             if (funcao == BAIXAR)
             {
@@ -114,7 +103,7 @@ namespace AV1_PAV.UI
             }
         }
 
-        private void RbPagas_CheckedChanged(object sender, EventArgs e)
+        public override void RbPagas_CheckedChanged(object sender, EventArgs e)
         {
             String busca = "SIM";
             GridLista.Rows.Clear();
@@ -133,7 +122,7 @@ namespace AV1_PAV.UI
             BancoDados.obterInstancia().desconectar();
         }
 
-        private void RbVencidas_CheckedChanged(object sender, EventArgs e)
+        public override void RbVencidas_CheckedChanged(object sender, EventArgs e)
         {
             GridLista.Rows.Clear();
             BancoDados.obterInstancia().conectar();
@@ -152,7 +141,7 @@ namespace AV1_PAV.UI
             BancoDados.obterInstancia().desconectar();
         }
 
-        private void RbAVencer_CheckedChanged(object sender, EventArgs e)
+        public override void RbAVencer_CheckedChanged(object sender, EventArgs e)
         {
             GridLista.Rows.Clear();
             BancoDados.obterInstancia().conectar();

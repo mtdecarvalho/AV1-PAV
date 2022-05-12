@@ -1,7 +1,24 @@
-﻿
+﻿using AV1_PAV.Controladores;
+using AV1_PAV.Entidades;
+using AV1_PAV.PDF;
+using AV1_PAV.Persistencia;
+using AV1_PAV.SQL;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace AV1_PAV.UI
 {
-    partial class ListarContasReceber
+    public class ListarContas : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +46,7 @@ namespace AV1_PAV.UI
         /// </summary>
         public void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarContasReceber));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarContas));
             this.Botao = new System.Windows.Forms.Button();
             this.Filtro = new System.Windows.Forms.GroupBox();
             this.RbPagas = new System.Windows.Forms.RadioButton();
@@ -239,5 +256,12 @@ namespace AV1_PAV.UI
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         public System.Windows.Forms.DataGridViewTextBoxColumn valor_recebimento;
         public System.Windows.Forms.RadioButton RbPagas;
+ 
+        public virtual void BtVoltar_Click(object sender, EventArgs e) { }
+        public virtual void Botao_Click(object sender, EventArgs e) { }
+        public virtual void RbPagas_CheckedChanged(object sender, EventArgs e) { }
+        public virtual void RbVencidas_CheckedChanged(object sender, EventArgs e) { }
+        public virtual void RbAVencer_CheckedChanged(object sender, EventArgs e) { }
+
     }
 }
