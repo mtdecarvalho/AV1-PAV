@@ -5,33 +5,32 @@
 01. Banco de dados
 00. Venda (Adicionar, remover, listar)
 00. Produto (Adicionar, remover, listar)
-00. Fornecedor (Adicionar, remover, listar)
+00. Cliente (Adicionar, remover, listar)
+00. Fornecedor (Adicionar)
 00. Contas a receber (Adicionar, dar baixa, listar)
- 
-## O que falta
+00. Contas a pagar (UI) 
+00. Fornecedor (Adicionar)
 
-01. Contas a pagar (Adicionar, pagar, listar)
-00. Controle de caixa
+## Contas a pagar
 
-### Venda
-- Registrar vendas (PDV).
-- Cancelar uma venda.
-- Consultar vendas, permitindo filtrar por período e por cliente.
-- Emitir relatório de vendas realizadas, permitindo filtrar por período e por cliente.
+### Pendentes
+- Comandos SQL;
+- Gerar uma conta a pagar a partir de uma compra;
+- Baixar uma conta a pagar;
+- Emitir relatório de contas a pagar, com opção de selecionar contas não vencidas, a vencer, em atraso e pagas,
 
-### Contas a Receber
-- Gerar uma conta a receber a partir de uma compra.
-- Baixar uma conta a receber
-- Gerar boleto.
-- Emitir relatório de contas a receber, com opção de selecionar contas a receber, a vencer, em atraso e pagas.
+## Fornecedor
+- Comandos SQL;
+- Remover;
+- Listar.
 
-Para fazer esses dois recursos, precisaremos criar as tabelas dependentes, que são:
+## Controle de caixa
 
-~~Cliente, FormaPagamento e FormaPagamentoVenda, ItemVenda, Produto~~ (FEITO)
+### Pendentes
+- UI;
+- Atualizar o saldo do caixa da empresa em função de pagamentos, recebimentos e vendas;
+- Gerar relatório de fechamento de caixa, informando o valor recebido de cada forma de pagamento.
 
-~~Em Produto, podemos fazer o ID_FORNECEDOR referenciar o fornecedor 0 que vai servir como o "fornecedor nulo"~~ (FEITO)
-
-~~Em Venda, também podemos fazer o ID_CLIENTE referenciar o cliente 0 que vai servir como o "cliente nulo"~~ (FEITO)
 
 ### Créditos:
 - [Pacote de ícones (Ui Gradient)](https://www.flaticon.com/br/packs/ui-82?style_id=1259&family_id=333&group_id=621)
