@@ -20,6 +20,8 @@
 - Emitir relatório de contas a pagar, com opção de selecionar contas não vencidas, a vencer, em atraso e pagas,
 
 ## Fornecedor
+
+### Pendentes
 - Comandos SQL;
 - Remover;
 - Listar.
