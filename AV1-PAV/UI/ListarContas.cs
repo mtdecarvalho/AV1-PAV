@@ -1,12 +1,29 @@
-﻿
+﻿using AV1_PAV.Controladores;
+using AV1_PAV.Entidades;
+using AV1_PAV.PDF;
+using AV1_PAV.Persistencia;
+using AV1_PAV.SQL;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace AV1_PAV.UI
 {
-    partial class ListarContasReceber
+    public class ListarContas : Form
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -27,9 +44,9 @@ namespace AV1_PAV.UI
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarContasReceber));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarContas));
             this.Botao = new System.Windows.Forms.Button();
             this.Filtro = new System.Windows.Forms.GroupBox();
             this.RbPagas = new System.Windows.Forms.RadioButton();
@@ -222,22 +239,36 @@ namespace AV1_PAV.UI
 
         #endregion
 
-        private System.Windows.Forms.Button Botao;
-        private System.Windows.Forms.GroupBox Filtro;
-        private System.Windows.Forms.RadioButton RbVencidas;
-        private System.Windows.Forms.RadioButton RbAVencer;
-        private System.Windows.Forms.Button BtVoltar;
-        private System.Windows.Forms.DataGridView GridLista;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_recebimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_lancamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_vencimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recebido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor_recebimento;
-        private System.Windows.Forms.RadioButton RbPagas;
+        public System.Windows.Forms.Button Botao;
+        public System.Windows.Forms.GroupBox Filtro;
+        public System.Windows.Forms.RadioButton RbVencidas;
+        public System.Windows.Forms.RadioButton RbAVencer;
+        public System.Windows.Forms.Button BtVoltar;
+        public System.Windows.Forms.DataGridView GridLista;
+        public System.Windows.Forms.DataGridViewTextBoxColumn data_recebimento;
+        public System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        public System.Windows.Forms.DataGridViewTextBoxColumn data_lancamento;
+        public System.Windows.Forms.DataGridViewTextBoxColumn data_vencimento;
+        public System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        public System.Windows.Forms.DataGridViewTextBoxColumn recebido;
+        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        public System.Windows.Forms.DataGridViewTextBoxColumn valor_recebimento;
+        public System.Windows.Forms.RadioButton RbPagas;
+ 
+        public virtual void BtVoltar_Click(object sender, EventArgs e) { }
+        public virtual void Botao_Click(object sender, EventArgs e) { }
+        public virtual void RbPagas_CheckedChanged(object sender, EventArgs e) { }
+        public virtual void RbVencidas_CheckedChanged(object sender, EventArgs e) { }
+        public virtual void RbAVencer_CheckedChanged(object sender, EventArgs e) { }
+        public virtual void PreencherTabela(string funcao) { }
+
+        public void RenomearParaPagamento()
+        {
+            recebido.HeaderText = "Pago";
+            dataGridViewTextBoxColumn1.HeaderText = "Data Pagamento";
+            valor_recebimento.HeaderText = "Valor Pagamento";
+        }
     }
 }

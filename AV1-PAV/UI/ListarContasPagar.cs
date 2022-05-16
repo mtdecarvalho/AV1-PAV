@@ -1,5 +1,4 @@
-﻿using AV1_PAV.Controladores;
-using AV1_PAV.Entidades;
+﻿using AV1_PAV.Entidades;
 using AV1_PAV.PDF;
 using AV1_PAV.Persistencia;
 using AV1_PAV.SQL;
@@ -12,17 +11,19 @@ using System.Windows.Forms;
 
 namespace AV1_PAV.UI
 {
-    class ListarContasReceber : ListarContas
+    class ListarContasPagar : ListarContas
     {
-        //Descricao, id_cliente, data_lancamento, data_Vencimento, valor, recebido, data_recebimento, valor_recebimento
-        private List<ContaReceber> Lista = new();
+        //(id_conta_pagar, descrição, id_fornecedor, data_lancamento, data_vencimento,valor, pago, data_pagamento, valor_pagamento
+        private List<ContaPagar> Lista = new();
         private String funcao;
         private const string BAIXAR = "Baixar";
         private const string RELATORIO = "Relatorio";
 
-        public ListarContasReceber(String funcao)
+        public ListarContasPagar(String funcao)
         {
             InitializeComponent();
+            RenomearParaPagamento();
+            
             this.funcao = funcao;
             if (this.funcao == BAIXAR)
             {
@@ -36,16 +37,16 @@ namespace AV1_PAV.UI
                 Botao.Text = "Gerar relatório";
                 Text = "Gerar Relatório";
             }
-            Lista = ContaReceberSQL.BuscarMultiplos("id_conta_receber", "");
-            PreencherTabela(funcao);
+            //Lista = ContaPagarSQL.BuscarMultiplos("id_conta_pagar", "");
+            //PreencherTabela(funcao);
         }
 
-        private String[] PreencherLinha(ContaReceber conta)
+        private String[] PreencherLinha(ContaPagar conta)
         {
-            String[] linha = { conta.idContaReceber.ToString(), conta.descricao,
-                        ClienteSQL.BuscarPorCodigo(conta.idCliente.ToString()).nome.ToString(),
-                        conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
-                        conta.recebido, conta.dataRecebimento, conta.valorRecebimento.ToString()};
+            String[] linha = { conta.idContaPagar.ToString(), conta.descricao,
+                            ClienteSQL.BuscarPorCodigo(conta.idFornecedor.ToString()).nome.ToString(),
+                            conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
+                            conta.pago, conta.dataPagamento, conta.valorPagamento.ToString()};
             return linha;
         }
 
@@ -55,9 +56,9 @@ namespace AV1_PAV.UI
             BancoDados.obterInstancia().conectar();
             if (funcao == BAIXAR)
             {
-                foreach (ContaReceber conta in Lista)
+                foreach (ContaPagar conta in Lista)
                 {
-                    if (conta.recebido == "NAO")
+                    if (conta.pago == "NAO")
                     {
                         String[] row = PreencherLinha(conta);
                         GridLista.Rows.Add(row);
@@ -67,7 +68,7 @@ namespace AV1_PAV.UI
             }
             else
             {
-                foreach (ContaReceber conta in Lista)
+                foreach (ContaPagar conta in Lista)
                 {
                     String[] row = PreencherLinha(conta);
                     GridLista.Rows.Add(row);
@@ -93,16 +94,16 @@ namespace AV1_PAV.UI
                 {
                     int id = int.Parse(GridLista.SelectedRows[0].Cells[0].Value.ToString());
                     BancoDados.obterInstancia().conectar();
-                    ControladorCadastroContaReceber controlador = new();
-                    controlador.atualizar("SIM", id);
+                    //ControladorCadastroContaPagar controlador = new();
+                    //controlador.atualizar("SIM", id);
                     BancoDados.obterInstancia().desconectar();
-                    Lista = ContaReceberSQL.BuscarMultiplos("id_conta_receber", "");
+                    //Lista = ContaPagarSQL.BuscarMultiplos("id_conta_receber", "");
                     PreencherTabela(BAIXAR);
                 }
             }
             else if (funcao == RELATORIO)
             {
-                GeradorPDF gerador = new(GridLista, "Relatório de Contas a Receber.pdf");
+                GeradorPDF gerador = new(GridLista, "Relatório de Contas a Pagar.pdf");
                 gerador.GerarPDF();
             }
         }
@@ -112,9 +113,9 @@ namespace AV1_PAV.UI
             String busca = "SIM";
             GridLista.Rows.Clear();
             BancoDados.obterInstancia().conectar();
-            foreach (ContaReceber conta in Lista)
+            foreach (ContaPagar conta in Lista)
             {
-                if (conta.recebido.Contains(busca))
+                if (conta.pago.Contains(busca))
                 {
                     String[] row = PreencherLinha(conta);
                     GridLista.Rows.Add(row);
@@ -127,7 +128,7 @@ namespace AV1_PAV.UI
         {
             GridLista.Rows.Clear();
             BancoDados.obterInstancia().conectar();
-            foreach (ContaReceber conta in Lista)
+            foreach (ContaPagar conta in Lista)
             {
                 System.Diagnostics.Debug.WriteLine(DateTime.Parse(conta.dataVencimento));
                 if (DateTime.Now > DateTime.Parse(conta.dataVencimento))
@@ -143,7 +144,7 @@ namespace AV1_PAV.UI
         {
             GridLista.Rows.Clear();
             BancoDados.obterInstancia().conectar();
-            foreach (ContaReceber conta in Lista)
+            foreach (ContaPagar conta in Lista)
             {
                 if (DateTime.Now < DateTime.Parse(conta.dataVencimento))
                 {

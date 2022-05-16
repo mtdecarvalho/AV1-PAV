@@ -147,15 +147,21 @@ namespace AV1_PAV
             janela.ShowDialog();
         }
 
-        private void BtReceberBoleto_Click(object sender, EventArgs e)
-        {
-            ListarContasReceber janela = new("Gerar");
-            janela.ShowDialog();
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             ListarContasReceber janela = new("Relatorio");
+            janela.ShowDialog();
+        }
+
+        private void BtBaixaPagar_Click(object sender, EventArgs e)
+        {
+            ListarContasPagar janela = new("Baixar");
+            janela.ShowDialog();
+        }
+
+        private void BtRelatorioPagar_Click(object sender, EventArgs e)
+        {
+            ListarContasPagar janela = new("Relatorio");
             janela.ShowDialog();
         }
     }

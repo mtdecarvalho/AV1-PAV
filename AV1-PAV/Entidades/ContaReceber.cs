@@ -9,24 +9,16 @@ using MySql.Data.MySqlClient;
 
 namespace AV1_PAV.Entidades
 {
-    public class ContaReceber : Entidade
+    public class ContaReceber : Conta
     {
         public const string ATRIBUTO_ID_CONTA_RECEBER = "ID_CONTA_RECEBER";
-        public const string ATRIBUTO_DESCRICAO = "DESCRICAO";
-        public const string ATRIBUTO_ID_CLIENTE = "ID_CLIENTE";
-        public const string ATRIBUTO_DATA_LANCAMENTO = "DATA_LANCAMENTO";
-        public const string ATRIBUTO_DATA_VENCIMENTO = "DATA_VENCIMENTO";
-        public const string ATRIBUTO_VALOR = "VALOR";
         public const string ATRIBUTO_RECEBIDO = "RECEBIDO";
+        public const string ATRIBUTO_ID_CLIENTE = "ID_CLIENTE";
         public const string ATRIBUTO_DATA_RECEBIMENTO = "DATA_RECEBIMENTO";
         public const string ATRIBUTO_VALOR_RECEBIMENTO = "VALOR_RECEBIMENTO";
 
         public int idContaReceber                               { get; set; }
-        public string descricao                                 { get; set; }
         public int idCliente                                    { get; set; }
-        public string dataLancamento                            { get; set; }
-        public string dataVencimento                            { get; set; }
-        public double valor                                     { get; set; }
         public string recebido                                  { get; set; }
         public string dataRecebimento                           { get; set; }
         public double valorRecebimento                          { get; set; }
