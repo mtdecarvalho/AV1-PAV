@@ -1,7 +1,5 @@
 # AV1 - PAV
 
-# AV1 - PAV
-
 ## O que foi feito
 
 01. Banco de dados
