@@ -3,37 +3,34 @@
 ## O que foi feito
 
 01. Banco de dados
-00. Venda (UI, Adicionar, remover, listar)
+00. Venda (UI, adicionar, remover, listar)
 00. Produto (UI, remover, listar)
-00. Cliente (UI, Adicionar, remover, listar)
-00. Fornecedor (UI, Adicionar)
-00. Contas a receber (UI, Adicionar, dar baixa, listar)
+00. Cliente (UI, adicionar, remover, listar)
+00. Fornecedor (UI, adicionar)
+00. Contas a receber (UI, adicionar, dar baixa, listar)
 00. Contas a pagar (UI, dar baixa, listar) 
-00. Fornecedor (UI, Adicionar)
+00. Fornecedor (UI, adicionar)
+00. Controle de caixa
 
 ## Produto
+### Pendente:
 
-### Pendente
-
-Adicionar produto (seguir modelo da venda);
-Fazer a conexão com o contas a pagar.
+- Adicionar produto (seguir modelo da venda);
+- Gerar uma conta a pagar a partir de uma compra.
 
 ## Contas a pagar
-
-### Pendentes
+### Pendente:
 - Gerar uma conta a pagar a partir de uma compra;
-- Emitir relatório de contas a pagar, com opção de selecionar contas não vencidas, a vencer, em atraso e pagas,
+- Emitir relatório de contas a pagar, com opção de selecionar contas não vencidas, a vencer, em atraso e pagas.
 
 ## Fornecedor
-
-### Pendentes
+### Pendente:
 - Comandos SQL;
 - Remover;
 - Listar.
 
 ## Controle de caixa
-
-### Pendentes
+### Pendente:
 - UI;
 - Atualizar o saldo do caixa da empresa em função de pagamentos, recebimentos e vendas;
 - Gerar relatório de fechamento de caixa, informando o valor recebido de cada forma de pagamento.
