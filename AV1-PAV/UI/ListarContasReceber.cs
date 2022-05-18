@@ -16,11 +16,11 @@ namespace AV1_PAV.UI
     {
         //Descricao, id_cliente, data_lancamento, data_Vencimento, valor, recebido, data_recebimento, valor_recebimento
         private List<ContaReceber> Lista = new();
-        private String funcao;
+        private string funcao;
         private const string BAIXAR = "Baixar";
         private const string RELATORIO = "Relatorio";
 
-        public ListarContasReceber(String funcao)
+        public ListarContasReceber(string funcao)
         {
             InitializeComponent();
             this.funcao = funcao;
@@ -73,7 +73,6 @@ namespace AV1_PAV.UI
                     GridLista.Rows.Add(row);
                 }
             }
-            GridLista.Rows[0].Selected = true;
 
             BancoDados.obterInstancia().finalizarTransacao();
             BancoDados.obterInstancia().desconectar();

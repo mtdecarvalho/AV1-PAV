@@ -1,4 +1,5 @@
-﻿using AV1_PAV.Entidades;
+﻿using AV1_PAV.Controladores;
+using AV1_PAV.Entidades;
 using AV1_PAV.PDF;
 using AV1_PAV.Persistencia;
 using AV1_PAV.SQL;
@@ -37,8 +38,8 @@ namespace AV1_PAV.UI
                 Botao.Text = "Gerar relatório";
                 Text = "Gerar Relatório";
             }
-            //Lista = ContaPagarSQL.BuscarMultiplos("id_conta_pagar", "");
-            //PreencherTabela(funcao);
+            Lista = ContaPagarSQL.BuscarMultiplos("id_conta_pagar", "");
+            PreencherTabela(funcao);
         }
 
         private String[] PreencherLinha(ContaPagar conta)
@@ -74,7 +75,6 @@ namespace AV1_PAV.UI
                     GridLista.Rows.Add(row);
                 }
             }
-            GridLista.Rows[0].Selected = true;
 
             BancoDados.obterInstancia().finalizarTransacao();
             BancoDados.obterInstancia().desconectar();
@@ -94,10 +94,10 @@ namespace AV1_PAV.UI
                 {
                     int id = int.Parse(GridLista.SelectedRows[0].Cells[0].Value.ToString());
                     BancoDados.obterInstancia().conectar();
-                    //ControladorCadastroContaPagar controlador = new();
-                    //controlador.atualizar("SIM", id);
+                    ControladorCadastroContaPagar controlador = new();
+                    controlador.atualizar("SIM", id);
                     BancoDados.obterInstancia().desconectar();
-                    //Lista = ContaPagarSQL.BuscarMultiplos("id_conta_receber", "");
+                    Lista = ContaPagarSQL.BuscarMultiplos("id_conta_receber", "");
                     PreencherTabela(BAIXAR);
                 }
             }

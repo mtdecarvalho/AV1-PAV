@@ -1,45 +1,36 @@
 # AV1 - PAV
 
-## Nesta etapa, devem ser criados:
-- ~~Banco de dados~~ (FEITO)
-- Recursos referentes a vendas **PENDENTE**
-- Recursos referentes a contas a receber **PENDENTE**
+## O que foi feito
 
-### Venda
-- Registrar vendas (PDV).
-- Cancelar uma venda.
-- Consultar vendas, permitindo filtrar por período e por cliente.
-- Emitir relatório de vendas realizadas, permitindo filtrar por período e por cliente.
+01. Banco de dados
+00. Venda (UI, Adicionar, remover, listar)
+00. Produto (UI, Adicionar, remover, listar)
+00. Cliente (UI, Adicionar, remover, listar)
+00. Fornecedor (UI, Adicionar)
+00. Contas a receber (UI, Adicionar, dar baixa, listar)
+00. Contas a pagar (UI, dar baixa, listar) 
+00. Fornecedor (UI, Adicionar)
 
-### Contas a Receber
-- Gerar uma conta a receber a partir de uma compra.
-- Baixar uma conta a receber
-- Gerar boleto.
-- Emitir relatório de contas a receber, com opção de selecionar contas a receber, a vencer, em atraso e pagas.
+## Contas a pagar
 
-Para fazer esses dois recursos, precisaremos criar as tabelas dependentes, que são:
+### Pendentes
+- Gerar uma conta a pagar a partir de uma compra;
+- Emitir relatório de contas a pagar, com opção de selecionar contas não vencidas, a vencer, em atraso e pagas,
 
-~~Cliente, FormaPagamento e FormaPagamentoVenda, ItemVenda, Produto~~ (FEITO)
+## Fornecedor
 
-~~Em Produto, podemos fazer o ID_FORNECEDOR referenciar o fornecedor 0 que vai servir como o "fornecedor nulo"~~ (FEITO)
+### Pendentes
+- Comandos SQL;
+- Remover;
+- Listar.
 
-~~Em Venda, também podemos fazer o ID_CLIENTE referenciar o cliente 0 que vai servir como o "cliente nulo"~~ (FEITO)
+## Controle de caixa
 
-### MUDANÇAS NO BANCO DE DADOS:
+### Pendentes
+- UI;
+- Atualizar o saldo do caixa da empresa em função de pagamentos, recebimentos e vendas;
+- Gerar relatório de fechamento de caixa, informando o valor recebido de cada forma de pagamento.
 
-Implementado trigger ON DELETE SET NULL nas tabelas
-- ContaReceber (na referência a ID Cliente)
-- ContaPagar (na referência a ID Fornecedor)
-- Venda (na referência a ID Cliente)
-- Compra (na referência a ID Fornecedor)
-- Produto (na referência a ID Fornecedor)
-- ItemVenda (na referência a ID Produto)
-- ItemCompra (na referência a ID Produto)
-
-Implementado trigger ON DELETE CASCADE nas tabelas:
-- ItemVenda (na referência a ID Venda)
-- ItemCompra (na referência a ID Compra)
-- FormaPagamentoVenda (na referência a ID Venda)
 
 ### Créditos:
 - [Pacote de ícones (Ui Gradient)](https://www.flaticon.com/br/packs/ui-82?style_id=1259&family_id=333&group_id=621)
