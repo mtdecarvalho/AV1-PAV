@@ -4,12 +4,19 @@
 
 01. Banco de dados
 00. Venda (UI, Adicionar, remover, listar)
-00. Produto (UI, Adicionar, remover, listar)
+00. Produto (UI, remover, listar)
 00. Cliente (UI, Adicionar, remover, listar)
 00. Fornecedor (UI, Adicionar)
 00. Contas a receber (UI, Adicionar, dar baixa, listar)
 00. Contas a pagar (UI, dar baixa, listar) 
 00. Fornecedor (UI, Adicionar)
+
+## Produto
+
+### Pendente
+
+Adicionar produto (seguir modelo da venda);
+Fazer a conexão com o contas a pagar.
 
 ## Contas a pagar
 
