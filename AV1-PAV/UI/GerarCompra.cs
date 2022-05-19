@@ -110,7 +110,7 @@ namespace AV1_PAV.UI
                              ic.valorUnitario.ToString(), ic.totalItem.ToString() };
             DataGridItemVenda.Rows.Add(row);
         }
-        /*
+        
         private bool ChecarPagamento()
         {
             if (RbDinheiro.Checked)
@@ -135,7 +135,7 @@ namespace AV1_PAV.UI
             }
             return false;
         }
-        */
+        
         private void AbrirJanelaProduto()
         {
             selecionado = false;
@@ -170,9 +170,9 @@ namespace AV1_PAV.UI
             compra.totalCompra = subtotal;
             compra.situacaoCompra = "ATIVA";
             compra.itens = Lista;
-            //compra.formaDePagamento.idVenda = numeroCompra;
-            //compra.formaDePagamento.valor = subtotal;
-            //compra.contaPagar = PreencherContaPagar(thisDay);
+            compra.formaDePagamento.idVenda = numeroCompra;
+            compra.formaDePagamento.valor = subtotal;
+            compra.contaPagar = PreencherContaPagar(thisDay);
         }
 
         public override void BtProcurar_Click(object sender, EventArgs e)
@@ -267,7 +267,7 @@ namespace AV1_PAV.UI
 
         public override void BtFinalizar_Click(object sender, EventArgs e)
         {
-            /*if (ChecarPagamento())
+            if (ChecarPagamento())
             {
                 PreencherVenda();
 
@@ -280,7 +280,7 @@ namespace AV1_PAV.UI
             else
             {
                 DialogResult dialogResult = MessageBox.Show("Favor selecione uma forma de pagamento", "Erro", MessageBoxButtons.OK);
-            }*/
+            }
         }
 
         public override void numericUpDown1_ValueChanged(object sender, EventArgs e)
