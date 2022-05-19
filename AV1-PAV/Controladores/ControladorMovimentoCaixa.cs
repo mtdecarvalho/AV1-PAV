@@ -1,5 +1,6 @@
 ﻿using AV1_PAV.Entidades;
 using AV1_PAV.Persistencia;
+using AV1_PAV.SQL;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,26 +15,33 @@ namespace AV1_PAV.Controladores
         
         public void incluir (Venda venda)
         {
-            const string DESCRICAO = "VENDA";
-            const string TIPO_MOVIMENTO = "ENTRADA";
-            double saldo = 0;
-            double novoSaldo = 0;
+            MovimentoCaixa movimentoCaixa = new();
+            movimentoCaixa.idCaixa = venda.formaDePagamento.idFormaPagamento;
+            movimentoCaixa.numeroMovimento = MovimentoCaixaSQL.BuscarMaiorID();
+            movimentoCaixa.idReferencia = venda.idVenda;
+            movimentoCaixa.dataMovimento = venda.data;
+            movimentoCaixa.horaMovimento = venda.hora;
+            movimentoCaixa.descricao = "VENDA";
+            movimentoCaixa.tipoMovimento = "ENTRADA";
+            movimentoCaixa.valor = venda.totalVenda;
+
             BancoDados.obterInstancia().iniciarTransacao();
             try
             {
-                // pegar saldo atual do caixa para depois somar com o novo saldo e incluir no banco
-                MySqlCommand comandoSelecaoSaldo = new MySqlCommand("SELECT saldo FROM caixa WHERE id_caixa = " + venda.formaDePagamento.idFormaPagamento);
-                MySqlDataReader leitorDados = comandoSelecaoSaldo.ExecuteReader();
-                leitorDados.Read();
-                saldo = Double.Parse(leitorDados.GetValue(0).ToString().Replace('.',','));
-                novoSaldo = saldo + venda.totalVenda;
-
-                MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO movimentocaixa VALUES (" + venda.formaDePagamento.idFormaPagamento +
-                    "," + 0 + "," + venda.idVenda + ",\"" + venda.data + "\",\"" + venda.hora + "\",\"" + DESCRICAO + "\",\"" + TIPO_MOVIMENTO + "\"," 
-                    + novoSaldo.ToString().Replace(',','.') + ")", BancoDados.obterInstancia().obterConexao());
-                System.Diagnostics.Debug.WriteLine(comandoInclusao);
+                MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO movimentocaixa VALUES (" + movimentoCaixa.idCaixa + "," + movimentoCaixa.numeroMovimento + "," + 
+                    movimentoCaixa.idReferencia + ",\"" + movimentoCaixa.dataMovimento + "\",\"" + movimentoCaixa.horaMovimento+ "\",\"" + movimentoCaixa.descricao + "\",\"" + 
+                    movimentoCaixa.tipoMovimento + "\"," + movimentoCaixa.valor.ToString().Replace(',','.') + ")", BancoDados.obterInstancia().obterConexao());
                 comandoInclusao.ExecuteNonQuery();
-                
+
+                try
+                {
+                    ControladorCaixa controladorCaixa = new();
+                    controladorCaixa.atualizar(movimentoCaixa);
+                } catch (Exception ex)
+                {
+                    BancoDados.obterInstancia().cancelarTransacao();
+                    throw new Exception(ex.Message);
+                }
                 BancoDados.obterInstancia().confirmarTransacao();
             }
             catch (Exception ex)
@@ -42,30 +50,37 @@ namespace AV1_PAV.Controladores
                 throw new Exception(ex.Message);
             }
         }
+
         public void incluir(Compra compra)
         {
-            const string DESCRICAO = "COMPRA";
-            const string TIPO_MOVIMENTO = "SAÍDA";
-            double saldo = 0;
-            double novoSaldo = 0;
+            MovimentoCaixa movimentoCaixa = new();
+            movimentoCaixa.idCaixa = 0;
+            movimentoCaixa.numeroMovimento = MovimentoCaixaSQL.BuscarMaiorID();
+            movimentoCaixa.idReferencia = compra.idCompra;
+            movimentoCaixa.dataMovimento = compra.data;
+            movimentoCaixa.horaMovimento = compra.hora;
+            movimentoCaixa.descricao = "COMPRA";
+            movimentoCaixa.tipoMovimento = "SAIDA";
+            movimentoCaixa.valor = compra.totalCompra;
+
             BancoDados.obterInstancia().iniciarTransacao();
             try
             {
-                // o primeiro valor a ser informado deveria ser o id do caixa, que compartilha dos mesmos ids de forma de pagamento
-                // o problem aqui é que compra não tem uma forma de pagamento, então não sei que valor colocar no caso de compra
-                // uma solução seria criar um novo registro em caixa exclusivamente para retirar do saldo da empresa.
-                MySqlCommand comandoSelecaoSaldo = new MySqlCommand("SELECT saldo FROM caixa WHERE id_caixa = " + compra. );
-                MySqlDataReader leitorDados = comandoSelecaoSaldo.ExecuteReader();
-                leitorDados.Read();
-                saldo = Double.Parse(leitorDados.GetValue(0).ToString().Replace('.', ','));
-                novoSaldo = saldo + compra.totalCompra;
-
-                MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO movimentocaixa VALUES (" + compra. +
-                    "," + 0 + "," + compra.idCompra + ",\"" + compra.data + "\",\"" + compra.hora + "\",\"" + DESCRICAO + "\",\"" + TIPO_MOVIMENTO + "\","
-                    + novoSaldo.ToString().Replace(',', '.') + ")", BancoDados.obterInstancia().obterConexao());
-                System.Diagnostics.Debug.WriteLine(comandoInclusao);
+                MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO movimentocaixa VALUES (" + movimentoCaixa.idCaixa + "," + movimentoCaixa.numeroMovimento + "," +
+                    movimentoCaixa.idReferencia + ",\"" + movimentoCaixa.dataMovimento + "\",\"" + movimentoCaixa.horaMovimento + "\",\"" + movimentoCaixa.descricao + "\",\"" +
+                    movimentoCaixa.tipoMovimento + "\"," + movimentoCaixa.valor.ToString().Replace(',', '.') + ")", BancoDados.obterInstancia().obterConexao());
                 comandoInclusao.ExecuteNonQuery();
 
+                try
+                {
+                    ControladorCaixa controladorCaixa = new();
+                    controladorCaixa.atualizar(movimentoCaixa);
+                }
+                catch (Exception ex)
+                {
+                    BancoDados.obterInstancia().cancelarTransacao();
+                    throw new Exception(ex.Message);
+                }
                 BancoDados.obterInstancia().confirmarTransacao();
             }
             catch (Exception ex)
@@ -74,6 +89,7 @@ namespace AV1_PAV.Controladores
                 throw new Exception(ex.Message);
             }
         }
+    }
     }
 
 }
