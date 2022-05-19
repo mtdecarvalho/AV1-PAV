@@ -99,7 +99,6 @@ namespace AV1_PAV.UI
         private void AtualizarTotal()
         {
             int qtd = int.Parse(BxQuantidade.Value.ToString());
-            System.Diagnostics.Debug.WriteLine(qtd);
             double preco = Double.Parse(BxPreco.Text);
             double total = qtd * preco;
             BxTotal.Text = total.ToString();
@@ -140,7 +139,7 @@ namespace AV1_PAV.UI
         private void AbrirJanelaProduto()
         {
             selecionado = false;
-            ProcurarClienteProduto janela = new(this, BxProcurar.Text, PRODUTO);
+            ProcurarGenerico janela = new(this, BxProcurar.Text, PRODUTO);
             janela.ShowDialog();
             if (selecionado)
                 SetTexto();
@@ -260,7 +259,7 @@ namespace AV1_PAV.UI
         public override void BtSelecionarCliente_Click(object sender, EventArgs e)
         {
             selecionado = false;
-            ProcurarClienteProduto janela = new(this, BxCliente.Text, CLIENTE);
+            ProcurarGenerico janela = new(this, BxCliente.Text, CLIENTE);
             janela.ShowDialog();
             if (selecionado)
                 SetTextoCliente();

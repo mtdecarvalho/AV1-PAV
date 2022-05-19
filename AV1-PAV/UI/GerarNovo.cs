@@ -583,6 +583,15 @@ namespace AV1_PAV.UI
         public virtual void SetProduto(Produto p) { }
         public virtual void SetCliente(Cliente c) { }
         public virtual void Selecionado(bool v) { }
+        public virtual void SetFornecedor(Fornecedor f) { }
+
+        public void RenomearParaCompra()
+        {
+            this.Text = "Nova Compra";
+            label2.Text = "Fornecedor:";
+            BtCancelar.Text = "Cancelar Compra";
+            BtFinalizar.Text = "Finalizar Compra";
+        }
 
     }
 }
