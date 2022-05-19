@@ -21,35 +21,40 @@ namespace AV1_PAV.UI
         private List<Cliente> ListaCliente = new();
         private Produto p;
         private Cliente c;
-        private NovaVenda janela;
+        private GerarNovo janela;
         private String funcao;
 
          public ProcurarClienteProduto()
         {
             InitializeComponent();
         }
-
-        public ProcurarClienteProduto(NovaVenda NV, String nome, String funcao)
+        
+        public ProcurarClienteProduto(GerarNovo NV, String nome, String funcao)
         {
             InitializeComponent();
             this.funcao = funcao;
-            if (funcao == NovaVenda.PRODUTO)
+            if (funcao == GerarVenda.PRODUTO)
+            {
                 ListaProduto = ProdutoSQL.BuscarMultiplosPorNome(nome);
-            else if (funcao == NovaVenda.CLIENTE)
+                janela = (GerarVenda)NV;
+            }    
+            else if (funcao == GerarVenda.CLIENTE)
+            {
                 ListaCliente = ClienteSQL.BuscarMultiplosPorNome(nome);
-            janela = NV;
+                janela = (GerarVenda)NV;
+            }
             PreencherTabela();
         }
 
         public void PreencherTabela()
         {
-            if(funcao == NovaVenda.PRODUTO)
+            if(funcao == GerarVenda.PRODUTO)
                 foreach (Produto produto in ListaProduto)
                 {
                     String[] row = { produto.idProduto.ToString(), produto.nome};
                     DataGrid.Rows.Add(row);
                 }
-            else if (funcao == NovaVenda.CLIENTE)
+            else if (funcao == GerarVenda.CLIENTE)
                 foreach (Cliente cliente in ListaCliente)
                 {
                     String[] row = { cliente.idCliente.ToString(), cliente.nome };
@@ -61,12 +66,12 @@ namespace AV1_PAV.UI
         private void BtSelecionar_Click(object sender, EventArgs e)
         {
 
-            if (funcao == NovaVenda.PRODUTO)
+            if (funcao == GerarVenda.PRODUTO)
             {
                 p = ListaProduto[DataGrid.CurrentCell.RowIndex];
                 janela.SetProduto(p);
             }
-            else if (funcao == NovaVenda.CLIENTE)
+            else if (funcao == GerarVenda.CLIENTE)
             {
                 c = ListaCliente[DataGrid.CurrentCell.RowIndex];
                 janela.SetCliente(c);

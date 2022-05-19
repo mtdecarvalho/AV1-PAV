@@ -94,7 +94,12 @@ namespace AV1_PAV
             }
             else if (activePanel.Text == VENDAS)
             {
-                NovaVenda janela = new();
+                GerarVenda janela = new();
+                janela.ShowDialog();
+            }
+            else if (activePanel.Text == ESTOQUE)
+            {
+                GerarCompra janela = new();
                 janela.ShowDialog();
             }
         }

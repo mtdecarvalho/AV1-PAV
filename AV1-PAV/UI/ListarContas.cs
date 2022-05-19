@@ -20,14 +20,8 @@ namespace AV1_PAV.UI
 {
     public class ListarContas : Form
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         public System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
