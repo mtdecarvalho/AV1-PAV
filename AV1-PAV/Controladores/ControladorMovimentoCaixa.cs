@@ -16,15 +16,21 @@ namespace AV1_PAV.Controladores
         {
             const string DESCRICAO = "VENDA";
             const string TIPO_MOVIMENTO = "ENTRADA";
+            double saldo = 0;
+            double novoSaldo = 0;
             BancoDados.obterInstancia().iniciarTransacao();
             try
             {
                 // pegar saldo atual do caixa para depois somar com o novo saldo e incluir no banco
                 MySqlCommand comandoSelecaoSaldo = new MySqlCommand("SELECT saldo FROM caixa WHERE id_caixa = " + venda.formaDePagamento.idFormaPagamento);
+                MySqlDataReader leitorDados = comandoSelecaoSaldo.ExecuteReader();
+                leitorDados.Read();
+                saldo = Double.Parse(leitorDados.GetValue(0).ToString().Replace('.',','));
+                novoSaldo = saldo + venda.totalVenda;
 
                 MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO movimentocaixa VALUES (" + venda.formaDePagamento.idFormaPagamento +
                     "," + 0 + "," + venda.idVenda + ",\"" + venda.data + "\",\"" + venda.hora + "\",\"" + DESCRICAO + "\",\"" + TIPO_MOVIMENTO + "\"," 
-                    + venda.totalVenda.ToString().Replace(',','.') + ")", BancoDados.obterInstancia().obterConexao());
+                    + novoSaldo.ToString().Replace(',','.') + ")", BancoDados.obterInstancia().obterConexao());
                 System.Diagnostics.Debug.WriteLine(comandoInclusao);
                 comandoInclusao.ExecuteNonQuery();
                 
@@ -40,6 +46,8 @@ namespace AV1_PAV.Controladores
         {
             const string DESCRICAO = "COMPRA";
             const string TIPO_MOVIMENTO = "SAÍDA";
+            double saldo = 0;
+            double novoSaldo = 0;
             BancoDados.obterInstancia().iniciarTransacao();
             try
             {
@@ -47,9 +55,14 @@ namespace AV1_PAV.Controladores
                 // o problem aqui é que compra não tem uma forma de pagamento, então não sei que valor colocar no caso de compra
                 // uma solução seria criar um novo registro em caixa exclusivamente para retirar do saldo da empresa.
                 MySqlCommand comandoSelecaoSaldo = new MySqlCommand("SELECT saldo FROM caixa WHERE id_caixa = " + compra. );
+                MySqlDataReader leitorDados = comandoSelecaoSaldo.ExecuteReader();
+                leitorDados.Read();
+                saldo = Double.Parse(leitorDados.GetValue(0).ToString().Replace('.', ','));
+                novoSaldo = saldo + compra.totalCompra;
+
                 MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO movimentocaixa VALUES (" + compra. +
                     "," + 0 + "," + compra.idCompra + ",\"" + compra.data + "\",\"" + compra.hora + "\",\"" + DESCRICAO + "\",\"" + TIPO_MOVIMENTO + "\","
-                    + compra.totalCompra.ToString().Replace(',', '.') + ")", BancoDados.obterInstancia().obterConexao());
+                    + novoSaldo.ToString().Replace(',', '.') + ")", BancoDados.obterInstancia().obterConexao());
                 System.Diagnostics.Debug.WriteLine(comandoInclusao);
                 comandoInclusao.ExecuteNonQuery();
 
