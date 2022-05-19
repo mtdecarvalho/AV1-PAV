@@ -133,6 +133,10 @@ namespace AV1_PAV
             {
                 ListarCancelarVenda janela = new("Listar");
                 janela.ShowDialog();
+            } else if(activePanel.Text == FORNECEDORES)
+            {
+                ListarConsultarFornecedor janela = new();
+                janela.ShowDialog();
             }
         }
 

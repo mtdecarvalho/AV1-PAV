@@ -64,6 +64,29 @@ namespace AV1_PAV.UI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int selecionado = dataGridView1.CurrentCell.RowIndex;
+            int id_selecionado;
+            if (selecionado > -1)
+            {
+                BancoDados.obterInstancia().conectar();
+                Produto produto = new();
+                ControladorCadastroProduto controlador = new();
+
+                id_selecionado = int.Parse(dataGridView1.Rows[selecionado].Cells["id_produto"].Value.ToString());
+                produto.idProduto = id_selecionado;
+                controlador.selecionar(produto);
+                tbxNome.Text = produto.nome;
+                tbxFornecedor.Text = produto.idFornecedor.ToString();
+                tbxPreco.Text = produto.preco.ToString();
+                tbxUnidade.Text = produto.unidade;
+                tbxEstoque.Text = produto.qtdEstoque.ToString();
+
+                BancoDados.obterInstancia().desconectar();
+
+
+                MySqlDataAdapter dataAdapter = new(criarComando("SELECT * FROM produto WHERE nome LIKE \"%" + tbxBusca.Text + "%\""));
+                criarTabela(dataAdapter);
+            }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -92,7 +115,6 @@ namespace AV1_PAV.UI
                 criarTabela(dataAdapter);
 
             }
-
         }
-    }
+        }
     }
