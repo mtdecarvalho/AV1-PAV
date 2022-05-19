@@ -186,3 +186,17 @@ VALUES (22,"Sambiquira", 20, 5.00, "KG", 10);
 
 INSERT INTO produto(id_produto, nome, quantidade_estoque, preco, unidade, id_fornecedor)
 VALUES (23,"Cigarro", 20, 4.20, "UN", 10);
+
+-- Tabela caixa
+
+INSERT INTO caixa(id_caixa, nome, saldo)
+VALUES ('0', 'Dinheiro', 5000);
+
+INSERT INTO caixa(id_caixa, nome, saldo)
+VALUES ('1', 'Cartão de Crédito', 5000);
+
+INSERT INTO caixa(id_caixa, nome, saldo)
+VALUES ('2', 'Cartão de Débito', 5000);
+
+INSERT INTO caixa(id_caixa, nome, saldo)
+VALUES ('3', 'Boleto Bancário', 5000);

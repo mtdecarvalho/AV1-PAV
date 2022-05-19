@@ -263,6 +263,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `PAV_AV1`.`MovimentoCaixa` (
   `id_caixa` INT NOT NULL,
   `numero_movimento` INT NOT NULL,
+  `id_referencia` INT NOT NULL,
   `data_movimento` DATE NOT NULL,
   `hora_movimento` TIME NOT NULL,
   `descricao` VARCHAR(45) NOT NULL,
