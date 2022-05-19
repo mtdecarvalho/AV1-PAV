@@ -90,6 +90,4 @@ namespace AV1_PAV.Controladores
             }
         }
     }
-    }
-
 }

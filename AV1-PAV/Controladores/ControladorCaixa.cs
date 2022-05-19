@@ -16,14 +16,14 @@ namespace AV1_PAV.Controladores
         public void atualizar (MovimentoCaixa movimentoCaixa)
         {
             double saldo = MovimentoCaixaSQL.getSaldo(movimentoCaixa.idCaixa);
-            double novoSaldo;
+            double novoSaldo = 0;
 
             if (movimentoCaixa.tipoMovimento == ENTRADA)
                 novoSaldo = saldo + movimentoCaixa.valor;
             else if (movimentoCaixa.tipoMovimento == SAIDA)
                 novoSaldo = saldo - movimentoCaixa.valor;
 
-            MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE conta SET saldo = " + novoSaldo + " WHERE id_caixa = " + movimentoCaixa.idCaixa);
+            MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE conta SET saldo = " + novoSaldo.ToString() + " WHERE id_caixa = " + movimentoCaixa.idCaixa);
             comandoAtualizacao.ExecuteNonQuery();
         }
     }
