@@ -4,7 +4,7 @@
 
 01. Banco de dados
 00. Venda (UI, adicionar, remover, listar)
-00. Produto (UI, remover, listar)
+00. Produto (UI, adicionar, remover, listar)
 00. Cliente (UI, adicionar, remover, listar)
 00. Fornecedor (UI, adicionar)
 00. Contas a receber (UI, adicionar, dar baixa, listar)
@@ -15,7 +15,6 @@
 ## Produto
 ### Pendente:
 
-- Adicionar produto (seguir modelo da venda);
 - Gerar uma conta a pagar a partir de uma compra.
 
 ## Contas a pagar
@@ -25,7 +24,6 @@
 
 ## Fornecedor
 ### Pendente:
-- Comandos SQL;
 - Remover;
 - Listar.
 

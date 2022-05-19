@@ -89,12 +89,17 @@ namespace AV1_PAV
             }
             else if (activePanel.Text == ESTOQUE)
             {
-                AdicionarProduto adicionarProduto = new();
-                adicionarProduto.ShowDialog();
+                GerarCompra janela = new();
+                janela.ShowDialog();
             }
             else if (activePanel.Text == VENDAS)
             {
-                NovaVenda janela = new();
+                GerarVenda janela = new();
+                janela.ShowDialog();
+            }
+            else if (activePanel.Text == ESTOQUE)
+            {
+                GerarCompra janela = new();
                 janela.ShowDialog();
             }
         }
@@ -132,6 +137,10 @@ namespace AV1_PAV
             else if (activePanel.Text == VENDAS)
             {
                 ListarCancelarVenda janela = new("Listar");
+                janela.ShowDialog();
+            } else if(activePanel.Text == FORNECEDORES)
+            {
+                ListarConsultarFornecedor janela = new();
                 janela.ShowDialog();
             }
         }

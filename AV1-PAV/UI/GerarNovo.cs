@@ -1,12 +1,23 @@
-﻿
+﻿using AV1_PAV.Controladores;
+using AV1_PAV.Entidades;
+using AV1_PAV.Persistencia;
+using AV1_PAV.SQL;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace AV1_PAV.UI
 {
-    partial class NovaVenda
+    public class GerarNovo : Form
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -23,13 +34,9 @@ namespace AV1_PAV.UI
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NovaVenda));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerarNovo));
             this.BxProcurar = new System.Windows.Forms.TextBox();
             this.BtProcurar = new System.Windows.Forms.Button();
             this.LbProduto = new System.Windows.Forms.Label();
@@ -523,46 +530,68 @@ namespace AV1_PAV.UI
 
         #endregion
 
-        private System.Windows.Forms.TextBox BxProcurar;
-        private System.Windows.Forms.Button BtProcurar;
-        private System.Windows.Forms.Label LbProduto;
-        private System.Windows.Forms.TextBox BxCodigo;
-        private System.Windows.Forms.Button BtAdicionar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label LbNome;
-        private System.Windows.Forms.Label LbPreco;
-        private System.Windows.Forms.Label LbQuantidade;
-        private System.Windows.Forms.Label LbTotalItem;
-        private System.Windows.Forms.TextBox BxTotal;
-        private System.Windows.Forms.Label LbSubTotal;
-        private System.Windows.Forms.Button BtAdicionarCarrinho;
-        private System.Windows.Forms.Button BtRemoverCarrinho;
-        private System.Windows.Forms.Button BtFinalizar;
+        public System.Windows.Forms.TextBox BxProcurar;
+        public System.Windows.Forms.Button BtProcurar;
+        public System.Windows.Forms.Label LbProduto;
+        public System.Windows.Forms.TextBox BxCodigo;
+        public System.Windows.Forms.Button BtAdicionar;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label LbNome;
+        public System.Windows.Forms.Label LbPreco;
+        public System.Windows.Forms.Label LbQuantidade;
+        public System.Windows.Forms.Label LbTotalItem;
+        public System.Windows.Forms.TextBox BxTotal;
+        public System.Windows.Forms.Label LbSubTotal;
+        public System.Windows.Forms.Button BtAdicionarCarrinho;
+        public System.Windows.Forms.Button BtRemoverCarrinho;
+        public System.Windows.Forms.Button BtFinalizar;
         protected internal System.Windows.Forms.TextBox BxPreco;
-        private System.Windows.Forms.Button BtCancelar;
-        private System.Windows.Forms.Button BtSelecionarCliente;
-        private System.Windows.Forms.Label LbVenda;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox BxCliente;
-        private System.Windows.Forms.Label LbCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridView DataGridItemVenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.RadioButton RbDinheiro;
-        private System.Windows.Forms.RadioButton RbCredito;
-        private System.Windows.Forms.GroupBox BxFormaPagamento;
-        private System.Windows.Forms.RadioButton RbDebito;
-        private System.Windows.Forms.RadioButton RbBoleto;
-        private System.Windows.Forms.NumericUpDown BxQuantidade;
+        public System.Windows.Forms.Button BtCancelar;
+        public System.Windows.Forms.Button BtSelecionarCliente;
+        public System.Windows.Forms.Label LbVenda;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox BxCliente;
+        public System.Windows.Forms.Label LbCliente;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Numero;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Cod;
+        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        public System.Windows.Forms.DataGridView DataGridItemVenda;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Produto;
+        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Unidade;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        public System.Windows.Forms.RadioButton RbDinheiro;
+        public System.Windows.Forms.RadioButton RbCredito;
+        public System.Windows.Forms.GroupBox BxFormaPagamento;
+        public System.Windows.Forms.RadioButton RbDebito;
+        public System.Windows.Forms.RadioButton RbBoleto;
+        public System.Windows.Forms.NumericUpDown BxQuantidade;
+
+        public virtual void BtProcurar_Click(object sender, EventArgs e) { }
+        public virtual void BtAdicionar_Click(object sender, EventArgs e) { }
+        public virtual void BtAdicionarCarrinho_Click(object sender, EventArgs e) { }
+        public virtual void BtRemoverCarrinho_Click(object sender, EventArgs e) { }
+        public virtual void BtFinalizar_Click(object sender, EventArgs e) { }
+        public virtual void BtCancelar_Click(object sender, EventArgs e) { }
+        public virtual void BtSelecionarCliente_Click(object sender, EventArgs e) { }
+        public virtual void numericUpDown1_ValueChanged(object sender, EventArgs e) { }
+        public virtual void SetProduto(Produto p) { }
+        public virtual void SetCliente(Cliente c) { }
+        public virtual void Selecionado(bool v) { }
+        public virtual void SetFornecedor(Fornecedor f) { }
+
+        public void RenomearParaCompra()
+        {
+            this.Text = "Nova Compra";
+            label2.Text = "Fornecedor:";
+            BtCancelar.Text = "Cancelar Compra";
+            BtFinalizar.Text = "Finalizar Compra";
+        }
+
     }
 }

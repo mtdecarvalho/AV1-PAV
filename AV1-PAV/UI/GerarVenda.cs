@@ -4,10 +4,6 @@ using AV1_PAV.Persistencia;
 using AV1_PAV.SQL;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +11,7 @@ using System.Windows.Forms;
 
 namespace AV1_PAV.UI
 {
-    public partial class NovaVenda : Form
+    class GerarVenda : GerarNovo
     {
         private List<ItemVenda> Lista = new();
         private Venda venda = new();
@@ -36,7 +32,7 @@ namespace AV1_PAV.UI
         public const String CLIENTE = "Cliente";
         public const String PRODUTO = "Produto";
 
-        public NovaVenda()
+        public GerarVenda()
         {
             InitializeComponent();
             SetCliente("0");
@@ -46,12 +42,17 @@ namespace AV1_PAV.UI
             GetMaxIdProduto();
         }
 
-        public void SetProduto(Produto produto)
+        public override void Selecionado(bool v)
+        {
+            selecionado = v;
+        }
+
+        public override void SetProduto(Produto produto)
         {
             p = produto;
         }
 
-        public void SetCliente(Cliente cliente)
+        public override void SetCliente(Cliente cliente)
         {
             c = cliente;
         }
@@ -68,17 +69,12 @@ namespace AV1_PAV.UI
             maiorId = ProdutoSQL.BuscarMaior("id_produto");
         }
 
-        public void Selecionado(bool v)
-        {
-            selecionado = v;
-        }
-
         private void SetTexto()
         {
             LbNome.Text = p.nome.ToString();
             BxPreco.Text = p.preco.ToString();
             BxQuantidade.Value = 1;
-            AtualizarTotal();           
+            AtualizarTotal();
         }
 
         private void SetNumeroVenda()
@@ -103,7 +99,6 @@ namespace AV1_PAV.UI
         private void AtualizarTotal()
         {
             int qtd = int.Parse(BxQuantidade.Value.ToString());
-            System.Diagnostics.Debug.WriteLine(qtd);
             double preco = Double.Parse(BxPreco.Text);
             double total = qtd * preco;
             BxTotal.Text = total.ToString();
@@ -118,7 +113,8 @@ namespace AV1_PAV.UI
 
         private bool ChecarPagamento()
         {
-            if (RbDinheiro.Checked) {
+            if (RbDinheiro.Checked)
+            {
                 venda.formaDePagamento.idFormaPagamento = ((int)Pagamento.Dinheiro);
                 return true;
             }
@@ -131,7 +127,7 @@ namespace AV1_PAV.UI
             {
                 venda.formaDePagamento.idFormaPagamento = ((int)Pagamento.Debito);
                 return true;
-            }   
+            }
             if (RbBoleto.Checked)
             {
                 venda.formaDePagamento.idFormaPagamento = ((int)Pagamento.Boleto);
@@ -143,7 +139,7 @@ namespace AV1_PAV.UI
         private void AbrirJanelaProduto()
         {
             selecionado = false;
-            ProcurarClienteProduto janela = new(this, BxProcurar.Text, PRODUTO);
+            ProcurarGenerico janela = new(this, BxProcurar.Text, PRODUTO);
             janela.ShowDialog();
             if (selecionado)
                 SetTexto();
@@ -179,7 +175,7 @@ namespace AV1_PAV.UI
             venda.contaReceber = PreencherContaReceber(thisDay);
         }
 
-        private void BtProcurar_Click(object sender, EventArgs e)
+        public override void BtProcurar_Click(object sender, EventArgs e)
         {
             if (BxProcurar.Text != "")
             {
@@ -199,7 +195,7 @@ namespace AV1_PAV.UI
 
         }
 
-        private void BtAdicionar_Click(object sender, EventArgs e)
+        public override void BtAdicionar_Click(object sender, EventArgs e)
         {
             if (BxCodigo.Text != "" && int.Parse(BxCodigo.Text) < maiorId && int.Parse(BxCodigo.Text) > 0)
             {
@@ -212,7 +208,7 @@ namespace AV1_PAV.UI
             }
         }
 
-        private void BtAdicionarCarrinho_Click(object sender, EventArgs e)
+        public override void BtAdicionarCarrinho_Click(object sender, EventArgs e)
         {
             ItemVenda iv = new();
             iv.idVenda = numeroVenda;
@@ -221,7 +217,7 @@ namespace AV1_PAV.UI
             iv.quantidade = int.Parse(BxQuantidade.Text);
             iv.valorUnitario = double.Parse(BxPreco.Text);
             iv.totalItem = double.Parse(BxTotal.Text);
-            
+
             AtualizaTabela(iv);
             Lista.Add(iv);
 
@@ -233,7 +229,7 @@ namespace AV1_PAV.UI
             p = new();
         }
 
-        private void BtRemoverCarrinho_Click(object sender, EventArgs e)
+        public override void BtRemoverCarrinho_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Tem certeza que deseja remover o item?", "Confirmação", MessageBoxButtons.YesNo);
 
@@ -253,23 +249,23 @@ namespace AV1_PAV.UI
             }
         }
 
-        private void BtCancelar_Click(object sender, EventArgs e)
+        public override void BtCancelar_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Deseja cancelar a venda?", "Confirmação", MessageBoxButtons.YesNo);
-            if(dialogResult == DialogResult.Yes)
+            if (dialogResult == DialogResult.Yes)
                 Dispose();
         }
 
-        private void BtSelecionarCliente_Click(object sender, EventArgs e)
+        public override void BtSelecionarCliente_Click(object sender, EventArgs e)
         {
             selecionado = false;
-            ProcurarClienteProduto janela = new(this, BxCliente.Text, CLIENTE);
+            ProcurarGenerico janela = new(this, BxCliente.Text, CLIENTE);
             janela.ShowDialog();
             if (selecionado)
                 SetTextoCliente();
         }
 
-        private void BtFinalizar_Click(object sender, EventArgs e)
+        public override void BtFinalizar_Click(object sender, EventArgs e)
         {
             if (ChecarPagamento())
             {
@@ -287,7 +283,7 @@ namespace AV1_PAV.UI
             }
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        public override void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             AtualizarTotal();
         }

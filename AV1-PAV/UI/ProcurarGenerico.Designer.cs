@@ -1,7 +1,7 @@
 ﻿
 namespace AV1_PAV.UI
 {
-    partial class ProcurarClienteProduto
+    partial class ProcurarGenerico
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace AV1_PAV.UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcurarClienteProduto));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcurarGenerico));
             this.DataGrid = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
