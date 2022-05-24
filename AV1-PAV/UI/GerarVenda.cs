@@ -30,7 +30,7 @@ namespace AV1_PAV.UI
         }
         private bool selecionado;
         public const String CLIENTE = "Cliente";
-        public const String PRODUTO = "Produto";
+        public const String PRODUTO = "Produtos";
 
         public GerarVenda()
         {
