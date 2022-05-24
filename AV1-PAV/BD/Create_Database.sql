@@ -47,13 +47,13 @@ CREATE TABLE IF NOT EXISTS `PAV_AV1`.`Produto` (
   `quantidade_estoque` INT NOT NULL,
   `preco` DOUBLE NOT NULL,
   `unidade` VARCHAR(3) NOT NULL,
-  `id_fornecedor` INT NOT NULL,
+  `id_fornecedor` INT,
   PRIMARY KEY (`id_produto`),
   INDEX `fk_fornecedor_idx` (`id_fornecedor` ASC) VISIBLE,
   CONSTRAINT `fk_Produto_Fornecedor`
     FOREIGN KEY (`id_fornecedor`)
     REFERENCES `PAV_AV1`.`Fornecedor` (`id_fornecedor`)
-    ON DELETE NO ACTION
+    ON DELETE SET NULL
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 

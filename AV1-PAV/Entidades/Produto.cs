@@ -47,6 +47,7 @@ namespace AV1_PAV.Entidades
             qtdEstoque = int.Parse(leitorDados[ATRIBUTO_QUANTIDADE_ESTOQUE].ToString());
             preco = double.Parse(leitorDados[ATRIBUTO_PRECO].ToString());
             unidade = leitorDados[ATRIBUTO_UNIDADE].ToString();
+            
             idFornecedor = int.Parse(leitorDados[ATRIBUTO_ID_FORNECEDOR].ToString());
         }
     }
