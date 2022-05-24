@@ -120,6 +120,10 @@ namespace AV1_PAV
             {
                 ListarCancelarVenda janela = new("Cancelar");
                 janela.ShowDialog();
+            } else if (activePanel.Text == FORNECEDORES)
+            {
+                RemoverFornecedor janela = new();
+                janela.ShowDialog();
             }
         }
 
