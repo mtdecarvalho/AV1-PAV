@@ -1,4 +1,4 @@
-# AV1 - PAV
+# Sistema de compra e venda com interface gráfica
 
 ## O que foi feito
 
