@@ -6,7 +6,7 @@
 00. Venda (UI, adicionar, remover, listar)
 00. Produto (UI, adicionar, remover, listar)
 00. Cliente (UI, adicionar, remover, listar)
-00. Fornecedor (UI, adicionar)
+00. Fornecedor (UI, adicionar, remover, listar)
 00. Contas a receber (UI, adicionar, dar baixa, listar)
 00. Contas a pagar (UI, dar baixa, listar) 
 00. Fornecedor (UI, adicionar)
@@ -21,11 +21,6 @@
 ### Pendente:
 - Gerar uma conta a pagar a partir de uma compra;
 - Emitir relatório de contas a pagar, com opção de selecionar contas não vencidas, a vencer, em atraso e pagas.
-
-## Fornecedor
-### Pendente:
-- Remover;
-- Listar.
 
 ## Controle de caixa
 ### Pendente:
