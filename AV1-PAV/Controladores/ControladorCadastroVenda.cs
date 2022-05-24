@@ -12,8 +12,6 @@ namespace AV1_PAV.Controladores
 {
     class ControladorCadastroVenda
     {
-        private ControladorCadastroItemVenda controladorItemVenda;
-
         public void selecionar(Venda venda)
         {
             BancoDados.obterInstancia().iniciarTransacao();
@@ -39,7 +37,7 @@ namespace AV1_PAV.Controladores
         public void incluir(Venda venda)
         {
             BancoDados.obterInstancia().iniciarTransacao();
-            controladorItemVenda = new();
+            ControladorCadastroItemVenda controladorItemVenda = new();
             try
             {
                 MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO venda VALUES ("+ venda.idVenda + 

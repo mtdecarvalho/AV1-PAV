@@ -1,4 +1,5 @@
-﻿using AV1_PAV.Entidades;
+﻿using AV1_PAV.Controladores;
+using AV1_PAV.Entidades;
 using AV1_PAV.Persistencia;
 using AV1_PAV.SQL;
 using System;
@@ -111,31 +112,6 @@ namespace AV1_PAV.UI
             DataGridItemVenda.Rows.Add(row);
         }
         
-        private bool ChecarPagamento()
-        {
-            if (RbDinheiro.Checked)
-            {
-                compra.formaDePagamento.idFormaPagamento = ((int)Pagamento.Dinheiro);
-                return true;
-            }
-            if (RbCredito.Checked)
-            {
-                compra.formaDePagamento.idFormaPagamento = ((int)Pagamento.Credito);
-                return true;
-            }
-            if (RbDebito.Checked)
-            {
-                compra.formaDePagamento.idFormaPagamento = ((int)Pagamento.Debito);
-                return true;
-            }
-            if (RbBoleto.Checked)
-            {
-                compra.formaDePagamento.idFormaPagamento = ((int)Pagamento.Boleto);
-                return true;
-            }
-            return false;
-        }
-        
         private void AbrirJanelaProduto()
         {
             selecionado = false;
@@ -157,7 +133,7 @@ namespace AV1_PAV.UI
             return conta;
         }
 
-        private void PreencherVenda()
+        private void PreencherCompra()
         {
             DateTime thisDay = DateTime.Now;
             string data = thisDay.ToString("yyyy-MM-dd");
@@ -170,8 +146,6 @@ namespace AV1_PAV.UI
             compra.totalCompra = subtotal;
             compra.situacaoCompra = "ATIVA";
             compra.itens = Lista;
-            compra.formaDePagamento.idVenda = numeroCompra;
-            compra.formaDePagamento.valor = subtotal;
             compra.contaPagar = PreencherContaPagar(thisDay);
         }
 
@@ -267,20 +241,14 @@ namespace AV1_PAV.UI
 
         public override void BtFinalizar_Click(object sender, EventArgs e)
         {
-            if (ChecarPagamento())
-            {
-                PreencherVenda();
+                PreencherCompra();
 
                 BancoDados.obterInstancia().conectar();
                 ControladorCadastroCompra controlador = new();
                 controlador.incluir(compra);
                 BancoDados.obterInstancia().desconectar();
                 this.Dispose();
-            }
-            else
-            {
                 DialogResult dialogResult = MessageBox.Show("Favor selecione uma forma de pagamento", "Erro", MessageBoxButtons.OK);
-            }
         }
 
         public override void numericUpDown1_ValueChanged(object sender, EventArgs e)

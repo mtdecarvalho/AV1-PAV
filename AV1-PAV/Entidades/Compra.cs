@@ -21,7 +21,7 @@ namespace AV1_PAV.Entidades
         public string situacaoCompra { get; set; }
 
         public List<ItemCompra> itens { get; set; }
-       // public ContaPagar contaPagar { get; set; }
+        public ContaPagar contaPagar { get; set; }
 
         public Compra()
         {

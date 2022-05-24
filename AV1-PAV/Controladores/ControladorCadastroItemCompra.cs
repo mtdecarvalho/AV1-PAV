@@ -10,16 +10,16 @@ using MySql.Data.MySqlClient;
 
 namespace AV1_PAV.Controladores
 {
-    class ControladorCadastroItemVenda : ControladorCadastroItem
+    class ControladorCadastroItemCompra : ControladorCadastroItem
     {
-        public List<ItemVenda> selecionarVarios(int id)
+        public List<ItemCompra> selecionarVarios(int id)
         {
-            List<ItemVenda> itens = new();
-            MySqlCommand comandoSelecao = new MySqlCommand("SELECT * FROM itemvenda WHERE id_venda = " + id, BancoDados.obterInstancia().obterConexao());
+            List<ItemCompra> itens = new();
+            MySqlCommand comandoSelecao = new MySqlCommand("SELECT * FROM itemcompra WHERE id_compra = " + id, BancoDados.obterInstancia().obterConexao());
             MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
             while (leitorDados.Read())
             {
-                ItemVenda item = new();
+                ItemCompra item = new();
                 item.lerDados(leitorDados);
                 itens.Add(item);
             }
@@ -28,12 +28,12 @@ namespace AV1_PAV.Controladores
             return itens;
         }
 
-        public void selecionar(ItemVenda item)
+        public void selecionar(ItemCompra item)
         {
             BancoDados.obterInstancia().iniciarTransacao();
             try
             {
-                MySqlCommand comandoSelecao = new MySqlCommand("SELECT * FROM itemvenda WHERE id_venda = " + item.idVenda + 
+                MySqlCommand comandoSelecao = new MySqlCommand("SELECT * FROM itemcompra WHERE id_compra = " + item.idCompra + 
                     " AND numero_item = " + item.numeroItem, BancoDados.obterInstancia().obterConexao());
                 MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
                 while (leitorDados.Read())
@@ -50,11 +50,11 @@ namespace AV1_PAV.Controladores
             }
         }
 
-        public void incluir(ItemVenda item)
+        public void incluir(ItemCompra item)
         {
             try
             {
-                MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO itemvenda VALUES (" + item.idVenda + 
+                MySqlCommand comandoInclusao = new MySqlCommand("INSERT INTO itemcompra VALUES (" + item.idCompra + 
                     "," + item.numeroItem + "," + item.idProduto + "," + item.quantidade + 
                     "," + item.valorUnitario.ToString().Replace(',','.') + "," + item.totalItem.ToString().Replace(',','.') + ")", BancoDados.obterInstancia().obterConexao());
                 comandoInclusao.ExecuteNonQuery();
@@ -66,10 +66,10 @@ namespace AV1_PAV.Controladores
                 throw new Exception(ex.Message);
             }
         }
-
-        public void excluir(ItemVenda item)
+        
+        public void excluir(ItemCompra item)
         {
-            MySqlCommand comandoExclusao = new MySqlCommand("DELETE FROM itemvenda WHERE id_venda = " + item.idVenda +
+            MySqlCommand comandoExclusao = new MySqlCommand("DELETE FROM itemcompra WHERE id_compra = " + item.idCompra +
                                 " AND numero_item = " + item.numeroItem, BancoDados.obterInstancia().obterConexao());
             comandoExclusao.ExecuteNonQuery();
             reestocar(item);
