@@ -241,8 +241,8 @@ namespace AV1_PAV.UI
                 ControladorCadastroCompra controlador = new();
                 controlador.incluir(compra);
                 BancoDados.obterInstancia().desconectar();
-                this.Dispose();
                 DialogResult dialogResult = MessageBox.Show("Compra efetuada com sucesso!", "Sucesso!", MessageBoxButtons.OK);
+                Dispose();
         }
 
         public override void numericUpDown1_ValueChanged(object sender, EventArgs e)
