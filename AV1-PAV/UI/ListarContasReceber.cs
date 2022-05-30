@@ -14,7 +14,6 @@ namespace AV1_PAV.UI
 {
     class ListarContasReceber : ListarContas
     {
-        //Descricao, id_cliente, data_lancamento, data_Vencimento, valor, recebido, data_recebimento, valor_recebimento
         private List<ContaReceber> Lista = new();
         private string funcao;
         private const string BAIXAR = "Baixar";
