@@ -21,13 +21,7 @@ namespace AV1_PAV.UI
         private int numeroItem = 0;
         private int numeroCompra;
         private int maiorId;
-        private enum Pagamento
-        {
-            Dinheiro,
-            Credito,
-            Debito,
-            Boleto
-        }
+
         private bool selecionado;
         public const String FORNECEDOR = "Fornecedor";
         public const String PRODUTO = "Produto";
@@ -248,7 +242,7 @@ namespace AV1_PAV.UI
                 controlador.incluir(compra);
                 BancoDados.obterInstancia().desconectar();
                 this.Dispose();
-                DialogResult dialogResult = MessageBox.Show("Favor selecione uma forma de pagamento", "Erro", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Compra efetuada com sucesso!", "Sucesso!", MessageBoxButtons.OK);
         }
 
         public override void numericUpDown1_ValueChanged(object sender, EventArgs e)
