@@ -95,9 +95,11 @@ namespace AV1_PAV.UI
                     contaPagar.idContaPagar = int.Parse(GridLista.SelectedRows[0].Cells[0].Value.ToString());
 
                     BancoDados.obterInstancia().conectar();
+
                     ControladorCadastroContaPagar controlador = new();
                     controlador.selecionar(contaPagar);
                     controlador.atualizar("SIM", contaPagar);
+
                     BancoDados.obterInstancia().desconectar();
 
                     Lista = ContaPagarSQL.BuscarMultiplos("id_conta_pagar", "");

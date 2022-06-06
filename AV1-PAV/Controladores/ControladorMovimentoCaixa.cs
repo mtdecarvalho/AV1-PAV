@@ -86,14 +86,14 @@ namespace AV1_PAV.Controladores
             }
         }
 
-        public void incluir(ContaReceber contaReceber)
+        public void incluir(ContaReceber contaReceber, string data)
         {
             MovimentoCaixa movimentoCaixa = new();
             movimentoCaixa.idCaixa = 0;
             movimentoCaixa.numeroMovimento = MovimentoCaixaSQL.BuscarMaiorID();
             movimentoCaixa.idReferencia = contaReceber.idContaReceber;
-            movimentoCaixa.dataMovimento = contaReceber.dataRecebimento;
-            movimentoCaixa.horaMovimento = DateTime.Now.ToString("HH:mm:ss"); // inserir data
+            movimentoCaixa.dataMovimento = data;
+            movimentoCaixa.horaMovimento = DateTime.Now.ToString("HH:mm:ss");
             movimentoCaixa.descricao = "CONTA A RECEBER DE ID " + contaReceber.idContaReceber + " E VALOR " + contaReceber.valor + " RECEBIDA.";
             movimentoCaixa.tipoMovimento = "ENTRADA";
             movimentoCaixa.valor = contaReceber.valor;
