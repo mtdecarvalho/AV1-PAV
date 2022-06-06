@@ -15,8 +15,8 @@ namespace AV1_PAV.UI
     {
         private List<ItemVenda> Lista = new();
         private Venda venda = new();
-        private Produto p;
-        private Cliente c;
+        private Produto p = new();
+        private Cliente c = new();
         private double subtotal = 0;
         private int numeroItem = 0;
         private int numeroVenda;

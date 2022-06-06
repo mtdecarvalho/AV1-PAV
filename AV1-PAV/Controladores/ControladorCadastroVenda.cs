@@ -60,6 +60,9 @@ namespace AV1_PAV.Controladores
 
                 if (venda.formaDePagamento.idFormaPagamento == 0)
                 {
+                    ControladorMovimentoCaixa controladorMovimentoCaixa = new();
+
+                    controladorMovimentoCaixa.incluir(venda);
                 } else
                 {
                     MySqlCommand comandoInclusaoContaReceber = new MySqlCommand("INSERT INTO contareceber (id_conta_receber, id_cliente, data_lancamento, data_vencimento, valor, recebido)" +

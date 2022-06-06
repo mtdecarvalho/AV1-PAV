@@ -91,12 +91,16 @@ namespace AV1_PAV.UI
                 DialogResult dialogResult = MessageBox.Show("Tem certeza que deseja dar baixa nessa conta?", "Confirmação", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    int id = int.Parse(GridLista.SelectedRows[0].Cells[0].Value.ToString());
+                    ContaPagar contaPagar = new();
+                    contaPagar.idContaPagar = int.Parse(GridLista.SelectedRows[0].Cells[0].Value.ToString());
+
                     BancoDados.obterInstancia().conectar();
                     ControladorCadastroContaPagar controlador = new();
-                    controlador.atualizar("SIM", id);
+                    controlador.selecionar(contaPagar);
+                    controlador.atualizar("SIM", contaPagar);
                     BancoDados.obterInstancia().desconectar();
-                    Lista = ContaPagarSQL.BuscarMultiplos("id_conta_receber", "");
+
+                    Lista = ContaPagarSQL.BuscarMultiplos("id_conta_pagar", "");
                     PreencherTabela(BAIXAR);
                 }
             }

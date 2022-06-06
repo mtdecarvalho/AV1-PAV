@@ -1,4 +1,5 @@
 ﻿using AV1_PAV.Entidades;
+using AV1_PAV.Persistencia;
 using AV1_PAV.SQL;
 using MySql.Data.MySqlClient;
 using System;
@@ -23,7 +24,7 @@ namespace AV1_PAV.Controladores
             else if (movimentoCaixa.tipoMovimento == SAIDA)
                 novoSaldo = saldo - movimentoCaixa.valor;
 
-            MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE conta SET saldo = " + novoSaldo.ToString() + " WHERE id_caixa = " + movimentoCaixa.idCaixa);
+            MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE caixa SET saldo = " + novoSaldo.ToString().Replace(',','.') + " WHERE id_caixa = " + movimentoCaixa.idCaixa, BancoDados.obterInstancia().obterConexao());
             comandoAtualizacao.ExecuteNonQuery();
         }
     }

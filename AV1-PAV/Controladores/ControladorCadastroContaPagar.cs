@@ -63,16 +63,20 @@ namespace AV1_PAV.Controladores
             comando.Parameters.Add(ContaPagar.ATRIBUTO_ID_CONTA_PAGAR, MySqlDbType.Int32);
         }
 
-        public void atualizar(string situacao, int id)
+        public void atualizar(string situacao, ContaPagar contaPagar)
         {
             BancoDados.obterInstancia().iniciarTransacao();
             try
             {
                 DateTime thisDay = DateTime.Now;
                 string data = thisDay.ToString("yyyy-MM-dd");
+
                 MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE ContaPagar SET PAGO = \"" + situacao + "\"," +
-                    "DATA_PAGAMENTO = \"" + data + "\"" + " WHERE id_conta_pagar = " + id, BancoDados.obterInstancia().obterConexao());
+                    "DATA_PAGAMENTO = \"" + data + "\"" + " WHERE id_conta_pagar = " + contaPagar.idContaPagar, BancoDados.obterInstancia().obterConexao());
                 comandoAtualizacao.ExecuteNonQuery();
+
+                ControladorMovimentoCaixa controladorMovimentoCaixa = new();
+                controladorMovimentoCaixa.incluir(contaPagar, data);
 
                 BancoDados.obterInstancia().confirmarTransacao();
             }

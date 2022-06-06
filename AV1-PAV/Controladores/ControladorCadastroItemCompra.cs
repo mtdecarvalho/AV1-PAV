@@ -58,7 +58,7 @@ namespace AV1_PAV.Controladores
                     "," + item.numeroItem + "," + item.idProduto + "," + item.quantidade + 
                     "," + item.valorUnitario.ToString().Replace(',','.') + "," + item.totalItem.ToString().Replace(',','.') + ")", BancoDados.obterInstancia().obterConexao());
                 comandoInclusao.ExecuteNonQuery();
-                retirarDoEstoque(item);
+                reestocar(item);
             }
             catch (Exception ex)
             {
@@ -72,7 +72,7 @@ namespace AV1_PAV.Controladores
             MySqlCommand comandoExclusao = new MySqlCommand("DELETE FROM itemcompra WHERE id_compra = " + item.idCompra +
                                 " AND numero_item = " + item.numeroItem, BancoDados.obterInstancia().obterConexao());
             comandoExclusao.ExecuteNonQuery();
-            reestocar(item);
+            retirarDoEstoque(item);
         }
     }
 }

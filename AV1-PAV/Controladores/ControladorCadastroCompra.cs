@@ -55,10 +55,10 @@ namespace AV1_PAV.Controladores
                     }
                 }
 
-                MySqlCommand comandoInclusaoContaReceber = new MySqlCommand("INSERT INTO contapagar (id_conta_pagar, id_fornecedor, data_lancamento, data_vencimento, valor, pago)" +
+                MySqlCommand comandoInclusaoContaPagar = new MySqlCommand("INSERT INTO contapagar (id_conta_pagar, id_fornecedor, data_lancamento, data_vencimento, valor, pago)" +
                                                                             "VALUES (" + compra.contaPagar.idContaPagar + "," + compra.contaPagar.idFornecedor + ",\"" + compra.contaPagar.dataLancamento + "\"" + ",\"" + compra.contaPagar.dataVencimento + "\"," + 
                                                                                 compra.contaPagar.valor.ToString().Replace(',', '.') + ",\"" + compra.contaPagar.pago + "\")", BancoDados.obterInstancia().obterConexao());
-                comandoInclusaoContaReceber.ExecuteNonQuery();
+                comandoInclusaoContaPagar.ExecuteNonQuery();
                 
                 BancoDados.obterInstancia().confirmarTransacao();
             }

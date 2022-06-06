@@ -15,8 +15,8 @@ namespace AV1_PAV.UI
     {
         private List<ItemCompra> Lista = new();
         private Compra compra = new();
-        private Produto p;
-        private Fornecedor f;
+        private Produto p = new();
+        private Fornecedor f = new();
         private double subtotal = 0;
         private int numeroItem = 0;
         private int numeroCompra;
