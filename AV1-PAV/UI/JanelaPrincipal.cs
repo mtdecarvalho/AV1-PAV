@@ -177,5 +177,11 @@ namespace AV1_PAV
             ListarContasPagar janela = new("Relatorio");
             janela.ShowDialog();
         }
+
+        private void BtVisualizarCaixa_Click(object sender, EventArgs e)
+        {
+            ListarConsultarCaixa janela = new();
+            janela.ShowDialog();
+        }
     }
 }

@@ -46,7 +46,6 @@ namespace AV1_PAV
             this.BtRelatorioPagar = new System.Windows.Forms.Button();
             this.BxCaixa = new System.Windows.Forms.GroupBox();
             this.BtVisualizarCaixa = new System.Windows.Forms.Button();
-            this.BtRelatorio = new System.Windows.Forms.Button();
             this.BxContasReceber = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -230,7 +229,6 @@ namespace AV1_PAV
             // BxCaixa
             // 
             this.BxCaixa.Controls.Add(this.BtVisualizarCaixa);
-            this.BxCaixa.Controls.Add(this.BtRelatorio);
             this.BxCaixa.Location = new System.Drawing.Point(15, 125);
             this.BxCaixa.Name = "BxCaixa";
             this.BxCaixa.Size = new System.Drawing.Size(311, 108);
@@ -246,15 +244,7 @@ namespace AV1_PAV
             this.BtVisualizarCaixa.TabIndex = 2;
             this.BtVisualizarCaixa.Text = "Visualizar caixa";
             this.BtVisualizarCaixa.UseVisualStyleBackColor = true;
-            // 
-            // BtRelatorio
-            // 
-            this.BtRelatorio.Location = new System.Drawing.Point(6, 71);
-            this.BtRelatorio.Name = "BtRelatorio";
-            this.BtRelatorio.Size = new System.Drawing.Size(192, 23);
-            this.BtRelatorio.TabIndex = 1;
-            this.BtRelatorio.Text = "Relatório de fechamento";
-            this.BtRelatorio.UseVisualStyleBackColor = true;
+            this.BtVisualizarCaixa.Click += new System.EventHandler(this.BtVisualizarCaixa_Click);
             // 
             // BxContasReceber
             // 
@@ -332,7 +322,6 @@ namespace AV1_PAV
         private System.Windows.Forms.Button BtRelatorioPagar;
         private System.Windows.Forms.GroupBox BxCaixa;
         private System.Windows.Forms.Button BtVisualizarCaixa;
-        private System.Windows.Forms.Button BtRelatorio;
         private System.Windows.Forms.GroupBox BxContasReceber;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
