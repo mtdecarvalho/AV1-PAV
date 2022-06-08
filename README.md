@@ -2,7 +2,7 @@
 
 Este repositório tem como objetivo mostrar o sistema de compra e venda que foi desenvolvido para a avaliação da matéria Programação em Ambiente Visual no curso de Tecnologia da Informação e Comunicação pela Faculdade de Educação Tecnológica do Estado do Rio de Janeiro – FAETERJ Petrópolis.
 
-## Requisitos Funcionais
+## Requisitos Funcionais:
 
 Venda
 - Registrar vendas (PDV).
