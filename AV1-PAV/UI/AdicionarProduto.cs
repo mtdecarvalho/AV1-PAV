@@ -19,11 +19,18 @@ namespace AV1_PAV.UI
     public partial class AdicionarProduto : Form
     {
         private List<Fornecedor> Lista = new();
+        GerarCompra compra;
         public AdicionarProduto()
+        {
+            InitializeComponent();
+        }
+
+        public AdicionarProduto(GerarNovo GC)
         {
             InitializeComponent();
             LerDoBanco();
             preencherComboBox();
+            this.compra = (GerarCompra)GC;
         }
 
         public void LerDoBanco(String SQL = "SELECT * FROM fornecedor")
@@ -72,7 +79,8 @@ namespace AV1_PAV.UI
             ControladorCadastroProduto controladorProduto = new();
             controladorProduto.incluir(produto);
             BancoDados.obterInstancia().desconectar();
-
+            compra.SetProduto(produto);
+            compra.Selecionado(true);
             this.Close();
         }
 
