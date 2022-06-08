@@ -111,8 +111,10 @@ namespace AV1_PAV.UI
             selecionado = false;
             ProcurarGenerico janela = new(this, BxProcurar.Text, PRODUTO);
             janela.ShowDialog();
-            if (selecionado)
+            if (selecionado) { 
                 SetTexto();
+                selecionado = false;
+            }
         }
 
         private ContaPagar PreencherContaPagar(DateTime thisDay)
@@ -141,6 +143,17 @@ namespace AV1_PAV.UI
             compra.situacaoCompra = "ATIVA";
             compra.itens = Lista;
             compra.contaPagar = PreencherContaPagar(thisDay);
+        }
+
+        public override void btNovoProduto_Click(object sender, EventArgs e) {
+            selecionado = false;
+            AdicionarProduto janela = new(this);
+            janela.ShowDialog();
+            if (selecionado)
+            {
+                SetTexto();
+                selecionado = false;
+            }
         }
 
         public override void BtProcurar_Click(object sender, EventArgs e)

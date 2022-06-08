@@ -26,7 +26,7 @@ namespace AV1_PAV.UI
         private GerarNovo janela;
         private String funcao;
 
-         public ProcurarGenerico()
+        public ProcurarGenerico()
         {
             InitializeComponent();
         }

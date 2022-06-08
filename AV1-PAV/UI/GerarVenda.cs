@@ -142,7 +142,10 @@ namespace AV1_PAV.UI
             ProcurarGenerico janela = new(this, BxProcurar.Text, PRODUTO);
             janela.ShowDialog();
             if (selecionado)
+            {
                 SetTexto();
+                selecionado = false;
+            }
         }
 
         private ContaReceber PreencherContaReceber(DateTime thisDay)
@@ -286,6 +289,10 @@ namespace AV1_PAV.UI
         public override void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             AtualizarTotal();
+        }
+
+        public override void btNovoProduto_Click(object sender, EventArgs e) {
+            //Exigência da superclasse
         }
     }
 }

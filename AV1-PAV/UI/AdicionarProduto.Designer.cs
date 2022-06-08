@@ -100,10 +100,12 @@ namespace AV1_PAV.UI
             // 
             // tbxQtdEstoque
             // 
+            this.tbxQtdEstoque.Enabled = false;
             this.tbxQtdEstoque.Location = new System.Drawing.Point(160, 32);
             this.tbxQtdEstoque.Name = "tbxQtdEstoque";
             this.tbxQtdEstoque.Size = new System.Drawing.Size(180, 23);
             this.tbxQtdEstoque.TabIndex = 6;
+            this.tbxQtdEstoque.Text = "0";
             this.tbxQtdEstoque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxQtdEstoque_KeyPress);
             // 
             // tbxPreco
@@ -167,10 +169,10 @@ namespace AV1_PAV.UI
             // 
             this.cbUnidade.FormattingEnabled = true;
             this.cbUnidade.Items.AddRange(new object[] {
-            "kg",
-            "mg",
-            "l",
-            "ml"});
+            "KG",
+            "MG",
+            "L",
+            "ML"});
             this.cbUnidade.Location = new System.Drawing.Point(160, 90);
             this.cbUnidade.Name = "cbUnidade";
             this.cbUnidade.Size = new System.Drawing.Size(53, 23);
