@@ -5,7 +5,7 @@ Este repositório tem como objetivo mostrar o sistema de compra e venda que foi 
 ## Requisitos Funcionais:
 
 Venda
-- Registrar vendas (PDV).
+- Registrar vendas.
 - Cancelar uma venda.
 - Consultar vendas, permitindo filtrar por período e por cliente.
 - Emitir relatório de vendas realizadas, permitindo filtrar por período e por cliente.
