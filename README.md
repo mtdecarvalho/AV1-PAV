@@ -8,7 +8,7 @@
 00. Cliente (UI, adicionar, remover, listar)
 00. Fornecedor (UI, adicionar, remover, listar)
 00. Contas a receber (UI, adicionar, dar baixa, listar, relatório)
-00. Contas a pagar (UI, dar baixa, listar, relatório) 
+00. Contas a pagar (UI, adicionar, dar baixa, listar, relatório) 
 00. Fornecedor (UI, adicionar, remover, listar)
 00. Controle de caixa e Caixa (UI, atualização de saldo, relatório)
 
