@@ -50,12 +50,17 @@ namespace AV1_PAV.UI
                 ListaFornecedor = FornecedorSQL.BuscarMultiplosPorNome(nome);
                 janela = (GerarCompra)NV;
             }
+            else if (funcao == GerarCompra.PRODUTO)
+            {
+                ListaProduto = ProdutoSQL.BuscarMultiplosPorNome(nome);
+                janela = (GerarCompra)NV;
+            }
             PreencherTabela();
         }
 
         public void PreencherTabela()
         {
-            if(funcao == GerarVenda.PRODUTO)
+            if(funcao == GerarVenda.PRODUTO || funcao == GerarCompra.PRODUTO)
                 foreach (Produto produto in ListaProduto)
                 {
                     String[] row = { produto.idProduto.ToString(), produto.nome};
@@ -79,7 +84,7 @@ namespace AV1_PAV.UI
         private void BtSelecionar_Click(object sender, EventArgs e)
         {
 
-            if (funcao == GerarVenda.PRODUTO)
+            if (funcao == GerarVenda.PRODUTO || funcao == GerarCompra.PRODUTO)
             {
                 p = ListaProduto[DataGrid.CurrentCell.RowIndex];
                 janela.SetProduto(p);

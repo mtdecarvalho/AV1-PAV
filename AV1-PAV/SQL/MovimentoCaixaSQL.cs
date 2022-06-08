@@ -14,11 +14,9 @@ namespace AV1_PAV.SQL
         public static int BuscarMaiorID()
         {
             MovimentoCaixa entidade = new();
-            String SQL = "SELECT * FROM movimentocaixa ORDER BY numeromovimento DESC LIMIT 0, 1";
+            String SQL = "SELECT * FROM movimentocaixa ORDER BY numero_movimento DESC LIMIT 0, 1";
 
-            BancoDados.obterInstancia().conectar();
             MySqlCommand comandoSelecao = new MySqlCommand(SQL, BancoDados.obterInstancia().obterConexao());
-            BancoDados.obterInstancia().iniciarTransacao();
             try
             {
                 MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
@@ -36,9 +34,8 @@ namespace AV1_PAV.SQL
             {
                 throw new Exception(ex.Message);
             }
-            BancoDados.obterInstancia().desconectar();
 
-            return entidade.numeroMovimento;
+            return entidade.numeroMovimento + 1;
         }
 
         public static double getSaldo(int idCaixa)
@@ -49,6 +46,7 @@ namespace AV1_PAV.SQL
             MySqlDataReader leitorDados = comandoSelecao.ExecuteReader();
             leitorDados.Read();
             saldo = Double.Parse(leitorDados.GetValue(0).ToString().Replace('.', ','));
+            leitorDados.Close();
             return saldo;
         }
     }

@@ -36,7 +36,6 @@ namespace AV1_PAV.UI
             {
                 btnCancelar.Visible = true;
                 btnCancelar.Enabled = true;
-//                btnCancelar.Image.Dispose();
                 btnCancelar.Text = "Gerar relatório";
                 this.Text = "Listar vendas";
             }

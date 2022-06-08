@@ -78,7 +78,7 @@ namespace AV1_PAV.UI
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show( "Tem certeza que deseja cancelar?","Confirmação", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Tem certeza que deseja cancelar?","Confirmação", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
                 this.Close();
         }

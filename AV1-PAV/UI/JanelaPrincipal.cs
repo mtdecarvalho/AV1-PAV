@@ -120,6 +120,10 @@ namespace AV1_PAV
             {
                 ListarCancelarVenda janela = new("Cancelar");
                 janela.ShowDialog();
+            } else if (activePanel.Text == FORNECEDORES)
+            {
+                RemoverFornecedor janela = new();
+                janela.ShowDialog();
             }
         }
 
@@ -171,6 +175,12 @@ namespace AV1_PAV
         private void BtRelatorioPagar_Click(object sender, EventArgs e)
         {
             ListarContasPagar janela = new("Relatorio");
+            janela.ShowDialog();
+        }
+
+        private void BtVisualizarCaixa_Click(object sender, EventArgs e)
+        {
+            ListarConsultarCaixa janela = new();
             janela.ShowDialog();
         }
     }

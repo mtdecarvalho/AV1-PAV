@@ -61,7 +61,24 @@ namespace AV1_PAV.UI
             }
             else if (this.Text == "Adicionar fornecedor")
             {
-                /// implementar integração com bd
+                Fornecedor fornecedor = new();
+                fornecedor.idFornecedor = FornecedorSQL.BuscarMaiorID() + 1;
+                fornecedor.nome = tbxNome.Text;
+                fornecedor.cpfCnpj = tbxCpfCnpj.Text;
+                fornecedor.logradouro = tbxLogradouro.Text;
+                fornecedor.numero = int.Parse(tbxNumero.Text);
+                fornecedor.complemento = tbxComplemento.Text;
+                fornecedor.bairro = tbxBairro.Text;
+                fornecedor.cidade = tbxCidade.Text;
+                fornecedor.estado = cbEstado.SelectedItem.ToString();
+                fornecedor.cep = tbxCEP.Text;
+                fornecedor.telefone = tbxTelefone.Text;
+                fornecedor.email = tbxEmail.Text;
+
+                BancoDados.obterInstancia().conectar();
+                ControladorCadastroFornecedor controlador = new();
+                controlador.incluir(fornecedor);
+                BancoDados.obterInstancia().desconectar();
             }
             this.Close();
         }

@@ -20,9 +20,9 @@ namespace AV1_PAV.Controladores
         {
             return
                 "INSERT INTO ContaPagar VALUES" +
-                "(@id_conta_pagar, @DESCRICAO, @ID_CLIENTE, " +
+                "(@id_conta_pagar, @DESCRICAO, @ID_FORNECEDOR, " +
                 " @DATA_LANCAMENTO, @DATA_VENCIMENTO, @VALOR," +
-                " @RECEBIDO, @DATA_PAGAMENTO, @VALOR_PAGAMENTO)";
+                " @PAGO, @DATA_PAGAMENTO, @VALOR_PAGAMENTO)";
         }
 
         override protected string criarComandoAtualizacao()
@@ -30,11 +30,11 @@ namespace AV1_PAV.Controladores
             return
                 "UPDATE ContaPagar " +
                 "SET DESCRICAO = @DESCRICAO, " +
-                "ID_CLIENTE = @ID_CLIENTE, " +
+                "ID_FORNECEDOR = @ID_FORNECEDOR, " +
                 "DATA_LANCAMENTO = @DATA_LANCAMENTO, " +
                 "DATA_VENCIMENTO = @DATA_VENCIMENTO, " +
                 "VALOR = @VALOR, " +
-                "RECEBIDO = @RECEBIDO, " +
+                "PAGO = @PAGO, " +
                 "DATA_PAGAMENTO = @DATA_PAGAMENTO, " +
                 "VALOR_PAGAMENTO = @VALOR_PAGAMENTO" +
                 "WHERE id_conta_pagar = @id_conta_pagar";
@@ -63,16 +63,20 @@ namespace AV1_PAV.Controladores
             comando.Parameters.Add(ContaPagar.ATRIBUTO_ID_CONTA_PAGAR, MySqlDbType.Int32);
         }
 
-        public void atualizar(string situacao, int id)
+        public void atualizar(string situacao, ContaPagar contaPagar)
         {
             BancoDados.obterInstancia().iniciarTransacao();
             try
             {
                 DateTime thisDay = DateTime.Now;
                 string data = thisDay.ToString("yyyy-MM-dd");
-                MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE ContaPagar SET recebido = \"" + situacao + "\"," +
-                    "DATA_PAGAMENTO = \"" + data + "\"" + " WHERE id_conta_pagar = " + id, BancoDados.obterInstancia().obterConexao());
+
+                MySqlCommand comandoAtualizacao = new MySqlCommand("UPDATE ContaPagar SET PAGO = \"" + situacao + "\"," +
+                    "DATA_PAGAMENTO = \"" + data + "\"" + " WHERE id_conta_pagar = " + contaPagar.idContaPagar, BancoDados.obterInstancia().obterConexao());
                 comandoAtualizacao.ExecuteNonQuery();
+
+                ControladorMovimentoCaixa controladorMovimentoCaixa = new();
+                controladorMovimentoCaixa.incluir(contaPagar, data);
 
                 BancoDados.obterInstancia().confirmarTransacao();
             }

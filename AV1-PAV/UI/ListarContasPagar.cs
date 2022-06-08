@@ -14,7 +14,6 @@ namespace AV1_PAV.UI
 {
     class ListarContasPagar : ListarContas
     {
-        //(id_conta_pagar, descrição, id_fornecedor, data_lancamento, data_vencimento,valor, pago, data_pagamento, valor_pagamento
         private List<ContaPagar> Lista = new();
         private String funcao;
         private const string BAIXAR = "Baixar";
@@ -45,7 +44,7 @@ namespace AV1_PAV.UI
         private String[] PreencherLinha(ContaPagar conta)
         {
             String[] linha = { conta.idContaPagar.ToString(), conta.descricao,
-                            ClienteSQL.BuscarPorCodigo(conta.idFornecedor.ToString()).nome.ToString(),
+                            FornecedorSQL.BuscarPorCodigo(conta.idFornecedor.ToString()).nome.ToString(),
                             conta.dataLancamento, conta.dataVencimento, conta.valor.ToString(),
                             conta.pago, conta.dataPagamento, conta.valorPagamento.ToString()};
             return linha;
@@ -92,12 +91,18 @@ namespace AV1_PAV.UI
                 DialogResult dialogResult = MessageBox.Show("Tem certeza que deseja dar baixa nessa conta?", "Confirmação", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    int id = int.Parse(GridLista.SelectedRows[0].Cells[0].Value.ToString());
+                    ContaPagar contaPagar = new();
+                    contaPagar.idContaPagar = int.Parse(GridLista.SelectedRows[0].Cells[0].Value.ToString());
+
                     BancoDados.obterInstancia().conectar();
+
                     ControladorCadastroContaPagar controlador = new();
-                    controlador.atualizar("SIM", id);
+                    controlador.selecionar(contaPagar);
+                    controlador.atualizar("SIM", contaPagar);
+
                     BancoDados.obterInstancia().desconectar();
-                    Lista = ContaPagarSQL.BuscarMultiplos("id_conta_receber", "");
+
+                    Lista = ContaPagarSQL.BuscarMultiplos("id_conta_pagar", "");
                     PreencherTabela(BAIXAR);
                 }
             }
